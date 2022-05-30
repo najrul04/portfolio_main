@@ -7,6 +7,63 @@ import IMG4 from '../../assets/P4 Hospital.png'
 import IMG5 from '../../assets/p5 shop.png' 
 import IMG6 from '../../assets/p6 anotherPortfolio.png' 
 
+const data = [
+
+  {
+    id: 1,
+    image: IMG1,
+    title: 'Noble Peace Prize',
+    github:'https://github.com/achille04/noble-winners',
+    demo: 'https://nobel-price-winners.netlify.app/'
+  },
+  {
+
+    id: 2,
+    image: IMG2,
+    title: 'Football School',
+    github:"https://github.com/achille04/educational-website1",
+    demo: "https://football-school.netlify.app/"
+
+  },
+  {
+
+    id: 3,
+    image: IMG3,
+    title: 'Pizza Place',
+    github:"https://github.com/achille04/pizza-delivery-server-side",
+    demo: "https://pizza-delivery-ea5ce.web.app/"
+
+  },
+  {
+
+    id: 4,
+    image: IMG4,
+    title: 'Hospital',
+    github:"https://github.com/achille04/healthcare-website",
+    demo: "https://gen-hospital.netlify.app/"
+
+  },
+  /* {
+
+    id: 5,
+    image: IMG5,
+    title: 'WordPress Website',
+    // github:"https://github.com/achille04/healthcare-website",
+    demo: "https://superfuturebrands.com/"
+
+  }, */
+  {
+
+    id: 6,
+    image: IMG6,
+    title: 'Personal Portfolio',
+    github:"https://github.com/achille04/personal_portfolio",
+    demo: "https://achille04.github.io/personal_portfolio/index.html"
+
+  }
+
+]
+
 const Portfolio = () => {
   return (
     <section id='portfolio'>
@@ -16,101 +73,57 @@ const Portfolio = () => {
 
       <div className="container portfolio_container">
 
+        {
 
-    <article className='portfolio_item'>
+            data.map(({id, image, title, github, demo}) => {
 
-      <div className="portfolio_item_image">
+                return(
 
-        <img src={IMG1} alt="Noble Peace Prize" />
+                                      
+                      <article key={id} className='portfolio_item'>
 
-        <h3>This is a portfolio item title</h3>
+                      <div className="portfolio_item_image">
 
-        <a href="https://github.com/achille04/noble-winners" rel='noreferrer' className='btn' target="_blank">Github</a>
-        <a href="https://nobel-price-winners.netlify.app/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
+                        <img width={500} height="300" src={image} alt={title} />
 
-      </div>
+                        <h3>{title}</h3>
 
-    </article>
+                        <div className="portfolio_item_cta">
 
+                        <a href= {github} rel='noreferrer' className='btn' target="_blank">Github</a>
+                        <a href={demo} rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
 
-    <article className='portfolio_item'>
+                        </div>
 
-      <div className="portfolio_item_image">
+                      </div>
 
-        <img src={IMG2} alt="Football School" />
+                    </article>
 
-        <h3>This is a portfolio item title</h3>
+                )
 
-        <a href="https://github.com/achille04/educational-website1" rel='noreferrer' className='btn' target="_blank">Github</a>
-        <a href="https://football-school.netlify.app/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
+            })
 
-      </div>
-
-    </article>
-
-
-    <article className='portfolio_item'>
-
-      <div className="portfolio_item_image">
-
-        <img src={IMG3} alt="Pizza Place" />
-
-        <h3>This is a portfolio item title</h3>
-
-        <a href="https://github.com/achille04/pizza-delivery-server-side" rel='noreferrer' className='btn' target="_blank">Github</a>
-        <a href="https://pizza-delivery-ea5ce.web.app/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
-
-      </div>
-
-    </article>
+        }
 
 
-    <article className='portfolio_item'>
+      <article className='portfolio_item'>
 
       <div className="portfolio_item_image">
 
-        <img src={IMG4} alt="Hospital" />
+        <img width={500} height="300"  src={IMG5} alt="WordPress Website" />
 
-        <h3>This is a portfolio item title</h3>
+        <h3>WordPress Website</h3>
 
-        <a href="https://github.com/achille04/healthcare-website" rel='noreferrer' className='btn' target="_blank">Github</a>
-        <a href="https://gen-hospital.netlify.app/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
+          <div className="portfolio_item_cta">
 
-      </div>
+          <a href="https://superfuturebrands.com/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
 
-    </article>
-
-
-    <article className='portfolio_item'>
-
-      <div className="portfolio_item_image">
-
-        <img src={IMG5} alt="Noble Peace Prize" />
-
-        <h3>This is a portfolio item title</h3>
-
-        <p>WordPress Website</p>
-        <a href="https://superfuturebrands.com/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
+          </div>
 
       </div>
 
-    </article>
-
-
-    <article className='portfolio_item'>
-
-      <div className="portfolio_item_image">
-
-        <img src={IMG6} alt="Noble Peace Prize" />
-
-        <h3>This is a portfolio item title</h3>
-
-        <a href="https://github.com/achille04/personal_portfolio" rel='noreferrer' className='btn' target="_blank">Github</a>
-        <a href="https://achille04.github.io/personal_portfolio/index.html" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
-
-      </div>
-
-    </article>
+      </article>
+    
 
       </div>
 
@@ -119,3 +132,105 @@ const Portfolio = () => {
 }
 
 export default Portfolio
+
+/* 
+
+<article className='portfolio_item'>
+
+      <div className="portfolio_item_image">
+
+        <img width={500} height="300"  src={IMG2} alt="Football School" />
+
+        <h3>Football School</h3>
+
+        <div className="portfolio_item_cta">
+
+        <a href="https://github.com/achille04/educational-website1" rel='noreferrer' className='btn' target="_blank">Github</a>
+        <a href="https://football-school.netlify.app/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <article className='portfolio_item'>
+
+      <div className="portfolio_item_image">
+
+        <img width={500} height="300"  src={IMG3} alt="Pizza Place" />
+
+        <h3>Pizza Place</h3>
+
+        <div className="portfolio_item_cta">
+
+        <a href="https://github.com/achille04/pizza-delivery-server-side" rel='noreferrer' className='btn' target="_blank">Github</a>
+        <a href="https://pizza-delivery-ea5ce.web.app/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <article className='portfolio_item'>
+
+      <div className="portfolio_item_image">
+
+        <img width={500} height="300"  src={IMG4} alt="Hospital" />
+
+        <h3>Hospital</h3>
+
+        <div className="portfolio_item_cta">
+
+        <a href="https://github.com/achille04/healthcare-website" rel='noreferrer' className='btn' target="_blank">Github</a>
+        <a href="https://gen-hospital.netlify.app/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <article className='portfolio_item'>
+
+      <div className="portfolio_item_image">
+
+        <img width={500} height="300"  src={IMG5} alt="WordPress Website" />
+
+        <h3>WordPress Website</h3>
+
+          <div className="portfolio_item_cta">
+
+          <a href="https://superfuturebrands.com/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
+
+          </div>
+
+      </div>
+
+    </article>
+
+
+    <article className='portfolio_item'>
+
+      <div className="portfolio_item_image">
+
+        <img width={500} height="300"  src={IMG6} alt="Noble Peace Prize" />
+
+        <h3>Personal Portfolio</h3>
+
+        <div className="portfolio_item_cta">
+
+        <a href="https://github.com/achille04/personal_portfolio" rel='noreferrer' className='btn' target="_blank">Github</a>
+        <a href="https://achille04.github.io/personal_portfolio/index.html" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+*/
