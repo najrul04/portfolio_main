@@ -21,10 +21,92 @@ const Portfolio = () => {
 
       <div className="portfolio_item_image">
 
+        <img src={IMG1} alt="Noble Peace Prize" />
+
         <h3>This is a portfolio item title</h3>
 
         <a href="https://github.com/achille04/noble-winners" className='btn' target="_blank">Github</a>
         <a href="https://nobel-price-winners.netlify.app/" className='btn btn-primary' target="_blank">Live Demo</a>
+
+      </div>
+
+    </article>
+
+
+    <article className='portfolio_item'>
+
+      <div className="portfolio_item_image">
+
+        <img src={IMG2} alt="Football School" />
+
+        <h3>This is a portfolio item title</h3>
+
+        <a href="https://github.com/achille04/educational-website1" className='btn' target="_blank">Github</a>
+        <a href="https://football-school.netlify.app/" className='btn btn-primary' target="_blank">Live Demo</a>
+
+      </div>
+
+    </article>
+
+
+    <article className='portfolio_item'>
+
+      <div className="portfolio_item_image">
+
+        <img src={IMG3} alt="Pizza Place" />
+
+        <h3>This is a portfolio item title</h3>
+
+        <a href="https://github.com/achille04/pizza-delivery-server-side" className='btn' target="_blank">Github</a>
+        <a href="https://pizza-delivery-ea5ce.web.app/" className='btn btn-primary' target="_blank">Live Demo</a>
+
+      </div>
+
+    </article>
+
+
+    <article className='portfolio_item'>
+
+      <div className="portfolio_item_image">
+
+        <img src={IMG4} alt="Hospital" />
+
+        <h3>This is a portfolio item title</h3>
+
+        <a href="https://github.com/achille04/healthcare-website" className='btn' target="_blank">Github</a>
+        <a href="https://gen-hospital.netlify.app/" className='btn btn-primary' target="_blank">Live Demo</a>
+
+      </div>
+
+    </article>
+
+
+    <article className='portfolio_item'>
+
+      <div className="portfolio_item_image">
+
+        <img src={IMG5} alt="Noble Peace Prize" />
+
+        <h3>This is a portfolio item title</h3>
+
+        <p>WordPress Website</p>
+        <a href="https://superfuturebrands.com/" className='btn btn-primary' target="_blank">Live Demo</a>
+
+      </div>
+
+    </article>
+
+
+    <article className='portfolio_item'>
+
+      <div className="portfolio_item_image">
+
+        <img src={IMG6} alt="Noble Peace Prize" />
+
+        <h3>This is a portfolio item title</h3>
+
+        <a href="https://github.com/achille04/personal_portfolio" className='btn' target="_blank">Github</a>
+        <a href="https://achille04.github.io/personal_portfolio/index.html" className='btn btn-primary' target="_blank">Live Demo</a>
 
       </div>
 
