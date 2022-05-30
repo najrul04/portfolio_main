@@ -25,8 +25,8 @@ const Portfolio = () => {
 
         <h3>This is a portfolio item title</h3>
 
-        <a href="https://github.com/achille04/noble-winners" className='btn' target="_blank">Github</a>
-        <a href="https://nobel-price-winners.netlify.app/" className='btn btn-primary' target="_blank">Live Demo</a>
+        <a href="https://github.com/achille04/noble-winners" rel='noreferrer' className='btn' target="_blank">Github</a>
+        <a href="https://nobel-price-winners.netlify.app/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
 
       </div>
 
@@ -41,8 +41,8 @@ const Portfolio = () => {
 
         <h3>This is a portfolio item title</h3>
 
-        <a href="https://github.com/achille04/educational-website1" className='btn' target="_blank">Github</a>
-        <a href="https://football-school.netlify.app/" className='btn btn-primary' target="_blank">Live Demo</a>
+        <a href="https://github.com/achille04/educational-website1" rel='noreferrer' className='btn' target="_blank">Github</a>
+        <a href="https://football-school.netlify.app/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
 
       </div>
 
@@ -57,8 +57,8 @@ const Portfolio = () => {
 
         <h3>This is a portfolio item title</h3>
 
-        <a href="https://github.com/achille04/pizza-delivery-server-side" className='btn' target="_blank">Github</a>
-        <a href="https://pizza-delivery-ea5ce.web.app/" className='btn btn-primary' target="_blank">Live Demo</a>
+        <a href="https://github.com/achille04/pizza-delivery-server-side" rel='noreferrer' className='btn' target="_blank">Github</a>
+        <a href="https://pizza-delivery-ea5ce.web.app/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
 
       </div>
 
@@ -73,8 +73,8 @@ const Portfolio = () => {
 
         <h3>This is a portfolio item title</h3>
 
-        <a href="https://github.com/achille04/healthcare-website" className='btn' target="_blank">Github</a>
-        <a href="https://gen-hospital.netlify.app/" className='btn btn-primary' target="_blank">Live Demo</a>
+        <a href="https://github.com/achille04/healthcare-website" rel='noreferrer' className='btn' target="_blank">Github</a>
+        <a href="https://gen-hospital.netlify.app/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
 
       </div>
 
@@ -90,7 +90,7 @@ const Portfolio = () => {
         <h3>This is a portfolio item title</h3>
 
         <p>WordPress Website</p>
-        <a href="https://superfuturebrands.com/" className='btn btn-primary' target="_blank">Live Demo</a>
+        <a href="https://superfuturebrands.com/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
 
       </div>
 
@@ -105,8 +105,8 @@ const Portfolio = () => {
 
         <h3>This is a portfolio item title</h3>
 
-        <a href="https://github.com/achille04/personal_portfolio" className='btn' target="_blank">Github</a>
-        <a href="https://achille04.github.io/personal_portfolio/index.html" className='btn btn-primary' target="_blank">Live Demo</a>
+        <a href="https://github.com/achille04/personal_portfolio" rel='noreferrer' className='btn' target="_blank">Github</a>
+        <a href="https://achille04.github.io/personal_portfolio/index.html" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
 
       </div>
 
