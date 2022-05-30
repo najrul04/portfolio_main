@@ -44,7 +44,7 @@ const About = () => {
 
               <h5>Clients</h5>
 
-              <small>200+ Wprlwide</small>
+              <small>200+ Worldwide</small>
 
             </article>
 
