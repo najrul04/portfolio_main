@@ -1,11 +1,11 @@
 import React from 'react'
 import './Portfolio.css'
-import IMG1 from '../../assets/P1 Noble.png' 
-import IMG2 from '../../assets/P2 football.png' 
-import IMG3 from '../../assets/P3 Pizza.png' 
-import IMG4 from '../../assets/P4 Hospital.png' 
-import IMG5 from '../../assets/p5 shop.png' 
-import IMG6 from '../../assets/p6 anotherPortfolio.png' 
+import IMG1 from '../../assets/P1-Noble.png' 
+import IMG2 from '../../assets/P2-football.png' 
+import IMG3 from '../../assets/P3-Pizza.png' 
+import IMG4 from '../../assets/P4-Hospital.png' 
+import IMG5 from '../../assets/p5-shop.png' 
+import IMG6 from '../../assets/p6-anotherPortfolio.png' 
 
 const data = [
 
