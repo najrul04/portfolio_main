@@ -1,12 +1,14 @@
 import React from 'react'
+import { FcSettings } from "react-icons/fc"
+import { SiBootstrap, SiCheckmarx, SiCss3, SiHtml5, SiJavascript, SiMongodb, SiNodedotjs, SiPhp, SiReact, SiRedux, SiTailwindcss, SiTypescript } from "react-icons/si"
 import './Experience.css'
-import {SiCheckmarx} from "react-icons/si"
 
 const Experience = () => {
   return (
     <section id='experience'>
-      <h5>What Skill I have</h5>
-      <h2>My Experience</h2>
+
+      {/* <h5>What Skill I have</h5> */}
+      <h2>Skills</h2>
 
       <div className="container experience_container">
 
@@ -20,12 +22,12 @@ const Experience = () => {
 
             <article className='experience_details'>
 
-              <SiCheckmarx className='experience_details_icons'/>
+              <SiHtml5 className='experience_details_icons'/>
 
               <div>
 
               <h4>HTML5</h4>
-              <small className='text-light'>Experienced</small>
+              {/* <small className='text-light'>Experienced</small> */}
 
               </div>
 
@@ -33,12 +35,12 @@ const Experience = () => {
 
             <article className='experience_details'>
 
-              <SiCheckmarx className='experience_details_icons'/>
+            <SiCss3 className='experience_details_icons'/>
 
               <div>
 
               <h4>CSS3</h4>
-              <small className='text-light'>Experienced</small>
+              {/* <small className='text-light'>Experienced</small> */}
 
               </div>
 
@@ -46,12 +48,12 @@ const Experience = () => {
 
             <article className='experience_details'>
 
-              <SiCheckmarx className='experience_details_icons'/>
+            <SiJavascript className='experience_details_icons'/>
 
               <div>
 
               <h4>JavaScript</h4>
-              <small className='text-light'>Intermediate</small>
+              {/* <small className='text-light'>Intermediate</small> */}
 
               </div>
 
@@ -59,12 +61,25 @@ const Experience = () => {
 
             <article className='experience_details'>
 
-              <SiCheckmarx className='experience_details_icons'/>
+            <SiTypescript className='experience_details_icons'/>
+
+              <div>
+
+              <h4>TypeScript</h4>
+              {/* <small className='text-light'>Intermediate</small> */}
+
+              </div>
+
+            </article>
+
+            <article className='experience_details'>
+
+            <SiBootstrap className='experience_details_icons'/>
 
               <div>
 
               <h4>Bootstrap</h4>
-              <small className='text-light'>Experienced</small>
+              {/* <small className='text-light'>Experienced</small> */}
 
               </div>
 
@@ -72,12 +87,12 @@ const Experience = () => {
 
             <article className='experience_details'>
 
-              <SiCheckmarx className='experience_details_icons'/>
+            <SiTailwindcss className='experience_details_icons'/>
 
               <div>
 
               <h4>Tailwind</h4>
-              <small className='text-light'>Intermediate</small>
+              {/* <small className='text-light'>Intermediate</small> */}
 
               </div>
 
@@ -85,12 +100,25 @@ const Experience = () => {
 
             <article className='experience_details'>
 
-              <SiCheckmarx className='experience_details_icons'/>
+            <SiReact className='experience_details_icons'/>
 
               <div>
 
               <h4>React</h4>
-              <small className='text-light'>Intermediate</small>
+              {/* <small className='text-light'>Intermediate</small> */}
+
+              </div>
+
+            </article>
+
+            <article className='experience_details'>
+
+            <SiRedux className='experience_details_icons'/>
+
+              <div>
+
+              <h4>Redux</h4>
+              {/* <small className='text-light'>Intermediate</small> */}
 
               </div>
 
@@ -109,12 +137,12 @@ const Experience = () => {
 
             <article className='experience_details'>
 
-              <SiCheckmarx className='experience_details_icons'/>
+              <SiNodedotjs className='experience_details_icons'/>
 
               <div>
 
               <h4>Node JS</h4>
-              <small className='text-light'>Intermediate</small>
+              {/* <small className='text-light'>Intermediate</small> */}
 
               </div>
 
@@ -122,12 +150,12 @@ const Experience = () => {
 
             <article className='experience_details'>
 
-              <SiCheckmarx className='experience_details_icons'/>
+              <SiMongodb className='experience_details_icons'/>
 
               <div>
 
               <h4>MongoDB</h4>
-              <small className='text-light'>Intermediate</small>
+              {/* <small className='text-light'>Intermediate</small> */}
 
               </div>
 
@@ -135,12 +163,12 @@ const Experience = () => {
 
             <article className='experience_details'>
 
-              <SiCheckmarx className='experience_details_icons'/>
+              <SiPhp className='experience_details_icons'/>
 
               <div>
 
               <h4>PHP</h4>
-              <small className='text-light'>Basic</small>
+              {/* <small className='text-light'>Basic</small> */}
 
               </div>
 
@@ -153,7 +181,7 @@ const Experience = () => {
               <div>
 
               <h4>MySQL</h4>
-              <small className='text-light'>Intermediate</small>
+              {/* <small className='text-light'>Intermediate</small> */}
 
               </div>
 
@@ -161,12 +189,12 @@ const Experience = () => {
 
             <article className='experience_details'>
 
-              <SiCheckmarx className='experience_details_icons'/>
+              <FcSettings className='experience_details_icons'/>
 
               <div>
 
-              <h4>Python</h4>
-              <small className='text-light'>Basic</small>
+              <h4>Rest Api</h4>
+              {/* <small className='text-light'>Basic</small> */}
 
               </div>
 

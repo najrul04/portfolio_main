@@ -1,9 +1,6 @@
 import React from 'react'
-import './About.css'
 import Me from '../../assets/2.jpg'
-import {FiAward} from 'react-icons/fi'
-import {FiUsers} from 'react-icons/fi'
-import {VscFolderLibrary} from 'react-icons/vsc'
+import './About.css'
 
 const About = () => {
   return (
@@ -27,7 +24,7 @@ const About = () => {
           <div className="about_content">
 
             <div className="about_cards">
-
+{/* 
             <article className='about_card'>
 
               <FiAward className='about_icon'/>
@@ -37,7 +34,8 @@ const About = () => {
               <small>3+ Years Working</small>
 
             </article>
-
+             */}
+{/* 
             <article className='about_card'>
 
               <FiUsers className='about_icon'/>
@@ -47,7 +45,8 @@ const About = () => {
               <small>200+ Worldwide</small>
 
             </article>
-
+             */}
+{/* 
             <article className='about_card'>
 
               <VscFolderLibrary className='about_icon'/>
@@ -57,12 +56,12 @@ const About = () => {
               <small>80+ Completed</small>
 
             </article>
-
+ */}
             </div>
 
             <p>
 
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla praesentium nemo assumenda voluptatem similique totam repudiandae molestiae atque! Facilis iure incidunt tenetur tempore soluta consequatur expedita optio corrupti voluptatibus sequi?
+            An ambitious, enthusiastic web developer is competent in JavaScript, Node JS, Express JS. Pixel perfect Responsive design using HTML, CSS, JavaScript with the help of its libraries like REACT JS, Bootstrap or Tailwind, or Material UI. For server-side Firebase, Node JS, Express JS, and Mongo DB for the database.
 
             </p>
 

@@ -1,8 +1,8 @@
 import React from 'react'
+import { CgFacebook } from 'react-icons/cg'
+import { FaTwitter } from 'react-icons/fa'
+import { GrInstagram } from 'react-icons/gr'
 import './Footer.css'
-import {CgFacebook} from 'react-icons/cg'
-import {GrInstagram} from 'react-icons/gr'
-import {FaTwitter} from 'react-icons/fa'
 
 const Footer = () => {
   return (
@@ -18,7 +18,7 @@ const Footer = () => {
 
         <li><a href="#experience">Experience</a></li>
 
-        <li><a href="#services">Services</a></li>
+        {/* <li><a href="#services">Services</a></li> */}
 
         <li><a href="#portfolio">Portfolio</a></li>
 

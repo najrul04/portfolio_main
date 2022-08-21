@@ -1,112 +1,85 @@
 header {
-
-    height: 136vh;
-    padding-top: 7rem;
-    overflow: hidden;
-
+  height: 136vh;
+  padding-top: 7rem;
+  overflow: hidden;
 }
 
-.header_container{
-
-    text-align: center;
-    height: 100%;
-    position: relative;
-
+.header_container {
+  text-align: center;
+  height: 100%;
+  position: relative;
 }
 
 /* ===================== CTA ================== */
 
-.cta{
-
-    margin-top: 2.5rem;
-    display: flex;
-    gap: 1.2rem;
-    justify-content: center;
-
+.cta {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
 }
 
 /* ===================== Header Socials ================== */
 
 .header_socials {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-    position: absolute;
-    left: 0;
-    bottom: 3rem;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  position: absolute;
+  left: 0;
+  bottom: 3rem;
 }
 
-.header_socials::after{
-
-    content: "";
-    width: 1px;
-    height: 2rem;
-    background: var(--color-primary);
-
+.header_socials::after {
+  content: "";
+  width: 1px;
+  height: 2rem;
+  background: var(--color-primary);
 }
 
 /* ===================== Photo ================== */
 
-.me{
-
-    background: linear-gradient(var(--color-primary), transparent);
-    width: 22rem;
-    height: 30rem;
-    position: absolute;
-    left: calc(50% - 11rem);
-    margin-top: 4rem;
-    border-radius: 12rem 12rem 0 0;
-    overflow: hidden;
-    padding: 5rem 1.5rem 1.5rem 1.5rem;
-
+.me {
+  background: linear-gradient(var(--color-primary), transparent);
+  width: 22rem;
+  height: 30rem;
+  position: absolute;
+  left: calc(50% - 11rem);
+  margin-top: 4rem;
+  border-radius: 12rem 12rem 0 0;
+  overflow: hidden;
+  padding: 5rem 1.5rem 1.5rem 1.5rem;
 }
 
 /* ===================== Scroll Down ================== */
 
-.scroll_down{
-
-    color: var(--color-primary);
-    position: absolute;
-    right: -2.3rem;
-    bottom: 5rem;
-    font-weight: 300;
-    font-size: 1.3rem;
-
+.scroll_down {
+  color: var(--color-primary);
+  position: absolute;
+  right: -2.3rem;
+  bottom: 5rem;
+  font-weight: 300;
+  font-size: 1.3rem;
 }
 
 /* ==================== Media Queries (Medium Devices) ======================= */
 
 @media screen and (max-width: 1024px) {
-
-    header{
-
-        height: 68vh;
-
-    }
-
+  header {
+    height: 68vh;
+  }
 }
-
 
 /* ==================== Media Queries (Small Devices) ======================= */
 
 @media screen and (max-width: 600px) {
+  header {
+    height: 125vh;
+  }
 
-
-
-    header{
-
-        height: 125vh;
-
-    }
-
-    .header_socials, .scroll_down {
-
-        display: none;
-
-    }
-
-
+  .header_socials,
+  .scroll_down {
+    display: none;
+  }
 }
