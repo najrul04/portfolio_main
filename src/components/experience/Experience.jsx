@@ -1,6 +1,7 @@
 import React from 'react'
+import { FaSass } from "react-icons/fa"
 import { FcSettings } from "react-icons/fc"
-import { SiBootstrap, SiCheckmarx, SiCss3, SiHtml5, SiJavascript, SiMongodb, SiNodedotjs, SiPhp, SiReact, SiRedux, SiTailwindcss, SiTypescript } from "react-icons/si"
+import { SiBootstrap, SiCheckmarx, SiCss3, SiExpress, SiFirebase, SiHtml5, SiJavascript, SiMongodb, SiNodedotjs, SiPhp, SiReact, SiRedux, SiTailwindcss, SiTypescript } from "react-icons/si"
 import './Experience.css'
 
 const Experience = () => {
@@ -100,6 +101,19 @@ const Experience = () => {
 
             <article className='experience_details'>
 
+            <FaSass className='experience_details_icons'/>
+
+              <div>
+
+              <h4>Sass</h4>
+              {/* <small className='text-light'>Intermediate</small> */}
+
+              </div>
+
+            </article>
+
+            <article className='experience_details'>
+
             <SiReact className='experience_details_icons'/>
 
               <div>
@@ -150,6 +164,19 @@ const Experience = () => {
 
             <article className='experience_details'>
 
+              <SiExpress className='experience_details_icons'/>
+
+              <div>
+
+              <h4>Express JS</h4>
+              {/* <small className='text-light'>Intermediate</small> */}
+
+              </div>
+
+            </article>
+
+            <article className='experience_details'>
+
               <SiMongodb className='experience_details_icons'/>
 
               <div>
@@ -168,6 +195,19 @@ const Experience = () => {
               <div>
 
               <h4>PHP</h4>
+              {/* <small className='text-light'>Basic</small> */}
+
+              </div>
+
+            </article>
+
+            <article className='experience_details'>
+
+              <SiFirebase className='experience_details_icons'/>
+
+              <div>
+
+              <h4>Firebase</h4>
               {/* <small className='text-light'>Basic</small> */}
 
               </div>
