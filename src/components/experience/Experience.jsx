@@ -220,7 +220,7 @@ const Experience = () => {
 
               <div>
 
-              <h4>MySQL</h4>
+              <h4>NoSQL</h4>
               {/* <small className='text-light'>Intermediate</small> */}
 
               </div>
