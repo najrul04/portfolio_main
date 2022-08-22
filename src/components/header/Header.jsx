@@ -1,5 +1,6 @@
 import React from 'react'
 import { AiOutlineCaretDown } from 'react-icons/ai'
+import { Typewriter } from 'react-simple-typewriter'
 // import Typical from 'react-typical'
 import ME from './../../assets/1.png'
 import CTA from './CTA'
@@ -15,7 +16,25 @@ const Header = () => {
 
       <div className="container header_container">
 
-        <h2>Hello I'm </h2>
+      <h2>Hello I'm {' '} </h2>
+      
+      
+        
+        <h3 style={{ color: 'white', fontWeight: 'bold',fontSize: '1.7rem' }}>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={['Najrul', 'Front End Developer']}
+            loop={true}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </h3>
+
+
+
 
 {/*         <Typical
         steps={['Hello', 1000, 'Hello world!', 500]}
