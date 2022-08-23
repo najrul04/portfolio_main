@@ -4,11 +4,53 @@ header {
   overflow: hidden;
 }
 
+/* h2 {
+  animation-duration: 3s;
+  animation-name: slidein;
+  overflow: hidden;
+}
+
+@keyframes slidein {
+  from {
+    margin-top: 100%;
+    width: 200%;
+    overflow: hidden;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+    overflow: hidden;
+  }
+} */
+
 .header_container {
   text-align: center;
   height: 100%;
   position: relative;
 }
+
+/* 
+
+  animation-duration: 3s;
+  animation-name: slidein;
+  overflow: hidden;
+}
+@keyframes slidein {
+  from {
+    margin-top: 100%;
+    width: 200%;
+    overflow: hidden;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+*/
 
 /* ===================== CTA ================== */
 
