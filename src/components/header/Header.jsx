@@ -15,15 +15,12 @@ const Header = () => {
   return (
     <header>
 
-      <motion.div
-      initial={{y: '-100vw'}}
-      animate={{y: 0 }} 
-      transition={{ type: 'spring', bounce:0.3, duration: 2 }} className="container header_container">
+      <div className="container header_container">
 
       <motion.h2 
-      initial={{x: '-100vw'}}
-      animate={{x: 0 }} 
-      transition={{ type: 'spring', bounce:0.3, duration: 3 }}
+      initial={{y: '-100vw'}}
+      animate={{y: 0 }} 
+      transition={{ type: 'spring', duration: 3 }}
             >Hello I'm {' '} </motion.h2>
       
       
@@ -68,7 +65,7 @@ const Header = () => {
 
         </div>
 
-      </motion.div>
+      </div>
 
     </header>
   )

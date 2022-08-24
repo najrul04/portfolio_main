@@ -70,9 +70,16 @@ const Portfolio = () => {
     <section id='portfolio'>
       
       <h5>My Recent Work</h5>
-      <h2>Portfolio</h2>
+      <motion.h2
+      initial={{x: '100vw'}}
+      animate={{x: 0 }} 
+      transition={{ type: 'spring', bounce:0.3, duration: 3 }}
+      >Portfolio</motion.h2>
 
-      <div className="container portfolio_container">
+      <motion.div 
+      initial={{y: '100vw'}}
+      animate={{y: 0 }} 
+      transition={{ type: 'spring', bounce:0.3, duration: 2 }}  className="container portfolio_container">
 
         {
 
@@ -128,7 +135,7 @@ const Portfolio = () => {
       </motion.article>
     
 
-      </div>
+      </motion.div>
 
     </section>
   )

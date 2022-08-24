@@ -1,10 +1,9 @@
-import React from 'react'
-import './Contact.css'
-import {GrMail} from 'react-icons/gr'
-import {BsMessenger} from 'react-icons/bs'
-import {BsWhatsapp} from 'react-icons/bs'
-import { useRef } from 'react';
 import emailjs from 'emailjs-com'
+import { motion } from 'framer-motion'
+import React, { useRef } from 'react'
+import { BsMessenger, BsWhatsapp } from 'react-icons/bs'
+import { GrMail } from 'react-icons/gr'
+import './Contact.css'
 
 const Contact = () => {
 
@@ -28,7 +27,11 @@ const Contact = () => {
     <section id='contact'>
       
       <h5>Get In Touch</h5>
-      <h2>Contact Me</h2>
+      <motion.h2 
+      initial={{x: '-100vw'}}
+      animate={{x: 0 }} 
+      transition={{ type: 'spring', bounce:0.3, duration: 3 }}
+      >Contact Me</motion.h2>
 
       <div className="container contact_container">
 

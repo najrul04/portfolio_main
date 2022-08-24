@@ -15,15 +15,19 @@ const About = () => {
 
       <div className="container about_container">
 
-        <div className="about_me">
+        <motion.div 
+        initial={{x: '-30vw'}}
+            animate={{x: 0 }} 
+            transition={{ type: 'spring', bounce:0.3, duration: 3 }} className="about_me_image">
 
-          <div className="about_me_image">
+          <div  className="about_me">
 
-            <img src={Me} alt="AboutPicture" />
+            <img 
+            src={Me} alt="AboutPicture" />
 
           </div>
 
-        </div>
+        </motion.div>
 
           <div className="about_content">
 
@@ -82,7 +86,19 @@ const About = () => {
 
             </motion.p>
 
-            <a href="#contact" className='btn btn-primary'>Let's Talk</a>
+            <motion.a 
+             initial={{ opacity: 0, scale: 0.5 }}
+             animate={{ opacity: 1, scale: 1 }}
+             transition={{
+               default: {
+                 duration: 0.1,
+                 ease: [0, 0.71, 0.2, 1.01]
+               },
+               scale: {
+                 type: "spring", 
+                 bounce:0.7
+               }
+             }} href="#contact" className='btn btn-primary'>Let's Talk</motion.a>
 
           </div>
 

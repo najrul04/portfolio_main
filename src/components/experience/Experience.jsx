@@ -15,8 +15,8 @@ const Experience = () => {
       <div className="container experience_container">
 
         <motion.div 
-      initial={{y: '100vw'}}
-      animate={{y: 0 }} 
+      initial={{x: '-100vw'}}
+      animate={{x: 0 }} 
       transition={{ type: 'spring', bounce:0.3, duration: 2 }}  className="experience_frontend">
 
           
@@ -149,9 +149,9 @@ const Experience = () => {
         {/* ==================================== BackEnd ================================ */} 
 
         <motion.div 
-      initial={{y: '100vw'}}
-      animate={{y: 0 }} 
-      transition={{ type: 'spring', bounce:0.3, duration: 2 }}  className="experience_backend">
+      initial={{x: '100vw'}}
+      animate={{x: 0 }} 
+      transition={{ type: 'spring', duration: 3, }}  className="experience_backend">
 
         <h3>Backend Development</h3>
           <div className="experience_content">
