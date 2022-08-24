@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai'
 import { BiBook } from 'react-icons/bi'
@@ -9,7 +10,11 @@ const Nav = () => {
   return (
     <div>
       
-      <nav>
+      <motion.nav 
+      initial={{x: '-100vw'}}
+      animate={{x: '-12vw' }} 
+      transition={{ type: 'spring', bounce:0.3, duration: 3 }}
+      >
 
         <a href="#" onClick={() => setActiveNav('#')} className={activeNav === "#" ? 'active' : ""}><AiOutlineHome/></a>
         <a href="#about" onClick={() => setActiveNav('#about')} className={activeNav === "#about" ? 'active' : ""}><AiOutlineUser/></a>
@@ -17,7 +22,7 @@ const Nav = () => {
         <a href="#portfolio" onClick={() => setActiveNav('#portfolio')} className={activeNav === "#portfolio" ? 'active' : ""}><RiServiceFill/></a>
         <a href="#contact" onClick={() => setActiveNav('#contact')} className={activeNav === "#contact" ? 'active' : ""}><RiMessage2Line/></a> 
 
-      </nav>
+      </motion.nav>
 
     </div>
   )

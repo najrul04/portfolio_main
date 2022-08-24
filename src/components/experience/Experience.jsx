@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import { FaSass } from "react-icons/fa"
 import { FcSettings } from "react-icons/fc"
@@ -13,7 +14,10 @@ const Experience = () => {
 
       <div className="container experience_container">
 
-        <div className="experience_frontend">
+        <motion.div 
+      initial={{y: '100vw'}}
+      animate={{y: 0 }} 
+      transition={{ type: 'spring', bounce:0.3, duration: 2 }}  className="experience_frontend">
 
           
         {/* ==================================== Frontend ================================ */}
@@ -140,11 +144,14 @@ const Experience = () => {
 
           </div>
           
-        </div>
+        </motion.div>
 
-        {/* ==================================== BackEnd ================================ */}
+        {/* ==================================== BackEnd ================================ */} 
 
-        <div className="experience_backend">
+        <motion.div 
+      initial={{y: '100vw'}}
+      animate={{y: 0 }} 
+      transition={{ type: 'spring', bounce:0.3, duration: 2 }}  className="experience_backend">
 
         <h3>Backend Development</h3>
           <div className="experience_content">
@@ -242,7 +249,7 @@ const Experience = () => {
 
           </div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>

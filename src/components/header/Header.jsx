@@ -7,6 +7,7 @@ import CTA from './CTA'
 import './Header.css'
 import HeaderSocials from './HeaderSocials'
 // import { Typewriter } from 'react-simple-typewriter'
+import { motion } from 'framer-motion'
 
 const Header = () => {
 
@@ -14,9 +15,16 @@ const Header = () => {
   return (
     <header>
 
-      <div className="container header_container">
+      <motion.div
+      initial={{y: '-100vw'}}
+      animate={{y: 0 }} 
+      transition={{ type: 'spring', bounce:0.3, duration: 2 }} className="container header_container">
 
-      <h2>Hello I'm {' '} </h2>
+      <motion.h2 
+      initial={{x: '-100vw'}}
+      animate={{x: 0 }} 
+      transition={{ type: 'spring', bounce:0.3, duration: 3 }}
+            >Hello I'm {' '} </motion.h2>
       
       
         
@@ -53,12 +61,14 @@ const Header = () => {
         <a href="#contact" className='scroll_down'><AiOutlineCaretDown/></a>
         <div className="me">
 
-          <img src={ME} alt="MyPhoto"/>
+          <motion.img src={ME} alt="MyPhoto"initial={{scale:0}}
+          animate={{scale:1} }
+          transition={{ delay: 1.0}}  ></motion.img>
 
 
         </div>
 
-      </div>
+      </motion.div>
 
     </header>
   )

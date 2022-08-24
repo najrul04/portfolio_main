@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import { CgFacebook } from 'react-icons/cg'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
@@ -29,11 +30,27 @@ const Footer = () => {
       </ul>
 
       <div className="footer_socials">
+        <motion.div
+        whileHover={{scale:1.1}}
+        >
         <a href="https://www.facebook.com/nazrul2517/" target="_blank" rel='noreferrer'><CgFacebook/></a>
+        </motion.div>
+        <motion.div
+        whileHover={{scale:1.1}}>
         <a href="https://www.linkedin.com/in/najrul-islam/" target="_blank" rel='noreferrer'><FaLinkedin/></a>
+        </motion.div>
+        <motion.div
+        whileHover={{scale:1.1}}>
         <a href="https://www.instagram.com/nazrul_i04/?hl=en" target="_blank" rel='noreferrer'><GrInstagram/></a>
+        </motion.div>
+        <motion.div
+        whileHover={{scale:1.1}}>
         <a href="https://twitter.com/najrul0" target="_blank" rel='noreferrer'><FaTwitter/></a>
+        </motion.div>
+        <motion.div
+        whileHover={{scale:1.1}}>
         <a href="https://github.com/najrul04" target="_blank" rel='noreferrer'><FaGithub/></a>
+        </motion.div>
       </div>
 
       <div className="footer_copyright">

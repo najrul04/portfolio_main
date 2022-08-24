@@ -1,11 +1,12 @@
+import { motion } from 'framer-motion'
 import React from 'react'
+import IMG1 from '../../assets/P1-Noble.png'
+import IMG2 from '../../assets/P2-football.png'
+import IMG3 from '../../assets/P3-Pizza.png'
+import IMG4 from '../../assets/P4-Hospital.png'
+import IMG5 from '../../assets/p5-shop.png'
+import IMG6 from '../../assets/p6-anotherPortfolio.png'
 import './Portfolio.css'
-import IMG1 from '../../assets/P1-Noble.png' 
-import IMG2 from '../../assets/P2-football.png' 
-import IMG3 from '../../assets/P3-Pizza.png' 
-import IMG4 from '../../assets/P4-Hospital.png' 
-import IMG5 from '../../assets/p5-shop.png' 
-import IMG6 from '../../assets/p6-anotherPortfolio.png' 
 
 const data = [
 
@@ -80,7 +81,8 @@ const Portfolio = () => {
                 return(
 
                                       
-                      <article key={id} className='portfolio_item'>
+                      <motion.article
+                      whileHover={{scale:1.1}} key={id} className='portfolio_item'>
 
                       <div className="portfolio_item_image">
 
@@ -97,7 +99,7 @@ const Portfolio = () => {
 
                       </div>
 
-                    </article>
+                    </motion.article>
 
                 )
 
@@ -106,7 +108,8 @@ const Portfolio = () => {
         }
 
 
-      <article className='portfolio_item'>
+      <motion.article
+      whileHover={{scale:1.1}}  className='portfolio_item'>
 
       <div className="portfolio_item_image">
 
@@ -122,7 +125,7 @@ const Portfolio = () => {
 
       </div>
 
-      </article>
+      </motion.article>
     
 
       </div>
