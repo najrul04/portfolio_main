@@ -68,7 +68,9 @@ const data = [
 
 const Portfolio = () => {
 
-  const {ref, inView} = useInView();
+  const {ref, inView} = useInView({
+    threshold: 0.2
+  });
 
   const animation = useAnimation();
 

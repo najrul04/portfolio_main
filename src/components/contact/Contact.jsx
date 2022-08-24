@@ -7,7 +7,9 @@ import { useInView } from 'react-intersection-observer'
 import './Contact.css'
 
 const Contact = () => {
-  const {ref, inView} = useInView();
+  const {ref, inView} = useInView({
+    threshold: 0.2
+  });
 
   const animation = useAnimation();
 
