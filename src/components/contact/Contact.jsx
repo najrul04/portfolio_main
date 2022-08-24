@@ -1,11 +1,31 @@
 import emailjs from 'emailjs-com'
-import { motion } from 'framer-motion'
-import React, { useRef } from 'react'
+import { motion, useAnimation } from 'framer-motion'
+import React, { useEffect, useRef } from 'react'
 import { BsMessenger, BsWhatsapp } from 'react-icons/bs'
 import { GrMail } from 'react-icons/gr'
+import { useInView } from 'react-intersection-observer'
 import './Contact.css'
 
 const Contact = () => {
+  const {ref, inView} = useInView();
+
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if(inView){
+        animation.start({
+          x:0, 
+          transition: {
+            type: 'spring', duration: 3, bounce: 0.3
+          }
+        })
+    }
+    if(!inView){
+      console.log('Is it working', inView)
+      animation.start({x: '100vw'})
+    }
+  }, [inView]);
+
 
   const form = useRef()
 
@@ -24,16 +44,13 @@ const Contact = () => {
   };
 
   return (
-    <section id='contact'>
+    <section ref={ref} id='contact'>
       
       <h5>Get In Touch</h5>
-      <motion.h2 
-      initial={{x: '-100vw'}}
-      animate={{x: 0 }} 
-      transition={{ type: 'spring', bounce:0.3, duration: 3 }}
-      >Contact Me</motion.h2>
+      <h2 
+      >Contact Me</h2>
 
-      <div className="container contact_container">
+      <motion.div animate={animation} className="container contact_container">
 
         <div className="contact_options">
 
@@ -76,7 +93,7 @@ const Contact = () => {
 
         </form>
 
-      </div>
+      </motion.div>
 
     </section>
   )

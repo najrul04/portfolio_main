@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion'
-import React from 'react'
+import { motion, useAnimation } from 'framer-motion'
+import React, { useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
 import IMG1 from '../../assets/P1-Noble.png'
 import IMG2 from '../../assets/P2-football.png'
 import IMG3 from '../../assets/P3-Pizza.png'
@@ -66,20 +67,41 @@ const data = [
 ]
 
 const Portfolio = () => {
+
+  const {ref, inView} = useInView();
+
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if(inView){
+        animation.start({
+          x:0, 
+          transition: {
+            type: 'spring', duration: 3, bounce: 0.3
+          }
+        })
+    }
+    if(!inView){
+      console.log('Is it working', inView)
+      animation.start({x: '-100vw'})
+    }
+  }, [inView]);
+
   return (
-    <section id='portfolio'>
+    <section ref={ref} id='portfolio'>
       
       <h5>My Recent Work</h5>
-      <motion.h2
-      initial={{x: '100vw'}}
-      animate={{x: 0 }} 
-      transition={{ type: 'spring', bounce:0.3, duration: 3 }}
-      >Portfolio</motion.h2>
+      <h2>Portfolio</h2>
 
-      <motion.div 
+      {/* 
+      
       initial={{y: '100vw'}}
       animate={{y: 0 }} 
-      transition={{ type: 'spring', bounce:0.3, duration: 2 }}  className="container portfolio_container">
+      transition={{ type: 'spring', bounce:0.3, duration: 2 }} 
+      
+      */}
+
+      <motion.div  animate={animation}  className="container portfolio_container">
 
         {
 
@@ -143,104 +165,3 @@ const Portfolio = () => {
 
 export default Portfolio
 
-/* 
-
-<article className='portfolio_item'>
-
-      <div className="portfolio_item_image">
-
-        <img width={500} height="300"  src={IMG2} alt="Football School" />
-
-        <h3>Football School</h3>
-
-        <div className="portfolio_item_cta">
-
-        <a href="https://github.com/achille04/educational-website1" rel='noreferrer' className='btn' target="_blank">Github</a>
-        <a href="https://football-school.netlify.app/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <article className='portfolio_item'>
-
-      <div className="portfolio_item_image">
-
-        <img width={500} height="300"  src={IMG3} alt="Pizza Place" />
-
-        <h3>Pizza Place</h3>
-
-        <div className="portfolio_item_cta">
-
-        <a href="https://github.com/achille04/pizza-delivery-server-side" rel='noreferrer' className='btn' target="_blank">Github</a>
-        <a href="https://pizza-delivery-ea5ce.web.app/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <article className='portfolio_item'>
-
-      <div className="portfolio_item_image">
-
-        <img width={500} height="300"  src={IMG4} alt="Hospital" />
-
-        <h3>Hospital</h3>
-
-        <div className="portfolio_item_cta">
-
-        <a href="https://github.com/achille04/healthcare-website" rel='noreferrer' className='btn' target="_blank">Github</a>
-        <a href="https://gen-hospital.netlify.app/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <article className='portfolio_item'>
-
-      <div className="portfolio_item_image">
-
-        <img width={500} height="300"  src={IMG5} alt="WordPress Website" />
-
-        <h3>WordPress Website</h3>
-
-          <div className="portfolio_item_cta">
-
-          <a href="https://superfuturebrands.com/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
-
-          </div>
-
-      </div>
-
-    </article>
-
-
-    <article className='portfolio_item'>
-
-      <div className="portfolio_item_image">
-
-        <img width={500} height="300"  src={IMG6} alt="Noble Peace Prize" />
-
-        <h3>Personal Portfolio</h3>
-
-        <div className="portfolio_item_cta">
-
-        <a href="https://github.com/achille04/personal_portfolio" rel='noreferrer' className='btn' target="_blank">Github</a>
-        <a href="https://achille04.github.io/personal_portfolio/index.html" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-*/

@@ -1,23 +1,51 @@
-import { motion } from 'framer-motion'
-import React from 'react'
+import { motion, useAnimation } from 'framer-motion'
+import React, { useEffect } from 'react'
 import { FaSass } from "react-icons/fa"
 import { FcSettings } from "react-icons/fc"
 import { SiBootstrap, SiCheckmarx, SiCss3, SiExpress, SiFirebase, SiHtml5, SiJavascript, SiMongodb, SiNodedotjs, SiPhp, SiReact, SiRedux, SiTailwindcss, SiTypescript } from "react-icons/si"
+import { useInView } from 'react-intersection-observer'
 import './Experience.css'
 
 const Experience = () => {
+
+  const {ref, inView} = useInView();
+
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if(inView){
+        animation.start({
+          x:0, 
+          transition: {
+            type: 'spring', duration: 3, bounce: 0.3
+          }
+        })
+    }
+    if(!inView){
+      console.log('Is it working', inView)
+      animation.start({x: '100vh'})
+    }
+  }, [inView]);
+  
   return (
-    <section id='experience'>
+    <section
+    ref={ref} id='experience'>
 
       {/* <h5>What Skill I have</h5> */}
       <h2>Skills</h2>
 
-      <div className="container experience_container">
+      <motion.div 
+      animate={animation} className="container experience_container">
 
-        <motion.div 
+        {/*
+        
       initial={{x: '-100vw'}}
       animate={{x: 0 }} 
-      transition={{ type: 'spring', bounce:0.3, duration: 2 }}  className="experience_frontend">
+      transition={{ type: 'spring', bounce:0.3, duration: 2 }}  
+        
+        */}
+
+        <div className="experience_frontend">
 
           
         {/* ==================================== Frontend ================================ */}
@@ -144,14 +172,20 @@ const Experience = () => {
 
           </div>
           
-        </motion.div>
+        </div>
 
         {/* ==================================== BackEnd ================================ */} 
 
-        <motion.div 
+        {/* 
+        
+        
       initial={{x: '100vw'}}
       animate={{x: 0 }} 
-      transition={{ type: 'spring', duration: 3, }}  className="experience_backend">
+      transition={{ type: 'spring', duration: 3, }} 
+        
+        */}
+
+        <div  className="experience_backend">
 
         <h3>Backend Development</h3>
           <div className="experience_content">
@@ -249,9 +283,9 @@ const Experience = () => {
 
           </div>
 
-        </motion.div>
+        </div>
 
-      </div>
+      </motion.div>
     </section>
   )
 }
