@@ -24,7 +24,7 @@ const Contact = () => {
     }
     if(!inView){
       console.log('Is it working', inView)
-      animation.start({x: '100vw'})
+      animation.start({x: '100vw'});
     }
   }, [inView]);
 

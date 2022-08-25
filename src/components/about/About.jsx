@@ -31,10 +31,7 @@ const About = () => {
     ref={ref} id='about'>
       
       <h5>Get To Know</h5>
-      <motion.h2
-      initial={{x: '100vw'}}
-      animate={{x: 0 }} 
-      transition={{ type: 'spring', bounce:0.3, duration: 3 }}>About Me</motion.h2>
+      <h2>About Me</h2>
 
       <motion.div className="container about_container"
       
