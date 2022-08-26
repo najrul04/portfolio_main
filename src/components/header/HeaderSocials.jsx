@@ -11,7 +11,7 @@ const HeaderSocials = () => {
     className='header_socials'>
 
         <a href="https://www.linkedin.com/in/najrul-islam/" target="_blank" rel="noreferrer"><BsLinkedin /></a>
-        <a href="https://github.com/achille04" target="_blank" rel="noreferrer"><BsGithub/></a>
+        <a href="https://github.com/najrul04" target="_blank" rel="noreferrer"><BsGithub/></a>
         <a href="https://www.instagram.com/nazrul_i04/?hl=en" target="_blank" rel="noreferrer"><BsInstagram/></a>
 
     </motion.div>

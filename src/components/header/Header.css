@@ -75,6 +75,12 @@ video {
   height: 2rem;
   background: var(--color-primary);
 }
+.header_socials::before {
+  content: "";
+  width: 1px;
+  height: 2rem;
+  background: var(--color-primary);
+}
 
 /* ===================== Photo ================== */
 
@@ -156,7 +162,12 @@ video {
     align-items: center;
   }
 
-  .header_socials,
+  .header_socials {
+    display: flex;
+    flex-direction: row;
+    top: -550px;
+  }
+
   .scroll_down {
     display: none;
   }
