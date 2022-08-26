@@ -39,7 +39,7 @@ video {
   top: 0;
   left: 0;
   width: 100%;
-  height: 70%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -107,6 +107,29 @@ video {
   header {
     height: 68vh;
   }
+  video {
+    width: 116%;
+    height: 70vh;
+    object-fit: cover;
+    opacity: 0.4;
+    overflow: hidden;
+  }
+  .video_content {
+    position: absolute;
+    width: 100%;
+    height: 63%;
+    display: flex;
+    top: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .overlay {
+    height: 68%;
+  }
+  .header_socials {
+    top: 400px;
+  }
 }
 
 /* ==================== Media Queries (Small Devices) ======================= */
@@ -136,5 +159,8 @@ video {
   .header_socials,
   .scroll_down {
     display: none;
+  }
+  .overlay {
+    height: 70%;
   }
 }
