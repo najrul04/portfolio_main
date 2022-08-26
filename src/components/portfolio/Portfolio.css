@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
+  height: 100%;
+  position: relative;
+  width: var(--container-width-lg);
+  margin: 0 auto;
 }
 
 .portfolio_item {

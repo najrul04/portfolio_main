@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  height: 100%;
+  position: relative;
+  width: var(--container-width-lg);
+  margin: 0 auto;
 }
 
 .experience_container > div {

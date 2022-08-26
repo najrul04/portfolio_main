@@ -2,12 +2,12 @@ import React from 'react'
 import { AiOutlineCaretDown } from 'react-icons/ai'
 import { Typewriter } from 'react-simple-typewriter'
 // import Typical from 'react-typical'
-import ME from './../../assets/1.png'
 import CTA from './CTA'
 import './Header.css'
 import HeaderSocials from './HeaderSocials'
 // import { Typewriter } from 'react-simple-typewriter'
 import { motion } from 'framer-motion'
+import videoBg from '../../assets/video_portfolio/videoBg.mp4'
 
 const Header = () => {
 
@@ -16,8 +16,13 @@ const Header = () => {
     <header>
 
       <div className="container header_container">
+        <div className="overlay"></div>
+        <video autoPlay loop muted src={videoBg}></video>
 
-      <motion.h2 
+
+      <div className='video_content'>
+      <motion.h2
+      className='static_header_name'
       initial={{y: '-100vw'}}
       animate={{y: 0 }} 
       transition={{ type: 'spring', duration: 3 }}
@@ -37,33 +42,31 @@ const Header = () => {
             delaySpeed={1000}
           />
         </h3>
+        
+        <CTA/>
+        
+      </div>
 
-
-
-
-{/*         <Typical
-        steps={['Hello', 1000, 'Hello world!', 500]}
-        loop={Infinity}
-        wrapper="p"
-      /> */}
 
 
 
         {/* <h5 className="text-light">Front End Developer</h5> */}
 
-        <CTA/>
 
         <HeaderSocials/>
 
         <a href="#contact" className='scroll_down'><AiOutlineCaretDown/></a>
-        <div className="me">
 
-          <motion.img src={ME} alt="MyPhoto"initial={{scale:0}}
-          animate={{scale:1} }
-          transition={{ delay: 1.0}}  ></motion.img>
+       {/*  
+       
+       <div className="me">
+
+          <img src={ME} alt="MyPhoto" ></img>
 
 
         </div>
+        
+        */}
 
       </div>
 
