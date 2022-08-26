@@ -7,7 +7,7 @@ import './Header.css'
 import HeaderSocials from './HeaderSocials'
 // import { Typewriter } from 'react-simple-typewriter'
 import { motion } from 'framer-motion'
-import videoBg from '../../assets/video_portfolio/videoBg.mp4'
+import videoBg from '../../assets/video_portfolio/videoBg1.mp4'
 
 const Header = () => {
 
