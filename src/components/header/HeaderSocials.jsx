@@ -1,17 +1,20 @@
+import { motion } from 'framer-motion'
 import React from 'react'
-import {BsLinkedin} from 'react-icons/bs'
-import {BsGithub} from 'react-icons/bs'
-import {BsInstagram} from 'react-icons/bs'
+import { BsGithub, BsInstagram, BsLinkedin } from 'react-icons/bs'
 
 const HeaderSocials = () => {
   return (
-    <div className='header_socials'>
+    <motion.div
+        initial={{x: '-100vw'}}
+        animate={{x: 50 }} 
+        transition={{ type: 'spring', bounce:0.3, duration: 2 }}
+    className='header_socials'>
 
-        <a href="https://www.linkedin.com/in/najrul-islam/" target="_blank"><BsLinkedin /></a>
-        <a href="https://github.com/achille04" target="_blank"><BsGithub/></a>
-        <a href="https://www.instagram.com/nazrul_i04/?hl=en" target="_blank"><BsInstagram/></a>
+        <a href="https://www.linkedin.com/in/najrul-islam/" target="_blank" rel="noreferrer"><BsLinkedin /></a>
+        <a href="https://github.com/achille04" target="_blank" rel="noreferrer"><BsGithub/></a>
+        <a href="https://www.instagram.com/nazrul_i04/?hl=en" target="_blank" rel="noreferrer"><BsInstagram/></a>
 
-    </div>
+    </motion.div>
   )
 }
 
