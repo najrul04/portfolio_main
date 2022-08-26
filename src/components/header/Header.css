@@ -39,7 +39,7 @@ video {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 70%;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -107,8 +107,16 @@ video {
   header {
     height: 68vh;
   }
+}
+
+/* ==================== Media Queries (Small Devices) ======================= */
+
+@media screen and (max-width: 600px) {
+  header {
+    height: 70vh;
+  }
   video {
-    width: 100%;
+    width: 111%;
     height: 70vh;
     object-fit: cover;
     opacity: 0.4;
@@ -116,21 +124,13 @@ video {
   }
   .video_content {
     position: absolute;
-    width: 70;
+    width: 100%;
     height: 70%;
     display: flex;
     top: 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-}
-
-/* ==================== Media Queries (Small Devices) ======================= */
-
-@media screen and (max-width: 600px) {
-  header {
-    height: 125vh;
   }
 
   .header_socials,
