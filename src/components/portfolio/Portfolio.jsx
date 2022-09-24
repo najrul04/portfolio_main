@@ -5,8 +5,8 @@ import IMG1 from '../../assets/P1-Noble.png'
 import IMG2 from '../../assets/P2-football.png'
 import IMG3 from '../../assets/P3-Pizza.png'
 import IMG4 from '../../assets/P4-Hospital.png'
-import IMG5 from '../../assets/p5-shop.png'
 import IMG6 from '../../assets/p6-anotherPortfolio.png'
+import IMG7 from '../../assets/p7-bike.png'
 import './Portfolio.css'
 
 const data = [
@@ -15,7 +15,7 @@ const data = [
     id: 1,
     image: IMG1,
     title: 'Noble Peace Prize',
-    github:'https://github.com/achille04/noble-winners',
+    github:'https://github.com/najrul04/noble-winners',
     demo: 'https://nobel-price-winners.netlify.app/'
   },
   {
@@ -23,7 +23,7 @@ const data = [
     id: 2,
     image: IMG2,
     title: 'Football School',
-    github:"https://github.com/achille04/educational-website1",
+    github:"https://github.com/najrul04/educational-website1",
     demo: "https://football-school.netlify.app/"
 
   },
@@ -32,7 +32,7 @@ const data = [
     id: 3,
     image: IMG3,
     title: 'Pizza Place',
-    github:"https://github.com/achille04/pizza-delivery-server-side",
+    github:"https://github.com/najrul04/pizza-delivery-server-side",
     demo: "https://pizza-delivery-ea5ce.web.app/"
 
   },
@@ -41,7 +41,7 @@ const data = [
     id: 4,
     image: IMG4,
     title: 'Hospital',
-    github:"https://github.com/achille04/healthcare-website",
+    github:"https://github.com/najrul04/healthcare-website",
     demo: "https://gen-hospital.netlify.app/"
 
   },
@@ -59,8 +59,17 @@ const data = [
     id: 6,
     image: IMG6,
     title: 'Personal Portfolio',
-    github:"https://github.com/achille04/personal_portfolio",
-    demo: "https://achille04.github.io/personal_portfolio/index.html"
+    github:"https://github.com/najrul04/personal_portfolio",
+    demo: "https://najrul04.github.io/personal_portfolio/index.html"
+
+  },
+  {
+
+    id: 7,
+    image: IMG7,
+    title: 'Bike',
+    github:"https://github.com/najrul04/bike-website-client-side",
+    demo: "https://best-bike.web.app/"
 
   }
 
@@ -139,7 +148,7 @@ const Portfolio = () => {
         }
 
 
-      <motion.article
+{/*       <motion.article
       whileHover={{scale:1.1}}  className='portfolio_item'>
 
       <div className="portfolio_item_image">
@@ -156,7 +165,7 @@ const Portfolio = () => {
 
       </div>
 
-      </motion.article>
+      </motion.article> */}
     
 
       </motion.div>
