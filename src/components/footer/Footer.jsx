@@ -17,7 +17,7 @@ const Footer = () => {
 
         <li><a href="#about">About</a></li>
 
-        <li><a href="#experience">Experience</a></li>
+        <li><a href="#experience">Skills</a></li>
 
         {/* <li><a href="#services">Services</a></li> */}
 
@@ -55,7 +55,7 @@ const Footer = () => {
 
       <div className="footer_copyright">
 
-        <small>&copy; MD Najrul Islam Sumon. All rights reserved</small>
+        <small>&copy; MD Najrul Islam Sumon. All rights reserved {new Date().getFullYear()}</small>
 
       </div>
 

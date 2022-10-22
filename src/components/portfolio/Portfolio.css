@@ -26,6 +26,10 @@
   overflow: hidden;
 }
 
+.card_image {
+  height: 50%;
+}
+
 portfolio_item h3 {
   margin: 1.2rem 0 2rem;
 }

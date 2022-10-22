@@ -14,7 +14,7 @@ const data = [
   {
     id: 1,
     image: IMG1,
-    title: 'Noble Peace Prize',
+    title: 'Noble Prize',
     github:'https://github.com/najrul04/noble-winners',
     demo: 'https://nobel-price-winners.netlify.app/'
   },
@@ -25,6 +25,14 @@ const data = [
     title: 'Football School',
     github:"https://github.com/najrul04/educational-website1",
     demo: "https://football-school.netlify.app/"
+
+  },  {
+
+    id: 6,
+    image: IMG6,
+    title: 'Personal Portfolio',
+    github:"https://github.com/najrul04/personal_portfolio",
+    demo: "https://najrul04.github.io/personal_portfolio/index.html"
 
   },
   {
@@ -54,15 +62,7 @@ const data = [
     demo: "https://superfuturebrands.com/"
 
   }, */
-  {
 
-    id: 6,
-    image: IMG6,
-    title: 'Personal Portfolio',
-    github:"https://github.com/najrul04/personal_portfolio",
-    demo: "https://najrul04.github.io/personal_portfolio/index.html"
-
-  },
   {
 
     id: 7,
@@ -126,7 +126,7 @@ const Portfolio = () => {
 
                       <div className="portfolio_item_image">
 
-                        <img width={500} height="300" src={image} alt={title} />
+                        <img className='card_image' src={image} alt={title} />
 
                         <h3>{title}</h3>
 
@@ -136,7 +136,7 @@ const Portfolio = () => {
                         <a href={demo} rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
 
                         </div>
-
+                        {/* width={500} height="400" */}
                       </div>
 
                     </motion.article>
