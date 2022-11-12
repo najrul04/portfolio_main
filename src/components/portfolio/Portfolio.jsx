@@ -5,7 +5,7 @@ import IMG1 from '../../assets/P1-Noble.png'
 import IMG2 from '../../assets/P2-football.png'
 import IMG3 from '../../assets/P3-Pizza.png'
 import IMG4 from '../../assets/P4-Hospital.png'
-import IMG6 from '../../assets/p6-anotherPortfolio.png'
+import IMG6 from '../../assets/p6-gamesSite.png'
 import IMG7 from '../../assets/p7-bike.png'
 import './Portfolio.css'
 
@@ -30,9 +30,9 @@ const data = [
 
     id: 6,
     image: IMG6,
-    title: 'Personal Portfolio',
-    github:"https://github.com/najrul04/personal_portfolio",
-    demo: "https://najrul04.github.io/personal_portfolio/index.html"
+    title: 'Games',
+    github:"https://github.com/najrul04/react_recap/tree/main/car-services",
+    demo: "https://gameworld876.netlify.app/"
 
   },
   {
