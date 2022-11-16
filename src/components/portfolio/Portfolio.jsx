@@ -32,7 +32,7 @@ const data = [
     image: IMG6,
     title: 'Games',
     github:"https://github.com/najrul04/react_recap/tree/main/car-services",
-    demo: "https://gameworld876.netlify.app/"
+    demo: "https://games-mart.web.app/"
 
   },
   {
