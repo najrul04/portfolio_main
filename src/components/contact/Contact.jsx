@@ -1,11 +1,11 @@
-import AOS from 'aos'
+import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-import emailjs from 'emailjs-com'
-import React, { useEffect, useRef } from 'react'
-import { BsMessenger, BsWhatsapp } from 'react-icons/bs'
-import { GrMail } from 'react-icons/gr'
-import { useInView } from 'react-intersection-observer'
-import './Contact.css'
+import emailjs from 'emailjs-com';
+import React, { useEffect, useRef } from 'react';
+import { BsMessenger, BsWhatsapp } from 'react-icons/bs';
+import { GrMail } from 'react-icons/gr';
+import { useInView } from 'react-intersection-observer';
+import './Contact.css';
 
 const Contact = () => {
 
@@ -25,7 +25,7 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_rxncsm9', 'template_1ez5glo', form.current, 'JZRIOMXjgrzL_X9g-')
+    emailjs.sendForm('service_l6wr908', 'template_660uvud', form.current, 'JZRIOMXjgrzL_X9g-')
 
     e.target.reset()
 
