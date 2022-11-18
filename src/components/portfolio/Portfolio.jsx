@@ -1,13 +1,13 @@
-import { motion, useAnimation } from 'framer-motion'
-import React, { useEffect } from 'react'
-import { useInView } from 'react-intersection-observer'
-import IMG1 from '../../assets/P1-Noble.png'
-import IMG2 from '../../assets/P2-football.png'
-import IMG3 from '../../assets/P3-Pizza.png'
-import IMG4 from '../../assets/P4-Hospital.png'
-import IMG6 from '../../assets/p6-gamesSite.png'
-import IMG7 from '../../assets/p7-bike.png'
-import './Portfolio.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+import React, { useEffect } from 'react';
+import IMG1 from '../../assets/P1-Noble.png';
+import IMG2 from '../../assets/P2-football.png';
+import IMG3 from '../../assets/P3-Pizza.png';
+import IMG4 from '../../assets/P4-Hospital.png';
+import IMG6 from '../../assets/p6-gamesSite.png';
+import IMG7 from '../../assets/p7-bike.png';
+import './Portfolio.css';
 
 const data = [
 
@@ -77,42 +77,19 @@ const data = [
 
 const Portfolio = () => {
 
-  const {ref, inView} = useInView({
-    threshold: 0.2
-  });
-
-  const animation = useAnimation();
-
-  useEffect(() => {
-    if(inView){
-        animation.start({
-          x:0, 
-          transition: {
-            type: 'spring', duration: 3, bounce: 0.3
-          }
-        })
-    }
-    if(!inView){
-      console.log('Is it working', inView)
-      animation.start({x: '-100vw'})
-    }
-  }, [inView]);
+ useEffect(() => {
+    AOS.init({
+      duration: 1500,
+    });
+  }, [])
 
   return (
-    <section ref={ref} id='portfolio'>
+    <section id='portfolio'>
       
       <h5>My Recent Work</h5>
       <h2>Portfolio</h2>
 
-      {/* 
-      
-      initial={{y: '100vw'}}
-      animate={{y: 0 }} 
-      transition={{ type: 'spring', bounce:0.3, duration: 2 }} 
-      
-      */}
-
-      <motion.div  animate={animation}  className="container portfolio_container">
+      <div className="container portfolio_container">
 
         {
 
@@ -121,7 +98,7 @@ const Portfolio = () => {
                 return(
 
                                       
-                      <motion.article
+                      <article data-aos="fade-up" 
                       whileHover={{scale:1.1}} key={id} className='portfolio_item'>
 
                       <div className="portfolio_item_image">
@@ -136,10 +113,9 @@ const Portfolio = () => {
                         <a href={demo} rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
 
                         </div>
-                        {/* width={500} height="400" */}
                       </div>
 
-                    </motion.article>
+                    </article>
 
                 )
 
@@ -148,27 +124,7 @@ const Portfolio = () => {
         }
 
 
-{/*       <motion.article
-      whileHover={{scale:1.1}}  className='portfolio_item'>
-
-      <div className="portfolio_item_image">
-
-        <img width={500} height="300"  src={IMG5} alt="WordPress Website" />
-
-        <h3>WordPress Website</h3>
-
-          <div className="portfolio_item_cta">
-
-          <a href="https://superfuturebrands.com/" rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
-
-          </div>
-
       </div>
-
-      </motion.article> */}
-    
-
-      </motion.div>
 
     </section>
   )

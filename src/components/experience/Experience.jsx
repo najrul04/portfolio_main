@@ -1,43 +1,28 @@
-import { motion, useAnimation } from 'framer-motion'
-import React, { useEffect } from 'react'
-import { FaSass } from "react-icons/fa"
-import { FcSettings } from "react-icons/fc"
-import { SiBootstrap, SiCheckmarx, SiCss3, SiExpress, SiFirebase, SiHtml5, SiJavascript, SiMongodb, SiNodedotjs, SiPhp, SiReact, SiRedux, SiTailwindcss, SiTypescript } from "react-icons/si"
-import { useInView } from 'react-intersection-observer'
-import './Experience.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+import React, { useEffect } from 'react';
+import { FaSass } from "react-icons/fa";
+import { FcSettings } from "react-icons/fc";
+import { SiBootstrap, SiCheckmarx, SiCss3, SiExpress, SiFirebase, SiHtml5, SiJavascript, SiMongodb, SiNodedotjs, SiPhp, SiReact, SiRedux, SiTailwindcss, SiTypescript } from "react-icons/si";
+import './Experience.css';
 
 const Experience = () => {
 
-  const {ref, inView} = useInView({
-    threshold: 0.2
-  });
-
-  const animation = useAnimation();
-
   useEffect(() => {
-    if(inView){
-        animation.start({
-          x:0, 
-          transition: {
-            type: 'spring', duration: 3, bounce: 0.3
-          }
-        })
-    }
-    if(!inView){
-      console.log('Is it working', inView)
-      animation.start({x: '100vh'})
-    }
-  }, [inView]);
+    AOS.init({
+      duration: 1200,
+    });
+  }, [])
   
   return (
     <section
-    ref={ref} id='experience'>
+   id='experience'>
 
       {/* <h5>What Skill I have</h5> */}
       <h2>Skills</h2>
 
-      <motion.div 
-      animate={animation} className="container experience_container">
+      <div 
+      className="container experience_container">
 
         {/*
         
@@ -47,7 +32,7 @@ const Experience = () => {
         
         */}
 
-        <div className="experience_frontend">
+        <div data-aos="fade-right" className="experience_frontend">
 
           
         {/* ==================================== Frontend ================================ */}
@@ -178,16 +163,8 @@ const Experience = () => {
 
         {/* ==================================== BackEnd ================================ */} 
 
-        {/* 
-        
-        
-      initial={{x: '100vw'}}
-      animate={{x: 0 }} 
-      transition={{ type: 'spring', duration: 3, }} 
-        
-        */}
 
-        <div  className="experience_backend">
+        <div data-aos="fade-left" className="experience_backend">
 
         <h3>Backend Development</h3>
           <div className="experience_content">
@@ -287,7 +264,7 @@ const Experience = () => {
 
         </div>
 
-      </motion.div>
+      </div>
     </section>
   )
 }

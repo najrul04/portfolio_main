@@ -1,8 +1,13 @@
-import React from 'react'
-import './Services.css'
-import {HiOutlineCheck} from 'react-icons/hi'
+import Aos from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+import React, { useEffect } from 'react';
+import { HiOutlineCheck } from 'react-icons/hi';
+import './Services.css';
 
 const Services = () => {
+  useEffect(() => {
+    Aos.init({})
+  }, [])
   return (
     <section id='services'>
       
@@ -12,7 +17,7 @@ const Services = () => {
 
           <article className='service'>
 
-            <div className="service_head">
+            <div data-aos="fade-up" data-aos-duration="1000" className="service_head">
 
               {/* ========================== Wordpress Development========================== */}
 
@@ -73,13 +78,13 @@ const Services = () => {
           
           <article className='service'>
 
-            <div className="service_head">
+            <div data-aos-duration="3000" data-aos="fade-up" className="service_head">
 
               <h3>Web Development</h3>
 
             </div>
 
-            <ul className="service_list">
+            <ul className="service_list">II
 
               <li>
 

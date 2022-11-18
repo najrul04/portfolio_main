@@ -1,5 +1,6 @@
+import AOS from 'aos'
+import 'aos/dist/aos.css'; // You can also use <link> for styles
 import emailjs from 'emailjs-com'
-import { motion, useAnimation } from 'framer-motion'
 import React, { useEffect, useRef } from 'react'
 import { BsMessenger, BsWhatsapp } from 'react-icons/bs'
 import { GrMail } from 'react-icons/gr'
@@ -7,26 +8,16 @@ import { useInView } from 'react-intersection-observer'
 import './Contact.css'
 
 const Contact = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+    });
+  }, [])
+
   const {ref, inView} = useInView({
     threshold: 0.2
   });
-
-  const animation = useAnimation();
-
-  useEffect(() => {
-    if(inView){
-        animation.start({
-          x:0, 
-          transition: {
-            type: 'spring', duration: 3, bounce: 0.3
-          }
-        })
-    }
-    if(!inView){
-      console.log('Is it working', inView)
-      animation.start({x: '100vw'});
-    }
-  }, [inView]);
 
 
   const form = useRef()
@@ -52,7 +43,7 @@ const Contact = () => {
       <h2 
       >Contact Me</h2>
 
-      <motion.div animate={animation} className="container contact_container">
+      <div data-aos="zoom-out" className="container contact_container">
 
         <div className="contact_options">
 
@@ -95,7 +86,7 @@ const Contact = () => {
 
         </form>
 
-      </motion.div>
+      </div>
 
     </section>
   )
