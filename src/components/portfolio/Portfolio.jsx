@@ -99,7 +99,7 @@ const Portfolio = () => {
 
                                       
                       <article data-aos="fade-up" 
-                      whileHover={{scale:1.1}} key={id} className='portfolio_item'>
+                      whilehover={{scale:1.1}} key={id} className='portfolio_item'>
 
                       <div className="portfolio_item_image">
 
