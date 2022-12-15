@@ -1,7 +1,7 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import React, { useEffect } from 'react';
-import IMG1 from '../../assets/P1-Noble.png';
+import IMG1 from '../../assets/P1-E-Commerce.png';
 import IMG2 from '../../assets/P2-football.png';
 import IMG3 from '../../assets/P3-Pizza.png';
 import IMG4 from '../../assets/P4-Hospital.png';
@@ -14,9 +14,9 @@ const data = [
   {
     id: 1,
     image: IMG1,
-    title: 'Noble Prize',
-    github:'https://github.com/najrul04/noble-winners',
-    demo: 'https://nobel-price-winners.netlify.app/'
+    title: 'Ecommerce',
+    github:'https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router',
+    demo: 'https://ecommerce-79009.firebaseapp.com//'
   },
   {
 
