@@ -28,6 +28,7 @@
 
 .card_image {
   height: 50vh;
+  object-fit: contain;
 }
 
 portfolio_item h3 {
