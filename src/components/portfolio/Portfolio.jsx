@@ -14,7 +14,7 @@ const data = [
   {
     id: 1,
     image: IMG1,
-    title: 'Ecommerce',
+    title: 'Ecommerce (Demo)',
     github:'https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router',
     demo: 'https://ecommerce-79009.firebaseapp.com//'
   },
