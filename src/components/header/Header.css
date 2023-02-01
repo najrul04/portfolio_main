@@ -66,6 +66,7 @@ video {
   gap: 0.8rem;
   position: absolute;
   left: 0;
+  color: aliceblue;
   bottom: 3rem;
 }
 
@@ -73,13 +74,13 @@ video {
   content: "";
   width: 1px;
   height: 2rem;
-  background: var(--color-primary);
+  background: var(--color-primary-linear);
 }
 .header_socials::before {
   content: "";
   width: 1px;
   height: 2rem;
-  background: var(--color-primary);
+  background: var(--color-primary-linear);
 }
 
 /* ===================== Photo ================== */

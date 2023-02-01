@@ -14,7 +14,13 @@
   --color-bg: rgba(9, 10, 10, 0.986);
   --color-bg-variant: #030618;
   /* --color-primary: #6f2da8; */
-  --color-primary: #2d3cc9;
+  /* --header-color: #6f2da8c0; */
+  --color-primary: #bb79f5c0;
+  --color-primary-linear: linear-gradient(
+    109.6deg,
+    rgb(157, 75, 199) 11.2%,
+    rgb(119, 81, 204) 83.1%
+  );
   --color-primary-variant: rgba(77, 181, 255, 0.4);
   --color-white: #fff;
   --color-light: rgba(255, 255, 255, 0.6);
@@ -91,7 +97,8 @@ a:hover {
 .btn {
   width: max-content;
   display: inline-block;
-  color: var(--color-primary);
+  /* color: var(--color-primary); */
+  color: var(--color-primary-linear);
   padding: 0.75rem 1.2rem;
   border-radius: 0.4rem;
   cursor: pointer;
@@ -106,7 +113,13 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--color-primary);
+  /* background: var(--color-primary); */
+
+  background: linear-gradient(
+    109.6deg,
+    rgb(157, 75, 199) 11.2%,
+    rgb(119, 81, 204) 83.1%
+  );
   color: var(--color-bg);
 }
 
