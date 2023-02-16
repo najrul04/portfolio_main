@@ -1,9 +1,9 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import React, { useEffect } from 'react';
-import { FaSass } from "react-icons/fa";
 import { FcSettings } from "react-icons/fc";
-import { SiBootstrap, SiCheckmarx, SiCss3, SiExpress, SiFirebase, SiHtml5, SiJavascript, SiMongodb, SiNodedotjs, SiPhp, SiReact, SiRedux, SiTailwindcss, SiTypescript } from "react-icons/si";
+import { SiBootstrap, SiCheckmarx, SiCss3, SiExpress, SiFirebase, SiHtml5, SiJavascript, SiMongodb, SiNodedotjs, SiPhp, SiReact, SiReactrouter, SiRedux, SiTailwindcss, SiTypescript } from "react-icons/si";
+import { TbBrandNextjs } from "react-icons/tb";
 import './Experience.css';
 
 const Experience = () => {
@@ -47,7 +47,7 @@ const Experience = () => {
               <div>
 
               <h4>HTML5</h4>
-              {/* <small className='text-light'>Experienced</small> */}
+              {/* <small className='text-light'>Mark Up Language</small> */}
 
               </div>
 
@@ -120,11 +120,11 @@ const Experience = () => {
 
             <article className='experience_details'>
 
-            <FaSass className='experience_details_icons'/>
+            <TbBrandNextjs className='experience_details_icons'/>
 
               <div>
 
-              <h4>Sass</h4>
+              <h4>Next JS</h4>
               {/* <small className='text-light'>Intermediate</small> */}
 
               </div>
@@ -151,6 +151,18 @@ const Experience = () => {
               <div>
 
               <h4>Redux</h4>
+              {/* <small className='text-light'>Intermediate</small> */}
+
+              </div>
+
+            </article>
+            <article className='experience_details'>
+
+            <SiReactrouter className='experience_details_icons'/>
+
+              <div>
+
+              <h4>React Router</h4>
               {/* <small className='text-light'>Intermediate</small> */}
 
               </div>

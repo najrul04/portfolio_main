@@ -9,6 +9,7 @@ import Nav from './components/nav/Nav';
 import Portfolio from './components/portfolio/Portfolio';
 // import Services from './components/services/Services'
 import './../src/framerMotion/framerMotion.css';
+// import Testimonials from "./components/testimonials/Testimonials";
 
 function Section({ children }) {
   const ref = useRef(null);

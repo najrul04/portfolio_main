@@ -1,19 +1,16 @@
 import React from 'react'
+import { default as client1, default as client2, default as client3, default as client4 } from '../../assets/2.jpg'
 import './Testimonials.css'
-import client1 from '../../assets/C1.jpg'
-import client2 from '../../assets/C1.jpg'
-import client3 from '../../assets/C1.jpg'
-import client4 from '../../assets/C1.jpg'
 
 // import Swiper core and required modules
-import { Pagination, Navigation } from 'swiper';
+import { Navigation, Pagination } from 'swiper'
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
-import 'swiper/css/navigation';
-import 'swiper/css';
-import 'swiper/css/pagination';
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 const data = [
 
@@ -61,7 +58,7 @@ const Testimonials = () => {
     <Swiper className="container testimonials_container" // install Swiper modules
       modules={[Navigation, Pagination]}
       spaceBetween={40}
-      slidesPerView={1}
+      slidesPerView={3}
       navigation
       pagination={{ clickable: true }}
       onSwiper={(swiper) => console.log(swiper)}
