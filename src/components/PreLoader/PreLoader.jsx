@@ -8,11 +8,13 @@ const PreLoader = () => {
     useEffect(() => {
       preLoaderAnim()
     }, [])
+
     
     return (
         <div className="preloader">
-            <div className="texts-container">
+            <div className='dna_container'>
             <Dna
+            
             visible={true}
             height="80"
             width="80"

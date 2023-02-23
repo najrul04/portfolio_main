@@ -31,7 +31,12 @@
 @media screen and (max-width: 1024px) {
   .preloader {
     height: 150vh;
-    width: 100%;
+    width: 96%;
+  }
+  .dna_container {
+    display: grid;
+    justify-content: center;
+    align-content: center;
   }
 }
 
@@ -39,7 +44,13 @@
 
 @media screen and (max-width: 600px) {
   .preloader {
-    height: 170vh;
+    height: 180vh;
+    margin-left: -31px;
     width: 100%;
+  }
+  .dna_container {
+    display: grid;
+    justify-content: center;
+    align-content: center;
   }
 }
