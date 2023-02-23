@@ -29,6 +29,10 @@
 /* ==================== Media Queries (Medium Devices) ======================= */
 
 @media screen and (max-width: 1024px) {
+  .preloader {
+    height: 150vh;
+    width: 100%;
+  }
 }
 
 /* ==================== Media Queries (Small Devices) ======================= */
@@ -37,7 +41,5 @@
   .preloader {
     height: 170vh;
     width: 100%;
-    z-index: 55;
-    left: 70;
   }
 }

@@ -1,19 +1,14 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import React, { useEffect } from 'react';
-import IMG1 from '../../assets/P1-E-Commerce.png';
-import IMG2 from '../../assets/P2-football.png';
-import IMG3 from '../../assets/P3-Pizza.png';
-import IMG4 from '../../assets/P4-Hospital.png';
-import IMG6 from '../../assets/p6-gamesSite.png';
-import IMG7 from '../../assets/p7-bike.png';
+// import IMG1 from '../../assets/P1-E-Commerce.png';
 import './Portfolio.css';
 
 const data = [
 
   {
     id: 1,
-    image: IMG1,
+    image: "https://i.ibb.co/j3JsHXt/P1-E-Commerce.png",
     title: 'Ecommerce (Demo)',
     github:'https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router',
     demo: 'https://ecommerce-79009.firebaseapp.com//'
@@ -21,7 +16,7 @@ const data = [
   {
 
     id: 2,
-    image: IMG2,
+    image: "https://i.ibb.co/k9X4ngJ/P2-football.png",
     title: 'Football School',
     github:"https://github.com/najrul04/educational-website1",
     demo: "https://football-school.netlify.app/"
@@ -29,7 +24,7 @@ const data = [
   },  {
 
     id: 6,
-    image: IMG6,
+    image: "https://i.ibb.co/hZBK03M/p6-games-Site.png",
     title: 'Games',
     github:"https://github.com/najrul04/react_recap/tree/main/car-services",
     demo: "https://games-mart.web.app/"
@@ -38,7 +33,7 @@ const data = [
   {
 
     id: 3,
-    image: IMG3,
+    image: "https://i.ibb.co/wgXC8P3/P3-Pizza.png",
     title: 'Pizza Place',
     github:"https://github.com/najrul04/pizza-delivery-server-side",
     demo: "https://pizza-delivery-ea5ce.web.app/"
@@ -47,7 +42,7 @@ const data = [
   {
 
     id: 4,
-    image: IMG4,
+    image: "https://i.ibb.co/X318Bcg/P4-Hospital.png",
     title: 'Hospital',
     github:"https://github.com/najrul04/healthcare-website",
     demo: "https://gen-hospital.netlify.app/"
@@ -66,7 +61,7 @@ const data = [
   {
 
     id: 7,
-    image: IMG7,
+    image: "https://i.ibb.co/BNNj44t/p7-bike.png",
     title: 'Bike',
     github:"https://github.com/najrul04/bike-website-client-side",
     demo: "https://best-bike.web.app/"
