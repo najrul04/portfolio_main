@@ -100,7 +100,7 @@ const Portfolio = () => {
 
                         <img className='card_image' src={image} alt={title} />
 
-                        <h3>{title}</h3>
+                        <h3 style={{marginLeft: '12px'}}>{title}</h3>
 
                         <div className="portfolio_item_cta">
 

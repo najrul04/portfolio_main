@@ -25,6 +25,7 @@
   border-radius: 1.5rem;
   overflow: hidden;
   border: 1px rgb(29, 11, 32) solid;
+  padding-top: 15px;
 }
 
 .card_image {
@@ -40,6 +41,7 @@ portfolio_item h3 {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
+  margin-left: 12px;
 }
 
 /* ==================== Media Queries (Medium Devices) ======================= */
