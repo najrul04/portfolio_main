@@ -6,10 +6,13 @@ const CTA = () => {
   return (
     <div className='cta'>
         <motion.a 
+        target="_blank"
         initial={{x: '-100vw'}}
         animate={{x: 0 }} 
         transition={{ type: 'spring', bounce:0.3, duration: 2 }}
-        href={Resume} download className='btn'>Download Resume</motion.a>
+        href={Resume} className='btn'>Download Resume
+        </motion.a>
+        
         <motion.a
       initial={{x: '100vw'}}
       animate={{x: 0 }} 
