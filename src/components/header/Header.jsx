@@ -12,8 +12,6 @@ import videoBg from "../../assets/video_portfolio/videoBg1.m4v";
 const Header = () => {
   return (
     <>
-    
-
      <header>
       <div className="container header_container">
        
@@ -22,8 +20,17 @@ const Header = () => {
    
 
         <div className="video_content">
-           <h5 className="threeD_portfolio"><a target="_blank" href="https://najrul.vercel.app/" rel="noreferrer">To see 3D Portfolio <br /><small>(Recommended to open with PC)</small></a></h5>
+
+        <h5 className="threeD_portfolio">
+          <a target="_blank" href="https://najrul.vercel.app/" rel="noreferrer">To see 3D Portfolio <br />
+            <small>
+              (Recommended to open with PC)
+            </small>
+          </a>
+        </h5>
+        
           <motion.h2
+
             className="static_header_name"
             initial={{ y: "-100vw" }}
             animate={{ y: 0 }}
@@ -47,7 +54,8 @@ const Header = () => {
           </h3>
 
           <CTA />
-          
+
+
       
         </div>
 
