@@ -109,7 +109,7 @@ const About = () => {
                }
              }}>
 
-            An ambitious, enthusiastic web developer is competent in JavaScript, Node JS, Express JS. Pixel perfect Responsive design using HTML, CSS, JavaScript with the help of its libraries like REACT JS, Bootstrap or Tailwind, or Material UI. For server-side Firebase, Node JS, Express JS, and Mongo DB for the database.
+            An ambitious, enthusiastic web developer who is competent in JavaScript, Node JS, Express JS. Pixel perfect Responsive design using HTML, CSS, JavaScript with the help of its libraries like REACT JS, Next JS, Bootstrap, Tailwind or Material UI. For server-side Firebase, Node JS, Express JS, and Mongo DB for the database.
 
             </motion.p>
 

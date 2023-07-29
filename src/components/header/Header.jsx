@@ -11,12 +11,18 @@ import videoBg from "../../assets/video_portfolio/videoBg1.m4v";
 
 const Header = () => {
   return (
-    <header>
+    <>
+    
+
+     <header>
       <div className="container header_container">
+       
         <div className="overlay"></div>
         <video autoPlay loop muted src={videoBg}></video>
+   
 
         <div className="video_content">
+           <h5 className="threeD_portfolio"><a target="_blank" href="https://najrul.vercel.app/" rel="noreferrer">To see 3D Portfolio <br /><small>(Recommended to open with PC)</small></a></h5>
           <motion.h2
             className="static_header_name"
             initial={{ y: "-100vw" }}
@@ -24,7 +30,7 @@ const Header = () => {
             transition={{ type: "spring", duration: 3 }}
           >
             Hello I'm{" "}
-          </motion.h2>
+          </motion.h2> 
 
           <h3
             style={{ color: "white", fontWeight: "bold", fontSize: "1.7rem" }}
@@ -41,6 +47,8 @@ const Header = () => {
           </h3>
 
           <CTA />
+          
+      
         </div>
 
         {/* <h5 className="text-light">Front End Developer</h5> */}
@@ -63,6 +71,8 @@ const Header = () => {
         */}
       </div>
     </header>
+    </>
+   
   );
 };
 
