@@ -40,7 +40,7 @@ const data = [
   {
 
       avatar: client3,
-      name: 'Christian Bale',
+      name: 'Safwan Rahman',
       review: "Extremely informative, attentive, and knowledgeable. Also very fast and thorough with his work!",
       title: "MLS of Mount Sinai Health System, USA"
 
@@ -66,7 +66,7 @@ const Testimonials = () => {
     <h5>Review from Clients</h5>
     <h2>Testimonials</h2>
 
-    <Swiper  data-aos="zoom-in" className="container testimonials_container" // install Swiper modules
+    <Swiper  data-aos="zoom-in-up" className="container testimonials_container" // install Swiper modules
       modules={[Navigation]}
       spaceBetween={30}
       slidesPerView={3}
