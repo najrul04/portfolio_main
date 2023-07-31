@@ -1,32 +1,36 @@
 import React from 'react'
-import { default as client1, default as client2, default as client3, default as client4 } from '../../assets/2.jpg'
+import client1 from '../../assets/client1.jpg'
+import client2 from '../../assets/client2.jpg'
+import client3 from '../../assets/client3.jpg'
 import './Testimonials.css'
 
 // import Swiper core and required modules
-import { Navigation, Pagination } from 'swiper'
+import { Navigation } from 'swiper'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
-import 'swiper/css/pagination'
+// import 'swiper/css/pagination'
 
 const data = [
 
   {
 
       avatar: client1,
-      name: 'Christian Bale',
-      review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur atque aut dolorem officiis quae mollitia! Doloremque quibusdam assumenda repellat inventore sed voluptatibus autem est ut cumque nesciunt, quod ducimus recusandae1111111111111111.'
+      name: 'Shameh Rahman',
+      review: "Very approachable and delivers the work reliably within the timelines maintaining good quality.",
+      title: "EIT of Syska Hennessy Group, USA"
 
   },
 
   {
 
       avatar: client2,
-      name: 'Christian Bale',
-      review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur atque aut dolorem officiis quae mollitia! Doloremque quibusdam assumenda repellat inventore sed voluptatibus autem est ut cumque nesciunt, quod ducimus recusandae2222222222222222222.'
+      name: 'Rimon Mustafa Kamal',
+      review: "I've never met a web developer who truly cares about their clients' success like Najrul does.",
+      title: "Businessman, Spain"
 
   },
 
@@ -34,15 +38,8 @@ const data = [
 
       avatar: client3,
       name: 'Christian Bale',
-      review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur atque aut dolorem officiis quae mollitia! Doloremque quibusdam assumenda repellat inventore sed voluptatibus autem est ut cumque nesciunt, quod ducimus recusandae33333333333333333333.'
-
-  },
-
-  {
-
-      avatar: client4,
-      name: 'Christian Bale',
-      review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur atque aut dolorem officiis quae mollitia! Doloremque quibusdam assumenda repellat inventore sed voluptatibus autem est ut cumque nesciunt, quod ducimus recusandae444444444444.'
+      review: "Extremely informative, attentive, and knowledgeable. Also very fast and thorough with his work!",
+      title: "MLS of Mount Sinai Health System, USA"
 
   }
 
@@ -56,17 +53,17 @@ const Testimonials = () => {
     <h2>Testimonials</h2>
 
     <Swiper className="container testimonials_container" // install Swiper modules
-      modules={[Navigation, Pagination]}
-      spaceBetween={40}
+      modules={[Navigation]}
+      spaceBetween={30}
       slidesPerView={3}
       navigation
-      pagination={{ clickable: true }}
+      // pagination={{ clickable: true }}
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}>
 
       {
 
-          data.map(({avatar, name, review}, index) => {
+          data.map(({avatar, name, review, title}, index) => {
 
             return(
 
@@ -78,12 +75,15 @@ const Testimonials = () => {
                 
               </div>
               
-              <h5 className='client_name'>{name}</h5>
+              <h4 className='client_name'>{name}</h4>
                 <small className='client_review'>
     
                  {review}
     
                 </small>
+                <h5 className='client_title'>
+                {title}
+                </h5>
     
             </SwiperSlide>
 

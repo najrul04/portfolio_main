@@ -10,6 +10,7 @@ import Portfolio from './components/portfolio/Portfolio';
 // import Services from './components/services/Services'
 import './../src/framerMotion/framerMotion.css';
 import PreLoader from "./components/PreLoader/PreLoader";
+import Testimonials from "./components/testimonials/Testimonials";
 // import Testimonials from "./components/testimonials/Testimonials";
 
 function Section({ children }) {
@@ -49,7 +50,7 @@ const App = () => {
       <Experience/>
       {/* <Services/> */}
       <Portfolio/>
-      {/* <Testimonials/> */}
+      <Testimonials/>
       <Contact/>
       <Footer/>
     

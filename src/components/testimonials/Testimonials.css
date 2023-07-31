@@ -26,6 +26,10 @@
 .client_name {
 }
 
+.client_title{
+  padding-top: 1rem;
+}
+
 .client_review {
   color: var(--color-light);
   font-weight: 300;
