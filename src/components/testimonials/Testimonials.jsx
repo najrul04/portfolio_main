@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useEffect }  from 'react'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+import { useInView } from 'react-intersection-observer';
 import client1 from '../../assets/client1.jpg'
 import client2 from '../../assets/client2.jpg'
 import client3 from '../../assets/client3.jpg'
@@ -46,13 +49,24 @@ const data = [
 ]
 
 const Testimonials = () => {
+  
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+    });
+  }, [])
+
+  const {ref, inView} = useInView({
+    threshold: 0.2
+  });
+  
   return (
-    <section id='testimonials'>
+    <section ref={ref} id='testimonials'>
 
     <h5>Review from Clients</h5>
     <h2>Testimonials</h2>
 
-    <Swiper className="container testimonials_container" // install Swiper modules
+    <Swiper  data-aos="zoom-in" className="container testimonials_container" // install Swiper modules
       modules={[Navigation]}
       spaceBetween={30}
       slidesPerView={3}
