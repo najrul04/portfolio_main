@@ -109,7 +109,7 @@ const About = () => {
                }
              }}>
 
-            An ambitious, enthusiastic web developer who is competent in JavaScript, Node JS, Express JS. Pixel perfect Responsive design using HTML, CSS, JavaScript with the help of its libraries like REACT JS, Next JS, Bootstrap, Tailwind or Material UI. For server-side Firebase, Node JS, Express JS, and Mongo DB for the database.
+            An ambitious, enthusiastic front-end React developer with expertise in HTML, CSS, and JavaScript, along with libraries like React JS, Next JS, Bootstrap, Tailwind, and Material UI. I'm well-versed in Firebase, Node JS, Express JS, and MongoDB for server-side development. I'm passionate about crafting captivating and responsive web applications that deliver seamless user experiences
 
             </motion.p>
 
