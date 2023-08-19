@@ -3,9 +3,6 @@
   padding-bottom: 4rem;
 }
 
-.testimonials_container {
-}
-
 .testimonial {
   background: var(--color-bg-variant);
   text-align: center;
@@ -23,10 +20,7 @@
   border: 0.4rem solid var(--color-primary-variant);
 }
 
-.client_name {
-}
-
-.client_title{
+.client_title {
   padding-top: 1rem;
 }
 
