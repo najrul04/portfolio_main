@@ -7,7 +7,7 @@ import HeaderSocials from "./HeaderSocials";
 // import { Typewriter } from 'react-simple-typewriter'
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import videoBg from "../../assets/video_portfolio/videoBg1.m4v";
+// import videoBg from "../../assets/video_portfolio/videoBg1.m4v";
 
 const Header = () => {
   return (
@@ -15,11 +15,10 @@ const Header = () => {
      <header>
       <div className="container header_container">
        
-        <div className="overlay"></div>
-        <video autoPlay loop muted src={videoBg}></video>
+        {/* <div className="overlay"></div> */}
+        {/* <video autoPlay loop muted src={videoBg}></video> */}
    
 
-        <div className="video_content">
 
         <h5 className="threeD_portfolio">
           <a target="_blank" href="https://najrul.vercel.app/" rel="noreferrer">To see 3D Portfolio <br />
@@ -29,35 +28,38 @@ const Header = () => {
           </a>
         </h5>
         
-          <motion.h2
+         <div className="header_info">
+              <motion.h2
 
-            className="static_header_name"
-            initial={{ y: "-100vw" }}
-            animate={{ y: 0 }}
-            transition={{ type: "spring", duration: 3 }}
-          >
-            Hello I'm{" "}
-          </motion.h2> 
+                className="static_header_name"
+                initial={{ y: "-100vw" }}
+                animate={{ y: 0 }}
+                transition={{ type: "spring", duration: 3 }}
+                >
+                Hello I'm{" "}
+                </motion.h2> 
 
-          <h3
-            style={{ color: "white", fontWeight: "bold", fontSize: "1.7rem" }}
-          >
-            {/* Style will be inherited from the parent element */}
+                <h3
+                style={{ color: "white", fontWeight: "bold", fontSize: "1.7rem" }}
+                >
+                {/* Style will be inherited from the parent element */}
 
-            <Typewriter
-              options={{
-                strings: ["Najrul", "React Developer"],
-                autoStart: true,
-                loop: true,
-              }}
-            />
-          </h3>
-
+                <Typewriter
+                  options={{
+                    strings: ["Najrul", "React Developer"],
+                    autoStart: true,
+                    loop: true,
+                  }}
+                />
+                </h3>
+      
           <CTA />
+
+         </div>
+
 
 
       
-        </div>
 
         {/* <h5 className="text-light">Front End Developer</h5> */}
 
