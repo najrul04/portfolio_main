@@ -88,7 +88,7 @@ await console.log(container);
                     number: {
                         density: {
                             enable: true,
-                            area: 800,
+                            area: 805,
                         },
                         value: 80,
                     },
