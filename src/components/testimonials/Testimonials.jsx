@@ -69,11 +69,21 @@ const Testimonials = () => {
     <Swiper  data-aos="zoom-in-up" className="container testimonials_container" // install Swiper modules
       modules={[Navigation]}
       spaceBetween={30}
-      slidesPerView={3}
-      navigation
-      // pagination={{ clickable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}>
+      navigation 
+      breakpoints={{
+        640: {
+          slidesPerView: 1
+        },
+        // Adjust the breakpoints to your desired screen widths
+        768: {
+          slidesPerView: 2, // Show 1 slide on screens with width 768px and below (mobile)
+        },
+        1024: {
+          slidesPerView: 3, // Show 3 slides on screens with width 1024px and above (desktop)
+        },
+      }}
+     
+      >
 
       {
 
