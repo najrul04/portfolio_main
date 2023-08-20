@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 // import videoBg from "../../assets/video_portfolio/videoBg1.m4v";
 import { useCallback } from "react";
-import Particles from "react-particles";
+import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 
 const Header = () => {
