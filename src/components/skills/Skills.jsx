@@ -4,9 +4,9 @@ import React, { useEffect } from 'react';
 import { FcSettings } from "react-icons/fc";
 import { SiBootstrap, SiCheckmarx, SiCss3, SiExpress, SiFirebase, SiHtml5, SiJavascript, SiMongodb, SiNodedotjs, SiPhp, SiReact, SiReactrouter, SiRedux, SiTailwindcss, SiTypescript } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
-import './Experience.css';
+import './Skills.css';
 
-const Experience = () => {
+const Skills = () => {
 
   useEffect(() => {
     AOS.init({
@@ -281,4 +281,4 @@ const Experience = () => {
   )
 }
 
-export default Experience
+export default Skills
