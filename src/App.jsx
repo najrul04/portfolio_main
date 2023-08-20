@@ -33,9 +33,11 @@ function Section({ children }) {
 }
 
 const App = () => {
+
   return (
     <>
     <PreLoader/>
+
     
      {/*  <Section><Header/></Section>
       <Section><Nav/></Section>
