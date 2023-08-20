@@ -16,13 +16,13 @@ const Skills = () => {
   
   return (
     <section
-   id='experience'>
+   id='skills'>
 
       {/* <h5>What Skill I have</h5> */}
       <h2>Skills</h2>
 
       <div 
-      className="container experience_container">
+      className="container skills_container">
 
         {/*
         
@@ -32,17 +32,17 @@ const Skills = () => {
         
         */}
 
-        <div data-aos="fade-right" className="experience_frontend">
+        <div data-aos="fade-right" className="skills_frontend">
 
           
         {/* ==================================== Frontend ================================ */}
 
           <h3>Frontend Development</h3>
-          <div className="experience_content">
+          <div className="skills_content">
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-              <SiHtml5 className='experience_details_icons'/>
+              <SiHtml5 className='skills_details_icons'/>
 
               <div>
 
@@ -53,22 +53,22 @@ const Skills = () => {
 
             </article>
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-            <SiCss3 className='experience_details_icons'/>
+            <SiCss3 className='skills_details_icons'/>
 
               <div>
 
               <h4>CSS3</h4>
-              {/* <small className='text-light'>Experienced</small> */}
+              {/* <small className='text-light'>skillsd</small> */}
 
               </div>
 
             </article>
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-            <SiJavascript className='experience_details_icons'/>
+            <SiJavascript className='skills_details_icons'/>
 
               <div>
 
@@ -79,9 +79,9 @@ const Skills = () => {
 
             </article>
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-            <SiTypescript className='experience_details_icons'/>
+            <SiTypescript className='skills_details_icons'/>
 
               <div>
 
@@ -92,22 +92,22 @@ const Skills = () => {
 
             </article>
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-            <SiBootstrap className='experience_details_icons'/>
+            <SiBootstrap className='skills_details_icons'/>
 
               <div>
 
               <h4>Bootstrap</h4>
-              {/* <small className='text-light'>Experienced</small> */}
+              {/* <small className='text-light'>skillsd</small> */}
 
               </div>
 
             </article>
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-            <SiTailwindcss className='experience_details_icons'/>
+            <SiTailwindcss className='skills_details_icons'/>
 
               <div>
 
@@ -118,9 +118,9 @@ const Skills = () => {
 
             </article>
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-            <TbBrandNextjs className='experience_details_icons'/>
+            <TbBrandNextjs className='skills_details_icons'/>
 
               <div>
 
@@ -131,9 +131,9 @@ const Skills = () => {
 
             </article>
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-            <SiReact className='experience_details_icons'/>
+            <SiReact className='skills_details_icons'/>
 
               <div>
 
@@ -144,9 +144,9 @@ const Skills = () => {
 
             </article>
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-            <SiRedux className='experience_details_icons'/>
+            <SiRedux className='skills_details_icons'/>
 
               <div>
 
@@ -156,9 +156,9 @@ const Skills = () => {
               </div>
 
             </article>
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-            <SiReactrouter className='experience_details_icons'/>
+            <SiReactrouter className='skills_details_icons'/>
 
               <div>
 
@@ -176,14 +176,14 @@ const Skills = () => {
         {/* ==================================== BackEnd ================================ */} 
 
 
-        <div data-aos="fade-left" className="experience_backend">
+        <div data-aos="fade-left" className="skills_backend">
 
         <h3>Backend Development</h3>
-          <div className="experience_content">
+          <div className="skills_content">
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-              <SiNodedotjs className='experience_details_icons'/>
+              <SiNodedotjs className='skills_details_icons'/>
 
               <div>
 
@@ -194,9 +194,9 @@ const Skills = () => {
 
             </article>
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-              <SiExpress className='experience_details_icons'/>
+              <SiExpress className='skills_details_icons'/>
 
               <div>
 
@@ -207,9 +207,9 @@ const Skills = () => {
 
             </article>
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-              <SiMongodb className='experience_details_icons'/>
+              <SiMongodb className='skills_details_icons'/>
 
               <div>
 
@@ -220,9 +220,9 @@ const Skills = () => {
 
             </article>
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-              <SiPhp className='experience_details_icons'/>
+              <SiPhp className='skills_details_icons'/>
 
               <div>
 
@@ -233,9 +233,9 @@ const Skills = () => {
 
             </article>
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-              <SiFirebase className='experience_details_icons'/>
+              <SiFirebase className='skills_details_icons'/>
 
               <div>
 
@@ -246,9 +246,9 @@ const Skills = () => {
 
             </article>
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-              <SiCheckmarx className='experience_details_icons'/>
+              <SiCheckmarx className='skills_details_icons'/>
 
               <div>
 
@@ -259,9 +259,9 @@ const Skills = () => {
 
             </article>
 
-            <article className='experience_details'>
+            <article className='skills_details'>
 
-              <FcSettings className='experience_details_icons'/>
+              <FcSettings className='skills_details_icons'/>
 
               <div>
 
