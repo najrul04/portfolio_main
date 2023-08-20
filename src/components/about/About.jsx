@@ -1,41 +1,26 @@
-import { motion, useAnimation } from 'framer-motion'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
 import React, { useEffect } from 'react'
-import { useInView } from 'react-intersection-observer'
 import Me from '../../assets/2.jpg'
 import './About.css'
 
 const About = () => {
 
-    const {ref, inView} = useInView({
-      threshold: 0.2
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
     });
-
-    const animation = useAnimation();
-
-    useEffect(() => {
-      if(inView){
-          animation.start({
-            x:0, 
-            transition: {
-              type: 'spring', duration: 3, bounce: 0.3
-            }
-          })
-      }
-      if(!inView){
-        animation.start({x: '-100vw'})
-      }
-    }, [inView]);
+  }, [])
 
   return (
-    <section
-    ref={ref} id='about'>
+    <section  data-aos="fade-up-left" id='about'>
       
       <h5>Get To Know</h5>
       <h2>About Me</h2>
 
-      <motion.div className="container about_container"
+      <div className="container about_container"
       
-      animate={animation}
 >
 
       {/* 
@@ -95,23 +80,11 @@ const About = () => {
  */}
             </div>
 
-            <motion.p 
-            initial={{ opacity: 0, scale: 0.5 }}
-             animate={{ opacity: 1, scale: 1 }}
-             transition={{
-               default: {
-                 duration: 7,
-                 ease: [0, 0.71, 0.2, 1.01]
-               },
-               scale: {
-                 type: "spring", 
-                 bounce:0.7
-               }
-             }}>
+            <p>
 
             An ambitious, enthusiastic front-end React developer with expertise in HTML, CSS, and JavaScript, along with libraries like React JS, Next JS, Bootstrap, Tailwind, and Material UI. I'm well-versed in Firebase, Node JS, Express JS, and MongoDB for server-side development. I'm passionate about crafting captivating and responsive web applications that deliver seamless user experiences
 
-            </motion.p>
+            </p>
 
             {/* 
             
@@ -131,23 +104,11 @@ const About = () => {
             
             */}
 
-            <motion.a 
-             initial={{ opacity: 0, scale: 0.5 }}
-             animate={{ opacity: 1, scale: 1 }}
-             transition={{
-               default: {
-                 duration: 5,
-                 ease: [0, 0.71, 0.2, 1.01]
-               },
-               scale: {
-                 type: "spring", 
-                 bounce:0.7
-               }
-             }}  href="#contact" className='btn btn-primary'>Let's Talk</motion.a>
+            <a href="#contact" className='btn btn-primary'>Let's Talk</a>
 
           </div>
 
-      </motion.div>
+      </div>
 
     </section>
   )
