@@ -10,6 +10,7 @@ import Portfolio from './components/portfolio/Portfolio';
 // import Services from './components/services/Services'
 import PreLoader from "./components/PreLoader/PreLoader";
 import Testimonials from "./components/testimonials/Testimonials";
+import Experience from './components/experience/Experience';
 // import Testimonials from "./components/testimonials/Testimonials";
 
 function Section({ children }) {
@@ -40,6 +41,7 @@ const App = () => {
       <Header/>
       <Nav/>
       <About/>
+      <Experience/>
       <Skills/>
       {/* <Services/> */}
       <Portfolio/>
