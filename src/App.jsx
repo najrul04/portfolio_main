@@ -1,4 +1,4 @@
-import { useInView } from "framer-motion";
+
 import React, { useRef } from 'react';
 import About from './components/about/About';
 import Contact from './components/contact/Contact';
@@ -8,7 +8,6 @@ import Header from './components/header/Header';
 import Nav from './components/nav/Nav';
 import Portfolio from './components/portfolio/Portfolio';
 // import Services from './components/services/Services'
-import './../src/framerMotion/framerMotion.css';
 import PreLoader from "./components/PreLoader/PreLoader";
 import Testimonials from "./components/testimonials/Testimonials";
 // import Testimonials from "./components/testimonials/Testimonials";
@@ -38,14 +37,6 @@ const App = () => {
     <>
     <PreLoader/>
 
-    
-     {/*  <Section><Header/></Section>
-      <Section><Nav/></Section>
-      <Section><About/></Section>
-      <Section><Experience/></Section>
-      <Section><Portfolio/></Section>
-      <Section><Contact/></Section>
-      <Section><Footer/></Section> */}
       <Header/>
       <Nav/>
       <About/>

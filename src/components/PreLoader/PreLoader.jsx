@@ -12,9 +12,12 @@ const PreLoader = () => {
     
     return (
         <div className="preloader">
-            <div className='dna_container'>
+            <div className='texts-container'>
+                <span>Dedicated,</span>
+                <span>Passionate,</span>
+                <span>Inquisitive</span>
             <Dna
-            
+             className='texts-container'
             visible={true}
             height="80"
             width="80"

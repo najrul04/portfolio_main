@@ -2,7 +2,7 @@
   height: 100vh;
   width: 100%;
   background: #000000;
-  color: #fff;
+  color: #ffffff;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -16,41 +16,34 @@
 
 .preloader .texts-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 50%;
-  width: 50vh;
+  height: 60px;
+  width: 33%;
   font-size: 20px;
   font-weight: 800;
   overflow: hidden;
-  color: #fff;
+  color: #61dbfb;
 }
 
 /* ==================== Media Queries (Medium Devices) ======================= */
 
 @media screen and (max-width: 1024px) {
   .preloader {
-    height: 150vh;
-    width: 96%;
+    display: none;
+    .dna_container {
+      display: none;
+    }
   }
-  .dna_container {
-    display: grid;
-    justify-content: center;
-    align-content: center;
-  }
-}
 
-/* ==================== Media Queries (Small Devices) ======================= */
+  /* ==================== Media Queries (Small Devices) ======================= */
 
-@media screen and (max-width: 600px) {
-  .preloader {
-    height: 180vh;
-    margin-left: -31px;
-    width: 100%;
-  }
-  .dna_container {
-    display: grid;
-    justify-content: center;
-    align-content: center;
+  @media screen and (max-width: 600px) {
+    .preloader {
+      display: none;
+    }
+    .dna_container {
+      display: none;
+    }
   }
 }
