@@ -16,13 +16,15 @@ const Footer = () => {
 
         <li><a href="#about">About</a></li>
 
+        <li><a href="#experience">Experience</a></li>
+
         <li><a href="#skills">Skills</a></li>
 
         {/* <li><a href="#services">Services</a></li> */}
 
         <li><a href="#portfolio">Portfolio</a></li>
 
-        {/* <li><a href="#testimonials">Testimonials</a></li> */}
+        <li><a href="#testimonials">Testimonials</a></li>
 
         <li><a href="#contact">Contact</a></li>
 
@@ -36,11 +38,11 @@ const Footer = () => {
         </div>
         <div
         whilehover={{scale:1.1}}>
-        <a href="https://www.linkedin.com/in/najrul-islam/" target="_blank" rel='noreferrer'><FaLinkedin/></a>
+        <a href="https://www.linkedin.com/in/najrul04/" target="_blank" rel='noreferrer'><FaLinkedin/></a>
         </div>
         <div
         whilehover={{scale:1.1}}>
-        <a href="https://www.instagram.com/nazrul_i04/?hl=en" target="_blank" rel='noreferrer'><GrInstagram/></a>
+        <a href="https://www.instagram.com/najrul04/?hl=en" target="_blank" rel='noreferrer'><GrInstagram/></a>
         </div>
         <div
         whilehover={{scale:1.1}}>
