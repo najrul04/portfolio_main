@@ -1,10 +1,86 @@
 import React from 'react'
+import { motion } from "framer-motion";
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import { experiences } from "../../constants";
+import { SectionWrapper } from "../../hoc";
+import { styles } from "../../styles.js";
+import { textVariant } from "../../utils/motion";
+
+
+const ExperienceCard = ({ experience }) => {
+  return (
+    <VerticalTimelineElement
+      contentStyle={{
+        background: "#1d1836",
+        color: "#f0f0f0",
+      }}
+      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      date={experience.date}
+      iconStyle={{ background: experience.iconBg }}
+      icon={
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          height: '100%'
+        }}>
+          <img
+            src={experience.icon}
+            alt={experience.company_name}
+            style={{ width: '80%', height: '80%', objectFit: 'contain' }}
+          />
+        </div>
+      }
+    >
+      <div>
+        <h3 style={{ color: 'white', fontSize: '24px', fontWeight: 'bold' }}>{experience.title}</h3>
+        <p
+          style={{ fontSize: '16px', fontWeight: '600', margin: 0  }}
+        >
+          {experience.company_name}
+        </p>
+      </div>
+
+      <ul style={{ marginTop: '1.25rem',  marginLeft: '1.25rem', marginTop: '0.5rem' }}>
+        {experience.points.map((point, index) => (
+          <li
+            key={`experience-point-${index}`}
+            style={{ color: '#fff', fontSize: '14px', listStyleType: 'disc', paddingLeft: '0.25rem', marginBottom: '0.50rem' }}
+          >
+            {point}
+          </li>
+        ))}
+      </ul>
+    </VerticalTimelineElement>
+  );
+};
+
 const Experience = () => {
   return (
-    <div>Experience</div>
-  )
-}
+    <>
+      <motion.div variants={textVariant()}>
+        <p style={{textAlign: "center"}}>
+          What I have done so far
+        </p>
+        <h2 style={{textAlign: "center", color: "#b86df5"}}>
+          Work Experience
+        </h2>
+      </motion.div>
 
-export default Experience
+      <div style={{marginTop: "5rem", display: 'flex', flexDirection:'column'}} >
+        <VerticalTimeline>
+          {experiences.map((experience, index) => (
+            <ExperienceCard
+              key={`experience-${index}`}
+              experience={experience}
+            />
+          ))}
+        </VerticalTimeline>
+      </div>
+    </>
+  );
+};
+
+export default SectionWrapper(Experience, "work");
