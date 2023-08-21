@@ -35,7 +35,7 @@ const ExperienceCard = ({ experience }) => {
       }
     >
       <div>
-        <h3 style={{ color: 'white', fontSize: '24px', fontWeight: 'bold' }}>{experience.title}</h3>
+        <h3 style={{ color: '#FFFFFF', fontSize: '24px', fontWeight: 'bold' }}>{experience.title}</h3>
         <p
           style={{ fontSize: '16px', fontWeight: '600', margin: 0  }}
         >
