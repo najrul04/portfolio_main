@@ -43,7 +43,7 @@ const ExperienceCard = ({ experience }) => {
         </p>
       </div>
 
-      <ul style={{ marginTop: '1.25rem',  marginLeft: '1.25rem', marginTop: '0.5rem' }}>
+      <ul style={{ marginTop: '1.25rem',  marginLeft: '1.25rem'}}>
         {experience.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}

@@ -186,7 +186,7 @@ header {
   .header_socials {
     display: flex;
     flex-direction: row;
-    top: -550px;
+    top: -500px;
   }
 
   .scroll_down {

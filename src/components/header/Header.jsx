@@ -117,7 +117,7 @@ await console.log(container);
 
 
         <h5 className="threeD_portfolio">
-          <a target="_blank" href="https://najrul.vercel.app/" rel="noreferrer">To see 3D Portfolio <br />
+          <a className="threeDPortfolio" target="_blank" href="https://najrul.vercel.app/" rel="noreferrer">To see 3D Portfolio <br />
             <small>
               (Recommended to open with PC)
             </small>
