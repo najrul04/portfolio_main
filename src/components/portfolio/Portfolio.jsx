@@ -8,63 +8,60 @@ const data = [
 
   {
     id: 1,
-    image: "https://i.ibb.co/j3JsHXt/P1-E-Commerce.png",
-    title: 'Ecommerce (Demo)',
-    github:'https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router',
-    demo: 'https://ecommerce-79009.firebaseapp.com//'
+    image: "https://i.ibb.co/BjchTy5/1.png",
+    title: 'Fitness World',
+    github:'https://github.com/najrul04/gym_fitness',
+    demo: 'https://web-fitness.netlify.app/',
+    tag: '#ReactJS #RapidAPI #Material UI'
   },
   {
 
     id: 2,
-    image: "https://i.ibb.co/k9X4ngJ/P2-football.png",
-    title: 'Football School',
-    github:"https://github.com/najrul04/educational-website1",
-    demo: "https://football-school.netlify.app/"
+    image: "https://i.ibb.co/zrd9L6x/2.png",
+    title: 'Real Estate',
+    github:"https://github.com/najrul04/real_estate",
+    demo: "https://real-estate-zeta-lemon.vercel.app/",
+    tag: '#NextJS #ChakraUI #RapidAPI'
 
   },  {
 
-    id: 6,
-    image: "https://i.ibb.co/hZBK03M/p6-games-Site.png",
-    title: 'Games',
-    github:"https://github.com/najrul04/react_recap/tree/main/car-services",
-    demo: "https://games-mart.web.app/"
-
-  },
-  {
-
     id: 3,
-    image: "https://i.ibb.co/wgXC8P3/P3-Pizza.png",
-    title: 'Pizza Place',
-    github:"https://github.com/najrul04/pizza-delivery-server-side",
-    demo: "https://pizza-delivery-ea5ce.web.app/"
+    image: "https://i.ibb.co/FJTvCw4/3.png",
+    title: 'Game Info',
+    github:"https://github.com/najrul04/react_recap/tree/main/car-services",
+    demo: "https://games-mart.web.app/",
+    tag: '#ReactJS #Bootstrap #Firebase'
 
   },
   {
 
     id: 4,
-    image: "https://i.ibb.co/X318Bcg/P4-Hospital.png",
+    image: "https://i.ibb.co/kVTHgJn/5.png",
     title: 'Hospital',
     github:"https://github.com/najrul04/healthcare-website",
-    demo: "https://gen-hospital.netlify.app/"
+    demo: "https://gen-hospital.netlify.app/",
+    tag: '#ReactJS #Firebase #MongoDB'
 
   },
-  /* {
+  {
 
     id: 5,
-    image: IMG5,
-    title: 'WordPress Website',
-    // github:"https://github.com/achille04/healthcare-website",
-    demo: "https://superfuturebrands.com/"
+    image: "https://i.ibb.co/4FRZRhJ/6.png",
+    title: 'ECommerce (Demo)',
+    github:"https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router",
+    demo: "https://ecommerce-79009.firebaseapp.com/",
+    tag: '#ReactJS #ReactRouter #Firebase'
 
-  }, */
+  },
 
   {
 
-    id: 7,
-    image: "https://i.ibb.co/BNNj44t/p7-bike.png",
-    title: 'Bike',
-    github:"https://github.com/najrul04/bike-website-client-side",
-    demo: "https://best-bike.web.app/"
+    id: 6,
+    image: "https://i.ibb.co/FD0NpSw/imgonline-com-ua-resize-L4-Qp-LAb-J4-XIHoli.png",
+    title: 'Temperature',
+    github:"https://github.com/najrul04/temperature",
+    demo: "https://temperature123.netlify.app/",
+    tag: '#HTML #CSS #JavaScript'
 
   }
 
@@ -88,7 +85,7 @@ const Portfolio = () => {
 
         {
 
-            data.map(({id, image, title, github, demo}) => {
+            data.map(({id, image, title, github, demo, tag}) => {
 
                 return(
 
@@ -108,6 +105,8 @@ const Portfolio = () => {
                         <a href={demo} rel='noreferrer' className='btn btn-primary' target="_blank">Live Demo</a>
 
                         </div>
+                        
+                        <p className='tag_css'>{tag}</p>
                       </div>
 
                     </article>

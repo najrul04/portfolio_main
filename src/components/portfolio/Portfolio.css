@@ -44,6 +44,15 @@ portfolio_item h3 {
   margin-left: 12px;
 }
 
+.tag_css {
+  font-size: 12px;
+  font-weight: bold;
+  word-spacing: 3px;
+  margin-left: 12px;
+  padding-bottom: 3px;
+  color: rgb(96, 95, 133);
+}
+
 /* ==================== Media Queries (Medium Devices) ======================= */
 
 @media screen and (max-width: 1024px) {
