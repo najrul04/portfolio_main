@@ -35,6 +35,8 @@
   --container-width-lg: 75%;
   --container-width-md: 86%;
   --container-width-sm: 90%;
+
+  overflow-x: hidden;
 }
 
 html {
@@ -50,6 +52,7 @@ body {
   background: var(--color-bg);
   color: var(--color-white);
   line-height: 1.7;
+  overflow-x: hidden;
 
   /* background-image: url(../src/assets/bg-texture.png); */
 }
@@ -152,6 +155,7 @@ img {
 @media screen and (max-width: 600px) {
   .container {
     width: var(--container-width-sm);
+    overflow-block: hidden;
   }
 
   section > h2 {
