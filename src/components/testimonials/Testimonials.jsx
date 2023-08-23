@@ -41,16 +41,6 @@ const data = [
       title: "MLS of Mount Sinai Health System, USA"
 
   }
-  ,
-
-  {
-
-      avatar: "https://i.ibb.co/fQnWyHZ/client3.jpg",
-      name: 'Safwan Rahman',
-      review: "Extremely informative, attentive, and knowledgeable. Also very fast and thorough with his work!",
-      title: "MLS of Mount Sinai Health System, USA"
-
-  }
 
 ]
 
