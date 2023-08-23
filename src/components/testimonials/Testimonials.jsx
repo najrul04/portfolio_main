@@ -30,7 +30,18 @@ const data = [
       review: "I've never met a web developer who truly cares about their clients' success like Najrul does.",
       title: "Businessman, Spain"
 
-  },
+  }
+  ,
+
+  {
+
+      avatar: "https://i.ibb.co/fQnWyHZ/client3.jpg",
+      name: 'Safwan Rahman',
+      review: "Extremely informative, attentive, and knowledgeable. Also very fast and thorough with his work!",
+      title: "MLS of Mount Sinai Health System, USA"
+
+  }
+  ,
 
   {
 
@@ -62,6 +73,7 @@ const Testimonials = () => {
     <h2>Testimonials</h2>
 
     <Swiper  data-aos="zoom-in-up" className="container testimonials_container" // install Swiper modules
+      style={{overflowX: "visible"}}
       modules={[Navigation]}
       spaceBetween={30}
       navigation 
