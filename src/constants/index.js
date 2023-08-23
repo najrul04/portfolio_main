@@ -1,4 +1,4 @@
-import { vectorDesign, phero, invent } from "../assets";
+import { vectorDesign, phero, invent, client1, client2, client3, project1, project2, project3, project4, project5, project6 } from "../assets";
 
 const experiences = [
   {
@@ -45,5 +45,97 @@ const experiences = [
     ],
   },
 ];
-export { experiences};
+
+const clients = [
+  {
+
+    avatar: "https://i.ibb.co/Q9v3P8w/client1.jpg",
+    name: 'Shameh Rahman',
+    review: "Very approachable and delivers the work reliably within the timelines maintaining good quality.",
+    title: "EIT of Syska Hennessy Group, USA"
+
+},
+
+{
+
+    avatar: "https://i.ibb.co/2hmhqK5/client2.jpg",
+    name: 'Rimon Mustafa Kamal',
+    review: "I've never met a web developer who truly cares about their clients' success like Najrul does.",
+    title: "Businessman, Spain"
+
+}
+,
+
+{
+
+    avatar: "https://i.ibb.co/fQnWyHZ/client3.jpg",
+    name: 'Safwan Rahman',
+    review: "Extremely informative, attentive, and knowledgeable. Also very fast and thorough with his work!",
+    title: "MLS of Mount Sinai Health System, USA"
+
+}
+];
+
+const projects = [
+  {
+    id: 1,
+    image: "https://i.ibb.co/BjchTy5/1.png",
+    title: 'Fitness World',
+    github:'https://github.com/najrul04/gym_fitness',
+    demo: 'https://web-fitness.netlify.app/',
+    tag: '#ReactJS #RapidAPI #Material UI'
+  },
+  {
+
+    id: 2,
+    image: "https://i.ibb.co/zrd9L6x/2.png",
+    title: 'Real Estate',
+    github:"https://github.com/najrul04/real_estate",
+    demo: "https://real-estate-zeta-lemon.vercel.app/",
+    tag: '#NextJS #ChakraUI #RapidAPI'
+
+  },  {
+
+    id: 3,
+    image: "https://i.ibb.co/FJTvCw4/3.png",
+    title: 'Game Info',
+    github:"https://github.com/najrul04/react_recap/tree/main/car-services",
+    demo: "https://games-mart.web.app/",
+    tag: '#ReactJS #Bootstrap #Firebase'
+
+  },
+  {
+
+    id: 4,
+    image: "https://i.ibb.co/kVTHgJn/5.png",
+    title: 'Hospital',
+    github:"https://github.com/najrul04/healthcare-website",
+    demo: "https://gen-hospital.netlify.app/",
+    tag: '#ReactJS #Firebase #MongoDB'
+
+  },
+  {
+
+    id: 5,
+    image: "https://i.ibb.co/4FRZRhJ/6.png",
+    title: 'ECommerce (Demo)',
+    github:"https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router",
+    demo: "https://ecommerce-79009.firebaseapp.com/",
+    tag: '#ReactJS #ReactRouter #Firebase'
+
+  },
+
+  {
+
+    id: 6,
+    image: "https://i.ibb.co/FD0NpSw/imgonline-com-ua-resize-L4-Qp-LAb-J4-XIHoli.png",
+    title: 'Temperature',
+    github:"https://github.com/najrul04/temperature",
+    demo: "https://temperature123.netlify.app/",
+    tag: '#HTML #CSS #JavaScript'
+
+  }
+];
+
+export { experiences, clients, projects};
 

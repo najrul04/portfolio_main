@@ -5,6 +5,10 @@ import { useInView } from 'react-intersection-observer';
 import './Testimonials.css'
 import { Navigation } from 'swiper'
 
+import  client1  from "../../assets/clients/client1.jpg";
+import  client2  from "../../assets/clients/client2.jpg";
+import  client3  from "../../assets/clients/client3.jpg";
+
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
@@ -15,8 +19,8 @@ import 'swiper/css/navigation'
 const data = [
 
   {
-
-      avatar: "https://i.ibb.co/Q9v3P8w/client1.jpg",
+      index: 1,
+      avatar: client1,
       name: 'Shameh Rahman',
       review: "Very approachable and delivers the work reliably within the timelines maintaining good quality.",
       title: "EIT of Syska Hennessy Group, USA"
@@ -25,20 +29,22 @@ const data = [
 
   {
 
-      avatar: "https://i.ibb.co/2hmhqK5/client2.jpg",
-      name: 'Rimon Mustafa Kamal',
-      review: "I've never met a web developer who truly cares about their clients' success like Najrul does.",
-      title: "Businessman, Spain"
+    index: 2,
+      avatar: client2,
+      name: 'Safwan Rahman',
+      review: "Extremely informative, attentive, and knowledgeable. Also very fast and thorough with his work!",
+      title: "MLS of Mount Sinai Health System, USA"
 
   }
   ,
 
   {
 
-      avatar: "https://i.ibb.co/fQnWyHZ/client3.jpg",
-      name: 'Safwan Rahman',
-      review: "Extremely informative, attentive, and knowledgeable. Also very fast and thorough with his work!",
-      title: "MLS of Mount Sinai Health System, USA"
+    index: 3,
+      avatar: client3,
+      name: 'Rimon Mustafa Kamal',
+      review: "I've never met a web developer who truly cares about their clients' success like Najrul does.",
+      title: "Businessman, Spain"
 
   }
 

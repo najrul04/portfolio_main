@@ -4,11 +4,18 @@ import React, { useEffect } from 'react';
 // import IMG1 from '../../assets/P1-E-Commerce.png';
 import './Portfolio.css';
 
+import  client1  from "../../assets/projects/1.png";
+import  client2  from "../../assets/projects/2.png";
+import  client3  from "../../assets/projects/3.png";
+import  client4  from "../../assets/projects/4.png";
+import  client5  from "../../assets/projects/5.png";
+import  client6  from "../../assets/projects/6.png";
+
 const data = [
 
   {
     id: 1,
-    image: "https://i.ibb.co/BjchTy5/1.png",
+    image: client1,
     title: 'Fitness World',
     github:'https://github.com/najrul04/gym_fitness',
     demo: 'https://web-fitness.netlify.app/',
@@ -17,7 +24,7 @@ const data = [
   {
 
     id: 2,
-    image: "https://i.ibb.co/zrd9L6x/2.png",
+    image: client2,
     title: 'Real Estate',
     github:"https://github.com/najrul04/real_estate",
     demo: "https://real-estate-zeta-lemon.vercel.app/",
@@ -26,7 +33,7 @@ const data = [
   },  {
 
     id: 3,
-    image: "https://i.ibb.co/FJTvCw4/3.png",
+    image: client3,
     title: 'Game Info',
     github:"https://github.com/najrul04/react_recap/tree/main/car-services",
     demo: "https://games-mart.web.app/",
@@ -36,7 +43,7 @@ const data = [
   {
 
     id: 4,
-    image: "https://i.ibb.co/kVTHgJn/5.png",
+    image: client4,
     title: 'Hospital',
     github:"https://github.com/najrul04/healthcare-website",
     demo: "https://gen-hospital.netlify.app/",
@@ -46,7 +53,7 @@ const data = [
   {
 
     id: 5,
-    image: "https://i.ibb.co/4FRZRhJ/6.png",
+    image: client5,
     title: 'ECommerce (Demo)',
     github:"https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router",
     demo: "https://ecommerce-79009.firebaseapp.com/",
@@ -57,7 +64,7 @@ const data = [
   {
 
     id: 6,
-    image: "https://i.ibb.co/FD0NpSw/imgonline-com-ua-resize-L4-Qp-LAb-J4-XIHoli.png",
+    image: client6,
     title: 'Temperature',
     github:"https://github.com/najrul04/temperature",
     demo: "https://temperature123.netlify.app/",
