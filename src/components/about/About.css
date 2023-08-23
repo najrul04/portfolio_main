@@ -10,6 +10,7 @@
 
 .about_me {
   width: 100%;
+  height: 100%;
   aspect-ratio: 1/1;
   border-radius: 2rem;
   background: linear-gradient(
@@ -23,11 +24,21 @@
 }
 
 .about_me_image {
+  height: 100%;
   border-radius: 2rem;
   overflow: hidden;
-  transform: rotate(-10deg);
-  transition: var(--transition);
+  /* transform: rotate(-10deg);
+  transition: var(--transition); */
 }
+
+/* 
+
+.about_me_image {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  overflow: hidden;
+} */
 
 .about_me_image:hover {
   transform: rotate(0);

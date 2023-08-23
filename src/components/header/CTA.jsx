@@ -10,7 +10,7 @@ const CTA = () => {
         initial={{x: '-100vw'}}
         animate={{x: 0 }} 
         transition={{ type: 'spring', bounce:0.3, duration: 2 }}
-        href={Resume} download="Resume.pdf" className='btn'>Download Resume
+        href={Resume} download="Resume.pdf" className='download_btn'>Download Resume
         </motion.a>
         
         <motion.a
