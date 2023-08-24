@@ -39,14 +39,22 @@ const App = () => {
     <PreLoader/>
 
       <Header/>
+      
       <Nav/>
+
       <About/>
+
       <Experience/>
+
       <Skills/>
+
       {/* <Services/> */}
       <Portfolio/>
+
       <Testimonials/>
+
       <Contact/>
+
       <Footer/>
     
     </>
