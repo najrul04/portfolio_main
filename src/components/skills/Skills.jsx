@@ -24,13 +24,6 @@ const Skills = () => {
       <div 
       className="container skills_container">
 
-        {/*
-        
-      initial={{x: '-100vw'}}
-      animate={{x: 0 }} 
-      transition={{ type: 'spring', bounce:0.3, duration: 2 }}  
-        
-        */}
 
         <div data-aos="fade-right" className="skills_frontend">
 

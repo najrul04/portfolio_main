@@ -25,7 +25,6 @@ const PreLoader = () => {
             wrapperStyle={{}}
             wrapperClass="dna-wrapper"
             />
-            {/* <img src={Me} alt="AboutPicture" /> */}
             </div>
         </div>
     );

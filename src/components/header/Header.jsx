@@ -110,11 +110,6 @@ await console.log(container);
 
       <div className="container header_container">   
 
-       
-        {/* <div className="overlay"></div> */}
-        {/* <video autoPlay loop muted src={videoBg}></video> */}
-   
-
 
         <h5 className="threeD_portfolio">
           <a className="threeDPortfolio" target="_blank" href="https://najrul.vercel.app/" rel="noreferrer">To see 3D Portfolio <br />
@@ -153,28 +148,12 @@ await console.log(container);
 
          </div>
 
-
-
-      
-
-        {/* <h5 className="text-light">Front End Developer</h5> */}
-
         <HeaderSocials />
 
         <a href="#contact" className="scroll_down">
           <AiOutlineCaretDown />
         </a>
 
-        {/*  
-       
-       <div className="me">
-
-          <img src={ME} alt="MyPhoto" ></img>
-
-
-        </div>
-        
-        */}
       </div>
     </header>
     </>
