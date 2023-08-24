@@ -27,18 +27,7 @@
   height: 100%;
   border-radius: 2rem;
   overflow: hidden;
-  /* transform: rotate(-10deg);
-  transition: var(--transition); */
 }
-
-/* 
-
-.about_me_image {
-  height: 100%;
-  width: 100%;
-  border-radius: 2rem;
-  overflow: hidden;
-} */
 
 .about_me_image:hover {
   transform: rotate(0);
@@ -54,7 +43,7 @@
   background: var(--color-bg-variant);
   border: 1px solid transparent;
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
   transition: var(--transition);
 }
@@ -81,7 +70,7 @@
 }
 
 .about_content p {
-  margin: 2rem 0 2.6rem;
+  margin: 1rem 0 1rem;
   color: var(--color-light);
 }
 
@@ -118,6 +107,7 @@
 
   .about_content {
     text-align: center;
+    margin-top: 1rem;
   }
 
   .about_content p {
