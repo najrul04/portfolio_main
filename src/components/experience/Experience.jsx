@@ -14,11 +14,12 @@ const ExperienceCard = ({ experience }) => {
       style={{overflowX : "hidden"}}
       contentStyle={{
         background: "#1d1836",
-        color: "#f0f0f0",
+        color: "#f0f0f0"
       }}
       contentArrowStyle={{ borderRight: "7px solid  #232631" }}
       date={experience.date}
-      iconStyle={{ background: experience.iconBg }}
+      iconStyle={{ background: experience.iconBg,
+        marginTop: "5px" }}
       icon={
         <div style={{
           display: 'flex',
