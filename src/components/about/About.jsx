@@ -16,8 +16,9 @@ const About = () => {
   }, [])
 
   return (
-    <section  data-aos="fade-up-left" id='about'>
+    <section className='about_section' data-aos="fade-up-left" id='about'>
       
+
       <h5>Get To Know</h5>
       <h2>About Me</h2>
 

@@ -36,7 +36,7 @@ await console.log(container);
             id="tsparticles"
             init={particlesInit}
             loaded={particlesLoaded}
-            width="100vw" height="100vh"
+            width="100vw" height="100vw"
             options={{ 
               fullScreen: {
               enable: false
@@ -102,6 +102,7 @@ await console.log(container);
                         value: { min: 1, max: 5 },
                     },
                 },
+
                 detectRetina: true,
             }}
             
