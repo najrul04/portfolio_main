@@ -129,8 +129,11 @@ await console.log(container);
                 >
                 Hello I'm{" "}
                 
+                </motion.h2> 
+
                 <h3
                 style={{ color: "white", fontWeight: "bold", fontSize: "1.7rem" }}
+                
                 >
                 {/* Style will be inherited from the parent element */}
 
@@ -142,7 +145,6 @@ await console.log(container);
                   }}
                 />
                 </h3>
-                </motion.h2> 
 
                 
       
