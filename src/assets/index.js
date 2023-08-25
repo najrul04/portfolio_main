@@ -1,7 +1,7 @@
 // Company
-import invent from "./company/invent.jpg";
-import phero from "./company/phero.jpg";
-import vectorDesign from "./company/vectorDesign.jpg";
+import invent from "./company/invent.webp";
+import phero from "./company/phero.webp";
+import vectorDesign from "./company/vectorDesign.webp";
 
 
 

@@ -1,7 +1,7 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import React, { useEffect } from 'react'
-import Me from '../../assets/2.jpg'
+import Me from '../../assets/me.webp'
 import './About.css'
 import { FiAward, FiUsers } from "react-icons/fi";
 import { ImFolderPlus } from "react-icons/im";

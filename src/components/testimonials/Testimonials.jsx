@@ -5,9 +5,9 @@ import { useInView } from 'react-intersection-observer';
 import './Testimonials.css'
 import { Navigation } from 'swiper'
 
-import  client1  from "../../assets/clients/client1.jpg";
-import  client2  from "../../assets/clients/client2.jpg";
-import  client3  from "../../assets/clients/client3.jpg";
+import  client1  from "../../assets/clients/client1.webp";
+import  client2  from "../../assets/clients/client2.webp";
+import  client3  from "../../assets/clients/client3.webp";
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 

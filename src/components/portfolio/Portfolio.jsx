@@ -4,12 +4,12 @@ import React, { useEffect } from 'react';
 // import IMG1 from '../../assets/P1-E-Commerce.png';
 import './Portfolio.css';
 
-import  client1  from "../../assets/projects/1.png";
-import  client2  from "../../assets/projects/2.png";
-import  client3  from "../../assets/projects/3.png";
-import  client4  from "../../assets/projects/4.png";
-import  client5  from "../../assets/projects/5.png";
-import  client6  from "../../assets/projects/6.png";
+import  client1  from "../../assets/projects/1.webp";
+import  client2  from "../../assets/projects/2.webp";
+import  client3  from "../../assets/projects/3.webp";
+import  client4  from "../../assets/projects/4.webp";
+import  client5  from "../../assets/projects/5.webp";
+import  client6  from "../../assets/projects/6.webp";
 
 const data = [
 
