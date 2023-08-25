@@ -85,6 +85,58 @@ header {
   font-size: 1.3rem;
 }
 
+.scroll_down_button {
+}
+
+.scroll-down {
+  height: 50px;
+  width: 30px;
+  border: 2px solid #b86df5;
+  position: absolute;
+  left: 50%;
+  top: 150%;
+  bottom: 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: none;
+}
+.scroll-down::before,
+.scroll-down::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  height: 10px;
+  width: 10px;
+  transform: translate(-50%, -100%) rotate(45deg);
+  border: 2px solid #b86df5;
+  border-top: transparent;
+  border-left: transparent;
+  animation: scroll-down 1s ease-in-out infinite;
+}
+.scroll-down::before {
+  top: 30%;
+  animation-delay: 0.3s;
+  /* animation: scroll-down 1s ease-in-out infinite; */
+}
+
+@keyframes scroll-down {
+  0% {
+    /* top:20%; */
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    top: 90%;
+    opacity: 0;
+  }
+}
+
 /* ==================== Media Queries (Medium Devices) ======================= */
 
 @media screen and (max-width: 1024px) {
@@ -102,6 +154,10 @@ header {
   }
   .header_socials {
     top: 400px;
+  }
+  .scroll-down {
+    display: block;
+    top: 200%;
   }
 }
 
@@ -132,5 +188,9 @@ header {
   }
   .threeD_portfolio {
     font-size: 12px;
+  }
+  .scroll-down {
+    display: block;
+    top: 160%;
   }
 }
