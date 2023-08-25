@@ -6,11 +6,13 @@ import { experiences } from "../../constants";
 import { SectionWrapper } from "../../hoc";
 import { styles } from "../../styles.js";
 import { textVariant } from "../../utils/motion";
+import './Experience.css'
 
 
 const ExperienceCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
+    className='verticalTimeline'
       style={{overflowX : "hidden"}}
       contentStyle={{
         background: "#030618",
