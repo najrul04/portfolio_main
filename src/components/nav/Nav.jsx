@@ -56,6 +56,7 @@ const Nav = () => {
         transition={{ type: 'spring', bounce: 0.3, duration: 3 }}
       >
         <a
+          title="Home"
           href="#"
           onClick={() => setActiveNav('#')}
           className={activeNav === '#' ? 'active' : ''}
@@ -63,6 +64,7 @@ const Nav = () => {
           <AiOutlineHome />
         </a>
         <a
+          title="About Me"
           href="#about"
           onClick={() => setActiveNav('#about')}
           className={activeNav === '#about' ? 'active' : ''}
@@ -70,6 +72,7 @@ const Nav = () => {
           <AiOutlineUser />
         </a>
         <a
+          title="Experience"
           href="#experience"
           onClick={() => setActiveNav('#experience')}
           className={activeNav === '#experience' ? 'active' : ''}
@@ -77,6 +80,7 @@ const Nav = () => {
           <AiOutlineRocket />
         </a>
         <a
+          title="Skills"
           href="#skills"
           onClick={() => setActiveNav('#skills')}
           className={activeNav === '#skills' ? 'active' : ''}
@@ -84,6 +88,7 @@ const Nav = () => {
           <BiBook />
         </a>
         <a
+          title="Portfolio"
           href="#portfolio"
           onClick={() => setActiveNav('#portfolio')}
           className={activeNav === '#portfolio' ? 'active' : ''}
@@ -91,6 +96,7 @@ const Nav = () => {
           <RiServiceFill />
         </a>
         <a
+          title="Contact"
           href="#contact"
           onClick={() => setActiveNav('#contact')}
           className={activeNav === '#contact' ? 'active' : ''}
