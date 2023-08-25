@@ -146,7 +146,7 @@ await console.log(container);
                 />
                 </h3>
 
-                <a>
+                <a href="#about">
                 <div class="scroll-down"></div>
                 </a>
       

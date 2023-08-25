@@ -96,6 +96,7 @@ header {
   bottom: 20px;
   border-radius: 50px;
   cursor: pointer;
+  display: none;
 }
 .scroll-down::before,
 .scroll-down::after {
@@ -184,6 +185,7 @@ header {
   }
   .scroll-down {
     display: block;
-    top: 160%;
+    top: 150%;
+    left: 45%;
   }
 }
