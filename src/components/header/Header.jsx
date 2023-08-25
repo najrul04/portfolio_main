@@ -109,7 +109,7 @@ await console.log(container);
 
 
       <div className="container header_container">   
-
+{/* 
 
         <h5 className="threeD_portfolio">
           <a className="threeDPortfolio" target="_blank" href="https://najrul.vercel.app/" rel="noreferrer">To see 3D Portfolio <br />
@@ -117,7 +117,7 @@ await console.log(container);
               (Recommended to open with PC)
             </small>
           </a>
-        </h5>
+        </h5> */}
         
          <div className="header_info">
               <motion.h2
@@ -128,8 +128,7 @@ await console.log(container);
                 transition={{ type: "spring", duration: 3 }}
                 >
                 Hello I'm{" "}
-                </motion.h2> 
-
+                
                 <h3
                 style={{ color: "white", fontWeight: "bold", fontSize: "1.7rem" }}
                 >
@@ -137,12 +136,15 @@ await console.log(container);
 
                 <Typewriter
                   options={{
-                    strings: ["Najrul", "React Developer"],
+                    strings: ["Najrul", "a React Developer"],
                     autoStart: true,
                     loop: true,
                   }}
                 />
                 </h3>
+                </motion.h2> 
+
+                
       
           <CTA />
 
