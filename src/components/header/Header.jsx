@@ -36,7 +36,7 @@ await console.log(container);
             id="tsparticles"
             init={particlesInit}
             loaded={particlesLoaded}
-            width="100vw" height="100vw"
+            width="100vw" height="100vh"
             options={{ 
               fullScreen: {
               enable: false
