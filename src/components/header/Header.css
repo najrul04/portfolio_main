@@ -115,7 +115,6 @@ header {
 .scroll-down::before {
   top: 30%;
   animation-delay: 0.3s;
-  /* animation: scroll-down 1s ease-in-out infinite; */
 }
 
 @keyframes scroll-down {
