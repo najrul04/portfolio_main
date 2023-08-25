@@ -191,6 +191,10 @@ header {
   }
   .scroll-down {
     display: block;
-    top: 160%;
+    position: absolute; /* Change the position to absolute */
+    bottom: 20px; /* Adjust the bottom position as needed */
+    left: 50%; /* Set the left position to 50% */
+    transform: translateX(-50%); /* Horizontally center-align */
+    top: 150%;
   }
 }
