@@ -140,7 +140,7 @@ await console.log(container);
 
                 <Typewriter
                   options={{
-                    strings: ["Najrul", "a React Developer"],
+                    strings: ["Najrul", "a Front End React Developer"],
                     autoStart: true,
                     loop: true,
                   }}
