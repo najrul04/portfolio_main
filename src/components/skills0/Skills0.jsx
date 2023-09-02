@@ -131,8 +131,8 @@ const Skills = () => {
   }, [])
 
   return (
-    <section data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" >
-      <Container id="skills">
+    <section id="skills" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" >
+      <Container>
       <Wrapper>
         
       <h5 style={{color: "rgba(255, 255, 255, 0.6)"}}>What are my</h5>

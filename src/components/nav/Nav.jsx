@@ -22,7 +22,7 @@ const Nav = () => {
         '#': 0, // Home
         '#about': document.getElementById('about').offsetTop,
         '#experience': document.getElementById('experience').offsetTop,
-        '#skills': document.getElementById('skills').offsetTop,
+        '#skills0': document.getElementById('skills0').offsetTop, // Updated for "Skills0"
         '#portfolio': document.getElementById('portfolio').offsetTop,
         '#contact': document.getElementById('contact').offsetTop,
       };
@@ -81,9 +81,9 @@ const Nav = () => {
         </a>
         <a
           title="Skills"
-          href="#skills"
-          onClick={() => setActiveNav('#skills')}
-          className={activeNav === '#skills' ? 'active' : ''}
+          href="#skills0" // Updated to match the id of "Skills0"
+          onClick={() => setActiveNav('#skills0')} // Updated to match the id of "Skills0"
+          className={activeNav === '#skills0' ? 'active' : ''}
         >
           <BiBook />
         </a>
