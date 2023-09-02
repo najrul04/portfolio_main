@@ -119,6 +119,7 @@ const skills = [
     ],
   },
   {
+    id: 35,
     title: "Backend",
     skills: [
       {
