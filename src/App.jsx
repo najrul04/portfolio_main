@@ -2,7 +2,7 @@
 import React, { useRef } from 'react';
 import About from './components/about/About';
 import Contact from './components/contact/Contact';
-import Skills from './components/skills/Skills';
+// import Skills from './components/skills/Skills';
 import Skills0 from './components/skills0/Skills0';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';

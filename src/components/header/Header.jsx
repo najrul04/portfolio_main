@@ -148,7 +148,7 @@ await console.log(container);
                 </h3>
 
                 <a href="#about">
-                <div class="scroll-down"></div>
+                <div className="scroll-down"></div>
                 </a>
       
           <CTA />
