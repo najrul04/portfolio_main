@@ -133,7 +133,7 @@ const skills = [
       {
         name: "NoSQL",
         image:
-          "https://img.icons8.com/external-outline-black-m-oki-orlando/32/external-nosql-database-outline-outline-black-m-oki-orlando.png",
+          "https://i.ibb.co/g6kyNdP/NoSQL.png",
       },
       {
         name: "PHP",
@@ -160,7 +160,7 @@ const skills = [
           "https://i.ibb.co/VjL9zJH/Vercel.png",
       },
 //       https://i.ibb.co/gjwntWM/expressjs.webp
-// https://i.ibb.co/g6kyNdP/NoSQL.png
+// 
 
       {
         name: "Netlify",
@@ -173,9 +173,9 @@ const skills = [
           "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png?20210804221519",
       },
       {
-        name: "Postman",
+        name: "WordPress",
         image:
-          "https://camo.githubusercontent.com/93b32389bf746009ca2370de7fe06c3b5146f4c99d99df65994f9ced0ba41685/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f676574706f73746d616e2f676574706f73746d616e2d69636f6e2e737667",
+          "https://www.vectorlogo.zone/logos/wordpress/wordpress-icon.svg",
       },
       {
         name: "Adobe XD",
