@@ -1,5 +1,9 @@
 /* ==================== Media Queries (Small Devices) ======================= */
 
+.vertical-timeline-element-content {
+  box-shadow: none;
+}
+
 @media screen and (max-width: 600px) {
   .vertical-timeline-element-icon {
     margin-left: 5px;
