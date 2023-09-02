@@ -155,10 +155,13 @@ const skills = [
           "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
       },
       {
-        name: "Docker",
+        name: "Vercel",
         image:
-          "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg",
+          "https://i.ibb.co/VjL9zJH/Vercel.png",
       },
+//       https://i.ibb.co/gjwntWM/expressjs.webp
+// https://i.ibb.co/g6kyNdP/NoSQL.png
+
       {
         name: "Netlify",
         image:
