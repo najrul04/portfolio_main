@@ -185,29 +185,52 @@ const skills = [
 // 
 
       {
+        id: 22,
         name: "Netlify",
         image:
           "https://seeklogo.com/images/N/netlify-logo-BD8F8A77E2-seeklogo.com.png",
       },
       {
+        id: 23,
         name: "VS Code",
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png?20210804221519",
       },
       {
+        id: 24,
         name: "WordPress",
         image:
           "https://www.vectorlogo.zone/logos/wordpress/wordpress-icon.svg",
       },
       {
-        name: "Adobe XD",
+        id: 25,
+        name: "Adobe PS",
         image:
-          "https://camo.githubusercontent.com/c205ecbe12500177d102169d97bc1c17c545155fdf5ec78c08d54ac53e5b38c1/68747470733a2f2f63646e2e776f726c64766563746f726c6f676f2e636f6d2f6c6f676f732f61646f62652d78642e737667",
+          "https://i.ibb.co/X52kyqc/adobe-photoshop-svgrepo-com.png",
       },
       {
+        id: 26,
         name: "Figma",
         image:
           "https://camo.githubusercontent.com/ed93c2b000a76ceaad1503e7eb9356591b885227e82a36a005b9d3498b303ba5/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f6669676d612f6669676d612d69636f6e2e737667",
+      },
+      {
+        id: 27,
+        name: "Canva",
+        image:
+          "https://www.vectorlogo.zone/logos/canva/canva-icon.svg",
+      },
+      {
+        id: 28,
+        name: "Camtasia",
+        image:
+          "https://i.ibb.co/rxWnyvh/camtasia.jpg",
+      },
+      {
+        id: 29,
+        name: "Filmora",
+        image:
+          "https://i.ibb.co/WK1mZ6s/filmora.png",
       },
     ],
   },

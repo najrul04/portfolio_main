@@ -139,6 +139,7 @@ const Skills0 = () => {
           {/* <Title>Skills</Title>
         <Desc>Here are some of my skills on which I have been working on for the past 2 years.
         </Desc> */}
+<<<<<<< HEAD
           <SkillsContainer>
             {skills.map((skill) => (
               <Skill key={skill.id}>
@@ -156,6 +157,26 @@ const Skills0 = () => {
           </SkillsContainer>
         </Wrapper>
       </Container>
+=======
+        <SkillsContainer>
+          {skills.map((skill) => (
+            <Skill key={skill.id}>
+              <SkillTitle>{skill.title}</SkillTitle>
+              <SkillList>
+                {skill.skills.map((item) => (
+                  <SkillItem key={item.id}>
+                    <SkillImage src={item.image}/>
+                    {item.name}
+                  </SkillItem>
+                ))}
+              </SkillList>
+            </Skill>
+          ))}
+
+        </SkillsContainer>
+      </Wrapper>
+    </Container>
+>>>>>>> branch-najrul
     </section>
   );
 };
