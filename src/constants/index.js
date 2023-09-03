@@ -220,6 +220,18 @@ const skills = [
         image:
           "https://www.vectorlogo.zone/logos/canva/canva-icon.svg",
       },
+      {
+        id: 28,
+        name: "Camtasia",
+        image:
+          "https://i.ibb.co/rxWnyvh/camtasia.jpg",
+      },
+      {
+        id: 29,
+        name: "Filmora",
+        image:
+          "https://i.ibb.co/WK1mZ6s/filmora.png",
+      },
     ],
   },
 ];
