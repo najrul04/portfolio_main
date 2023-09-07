@@ -18,7 +18,6 @@ const About = () => {
   return (
     <section className='about_section' data-aos="fade-up-left" id='about'>
       
-
       <h5>Get To Know</h5>
       <h2>About Me</h2>
 
@@ -75,7 +74,9 @@ const About = () => {
 
             <p>
 
-            An ambitious, enthusiastic front-end React developer with expertise in HTML, CSS, and JavaScript, along with libraries like React JS, Next JS, Bootstrap, Tailwind, and Material UI. <br /> <br /> I'm well-versed in Firebase, Node JS, Express JS, and MongoDB for server-side development. <br /> <br /> I'm passionate about crafting captivating and responsive web applications that deliver seamless user experiences
+            An experienced React developer with a strong foundation in JavaScript, NextJS, and TailwindCSS. I possess excellent adaptability and can work efficiently in both team and independent work environments, with a strong drive to master legacy technologies and explore new systems.
+
+            {/* An ambitious, enthusiastic front-end React developer with expertise in HTML, CSS, and JavaScript, along with libraries like React JS, Next JS, Bootstrap, Tailwind, and Material UI. <br /> <br /> I'm well-versed in Firebase, Node JS, Express JS, and MongoDB for server-side development. <br /> <br /> I'm passionate about crafting captivating and responsive web applications that deliver seamless user experiences */}
 
             </p>
 

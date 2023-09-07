@@ -8,12 +8,13 @@ const experiences = [
     iconBg: "#383E56",
     date: "January 2023 - PRESENT",
     points: [
-      "Build and design React web app from the scratch to give the company an online existence for potential customers to reach.",
-      "Implement Firebase authentication system with 10,000 authentication request such as email/password,    Phone authentication, Third-party authentication per day for free and 100,000 per month for free.",
-      "Create with a library of JavaScript named React JS because of its potential to reuse components which makes the code and website easy to maintain.",
-      "Ensure easy and fast coding with maximum customization options by using Tailwind CSS and raw CSS to develop a responsive website to kept the code clean and easily manageable.",
-      "By utilizing React Router, a private routing system was implemented to ensure ease of editing, reliability and maintainability..",
-      "Implement Node JS and its framework Express JS for the backend technology, data storage is achieved for using MongoDB."
+      "Designed and engineered a React web app from the ground up to present Invent with an online portal for client landing pages and a booking system.",
+      "Utilized a headless Firebase authentication system allowing 10,000 authentication requests per day (such as email/password, phone authentication, third-party authentication.) for free and 100,000 requests per month. All of this was at no cost to the company drastically reducing their operation cost.",
+      "Developed an emailing system where 200 appointments per days are free.",
+      "Created a system of SEO tracking in the head of each page to help the website based on LightHouse standards.",
+      "Used React because of its potential to reuse components which makes the code and website easy to maintain.",
+      "Leveraged Tailwind and vanilla CSS to create a responsive design whilst keeping the markup clean and easy to maintain.",
+      "Processed Data on the backend via NodeJS, ExpressJS, MongoDB. Hostinger is used for its affordability and user-friendliness. It helped to save around 500$ on manual marketing campaign for the company in Dhaka."
     ],
   },
   {
@@ -23,12 +24,13 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "January 2022 - December 2022",
     points: [
-      "Built the website using WordPress and page builder Elementor for more than 20,000 users.",
-      "Prepared website update proposals to presents to manager, provide technical support to clients and writing code using HTML and CSS.",
-      "Managed a user guide to help and understand site features and management of the websites.",
-      "Updated website as instructed by the company and introduce new features and contents.",
+      "Created a custom website supporting more than 20,000 users.",
+      "Utilized modern UI Stack conventions developing with: WordPress, PHP, Vanilla CSS and jQuery.",
+      "Provided technical support for more than 100+ clients and developed pages using HTML, CSS.",
+      "Managed a user guide to help promote site features and management of the websites.",
+      "Updated the website as instructed by the company and introduced new features and contents.",
       "Managed comments from visitors, including private emails and comments posted on the site.",
-      "Introduced new plug-ins and extensions to make the website more usable and interactive in order to have better user experience.",
+      "Used Astra Pro for lightweight and fast themes, Yoast SEO for search engine optimization, Contact form 7 for simplification of managing contact, Askismet for filtering out spammers and others."
     ],
   },
   {
@@ -38,10 +40,10 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "June 2021 - November 2021",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Developed and maintained web applications using React.js and other related technologies.",
+      "Collaborated with cross-functional teams including designers, product managers, and other developers to create high-quality websites.",
+      "Implemented responsive design and ensured cross-browser compatibility.",
+      "Participated in code reviews and provided constructive feedback to other developers.",
     ],
   },
 ];
