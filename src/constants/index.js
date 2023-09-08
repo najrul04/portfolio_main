@@ -24,7 +24,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "January 2022 - December 2022",
     points: [
-      "Created a custom website supporting more than 20,000 users.",
+      "Created a custom website supporting more than 10,000 users.",
       "Utilized modern UI Stack conventions developing with: WordPress, PHP, Vanilla CSS and jQuery.",
       "Provided technical support for more than 100+ clients and developed pages using HTML, CSS.",
       "Managed a user guide to help promote site features and management of the websites.",
