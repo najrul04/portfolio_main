@@ -12,9 +12,9 @@ const experiences = [
       "Utilized a headless Firebase authentication system allowing 10,000 authentication requests per day (such as email/password, phone authentication, third-party authentication.) for free and 100,000 requests per month. All of this was at no cost to the company drastically reducing their operation cost.",
       "Developed an emailing system where 200 appointments per days are free.",
       "Created a system of SEO tracking in the head of each page to help the website based on LightHouse standards.",
-      "Used React because of its potential to reuse components which makes the code and website easy to maintain.",
+      "•	Used React’s composability features to develop the website in an easy-to-maintain way.",
       "Leveraged Tailwind and vanilla CSS to create a responsive design whilst keeping the markup clean and easy to maintain.",
-      "Processed Data on the backend via NodeJS, ExpressJS, MongoDB. Hostinger is used for its affordability and user-friendliness. It helped to save around 500$ on manual marketing campaign for the company in Dhaka."
+      "Processed Data on the backend via NodeJS, ExpressJS, MongoDB. Hostinger is used for its affordability and user-friendliness. It helped to save around $500 on manual marketing campaign for the company in Dhaka."
     ],
   },
   {
