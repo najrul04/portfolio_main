@@ -3,6 +3,36 @@ header {
   /* padding-top: 7rem; */
 }
 
+.background_words {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1rem;
+  background: transparent;
+  position: absolute;
+  top: 2%;
+  width: 100%;
+  padding-right: 10px;
+}
+
+.background_words > img {
+  width: fit-content;
+  height: 3rem;
+  opacity: 70%;
+}
+
+.background_words > img:nth-child(2) {
+  background-color: white; /* Set the background color to white */
+  border-radius: 50%;
+}
+
+.background_words > h1 {
+  font-size: 3rem;
+  color: #b86df5;
+  font-weight: 700;
+  opacity: 20%;
+}
+
 .header_container {
   text-align: center;
   /* position: relative; */

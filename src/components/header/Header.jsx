@@ -30,7 +30,22 @@ await console.log(container);
   return (
     <>
 
+{/* {https://i.ibb.co/86hSvcL/react.webp
+https://i.ibb.co/w44qb6n/nextjs.webp
+https://i.ibb.co/k0ZkSJ7/tailwind.webp} */}
+
      <header>
+
+      <div className="background_words">
+
+      {/* <h1>ReactJS</h1> */}
+      <img src="https://i.ibb.co/86hSvcL/react.webp" alt="React" />
+      {/* <h1 >NextJS</h1> */}
+      <img src="https://i.ibb.co/w44qb6n/nextjs.webp" alt="NextJS" />
+      {/* <h1 >TailwindCSS</h1> */}
+      <img src="https://i.ibb.co/k0ZkSJ7/tailwind.webp" alt="TailwindCSS" />
+      
+      </div>
               
      <Particles
             id="tsparticles"
@@ -110,15 +125,6 @@ await console.log(container);
 
 
       <div className="container header_container">   
-{/* 
-
-        <h5 className="threeD_portfolio">
-          <a className="threeDPortfolio" target="_blank" href="https://najrul.vercel.app/" rel="noreferrer">To see 3D Portfolio <br />
-            <small>
-              (Recommended to open with PC)
-            </small>
-          </a>
-        </h5> */}
         
          <div className="header_info">
               <motion.h2
