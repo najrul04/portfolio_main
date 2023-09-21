@@ -22,7 +22,7 @@ header {
 }
 
 .background_words > img:nth-child(2) {
-  background-color: white; /* Set the background color to white */
+  background-color: white;
   border-radius: 50%;
 }
 

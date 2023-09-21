@@ -30,10 +30,6 @@ await console.log(container);
   return (
     <>
 
-{/* {https://i.ibb.co/86hSvcL/react.webp
-https://i.ibb.co/w44qb6n/nextjs.webp
-https://i.ibb.co/k0ZkSJ7/tailwind.webp} */}
-
      <header>
 
       <div className="background_words">
@@ -44,7 +40,7 @@ https://i.ibb.co/k0ZkSJ7/tailwind.webp} */}
       <img src="https://i.ibb.co/w44qb6n/nextjs.webp" alt="NextJS" />
       {/* <h1 >TailwindCSS</h1> */}
       <img src="https://i.ibb.co/k0ZkSJ7/tailwind.webp" alt="TailwindCSS" />
-      
+
       </div>
               
      <Particles
