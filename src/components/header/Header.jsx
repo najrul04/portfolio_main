@@ -35,13 +35,13 @@ await console.log(container);
       <div className="background_words">
 
       {/* <h1>ReactJS</h1> */}
-      <img src="https://i.ibb.co/HPJzZfq/react.png" alt="React" />
+      <img className="wiggle" src="https://i.ibb.co/HPJzZfq/react.png" alt="React" />
       {/* <h1>TypeScript</h1> */}
-      <img src="https://i.ibb.co/VCQdbbz/ts.png" alt="TypeScript" />
+      <img className="wiggle" src="https://i.ibb.co/VCQdbbz/ts.png" alt="TypeScript" />
       {/* <h1 >NextJS</h1> */}
-      <img src="https://i.ibb.co/w44qb6n/nextjs.webp" alt="NextJS" />
+      <img className="wiggle" src="https://i.ibb.co/w44qb6n/nextjs.webp" alt="NextJS" />
       {/* <h1 >TailwindCSS</h1> */}
-      <img src="https://i.ibb.co/k0ZkSJ7/tailwind.webp" alt="TailwindCSS" />
+      <img className="wiggle" src="https://i.ibb.co/k0ZkSJ7/tailwind.webp" alt="TailwindCSS" />
 
       </div>
               

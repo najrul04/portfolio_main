@@ -21,6 +21,22 @@ header {
   opacity: 70%;
 }
 
+.background_words > img {
+  width: fit-content;
+  height: 3rem;
+  opacity: 70%;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
 .background_words > img:nth-child(3) {
   background-color: white;
   border-radius: 50%;
@@ -31,6 +47,10 @@ header {
   color: #b86df5;
   font-weight: 700;
   opacity: 20%;
+}
+
+.wiggle:hover {
+  animation: wiggle 2s infinite;
 }
 
 .header_container {
