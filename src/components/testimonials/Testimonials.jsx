@@ -8,6 +8,7 @@ import { Navigation } from 'swiper'
 import  client1  from "../../assets/clients/client1.webp";
 import  client2  from "../../assets/clients/client2.webp";
 import  client3  from "../../assets/clients/client3.webp";
+import  client4  from "../../assets/clients/client4.webp";
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -21,9 +22,15 @@ const data = [
   {
       index: 1,
       avatar: client1,
-      name: 'Shameh Rahman',
-      review: "Very approachable and delivers the work reliably within the timelines maintaining good quality.",
-      title: "EIT of Syska Hennessy Group, USA"
+      name: 'Jacob Knotek',
+      review: `"Najrul went above and beyond to make this project a success. He worked with me on all aspects of this app: design, bug fixes, new features, UX, performance, and even marketing. He offered suggestions on what could be improved, and provided extra ideas and support, even after he reached his hour limit for the week!
+
+      Any time I'd give Najrul a task, he'd deliver it faster than I needed, and put in 2x the effort I expected. He was always available to hop on a call for me to clarify things.
+      
+      I've hired many freelancers over the years, and I have *never* had an experience as great as this. Najrul truly cares about the quality of his work, and goes to great lengths to make sure you're happy with his performance.
+      
+      He's now my first choice whenever I need a developer. I will absolutely continue working with him in the future!"`,
+      title: "PTX Therapy, USA"
 
   },
 
@@ -31,8 +38,8 @@ const data = [
 
     index: 2,
       avatar: client2,
-      name: 'Safwan Rahman',
-      review: "Extremely informative, attentive, and knowledgeable. Also very fast and thorough with his work!",
+      name: ' Shameh Rahman',
+      review: "Very approachable and delivers the work reliably within the timelines maintaining good quality.",
       title: "MLS of Mount Sinai Health System, USA"
 
   }
@@ -45,6 +52,17 @@ const data = [
       name: 'Rimon Mustafa Kamal',
       review: "I've never met a web developer who truly cares about their clients' success like Najrul does.",
       title: "Businessman, Spain"
+
+  }
+  ,
+
+  {
+
+    index: 4,
+      avatar: client4,
+      name: 'Safwan Rahman',
+      review: "Extremely informative, attentive, and knowledgeable. Also very fast and thorough with his work!",
+      title: "MLS of Mount Sinai Health System, USA"
 
   }
 
@@ -73,7 +91,7 @@ const Testimonials = () => {
       modules={[Navigation]}
       spaceBetween={30}
       navigation 
-      breakpoints={{
+      /* breakpoints={{
         640: {
           slidesPerView: 1
         },
@@ -82,9 +100,9 @@ const Testimonials = () => {
           slidesPerView: 2, // Show 1 slide on screens with width 768px and below (mobile)
         },
         1024: {
-          slidesPerView: 3, // Show 3 slides on screens with width 1024px and above (desktop)
+          slidesPerView: 1, // Show 3 slides on screens with width 1024px and above (desktop)
         },
-      }}
+      }} */
      
       >
 
