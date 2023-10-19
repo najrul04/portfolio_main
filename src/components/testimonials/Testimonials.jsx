@@ -30,7 +30,7 @@ const data = [
       I've hired many freelancers over the years, and I have *never* had an experience as great as this. Najrul truly cares about the quality of his work, and goes to great lengths to make sure you're happy with his performance.
       
       He's now my first choice whenever I need a developer. I will absolutely continue working with him in the future!"`,
-      title: "PTX Therapy, USA"
+      title: "Senior Developer, USA"
 
   },
 
