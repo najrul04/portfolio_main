@@ -38,7 +38,7 @@ const experiences = [
     company_name: "Programming Hero",
     icon: phero,
     iconBg: "#E6DEDD",
-    date: "June 2021 - November 2021",
+    date: "June 2021 - February 2022",
     points: [
       "Developed and maintained web applications using React.js and other related technologies.",
       "Collaborated with cross-functional teams including designers, product managers, and other developers to create high-quality websites.",
