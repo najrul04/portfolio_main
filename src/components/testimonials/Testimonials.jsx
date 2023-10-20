@@ -137,9 +137,9 @@ const Testimonials = () => {
                 {title}
                 </h5>
                 <div className='testimonial_source'>
-                <a className='testimonial_source_text'>
+                <h4 className='testimonial_source_text'>
                   {source}
-                </a>
+                </h4>
                 </div>
     
             </SwiperSlide>
