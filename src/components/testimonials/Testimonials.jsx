@@ -23,14 +23,16 @@ const data = [
       index: 1,
       avatar: client1,
       name: 'Jacob Knotek',
-      review: `"Najrul went above and beyond to make this project a success. He worked with me on all aspects of this app: design, bug fixes, new features, UX, performance, and even marketing. He offered suggestions on what could be improved, and provided extra ideas and support, even after he reached his hour limit for the week!
+      review: `Najrul went above and beyond to make this project a success. He worked with me on all aspects of this app: design, bug fixes, new features, UX, performance, and even marketing. He offered suggestions on what could be improved, and provided extra ideas and support, even after he reached his hour limit for the week!
 
       Any time I'd give Najrul a task, he'd deliver it faster than I needed, and put in 2x the effort I expected. He was always available to hop on a call for me to clarify things.
       
       I've hired many freelancers over the years, and I have *never* had an experience as great as this. Najrul truly cares about the quality of his work, and goes to great lengths to make sure you're happy with his performance.
       
-      He's now my first choice whenever I need a developer. I will absolutely continue working with him in the future!"`,
-      title: "Senior Developer, USA"
+      He's now my first choice whenever I need a developer. I will absolutely continue working with him in the future!`,
+      title: "Senior Developer, USA",
+
+      source: "UpWork"
 
   },
 
@@ -40,7 +42,9 @@ const data = [
       avatar: client2,
       name: ' Shameh Rahman',
       review: "Very approachable and delivers the work reliably within the timelines maintaining good quality.",
-      title: "MLS of Mount Sinai Health System, USA"
+      title: "MLS of Mount Sinai Health System, USA",
+
+      source: "Local"
 
   }
   ,
@@ -51,8 +55,9 @@ const data = [
       avatar: client3,
       name: 'Rimon Mustafa Kamal',
       review: "I've never met a web developer who truly cares about their clients' success like Najrul does.",
-      title: "Businessman, Spain"
+      title: "Businessman, Spain",
 
+      source: "Local"
   }
   ,
 
@@ -62,7 +67,9 @@ const data = [
       avatar: client4,
       name: 'Safwan Rahman',
       review: "Extremely informative, attentive, and knowledgeable. Also very fast and thorough with his work!",
-      title: "MLS of Mount Sinai Health System, USA"
+      title: "MLS of Mount Sinai Health System, USA",
+
+      source: "Local"
 
   }
 
@@ -108,7 +115,7 @@ const Testimonials = () => {
 
       {
 
-          data.map(({avatar, name, review, title}, index) => {
+          data.map(({avatar, name, review, title, source}, index) => {
 
             return(
 
@@ -129,6 +136,11 @@ const Testimonials = () => {
                 <h5 className='client_title'>
                 {title}
                 </h5>
+                <div className='testimonial_source'>
+                <a className='testimonial_source_text'>
+                  {source}
+                </a>
+                </div>
     
             </SwiperSlide>
 

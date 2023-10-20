@@ -36,6 +36,11 @@
   background: var(--color-primary);
 }
 
+.testimonial_source {
+  text-align: right;
+  color: #008000;
+}
+
 /* ==================== Media Queries (Medium Devices) ======================= */
 
 @media screen and (max-width: 1024px) {
