@@ -15,6 +15,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
+import StarRating from './StarRating';
 // import 'swiper/css/pagination'
 
 const data = [
@@ -128,6 +129,11 @@ const Testimonials = () => {
               </div>
               
               <h4 className='client_name'>{name}</h4>
+
+              <span>
+                <StarRating/>
+              </span>
+              
                 <small className='client_review'>
     
                  {review}
