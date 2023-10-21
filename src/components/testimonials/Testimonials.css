@@ -32,8 +32,8 @@
   margin: 0.8rem auto 0;
 }
 
-.swiper-pagination-clickable .swiper-pagination-bullet {
-  background: var(--color-primary);
+.swiper-pagination-bullet {
+  background: #FFF !important
 }
 
 .testimonial_source {

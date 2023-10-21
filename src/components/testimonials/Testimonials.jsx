@@ -3,7 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { useInView } from 'react-intersection-observer';
 import './Testimonials.css'
-import { Navigation } from 'swiper'
+import { Pagination } from 'swiper'
 
 import  client1  from "../../assets/clients/client1.webp";
 import  client2  from "../../assets/clients/client2.webp";
@@ -14,7 +14,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
 import 'swiper/css'
-import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 import StarRating from './StarRating';
 // import 'swiper/css/pagination'
 
@@ -96,9 +96,9 @@ const Testimonials = () => {
 
     <Swiper  data-aos="zoom-in-up" className="container testimonials_container" // install Swiper modules
       style={{overflowX: "visible"}}
-      modules={[Navigation]}
+      modules={[Pagination]}
       spaceBetween={30}
-      navigation 
+      pagination 
       /* breakpoints={{
         640: {
           slidesPerView: 1
