@@ -3,7 +3,6 @@ import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import { useInView } from "react-intersection-observer";
 import "./Testimonials.css";
-import { Pagination } from "swiper";
 
 import client1 from "../../assets/clients/client1.webp";
 import client2 from "../../assets/clients/client2.webp";
@@ -11,11 +10,13 @@ import client3 from "../../assets/clients/client3.webp";
 import client4 from "../../assets/clients/client4.webp";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Pagination } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import StarRating from "./StarRating";
+import "swiper/swiper-bundle.min.css";
 // import 'swiper/css/pagination'
 
 const data = [
@@ -67,6 +68,8 @@ const data = [
   },
 ];
 
+SwiperCore.use([Pagination]);
+
 const Testimonials = () => {
   useEffect(() => {
     AOS.init({
@@ -89,7 +92,7 @@ const Testimonials = () => {
         style={{ overflowX: "visible" }}
         modules={[Pagination]}
         spaceBetween={30}
-        pagination
+        pagination={{ clickable: true }} // Enable clickable pagination
         /* breakpoints={{
         640: {
           slidesPerView: 1
@@ -107,7 +110,7 @@ const Testimonials = () => {
           return (
             <SwiperSlide key={index} className="testimonial">
               <div className="client_avatar">
-                <img src={avatar} />
+                <img src={avatar} alt={name} />
               </div>
 
               <h4 className="client_name">{name}</h4>
