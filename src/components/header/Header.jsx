@@ -11,6 +11,12 @@ import Typewriter from "typewriter-effect";
 import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
+import react_logo from "../../assets/tech_logos/react.webp"
+import ts_logo from "../../assets/tech_logos/ts.webp"
+import next_logo from "../../assets/tech_logos/nextjs.webp"
+import tailwind_logo from "../../assets/tech_logos/tailwind.webp"
+import nodejs_logo from "../../assets/tech_logos/nodejs.webp"
+import expressjs_logo from "../../assets/tech_logos/expressjs.webp"
 
 const Header = () => {
  
@@ -35,17 +41,17 @@ await console.log(container);
       <div className="background_words">
 
       {/* <h1>ReactJS</h1> */}
-      <img className="wiggle" src="https://i.ibb.co/HPJzZfq/react.png" alt="React" />
+      <img className="wiggle" src={react_logo} alt="React" />
       {/* <h1>TypeScript</h1> */}
-      <img className="wiggle" src="https://i.ibb.co/VCQdbbz/ts.png" alt="TypeScript" />
+      <img className="wiggle" src={ts_logo} alt="TypeScript" />
       {/* <h1 >NextJS</h1> */}
-      <img className="wiggle" src="https://i.ibb.co/w44qb6n/nextjs.webp" alt="NextJS" />
+      <img className="wiggle" src={next_logo} alt="NextJS" />
       {/* <h1 >TailwindCSS</h1> */}
-      <img className="wiggle" src="https://i.ibb.co/k0ZkSJ7/tailwind.webp" alt="TailwindCSS" />
+      <img className="wiggle" src={tailwind_logo} alt="TailwindCSS" />
       {/* <h1 >NodeJS</h1> */}
-      <img className="wiggle" src="https://i.ibb.co/44mFD71/1200px-Node-js-logo-svg.png" alt="NodeJS" />
+      <img className="wiggle" src={nodejs_logo} alt="NodeJS" />
       {/* <h1 >Express JS</h1> */}
-      <img className="wiggle" src="https://i.ibb.co/z70zxW3/express-js.png" alt="ExpressJS" />
+      <img className="wiggle" src={expressjs_logo} alt="ExpressJS" />
 
       
 
