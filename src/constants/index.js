@@ -2,7 +2,7 @@ import { vectorDesign, phero, invent } from "../assets";
 
 const experiences = [
   {
-    title: "Full Stack React Developer",
+    title: "Full Stack Developer",
     company_name: "Invent",
     icon: invent,
     iconBg: "#383E56",
