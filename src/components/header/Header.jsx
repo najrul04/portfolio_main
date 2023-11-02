@@ -42,6 +42,13 @@ await console.log(container);
       <img className="wiggle" src="https://i.ibb.co/w44qb6n/nextjs.webp" alt="NextJS" />
       {/* <h1 >TailwindCSS</h1> */}
       <img className="wiggle" src="https://i.ibb.co/k0ZkSJ7/tailwind.webp" alt="TailwindCSS" />
+      {/* <h1 >NodeJS</h1> */}
+      <img className="wiggle" src="https://i.ibb.co/44mFD71/1200px-Node-js-logo-svg.png" alt="NodeJS" />
+      {/* <h1 >Express JS</h1> */}
+      <img className="wiggle" src="https://i.ibb.co/z70zxW3/express-js.png" alt="ExpressJS" />
+
+      
+
 
       </div>
               
