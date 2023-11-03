@@ -38,7 +38,7 @@ await console.log(container);
 
      <header>
 
-      <div className="background_words">
+      <div className="background_Logos">
 
       {/* <h1>ReactJS</h1> */}
       <img className="wiggle" src={react_logo} alt="React" />
