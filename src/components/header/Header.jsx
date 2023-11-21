@@ -19,6 +19,15 @@ import nodejs_logo from "../../assets/tech_logos/nodejs.webp"
 import expressjs_logo from "../../assets/tech_logos/expressjs.webp"
 
 const Header = () => {
+
+    const logos = [
+        { id: 1, name: 'React', src: react_logo },
+        { id: 2, name: 'TypeScript', src: ts_logo },
+        { id: 3, name: 'NextJS', src: next_logo },
+        { id: 4, name: 'TailwindCSS', src: tailwind_logo },
+        { id: 5, name: 'NodeJS', src: nodejs_logo },
+        { id: 6, name: 'Express JS', src: expressjs_logo },
+      ];
  
   const particlesInit = useCallback(async engine => {
     console.log(engine);
@@ -40,18 +49,24 @@ await console.log(container);
 
       <div className="background_Logos">
 
+      <div className="background_Logos">
+      {logos.map((logo) => (
+        <img key={logo.id} className="wiggle" src={logo.src} alt={logo.name} />
+      ))}
+    </div>
+
       {/* <h1>ReactJS</h1> */}
-      <img className="wiggle" src={react_logo} alt="React" />
+      {/* <img className="wiggle" src={react_logo} alt="React" /> */}
       {/* <h1>TypeScript</h1> */}
-      <img className="wiggle" src={ts_logo} alt="TypeScript" />
+      {/* <img className="wiggle" src={ts_logo} alt="TypeScript" /> */}
       {/* <h1 >NextJS</h1> */}
-      <img className="wiggle" src={next_logo} alt="NextJS" />
+      {/* <img className="wiggle" src={next_logo} alt="NextJS" /> */}
       {/* <h1 >TailwindCSS</h1> */}
-      <img className="wiggle" src={tailwind_logo} alt="TailwindCSS" />
+      {/* <img className="wiggle" src={tailwind_logo} alt="TailwindCSS" /> */}
       {/* <h1 >NodeJS</h1> */}
-      <img className="wiggle" src={nodejs_logo} alt="NodeJS" />
+      {/* <img className="wiggle" src={nodejs_logo} alt="NodeJS" /> */}
       {/* <h1 >Express JS</h1> */}
-      <img className="wiggle" src={expressjs_logo} alt="ExpressJS" />
+      {/* <img className="wiggle" src={expressjs_logo} alt="ExpressJS" /> */}
 
       
 
