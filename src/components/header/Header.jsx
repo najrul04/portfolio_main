@@ -173,11 +173,19 @@ const Header = () => {
             </h3>
 
             <div>
-            <a href="#about">
-              <div className="scroll-down"></div>
-            </a>
-            <img src={coffeeImage} className="coffee" alt="coffee" height={25} width={25} />
-            {/* <img
+              <a href="#about">
+                <div className="scroll-down"></div>
+              </a>
+              <a href="https://www.buymeacoffee.com/nazrul2517d" target="_blank">
+                <img
+                  src={coffeeImage}
+                  className="coffee"
+                  alt="coffee"
+                  height={25}
+                  width={25}
+                />
+              </a>
+              {/* <img
               className="coffeeImage"
               src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
               alt="Buy me a coffee"

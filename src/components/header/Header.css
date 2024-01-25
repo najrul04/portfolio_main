@@ -254,4 +254,9 @@ header {
     top: 180%;
     left: 45%;
   }
+  .coffee{
+    position: absolute;
+    left: 0%;
+    top: 220%;
+  }
 }
