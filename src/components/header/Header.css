@@ -75,6 +75,7 @@ header {
   padding-top: 1rem;
 }
 
+
 /* ===================== CTA ================== */
 
 .cta {
@@ -164,7 +165,7 @@ header {
 }
 .scroll-down::before {
   top: 30%;
-  animation-delay: 0.3s;
+  animation-delay: 0.5s;
 }
 
 @keyframes scroll-down {
@@ -182,6 +183,14 @@ header {
     top: 90%;
     opacity: 0;
   }
+}
+
+/* Buy Me Coffee */
+
+.coffee{
+  position: absolute;
+  left: 120%;
+  top: 200%;
 }
 
 /* ==================== Media Queries (Medium Devices) ======================= */
