@@ -62,6 +62,11 @@
   color: green;
 }
 
+.container.testimonials_container {
+  width: 90%;
+  padding-bottom: 0rem;
+}
+
 /* ==================== Media Queries (Medium Devices) ======================= */
 
 @media screen and (max-width: 1024px) {
