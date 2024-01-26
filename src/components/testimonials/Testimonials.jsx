@@ -156,7 +156,9 @@ const Testimonials = () => {
 
         {source === "Local" && (
           
-          <h4 className="testimonial_source_text">Local</h4>
+          <div className="logo_and_text">
+            <h4 className="testimonial_source_text">Local</h4>
+          </div>
         )}
       </div>
     </SwiperSlide>
