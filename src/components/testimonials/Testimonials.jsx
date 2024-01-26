@@ -4,10 +4,17 @@ import "aos/dist/aos.css"; // You can also use <link> for styles
 import { useInView } from "react-intersection-observer";
 import "./Testimonials.css";
 
+// Client Pictures
+
 import client1 from "../../assets/clients/client1.webp";
 import client2 from "../../assets/clients/client2.webp";
 import client3 from "../../assets/clients/client3.webp";
 import client4 from "../../assets/clients/client4.webp";
+
+// Where they have given me the reviews
+
+import linkedInLogo from "../../assets/LinkedIn.png";
+import upworkLogo from "../../assets/UpWork.png";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination } from "swiper";
@@ -44,7 +51,7 @@ const data = [
       "Very approachable and delivers the work reliably within the timelines maintaining good quality.",
     title: "MLS of Mount Sinai Health System, USA",
 
-    source: "Local",
+    source: "LinkedIn",
   },
   {
     index: 3,
@@ -106,27 +113,56 @@ const Testimonials = () => {
         },
       }} */
       >
-        {data.map(({ avatar, name, review, title, source }, index) => {
-          return (
-            <SwiperSlide key={index} className="testimonial">
-              <div className="client_avatar">
-                <img src={avatar} alt={name} />
-              </div>
+{data.map(({ avatar, name, review, title, source }, index) => {
+  return (
+    <SwiperSlide key={index} className="testimonial">
+      <div className="client_avatar">
+        <img src={avatar} alt={name} />
+      </div>
 
-              <h4 className="client_name">{name}</h4>
+      <h4 className="client_name">{name}</h4>
 
-              <span>
-                <StarRating />
-              </span>
+      {source !== "LinkedIn" && (
+        <span>
+          <StarRating />
+        </span>
+      )}
 
-              <small className="client_review">{review}</small>
-              <h5 className="client_title">{title}</h5>
-              <div className="testimonial_source">
-                <h4 className="testimonial_source_text">{source}</h4>
-              </div>
-            </SwiperSlide>
-          );
-        })}
+      <small className="client_review">{review}</small>
+      <h5 className="client_title">{title}</h5>
+
+      <div className={`testimonial_source ${source.toLowerCase()}_source`}>
+        {source === "LinkedIn" && (
+          <div className="logo_and_text">
+            <img
+              src={linkedInLogo}
+              alt="LinkedIn"
+              className="testimonial_logo linkedin_logo" // Added a class for LinkedIn logo
+            />
+            <h4 className="testimonial_source_text">LinkedIn</h4>
+          </div>
+        )}
+
+        {source === "UpWork" && (
+          <div className="logo_and_text">
+            <img
+              src={upworkLogo}
+              alt="Upwork"
+              className="testimonial_logo upwork_logo" // Added a class for Upwork logo
+            />
+            <h4 className="testimonial_source_text">UpWork</h4>
+          </div>
+        )}
+
+        {source === "Local" && (
+          
+          <h4 className="testimonial_source_text">Local</h4>
+        )}
+      </div>
+    </SwiperSlide>
+  );
+})}
+
       </Swiper>
     </section>
   );

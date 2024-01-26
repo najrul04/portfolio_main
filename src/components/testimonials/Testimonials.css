@@ -11,6 +11,20 @@
   user-select: none;
 }
 
+.testimonial_logo{
+  display: inline;
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.logo_and_text{
+  
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .client_avatar {
   width: 4rem;
   aspect-ratio: 1/1;
@@ -36,9 +50,16 @@
   background: #FFF !important
 }
 
-.testimonial_source {
-  text-align: right;
-  color: #008000;
+.linkedin_source {
+  color: #0077b5;
+}
+
+.local_source {
+  color: white;
+}
+
+.upwork_source {
+  color: green;
 }
 
 /* ==================== Media Queries (Medium Devices) ======================= */
