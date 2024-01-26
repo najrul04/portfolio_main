@@ -9,7 +9,7 @@ import "./Testimonials.css";
 import client1 from "../../assets/clients/client1.webp";
 import client2 from "../../assets/clients/client2.webp";
 import client3 from "../../assets/clients/client3.webp";
-import client4 from "../../assets/clients/client4.webp";
+// import client4 from "../../assets/clients/client4.webp";
 
 // Where they have given me the reviews
 
@@ -57,7 +57,7 @@ const data = [
 
   {
     index: 3,
-    avatar: client2,
+    avatar: client3,
     name: "Thomas McFadden",
     review: `I'm delighted to recommend Najrul Sumon for his outstanding skills and dedication as a Front End Web Developer.
 
@@ -108,7 +108,7 @@ const data = [
   },
   {
     index: 8,
-    avatar: client4,
+    avatar: client3,
     name: "Safwan Rahman",
     review:
       "Extremely informative, attentive, and knowledgeable. Also very fast and thorough with his work!",
@@ -133,7 +133,7 @@ const Testimonials = () => {
 
   return (
     <section ref={ref} id="testimonials">
-      <h5>Review from Clients</h5>
+      <h5>Peer Reviews and Recommendations</h5>
       <h2>Testimonials</h2>
 
       <Swiper
