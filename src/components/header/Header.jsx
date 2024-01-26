@@ -17,7 +17,7 @@ import next_logo from "../../assets/tech_logos/nextjs.webp";
 import tailwind_logo from "../../assets/tech_logos/tailwind.webp";
 import nodejs_logo from "../../assets/tech_logos/nodejs.webp";
 import expressjs_logo from "../../assets/tech_logos/expressjs.webp";
-import coffeeImage from "../../assets/coffee.png";
+import coffeeImage from "../../assets/coffee.webp";
 
 const Header = () => {
   const logos = [
