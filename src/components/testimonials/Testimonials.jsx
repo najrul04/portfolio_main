@@ -9,7 +9,10 @@ import "./Testimonials.css";
 import client1 from "../../assets/clients/client1.webp";
 import client2 from "../../assets/clients/client2.webp";
 import client3 from "../../assets/clients/client3.webp";
-// import client4 from "../../assets/clients/client4.webp";
+import client4 from "../../assets/clients/client4.webp";
+import client5 from "../../assets/clients/client5.webp";
+import client6 from "../../assets/clients/client6.webp";
+import client7 from "../../assets/clients/client7.webp";
 
 // Where they have given me the reviews
 
@@ -73,8 +76,8 @@ const data = [
   },
 
   {
-    index: 5,
-    avatar: client2,
+    index: 4,
+    avatar: client4,
     name: "Richard Christopher",
     review: `My project ended up hitting a road block due to technical changes in design, and I wasn’t able to fully utilize Najrul initially - but he was completely supportive, understanding, professional and kind.
 
@@ -87,18 +90,18 @@ const data = [
   },
 
   {
-    index: 6,
-    avatar: client2,
+    index: 5,
+    avatar: client5,
     name: " Shameh Rahman",
     review:
       "Very approachable and delivers the work reliably within the timelines maintaining good quality.",
-    title: "MLS of Mount Sinai Health System, USA",
+    title: "Mechanical Engineer III, USA",
 
     source: "Local",
   },
   {
-    index: 7,
-    avatar: client3,
+    index: 6,
+    avatar: client6,
     name: "Rimon Mustafa Kamal",
     review:
       "I've never met a web developer who truly cares about their clients' success like Najrul does.",
@@ -107,8 +110,8 @@ const data = [
     source: "Local",
   },
   {
-    index: 8,
-    avatar: client3,
+    index: 7,
+    avatar: client7,
     name: "Safwan Rahman",
     review:
       "Extremely informative, attentive, and knowledgeable. Also very fast and thorough with his work!",
