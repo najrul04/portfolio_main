@@ -185,11 +185,6 @@ const Header = () => {
                   width={25}
                 />
               </a>
-              {/* <img
-              className="coffeeImage"
-              src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
-              alt="Buy me a coffee"
-            /> */}
             </div>
 
             <CTA />
