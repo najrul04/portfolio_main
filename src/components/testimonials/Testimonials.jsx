@@ -12,7 +12,9 @@ import client3 from "../../assets/clients/client3.webp";
 import client4 from "../../assets/clients/client4.webp";
 import client5 from "../../assets/clients/client5.webp";
 import client6 from "../../assets/clients/client6.webp";
-import client7 from "../../assets/clients/client7.webp";
+import client21 from "../../assets/clients/client21.webp";
+import client22 from "../../assets/clients/client22.webp";
+import client23 from "../../assets/clients/client23.webp";
 
 // Where they have given me the reviews
 
@@ -92,6 +94,34 @@ const data = [
   {
     index: 5,
     avatar: client5,
+    name: "David Roberts",
+    review: `Najrul is a legend. I cannot recommend him highly enough. I'm a big believer that proactivity is the key factor when trying to find quality developers and Najrul evidences this in abundance. I'm equally impressed by his continued passion and enthusiasm for learning new things in tech as I am in his warmth and ability when deploying next level EQ.
+
+    Najrul is a gem and any development team would be fortunate to call him a team member and friend. If you're looking for a great developer, you found one!`,
+    title: "Co-Founder & Managing Director of Crushing Digital, UK",
+
+    source: "LinkedIn",
+  },
+
+  {
+    index: 6,
+    avatar: client6,
+    name: "Kujtesa Paçarizi",
+    review: `Najrul is a talented and accomplished full-stack developer who consistently impresses me with his technical skills, problem-solving abilities, and dedication to delivering high-quality results. His work on the Invent web app stands as a testament to his capabilities
+
+    Working with Najrul is like having a secret weapon on your team. He's always thinking two steps ahead, anticipating challenges and proactively solving them. 
+    His communication skills are excellent, and he is a pleasure to work with. He is always open to feedback and collaborative learning, making him a valuable asset to any team.
+    
+    I highly recommend Najrul to anyone looking for a skilled and versatile full-stack developer. He is an exceptional talent who will undoubtedly bring significant value to your organization.`,
+    title: "Software Developer, Kosovo",
+
+    source: "LinkedIn",
+  },
+
+
+  {
+    index: 21,
+    avatar: client21,
     name: " Shameh Rahman",
     review:
       "Very approachable and delivers the work reliably within the timelines maintaining good quality.",
@@ -100,8 +130,8 @@ const data = [
     source: "Local",
   },
   {
-    index: 6,
-    avatar: client6,
+    index: 22,
+    avatar: client22,
     name: "Rimon Mustafa Kamal",
     review:
       "I've never met a web developer who truly cares about their clients' success like Najrul does.",
@@ -110,8 +140,8 @@ const data = [
     source: "Local",
   },
   {
-    index: 7,
-    avatar: client7,
+    index: 23,
+    avatar: client23,
     name: "Safwan Rahman",
     review:
       "Extremely informative, attentive, and knowledgeable. Also very fast and thorough with his work!",
