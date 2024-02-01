@@ -12,6 +12,7 @@ import client3 from "../../assets/clients/client3.webp";
 import client4 from "../../assets/clients/client4.webp";
 import client5 from "../../assets/clients/client5.webp";
 import client6 from "../../assets/clients/client6.webp";
+import client7 from "../../assets/clients/client7.webp";
 import client21 from "../../assets/clients/client21.webp";
 import client22 from "../../assets/clients/client22.webp";
 import client23 from "../../assets/clients/client23.webp";
@@ -114,6 +115,18 @@ const data = [
     
     I highly recommend Najrul to anyone looking for a skilled and versatile full-stack developer. He is an exceptional talent who will undoubtedly bring significant value to your organization.`,
     title: "Software Developer, Kosovo",
+
+    source: "LinkedIn",
+  },
+
+  {
+    index: 7,
+    avatar: client7,
+    name: "Michele Cheow",
+    review: `Najrul is a stand up guy who knows how much he doesn't know and is without ego.
+    Whatever he does, he does with empathy. 
+    As he's constantly willing to learn and grow, he'd make a great asset to any team. He has the grit and tenacity of ten developers.`,
+    title: "Senior Software Engineer, USA",
 
     source: "LinkedIn",
   },
