@@ -1,11 +1,25 @@
-import { vectorDesign, phero, invent } from "../assets";
+import { vectorDesign, phero, invent, neotec } from "../assets";
 
 const experiences = [
+  {
+    title: "UI/UX Developer",
+    company_name: "NeoTec Digital",
+    icon: neotec,
+    iconBg: "#E6DEDD",
+    date: "December 2023 - PRESENT",
+    points: [
+      "Collaborated directly with the CEO to conceptualize and plan user interface designs, ensuring alignment with the company's strategic objectives and vision.",
+      "Provided valuable insights and recommendations from a user experience perspective, guiding decision-making processes to enhance the usability and effectiveness of our digital products.",
+      "Translated the CEO's vision and requirements into compelling design concepts, delivering intuitive and aesthetically pleasing user interfaces that resonate with our target audience.",
+      "Conducted thorough user research and feedback sessions alongside the CEO, gathering valuable insights to inform design decisions and drive continuous improvement.",
+      "Played a pivotal role in the end-to-end design process, from ideation and wireframing to prototyping and implementation, collaborating closely with the CEO to ensure the successful execution of design initiatives."
+    ],
+  },
   {
     title: "Full Stack Developer",
     company_name: "Invent",
     icon: invent,
-    iconBg: "#383E56",
+    iconBg: "#E6DEDD",
     date: "January 2023 - PRESENT",
     points: [
       "Designed and engineered a React web app from the ground up to present Invent with an online portal for client landing pages and a booking system.",
