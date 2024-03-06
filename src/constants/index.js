@@ -64,7 +64,7 @@ const experiences = [
 
 const skills = [
   {
-    id: 1,
+    id: 999,
     title: "Frontend",
     skills: [
       {
@@ -135,64 +135,69 @@ const skills = [
     ],
   },
   {
-    id: 35,
+    id: 998,
     title: "Backend",
     skills: [
       {
-        id: 12,
+        id: 101,
         name: "Node Js",
         image: "https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg",
       },
       {
-        id: 13,
+        id: 102,
         name: "Express Js",
         image:
           "https://i.ibb.co/3dssqRk/express-js.png",
       },
 
       {
-        id: 14,
+        id: 103,
         name: "MongoDB",
         image:
           "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
       },
       {
-        id: 15,
+        id: 104,
         name: "Firebase",
         image: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
       },
       
       {
-        id: 16,
+        id: 105,
         name: "NoSQL",
         image:
           "https://i.ibb.co/g6kyNdP/NoSQL.png",
       },
       {
-        id: 17,
+        id: 106,
+        name: "Python",
+        image: "https://qph.cf2.quoracdn.net/main-qimg-28cadbd02699c25a88e5c78d73c7babc",
+      },
+      {
+        id: 107,
         name: "PHP",
         image: "https://www.vectorlogo.zone/logos/php/php-horizontal.svg",
       },
     ],
   },
   {
-    id: 18,
+    id: 997,
     title: "Others",
     skills: [
       {
-        id: 19,
+        id: 201,
         name: "Git",
         image:
           "https://avatars.githubusercontent.com/u/18133?s=280&v=4",
       },
       {
-        id: 20,
+        id: 202,
         name: "GitHub",
         image:
           "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
       },
       {
-        id: 21,
+        id: 203,
         name: "Vercel",
         image:
           "https://i.ibb.co/VjL9zJH/Vercel.png",
@@ -201,52 +206,58 @@ const skills = [
 // 
 
       {
-        id: 22,
+        id: 204,
         name: "Netlify",
         image:
           "https://seeklogo.com/images/N/netlify-logo-BD8F8A77E2-seeklogo.com.png",
       },
       {
-        id: 23,
+        id: 205,
         name: "VS Code",
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png?20210804221519",
       },
       {
-        id: 24,
+        id: 206,
         name: "WordPress",
         image:
           "https://www.vectorlogo.zone/logos/wordpress/wordpress-icon.svg",
       },
       {
-        id: 25,
+        id: 207,
         name: "Adobe PS",
         image:
           "https://i.ibb.co/X52kyqc/adobe-photoshop-svgrepo-com.png",
       },
       {
-        id: 26,
+        id: 208,
         name: "Figma",
         image:
           "https://i.pinimg.com/originals/63/a7/b1/63a7b1894b3210d07e434e9d12170586.png",
       },
       {
-        id: 27,
+        id: 209,
         name: "Canva",
         image:
           "https://www.vectorlogo.zone/logos/canva/canva-icon.svg",
       },
       {
-        id: 28,
+        id: 210,
         name: "Camtasia",
         image:
           "https://i.ibb.co/rxWnyvh/camtasia.jpg",
       },
       {
-        id: 29,
+        id: 211,
         name: "Filmora",
         image:
           "https://i.ibb.co/WK1mZ6s/filmora.png",
+      },
+      {
+        id: 212,
+        name: "Shopify",
+        image:
+          "https://logowik.com/content/uploads/images/shopify-bag5181.logowik.com.webp",
       },
     ],
   },
