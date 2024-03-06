@@ -28,7 +28,7 @@ const experiences = [
       "Created a system of SEO tracking in the head of each page to help the website based on LightHouse standards.",
       "•	Used React’s composability features to develop the website in an easy-to-maintain way.",
       "Leveraged Tailwind and vanilla CSS to create a responsive design whilst keeping the markup clean and easy to maintain.",
-      "Processed Data on the backend via NodeJS, ExpressJS, MongoDB. Hostinger is used for its affordability and user-friendliness. It helped to save around $500 on manual marketing campaign for the company in Dhaka."
+      "Processed Data on the backend via NodeJS, ExpressJS, MongoDB. Hostinger is used for its affordability and user-friendliness. It helped to save around 80% on manual marketing campaign for the company in Dhaka."
     ],
   },
   {
