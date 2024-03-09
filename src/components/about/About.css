@@ -1,3 +1,8 @@
+.about_section{
+  /* background-image: url(../src/assets/bg-texture.png); */
+  
+}
+
 .about_container {
   display: grid;
   grid-template-columns: 35% 50%;

@@ -20,7 +20,7 @@
   --color-bg-variant: #030618;
   /* --color-primary: #6f2da8; */
   /* --header-color: #6f2da8c0; */
-  --color-primary: #b86df5;
+  --color-primary: rgb(183, 107, 245);
   --color-primary-linear: linear-gradient(
     109.6deg,
     rgb(157, 75, 199) 11.2%,
@@ -53,8 +53,9 @@ body {
   color: var(--color-white);
   line-height: 1.7;
   overflow-x: hidden;
+  
 
-  /* background-image: url(../src/assets/bg-texture.png); */
+  background-image: url(../src/assets/bg-texture.png);
 }
 
 /* General Styles*/
