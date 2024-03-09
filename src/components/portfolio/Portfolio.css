@@ -27,9 +27,7 @@
   border: 1px rgb(89, 18, 102) solid;
   padding-top: 15px;    
   display: grid;
-  align-content: center;
   justify-content: center;
-  align-items: center;
 }
 
 .card_image {
@@ -37,15 +35,18 @@
   object-fit: contain;
 }
 
-portfolio_item h3 {
-  margin: 1.2rem 0 2rem;
-}
-
 .portfolio_item_cta {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
   margin-left: 12px;
+}
+
+.portfolio_item_content{
+  display: grid;
+  justify-content: center;
+  text-align: center;
+
 }
 
 .tag_css {
@@ -64,7 +65,7 @@ portfolio_item h3 {
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 55vh;
+  width: 70vh;
   height: 55vh;
 }
 
