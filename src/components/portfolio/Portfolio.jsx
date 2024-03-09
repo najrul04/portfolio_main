@@ -1,6 +1,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
@@ -19,6 +19,19 @@ import "./Portfolio.css";
 import {portfolio} from "../../constants";
 
 const Portfolio = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 600);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   useEffect(() => {
     AOS.init({
       duration: 1500,
@@ -31,7 +44,7 @@ const Portfolio = () => {
       <h2>Portfolio</h2>
 
       <Swiper
-       style={{ width: '100%' }}
+      //  style={{ width: '100%' }}
         data-aos="fade-up"
         effect={"coverflow"}
         grabCursor={true}
@@ -53,7 +66,8 @@ const Portfolio = () => {
             style={{
               backgroundPosition: 'center',
               backgroundSize: 'cover',
-              width: '70vh',
+              width: isMobile ? '56vh' : '70vh',
+              margin: isMobile ? '0px' : 'auto',
               height: '56vh',
             }}
               whilehover={{ scale: 1.1 }}
