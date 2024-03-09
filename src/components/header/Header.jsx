@@ -105,6 +105,12 @@ const Header = () => {
               },
             },
             particles: {
+              "push": {
+                "particles_nb": 2
+              },
+              "remove": {
+                "particles_nb": 1
+              },
               color: {
                 value: "#ffffff",
               },
