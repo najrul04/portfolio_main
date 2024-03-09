@@ -263,6 +263,60 @@ const skills = [
   },
 ];
 
+const portfolio = [
+  {
+    id: 1,
+    gif: "https://i.ibb.co/h7RCTC2/Fitness.gif",
+    title: "Fitness World",
+    github: "https://github.com/najrul04/gym_fitness",
+    demo: "https://web-fitness.netlify.app/",
+    tag: "#ReactJS #RapidAPI #Material UI",
+  },
+  {
+    id: 2,
+    gif: "https://i.ibb.co/h7RCTC2/Fitness.gif",
+    title: "Real Estate",
+    github: "https://github.com/najrul04/real_estate",
+    demo: "https://real-estate-zeta-lemon.vercel.app/",
+    tag: "#NextJS #ChakraUI #RapidAPI",
+  },
+  {
+    id: 3,
+    gif: "https://i.ibb.co/h7RCTC2/Fitness.gif",
+    title: "Game Info",
+    github: "https://github.com/najrul04/react_recap/tree/main/car-services",
+    demo: "https://games-mart.web.app/",
+    tag: "#ReactJS #Bootstrap #Firebase",
+  },
+  {
+    id: 4,
+    gif: "https://i.ibb.co/h7RCTC2/Fitness.gif",
+    title: "Hospital",
+    github: "https://github.com/najrul04/healthcare-website",
+    demo: "https://gen-hospital.netlify.app/",
+    tag: "#ReactJS #Firebase #MongoDB",
+  },
+  {
+    id: 5,
+    gif: "https://i.ibb.co/h7RCTC2/Fitness.gif",
+    title: "ECommerce (Demo)",
+    github:
+      "https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router",
+    demo: "https://ecommerce-79009.firebaseapp.com/",
+    tag: "#ReactJS #ReactRouter #Firebase",
+  },
 
-export { experiences, skills };
+  {
+    id: 6,
+    gif: "https://i.ibb.co/h7RCTC2/Fitness.gif",
+    title: "Temperature",
+    github: "https://github.com/najrul04/temperature",
+    demo: "https://temperature123.netlify.app/",
+    tag: "#HTML #CSS #JavaScript",
+  },
+
+];
+
+
+export { experiences, skills, portfolio };
 

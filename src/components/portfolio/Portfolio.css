@@ -45,7 +45,6 @@
 .portfolio_item_content{
   display: grid;
   justify-content: center;
-  text-align: center;
 
 }
 
@@ -57,23 +56,6 @@
   padding-bottom: 3px;
   color: rgb(96, 95, 133);
 }
-
-.swiper {
-  width: 100%;
-}
-
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 70vh;
-  height: 55vh;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-}
-
 
 /* ==================== Media Queries (Medium Devices) ======================= */
 
