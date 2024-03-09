@@ -127,7 +127,7 @@ const Header = () => {
               },
               number: {
                 density: {
-                  enable: true,
+                  enable: false,
                   area: 805,
                 },
                 value: 80,
@@ -139,11 +139,11 @@ const Header = () => {
                 type: "circle",
               },
               size: {
-                value: { min: 1, max: 5 },
+                value: { min: 1, max: 3 },
               },
             },
 
-            detectRetina: true,
+            detectRetina: false,
           }}
         />
 
