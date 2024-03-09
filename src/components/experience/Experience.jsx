@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from "framer-motion";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { experiences } from "../../constants";
 import { SectionWrapper } from "../../hoc";
-import { styles } from "../../styles.js";
+// import { styles } from "../../styles.js";
 import { textVariant } from "../../utils/motion";
 import './Experience.css'
 
 
 const ExperienceCard = ({ experience }) => {
+
   return (
     <VerticalTimelineElement
     className='verticalTimeline'
@@ -61,9 +64,15 @@ const ExperienceCard = ({ experience }) => {
 };
 
 const Experience = () => {
+    
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+    });
+  }, [])
   return (
-    <>
-      <motion.div variants={textVariant()}
+    < >
+      <div data-aos="fade-up" variants={textVariant()}
       id='experience'
       >
         
@@ -73,7 +82,7 @@ const Experience = () => {
         <h2 style={{textAlign: "center", color: "#b86df5"}}>
           Work Experience
         </h2>
-      </motion.div>
+      </div>
 
       <div style={{marginTop: "5rem", display: 'flex', flexDirection:'column'}} >
         <VerticalTimeline>

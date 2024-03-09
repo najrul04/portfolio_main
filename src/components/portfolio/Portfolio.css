@@ -1,7 +1,7 @@
 .portfolio_container {
-  display: grid;
+/*   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
+  gap: 2.5rem; */
   height: 100%;
   position: relative;
   width: var(--container-width-lg);
@@ -24,12 +24,16 @@
 .portfolio_item_image {
   border-radius: 1.5rem;
   overflow: hidden;
-  border: 1px rgb(29, 11, 32) solid;
-  padding-top: 15px;
+  border: 1px rgb(89, 18, 102) solid;
+  padding-top: 15px;    
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .card_image {
-  height: 50vh;
+  height: 60vh;
   object-fit: contain;
 }
 
@@ -52,6 +56,23 @@ portfolio_item h3 {
   padding-bottom: 3px;
   color: rgb(96, 95, 133);
 }
+
+.swiper {
+  width: 100%;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 55vh;
+  height: 55vh;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
 
 /* ==================== Media Queries (Medium Devices) ======================= */
 
