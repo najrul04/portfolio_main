@@ -11,7 +11,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
-import { EffectCoverflow, Pagination } from "swiper/core";
+import SwiperCore, { EffectCoverflow, Pagination } from "swiper/core";
 // import './styles.css';
 // import IMG1 from '../../assets/P1-E-Commerce.png';
 import "./Portfolio.css";
@@ -38,6 +38,9 @@ const Portfolio = () => {
     });
   }, []);
 
+
+SwiperCore.use([Pagination]);
+
   return (
     <section id="portfolio">
       <h5>My Recent Work</h5>
@@ -56,7 +59,7 @@ const Portfolio = () => {
           modifier: 1,
           slideShadows: true,
         }}
-        pagination={false}
+        pagination={{ clickable: true }}
         modules={[EffectCoverflow, Pagination]}
       >
         {portfolio.map(({ id, gif, title, github, demo, tag }) => {
@@ -67,7 +70,7 @@ const Portfolio = () => {
               backgroundSize: 'cover',
               width: isMobile ? '56vh' : '70vh',
               margin: isMobile ? '0px' : 'auto',
-              height: '56vh'
+              height: '60vh'
             }}
               whilehover={{ scale: 1.1 }}
               key={id}
