@@ -44,7 +44,6 @@ const Portfolio = () => {
       <h2>Portfolio</h2>
 
       <Swiper
-      //  style={{ width: '100%' }}
         data-aos="fade-up"
         effect={"coverflow"}
         grabCursor={true}

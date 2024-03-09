@@ -73,7 +73,4 @@
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  .swiper-slide {
-    width: 10vh;
-  }
 }
