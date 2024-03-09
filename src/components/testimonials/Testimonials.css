@@ -9,6 +9,7 @@
   padding: 2rem;
   border-radius: 2rem;
   user-select: none;
+  cursor: grab;
 }
 
 .testimonial_logo{

@@ -54,7 +54,7 @@ const Portfolio = () => {
               backgroundPosition: 'center',
               backgroundSize: 'cover',
               width: '70vh',
-              height: '70vh'
+              height: '55vh'
             }}
               whilehover={{ scale: 1.1 }}
               key={id}
