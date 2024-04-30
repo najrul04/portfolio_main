@@ -49,7 +49,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <div>
+    <div className="nav_container">
       <motion.nav
         initial={{ x: '-100vw' }}
         animate={{ x: '-12vw' }}
