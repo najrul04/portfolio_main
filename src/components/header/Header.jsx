@@ -12,24 +12,13 @@ import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 
-import { logos } from "../../constants";
+import { logos, personal_links } from "../../constants";
 
-import react_logo from "../../assets/tech_logos/react.webp";
-import ts_logo from "../../assets/tech_logos/ts.webp";
-import next_logo from "../../assets/tech_logos/nextjs.webp";
-import tailwind_logo from "../../assets/tech_logos/tailwind.webp";
-import nodejs_logo from "../../assets/tech_logos/nodejs.webp";
-import expressjs_logo from "../../assets/tech_logos/expressjs.webp";
 import coffeeImage from "../../assets/coffee.webp";
 import upWork from "../../assets/personal_links/upWork.webp";
 import amazon from "../../assets/personal_links/amazon.webp";
 
 const Header = () => {
-
-  const personal_links =[ 
-    { id: 1, name: "UpWork", icon: upWork, url: "https://www.upwork.com/freelancers/~0164d34a597d34e0dd" },
-    { id: 2, name: "Amazon Affiliate", icon: amazon, url: "https://amzn.to/3y77Y4e" },
-  ]
 
   const particlesInit = useCallback(async (engine) => {
     console.log(engine);
@@ -60,6 +49,7 @@ const Header = () => {
               key={links.id}
               href={links.url}
               target="_blank"
+              title={links.text}
               >
                 <img src={links.icon} alt={links.name} />
               </a>

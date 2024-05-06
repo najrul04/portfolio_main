@@ -12,5 +12,12 @@ import tailwind_logo from "../assets/tech_logos/tailwind.webp";
 import nodejs_logo from "../assets/tech_logos/nodejs.webp";
 import expressjs_logo from "../assets/tech_logos/expressjs.webp";
 
+// Personal_Links
 
-export { invent, phero, vectorDesign, neotec, react_logo, ts_logo, next_logo, tailwind_logo, nodejs_logo, expressjs_logo };
+import upWork from "../assets/personal_links/upWork.webp";
+import patreon from "../assets/personal_links/patreon.webp";
+import gumRoad from "../assets/personal_links/gumRoad.webp";
+import amazon from "../assets/personal_links/amazon.webp";
+
+
+export { invent, phero, vectorDesign, neotec, react_logo, ts_logo, next_logo, tailwind_logo, nodejs_logo, expressjs_logo, upWork, patreon, gumRoad, amazon };

@@ -32,6 +32,7 @@ header {
   background: #ffffff;
 }
 
+
 @keyframes wiggle {
   0%,
   100% {
@@ -236,6 +237,10 @@ header {
     height: 1.5rem;
     
   }
+  
+  .personal_links > a > img{
+    display: none;
+  }
 
   .header_info {
     position: absolute;
@@ -246,7 +251,8 @@ header {
   .header_socials {
     display: flex;
     flex-direction: row;
-    top: -450px;
+    top: -40rem;
+    left: -2.9rem;
   }
 
   .scroll_down {

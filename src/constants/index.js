@@ -1,4 +1,4 @@
-import { vectorDesign, phero, invent, neotec, react_logo, ts_logo, next_logo, tailwind_logo, nodejs_logo, expressjs_logo } from "../assets";
+import { vectorDesign, phero, invent, neotec, react_logo, ts_logo, next_logo, tailwind_logo, nodejs_logo, expressjs_logo, upWork, amazon, patreon, gumRoad } from "../assets";
 
 const experiences = [
   {
@@ -326,4 +326,11 @@ const logos = [
   { id: 6, name: "Express JS", src: expressjs_logo },
 ];
 
-export { experiences, skills, portfolio, logos};
+const personal_links =[ 
+  { id: 1, name: "UpWork", icon: upWork, url: "https://www.upwork.com/freelancers/~0164d34a597d34e0dd", text: "Want to hire me on UpWork?" },
+  { id: 2, name: "Patreon", icon: patreon, url: "https://www.patreon.com/Najrul775/shop/your-personal-portfolio-157703?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=productshare_fan&utm_content=join_link", text: "Want to buy same template on Patreon?" },
+  { id: 3, name: "Gumroad", icon: gumRoad, url: "https://nazrul2517.gumroad.com/l/yourpersonalportfolio", text: "Want to buy same template on Gumroad?" },
+  { id: 4, name: "Amazon Affiliate", icon: amazon, url: "https://amzn.to/3y77Y4e", text: "Help a friend by buying from Amazon." },
+]
+
+export { experiences, skills, portfolio, logos, personal_links};
