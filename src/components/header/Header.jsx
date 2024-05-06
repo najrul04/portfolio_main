@@ -15,8 +15,6 @@ import { loadSlim } from "tsparticles-slim";
 import { logos, personal_links } from "../../constants";
 
 import coffeeImage from "../../assets/coffee.webp";
-import upWork from "../../assets/personal_links/upWork.webp";
-import amazon from "../../assets/personal_links/amazon.webp";
 
 const Header = () => {
 
