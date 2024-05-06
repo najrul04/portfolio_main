@@ -18,6 +18,9 @@ import tailwind_logo from "../../assets/tech_logos/tailwind.webp";
 import nodejs_logo from "../../assets/tech_logos/nodejs.webp";
 import expressjs_logo from "../../assets/tech_logos/expressjs.webp";
 import coffeeImage from "../../assets/coffee.webp";
+import upWork from "../../assets/personal_links/upWork.webp";
+import amazon from "../../assets/personal_links/amazon.webp";
+// import { logos } from "../../constants";
 
 const Header = () => {
   const logos = [
@@ -28,6 +31,12 @@ const Header = () => {
     { id: 5, name: "NodeJS", src: nodejs_logo },
     { id: 6, name: "Express JS", src: expressjs_logo },
   ];
+
+  const personal_links =[
+    
+    { id: 1, name: "UpWork", icon: upWork, url: "https://www.upwork.com/freelancers/~0164d34a597d34e0dd" },
+    { id: 2, name: "Amazon Affiliate", icon: amazon, url: "https://amzn.to/3y77Y4e" },
+  ]
 
   const particlesInit = useCallback(async (engine) => {
     console.log(engine);
@@ -45,7 +54,7 @@ const Header = () => {
   return (
     <>
       <header>
-        <div className="background_Logos">
+        <div>
           <div className="background_Logos">
             {logos.map((logo) => (
               <img
@@ -56,19 +65,17 @@ const Header = () => {
               />
             ))}
           </div>
-
-          {/* <h1>ReactJS</h1> */}
-          {/* <img className="wiggle" src={react_logo} alt="React" /> */}
-          {/* <h1>TypeScript</h1> */}
-          {/* <img className="wiggle" src={ts_logo} alt="TypeScript" /> */}
-          {/* <h1 >NextJS</h1> */}
-          {/* <img className="wiggle" src={next_logo} alt="NextJS" /> */}
-          {/* <h1 >TailwindCSS</h1> */}
-          {/* <img className="wiggle" src={tailwind_logo} alt="TailwindCSS" /> */}
-          {/* <h1 >NodeJS</h1> */}
-          {/* <img className="wiggle" src={nodejs_logo} alt="NodeJS" /> */}
-          {/* <h1 >Express JS</h1> */}
-          {/* <img className="wiggle" src={expressjs_logo} alt="ExpressJS" /> */}
+          <div className="personal_links">
+            {personal_links.map((links) => (
+              <a 
+              key={links.id}
+              href={links.url}
+              target="_blank"
+              >
+                <img src={links.icon} alt={links.name} />
+              </a>
+            ))}
+          </div>
         </div>
 
         <Particles

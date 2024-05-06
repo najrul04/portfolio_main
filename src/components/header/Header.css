@@ -21,10 +21,15 @@ header {
   opacity: 70%;
 }
 
-.background_Logos > img {
+.personal_links{
+  padding: 0 1rem;
+}
+.personal_links > a > img{
   width: fit-content;
   height: 3rem;
   opacity: 70%;
+  margin-top: 1rem;
+  background: #ffffff;
 }
 
 @keyframes wiggle {
