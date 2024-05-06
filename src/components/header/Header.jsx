@@ -11,6 +11,9 @@ import Typewriter from "typewriter-effect";
 import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
+
+import { logos } from "../../constants";
+
 import react_logo from "../../assets/tech_logos/react.webp";
 import ts_logo from "../../assets/tech_logos/ts.webp";
 import next_logo from "../../assets/tech_logos/nextjs.webp";
@@ -20,30 +23,16 @@ import expressjs_logo from "../../assets/tech_logos/expressjs.webp";
 import coffeeImage from "../../assets/coffee.webp";
 import upWork from "../../assets/personal_links/upWork.webp";
 import amazon from "../../assets/personal_links/amazon.webp";
-// import { logos } from "../../constants";
 
 const Header = () => {
-  const logos = [
-    { id: 1, name: "React", src: react_logo },
-    { id: 2, name: "TypeScript", src: ts_logo },
-    { id: 3, name: "NextJS", src: next_logo },
-    { id: 4, name: "TailwindCSS", src: tailwind_logo },
-    { id: 5, name: "NodeJS", src: nodejs_logo },
-    { id: 6, name: "Express JS", src: expressjs_logo },
-  ];
 
-  const personal_links =[
-    
+  const personal_links =[ 
     { id: 1, name: "UpWork", icon: upWork, url: "https://www.upwork.com/freelancers/~0164d34a597d34e0dd" },
     { id: 2, name: "Amazon Affiliate", icon: amazon, url: "https://amzn.to/3y77Y4e" },
   ]
 
   const particlesInit = useCallback(async (engine) => {
     console.log(engine);
-    // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
-    //await loadFull(engine);
     await loadSlim(engine);
   }, []);
 

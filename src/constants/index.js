@@ -1,4 +1,4 @@
-import { vectorDesign, phero, invent, neotec } from "../assets";
+import { vectorDesign, phero, invent, neotec, react_logo, ts_logo, next_logo, tailwind_logo, nodejs_logo, expressjs_logo } from "../assets";
 
 const experiences = [
   {
@@ -12,7 +12,7 @@ const experiences = [
       "Provided valuable insights and recommendations from a user experience perspective, guiding decision-making processes to enhance the usability and effectiveness of our digital products.",
       "Translated the CEO's vision and requirements into compelling design concepts, delivering intuitive and aesthetically pleasing user interfaces that resonate with our target audience.",
       "Conducted thorough user research and feedback sessions alongside the CEO, gathering valuable insights to inform design decisions and drive continuous improvement.",
-      "Played a pivotal role in the end-to-end design process, from ideation and wireframing to prototyping and implementation, collaborating closely with the CEO to ensure the successful execution of design initiatives."
+      "Played a pivotal role in the end-to-end design process, from ideation and wireframing to prototyping and implementation, collaborating closely with the CEO to ensure the successful execution of design initiatives.",
     ],
   },
   {
@@ -28,7 +28,7 @@ const experiences = [
       "Created a system of SEO tracking in the head of each page to help the website based on LightHouse standards.",
       "•	Used React’s composability features to develop the website in an easy-to-maintain way.",
       "Leveraged Tailwind and vanilla CSS to create a responsive design whilst keeping the markup clean and easy to maintain.",
-      "Processed Data on the backend via NodeJS, ExpressJS, MongoDB. Hostinger is used for its affordability and user-friendliness. It helped to save around 80% on manual marketing campaign for the company in Dhaka."
+      "Processed Data on the backend via NodeJS, ExpressJS, MongoDB. Hostinger is used for its affordability and user-friendliness. It helped to save around 80% on manual marketing campaign for the company in Dhaka.",
     ],
   },
   {
@@ -44,7 +44,7 @@ const experiences = [
       "Managed a user guide to help promote site features and management of the websites.",
       "Updated the website as instructed by the company and introduced new features and contents.",
       "Managed comments from visitors, including private emails and comments posted on the site.",
-      "Used Astra Pro for lightweight and fast themes, Yoast SEO for search engine optimization, Contact form 7 for simplification of managing contact, Askismet for filtering out spammers and others."
+      "Used Astra Pro for lightweight and fast themes, Yoast SEO for search engine optimization, Contact form 7 for simplification of managing contact, Askismet for filtering out spammers and others.",
     ],
   },
   {
@@ -80,7 +80,7 @@ const skills = [
         image:
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACTklEQVR4Ab1XAaQqURB9DyohSykREpRIQSAlBCoECKUFCSRCBBEAaSEABQEoCIEASCwAUICALgCo83do0//9v819XX845O7VnDkzOzP7JWGaBd3C3IJpQVjAHeJ+Rs9a97vKLGrBsB1KgMhEP3FMUUwt4ENMfxr1yQIU4SSjRkbeOZtERmHk6pXQVDlnkHh9S+QLTm1hkiz4n/gzFQuny9FoFLquE+i34x+n02k0m00UCoV3BIzn3MMJrVYLtp1OJ0cS/X4f5/MZhmG8IyDsWtDfEaDIn2232/3zbrvdxuFwwGg04qRBt+VnETBNE0IIkE2n07/erdfrWK/X6Ha73Hb9ZXII3G43ivy3dNRqtZe7lUoFs9mM6oBDwCQCgquALT1FT3a5XF7qIZ/PYzgcolqtcggIIgBZAgRKB6lCRalp2uM8k8mAVMrlchwC+DEBipycE4n5fP44j8ViKJVKSCaTbAJCpgaez4vFIsjoWa/XA50FAgEkEgmEw2F2CkxZBZ5Br5tt1ITcbjd8Ph88Hg+7CBefECCsVitS4aVJcV9D/VMCVITk/Hq9YrPZyBBo2a1YMGvAcQYcj0cCtWMugcdYNhjDiBrP25mx3++x3W6RzWZZ8isfxzQLlsslJpMJpYY5jhkqcOH1ejEYDDAej9FoNOByuZxGsfqVzC7KTqcDSkkqleKsZOqX0mAwiHK5DGrJfr+fs5SqX8sjkQji8ThCoRC+v78Za7l6JagrUh3YkUuZpqgwDaecc9VYSDoV5Fg+at7n+eLN57kuE/EvzHr/Kvs31aYAAAAASUVORK5CYII=",
       },
-      
+
       {
         id: 4,
         name: "Redux",
@@ -99,7 +99,7 @@ const skills = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png",
       },
-      
+
       {
         id: 7,
         name: "JavaScript",
@@ -146,8 +146,7 @@ const skills = [
       {
         id: 102,
         name: "Express Js",
-        image:
-          "https://i.ibb.co/3dssqRk/express-js.png",
+        image: "https://i.ibb.co/3dssqRk/express-js.png",
       },
 
       {
@@ -161,17 +160,17 @@ const skills = [
         name: "Firebase",
         image: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
       },
-      
+
       {
         id: 105,
         name: "NoSQL",
-        image:
-          "https://i.ibb.co/g6kyNdP/NoSQL.png",
+        image: "https://i.ibb.co/g6kyNdP/NoSQL.png",
       },
       {
         id: 106,
         name: "Python",
-        image: "https://qph.cf2.quoracdn.net/main-qimg-28cadbd02699c25a88e5c78d73c7babc",
+        image:
+          "https://qph.cf2.quoracdn.net/main-qimg-28cadbd02699c25a88e5c78d73c7babc",
       },
       {
         id: 107,
@@ -187,8 +186,7 @@ const skills = [
       {
         id: 201,
         name: "Git",
-        image:
-          "https://avatars.githubusercontent.com/u/18133?s=280&v=4",
+        image: "https://avatars.githubusercontent.com/u/18133?s=280&v=4",
       },
       {
         id: 202,
@@ -199,11 +197,10 @@ const skills = [
       {
         id: 203,
         name: "Vercel",
-        image:
-          "https://i.ibb.co/VjL9zJH/Vercel.png",
+        image: "https://i.ibb.co/VjL9zJH/Vercel.png",
       },
-//       
-// 
+      //
+      //
 
       {
         id: 204,
@@ -220,14 +217,12 @@ const skills = [
       {
         id: 206,
         name: "WordPress",
-        image:
-          "https://www.vectorlogo.zone/logos/wordpress/wordpress-icon.svg",
+        image: "https://www.vectorlogo.zone/logos/wordpress/wordpress-icon.svg",
       },
       {
         id: 207,
         name: "Adobe PS",
-        image:
-          "https://i.ibb.co/X52kyqc/adobe-photoshop-svgrepo-com.png",
+        image: "https://i.ibb.co/X52kyqc/adobe-photoshop-svgrepo-com.png",
       },
       {
         id: 208,
@@ -238,20 +233,17 @@ const skills = [
       {
         id: 209,
         name: "Canva",
-        image:
-          "https://www.vectorlogo.zone/logos/canva/canva-icon.svg",
+        image: "https://www.vectorlogo.zone/logos/canva/canva-icon.svg",
       },
       {
         id: 210,
         name: "Camtasia",
-        image:
-          "https://i.ibb.co/rxWnyvh/camtasia.jpg",
+        image: "https://i.ibb.co/rxWnyvh/camtasia.jpg",
       },
       {
         id: 211,
         name: "Filmora",
-        image:
-          "https://i.ibb.co/WK1mZ6s/filmora.png",
+        image: "https://i.ibb.co/WK1mZ6s/filmora.png",
       },
       {
         id: 212,
@@ -279,7 +271,7 @@ const portfolio = [
     github: "https://github.com/najrul04/real_estate",
     demo: "https://real-estate-zeta-lemon.vercel.app/",
     tag: "#NextJS #ChakraUI #RapidAPI",
-  },  
+  },
   {
     id: 3,
     gif: "https://i.ibb.co/9cFp5c8/Invent.gif",
@@ -309,7 +301,8 @@ const portfolio = [
     id: 6,
     gif: "https://i.ibb.co/LJ8S7dm/Ecommerce.gif",
     title: "ECommerce (Demo)",
-    github:"https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router",
+    github:
+      "https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router",
     demo: "https://ecommerce-79009.firebaseapp.com/",
     tag: "#ReactJS #ReactRouter #Firebase",
   },
@@ -322,9 +315,15 @@ const portfolio = [
     demo: "https://temperature123.netlify.app/",
     tag: "#HTML #CSS #JavaScript",
   },
-
 ];
 
+const logos = [
+  { id: 1, name: "React", src: react_logo },
+  { id: 2, name: "TypeScript", src: ts_logo },
+  { id: 3, name: "NextJS", src: next_logo },
+  { id: 4, name: "TailwindCSS", src: tailwind_logo },
+  { id: 5, name: "NodeJS", src: nodejs_logo },
+  { id: 6, name: "Express JS", src: expressjs_logo },
+];
 
-export { experiences, skills, portfolio };
-
+export { experiences, skills, portfolio, logos};
