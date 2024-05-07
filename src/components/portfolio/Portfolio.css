@@ -57,6 +57,14 @@
   color: rgb(96, 95, 133);
 }
 
+.loading-spinner{
+  position: absolute;
+  left: 40%;
+  top: 20%;
+  color: var(--color-primary);
+}
+
+
 /* ==================== Media Queries (Medium Devices) ======================= */
 
 @media screen and (max-width: 1024px) {
