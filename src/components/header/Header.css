@@ -22,22 +22,6 @@ header {
   opacity: 70%;
 }
 
-.personal_links{
-  position: absolute;
-  padding: 0 1rem;
-}
-.personal_links > a > img{
-  width: fit-content;
-  height: 3rem;
-  opacity: 70%;
-  margin-top: 1rem;
-  background: #ffffff;
-}
-.personal_links > a > img:hover{
-  height: 4rem;
-  transition: height 2s;
-}
-
 
 @keyframes wiggle {
   0%,

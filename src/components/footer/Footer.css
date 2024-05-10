@@ -57,6 +57,25 @@ footer a {
   color: rgb(255, 255, 255);
 }
 
+.personal_links{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem 0;
+}
+.personal_links > a > img{
+  height: 3rem;
+  opacity: 70%;
+  background: #ffffff;
+  border-radius: 10%;
+  padding: 3px;
+}
+.personal_links > a > img:hover{
+  box-shadow: 2px 2px 2px 2px #000;
+  transition: height 2s;
+}
+
 /* ==================== Media Queries (Small Devices) ======================= */
 
 @media screen and (max-width: 600px) {

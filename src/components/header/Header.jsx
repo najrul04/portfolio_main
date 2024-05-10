@@ -12,7 +12,7 @@ import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 
-import { logos, personal_links } from "../../constants";
+import { logos } from "../../constants";
 
 import coffeeImage from "../../assets/coffee.webp";
 
@@ -39,18 +39,6 @@ const Header = () => {
                 src={logo.src}
                 alt={logo.name}
               />
-            ))}
-          </div>
-          <div className="personal_links">
-            {personal_links.map((links) => (
-              <a 
-              key={links.id}
-              href={links.url}
-              target="_blank"
-              title={links.text}
-              >
-                <img src={links.icon} alt={links.name} />
-              </a>
             ))}
           </div>
         </div>

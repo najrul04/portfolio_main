@@ -3,6 +3,7 @@ import { CgFacebook } from 'react-icons/cg'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { GrInstagram } from 'react-icons/gr'
 import './Footer.css'
+import {  personal_links } from "../../constants";
 
 const Footer = () => {
   return (
@@ -57,8 +58,22 @@ const Footer = () => {
       <div className="footer_copyright">
 
         <small>&copy; MD Najrul Islam Sumon. All rights reserved {new Date().getFullYear()}</small>
-
+       
+        <div className="personal_links">
+            {personal_links.map((links) => (
+              <a 
+              key={links.id}
+              href={links.url}
+              target="_blank"
+              title={links.text}
+              >
+                <img src={links.icon} alt={links.name} />
+              </a>
+            ))}
+          </div>
       </div>
+
+     
 
     </footer>
   )
