@@ -22,6 +22,14 @@ header {
   opacity: 70%;
 }
 
+.upWork{
+  width: 5rem;
+  margin: 1rem 0 0 1rem;
+  padding: 10px;
+  border-radius: 10%;
+  background: #ffffff;
+  position: absolute;
+}
 
 @keyframes wiggle {
   0%,

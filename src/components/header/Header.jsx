@@ -41,7 +41,13 @@ const Header = () => {
               />
             ))}
           </div>
+          <div className="upWork">
+            <a href="https://www.upwork.com/freelancers/~0164d34a597d34e0dd"  target="_blank">  
+            <img src="/src/assets/personal_links/upWork.webp" alt="UpWork" />
+            </a>
+          </div>
         </div>
+        
 
         <Particles
           id="tsparticles"
