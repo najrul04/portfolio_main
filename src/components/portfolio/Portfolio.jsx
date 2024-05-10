@@ -118,7 +118,7 @@ const Portfolio = () => {
                         fill="currentFill"
                       />
                     </svg>
-                    <span className="sr-only">Loading...</span>
+                    
                   </div>
                 )}
                 {/* Lazy-loaded image */}

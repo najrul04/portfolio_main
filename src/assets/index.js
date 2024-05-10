@@ -3,6 +3,7 @@ import invent from "./company/invent.webp";
 import phero from "./company/phero.webp";
 import vectorDesign from "./company/vectorDesign.webp";
 import neotec from "./company/neotec.webp";
+import pinesoft from "./company/pineSoftOy.webp";
 
 // Header_Skills
 import react_logo from "../assets/tech_logos/react.webp";
@@ -20,4 +21,4 @@ import gumRoad from "../assets/personal_links/gumRoad.webp";
 import amazon from "../assets/personal_links/amazon.webp";
 
 
-export { invent, phero, vectorDesign, neotec, react_logo, ts_logo, next_logo, tailwind_logo, nodejs_logo, expressjs_logo, upWork, patreon, gumRoad, amazon };
+export { invent, phero, vectorDesign, neotec, pinesoft, react_logo, ts_logo, next_logo, tailwind_logo, nodejs_logo, expressjs_logo, upWork, patreon, gumRoad, amazon };
