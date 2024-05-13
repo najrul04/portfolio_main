@@ -15,6 +15,7 @@ import { loadSlim } from "tsparticles-slim";
 import { logos } from "../../constants";
 
 import coffeeImage from "../../assets/coffee.webp";
+import upWork from "../../assets/personal_links/upWork.webp";
 
 const Header = () => {
 
@@ -44,7 +45,7 @@ const Header = () => {
           <div>
             <a href="https://www.upwork.com/freelancers/~0164d34a597d34e0dd"  target="_blank">  
             <div className="upWork">
-            <img src="https://logos-world.net/wp-content/uploads/2021/04/Upwork-Logo-2015.png" alt="UpWork" />
+            <img src={upWork} alt="UpWork" />
 
             </div>
             </a>
