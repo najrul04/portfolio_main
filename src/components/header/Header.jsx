@@ -41,9 +41,12 @@ const Header = () => {
               />
             ))}
           </div>
-          <div className="upWork">
+          <div>
             <a href="https://www.upwork.com/freelancers/~0164d34a597d34e0dd"  target="_blank">  
-            <img src="/src/assets/personal_links/upWork.webp" alt="UpWork" />
+            <div className="upWork">
+            <img src="https://logos-world.net/wp-content/uploads/2021/04/Upwork-Logo-2015.png" alt="UpWork" />
+
+            </div>
             </a>
           </div>
         </div>

@@ -5,9 +5,9 @@ const experiences = [
     title: "Frontend Developer",
     company_name: "Pinesoft Oy",
     company_location: "Loviisa, Uusimaa, Finland",
-    icon: neotec,
+    icon: pinesoft,
     iconBg: "#E6DEDD",
-    date: "December 2023 - PRESENT",
+    date: "April 2024 - PRESENT",
     points: [
       "Achieved a 20% increase in website visitors through effective implementation of user interface designs, collaborating directly with the CEO to ensure alignment with strategic objectives and vision.",
       "Offered valuable insights and recommendations rooted in user experience, steering decision-making to elevate the usability and efficiency of our digital products.",
