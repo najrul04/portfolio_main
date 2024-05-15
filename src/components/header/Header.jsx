@@ -16,6 +16,7 @@ import { logos } from "../../constants";
 
 import coffeeImage from "../../assets/coffee.webp";
 import upWork from "../../assets/personal_links/upWork.webp";
+import youTube from "../../assets/personal_links/youTube.webp";
 
 const Header = () => {
 
@@ -46,7 +47,6 @@ const Header = () => {
             <a href="https://www.upwork.com/freelancers/~0164d34a597d34e0dd"  target="_blank">  
             <div className="upWork">
             <img src={upWork} alt="UpWork" />
-
             </div>
             </a>
           </div>
