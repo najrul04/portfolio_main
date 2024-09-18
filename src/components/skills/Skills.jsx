@@ -117,7 +117,7 @@ const Skills = () => {
 
               <div>
 
-              <h4>Next JS</h4>
+              <h4>Next JS </h4>
               {/* <small className='text-light'>Intermediate</small> */}
 
               </div>
