@@ -16,7 +16,6 @@ import { logos } from "../../constants";
 
 import coffeeImage from "../../assets/coffee.webp";
 import upWork from "../../assets/personal_links/upWork.webp";
-import youTube from "../../assets/personal_links/youTube.webp";
 
 const Header = () => {
 
