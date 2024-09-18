@@ -185,7 +185,7 @@ const Testimonials = () => {
       <Swiper
         data-aos="zoom-in-up"
         className="container testimonials_container" // install Swiper modules
-        style={{ overflowX: "visible" }}
+        style={{ overflowX: "hidden" }}
         modules={[Pagination]}
         spaceBetween={30}
         pagination={{ clickable: true }} // Enable clickable pagination
