@@ -81,7 +81,6 @@ const Portfolio = () => {
           modifier: 1,
           slideShadows: true,
         }}
-        pagination={{ clickable: true }}
         modules={[EffectCoverflow, Pagination]}
       >
         {portfolio.map(({ id, gif, title, github, demo, tag }, index) => {
