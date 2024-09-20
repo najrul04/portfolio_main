@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { skills } from "../../constants";
 import AOS from "aos";
 import "aos/dist/aos.css"; 
-import "./Skills0.css"; // Import the CSS file
+import "./Skills.css"; // Import the CSS file
 
-const Skills0 = () => {
+const Skills = () => {
   useEffect(() => {
     AOS.init({
       duration: 1200,
@@ -42,4 +42,4 @@ const Skills0 = () => {
   );
 };
 
-export default Skills0;
+export default Skills;
