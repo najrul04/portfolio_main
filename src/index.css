@@ -12,6 +12,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  scrollbar-width: none;
 }
 
 :root {
