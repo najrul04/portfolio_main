@@ -276,14 +276,6 @@ const skills = [
 
 const portfolio = [
   {
-    id: 1,
-    gif: "https://i.ibb.co/h7RCTC2/Fitness.gif",
-    title: "Fitness World",
-    github: "https://github.com/najrul04/gym_fitness",
-    demo: "https://web-fitness.netlify.app/",
-    tag: "#ReactJS #RapidAPI #Material UI",
-  },
-  {
     id: 2,
     gif: "https://i.ibb.co/Gdjqjg9/real-estate.gif",
     title: "Real Estate",
@@ -306,6 +298,14 @@ const portfolio = [
     github: "https://github.com/najrul04/react_recap/tree/main/car-services",
     demo: "https://games-mart.web.app/",
     tag: "#ReactJS #Bootstrap #Firebase",
+  },
+  {
+    id: 1,
+    gif: "https://i.ibb.co/h7RCTC2/Fitness.gif",
+    title: "Fitness World",
+    github: "https://github.com/najrul04/gym_fitness",
+    demo: "https://web-fitness.netlify.app/",
+    tag: "#ReactJS #RapidAPI #Material UI",
   },
 
   {
