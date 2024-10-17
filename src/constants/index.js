@@ -10,10 +10,10 @@ const experiences = [
     date: "April 2024 - PRESENT",
     points: [
       "Achieved a 20% increase in website visitors through effective implementation of user interface designs, collaborating directly with the CEO to ensure alignment with strategic objectives and vision.",
-      "Offered valuable insights and recommendations rooted in user experience, steering decision-making to elevate the usability and efficiency of our digital products.",
-      "Interpreted the CEO's vision and needs, crafting engaging design concepts that embody intuitive and visually appealing user interfaces tailored to our audience.",
-      "Led comprehensive user research and feedback sessions in tandem with the CEO, extracting key insights to shape design strategies and foster ongoing enhancements.",
-      "Played a pivotal role in the end-to-end design process, from ideation and wireframing to prototyping and implementation, collaborating closely with the CEO to ensure the successful execution of design initiatives.",
+      "Developed over 15 pixel-perfect landing pages using Next.js, React, TypeScript, and Tailwind CSS, ensuring responsive and client-focused designs.",
+      "Collaborated with clients on Go High Level to fulfill their needs and ensure seamless functionality, adapting solutions to meet specific customer requirements.",
+      "Designed and launched 10+ custom WordPress projects from concept to deployment, meeting diverse client requirements and maintaining a 100% client satisfaction rate.",
+      "Created over 20 UI designs in Figma, visually prototyping and refining concepts to match client visions, typically securing approval after just a couple of revisions.",
     ],
   },
   {
@@ -269,6 +269,12 @@ const skills = [
         name: "Shopify",
         image:
           "https://logowik.com/content/uploads/images/shopify-bag5181.logowik.com.webp",
+      },
+      {
+        id: 213,
+        name: "Go High Level",
+        image:
+          "https://i.ibb.co.com/tXv59Sf/unnamed.jpg",
       },
     ],
   },
