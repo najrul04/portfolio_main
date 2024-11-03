@@ -74,7 +74,7 @@ const About = () => {
 
             <p>
 
-            An experienced front end developer with a strong foundation in JavaScript, NextJS, NodeJS, ExpressJS and TailwindCSS. Possesses excellent adaptability and can work efficiently in both team and independent work environments, with a strong drive to master legacy technologies and explore new systems.
+            An experienced Full Stack developer with a strong foundation in JavaScript, TypeScript, ReactJS, NextJS, NodeJS, ExpressJS and TailwindCSS. Possesses excellent adaptability and can work efficiently in both team and independent work environments, with a strong drive to master legacy technologies and explore new systems.
 
             {/* An ambitious, enthusiastic front-end React developer with expertise in HTML, CSS, and JavaScript, along with libraries like React JS, Next JS, Bootstrap, Tailwind, and Material UI. <br /> <br /> I'm well-versed in Firebase, Node JS, Express JS, and MongoDB for server-side development. <br /> <br /> I'm passionate about crafting captivating and responsive web applications that deliver seamless user experiences */}
 
