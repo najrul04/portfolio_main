@@ -37,6 +37,7 @@ const Footer = () => {
         >
         <a href="https://www.facebook.com/nazrul2517/" target="_blank" rel='noreferrer'><CgFacebook/></a>
         </div>
+        
         <div
         whilehover={{scale:1.1}}>
         <a href="https://www.linkedin.com/in/najrul04/" target="_blank" rel='noreferrer'><FaLinkedin/></a>
