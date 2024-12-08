@@ -12,7 +12,7 @@ const HeaderSocials = () => {
 
         <a href="https://www.linkedin.com/in/najrul04/" target="_blank" rel="noreferrer"><BsLinkedin /></a>
         <a href="https://github.com/najrul04" target="_blank" rel="noreferrer"><BsGithub/></a>
-        <a href="https://www.instagram.com/nazrul_i04/?hl=en" target="_blank" rel="noreferrer"><BsInstagram/></a>
+        <a href="https://www.instagram.com/najrul0423/?hl=en" target="_blank" rel="noreferrer"><BsInstagram/></a>
 
     </motion.div>
   )

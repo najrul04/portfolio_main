@@ -51,7 +51,7 @@ const Contact = () => {
 
             <GrMail className='contact_option_icon'/>
             <h4>Email</h4>
-            <h5>nazrul2517@gmail.com</h5>
+            <h5>nazrul171992@gmail.com</h5>
             <a href="mailto:nazrul2517@gmail.com" target=" rel='noreferrer'_blank">Send a Mail</a>
 
           </article>
