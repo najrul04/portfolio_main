@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
         <div
         whilehover={{scale:1.1}}>
-        <a href="https://www.instagram.com/najrul04/?hl=en" target="_blank" rel='noreferrer'><GrInstagram/></a>
+        <a href="https://www.instagram.com/najrul0423/?hl=en" target="_blank" rel='noreferrer'><GrInstagram/></a>
         </div>
         <div
         whilehover={{scale:1.1}}>
