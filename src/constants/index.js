@@ -1,4 +1,21 @@
-import { vectorDesign, phero, invent, neotec, pinesoft, react_logo, ts_logo, next_logo, tailwind_logo, nodejs_logo, expressjs_logo, upWork, amazon, patreon, gumRoad, youTube } from "../assets";
+import {
+  vectorDesign,
+  phero,
+  invent,
+  neotec,
+  pinesoft,
+  react_logo,
+  ts_logo,
+  next_logo,
+  tailwind_logo,
+  nodejs_logo,
+  expressjs_logo,
+  upWork,
+  amazon,
+  patreon,
+  gumRoad,
+  youTube,
+} from "../assets";
 
 const experiences = [
   {
@@ -273,8 +290,7 @@ const skills = [
       {
         id: 213,
         name: "Go High Level",
-        image:
-          "https://i.ibb.co.com/tXv59Sf/unnamed.jpg",
+        image: "https://i.ibb.co.com/tXv59Sf/unnamed.jpg",
       },
     ],
   },
@@ -282,12 +298,20 @@ const skills = [
 
 const portfolio = [
   {
-    id: 2,
+    id: 1,
     gif: "https://i.ibb.co/Gdjqjg9/real-estate.gif",
     title: "Real Estate",
     github: "https://github.com/najrul04/real_estate",
     demo: "https://real-estate-zeta-lemon.vercel.app/",
     tag: "#NextJS #ChakraUI #RapidAPI",
+  },
+  {
+    id: 2,
+    gif: "https://i.ibb.co.com/9Y6mTZL/product-store.gif",
+    title: "Product Store",
+    github: "https://github.com/najrul04/product_store",
+    demo: "https://product-store-es97.onrender.com/",
+    tag: "#ReactJS #NodeJS #ExpressJS",
   },
   {
     id: 3,
@@ -304,14 +328,6 @@ const portfolio = [
     github: "https://github.com/najrul04/react_recap/tree/main/car-services",
     demo: "https://games-mart.web.app/",
     tag: "#ReactJS #Bootstrap #Firebase",
-  },
-  {
-    id: 1,
-    gif: "https://i.ibb.co/h7RCTC2/Fitness.gif",
-    title: "Fitness World",
-    github: "https://github.com/najrul04/gym_fitness",
-    demo: "https://web-fitness.netlify.app/",
-    tag: "#ReactJS #RapidAPI #Material UI",
   },
 
   {
@@ -351,11 +367,35 @@ const logos = [
   { id: 6, name: "Express JS", src: expressjs_logo },
 ];
 
-const personal_links =[ 
-  { id: 1, name: "UpWork", icon: upWork, url: "https://www.upwork.com/freelancers/~0164d34a597d34e0dd", text: "Want to hire me on UpWork?" },
-  { id: 2, name: "Patreon", icon: patreon, url: "https://www.patreon.com/Najrul775/shop/your-personal-portfolio-157703?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=productshare_fan&utm_content=join_link", text: "Want to buy same template on Patreon?" },
-  { id: 3, name: "Gumroad", icon: gumRoad, url: "https://nazrul2517.gumroad.com/l/yourpersonalportfolio", text: "Want to buy same template on Gumroad?" },
-  { id: 4, name: "YouTube", icon: youTube, url: "https://youtu.be/C27G5CVbE70", text: "Aboot me" },
-]
+const personal_links = [
+  {
+    id: 1,
+    name: "UpWork",
+    icon: upWork,
+    url: "https://www.upwork.com/freelancers/~0164d34a597d34e0dd",
+    text: "Want to hire me on UpWork?",
+  },
+  {
+    id: 2,
+    name: "Patreon",
+    icon: patreon,
+    url: "https://www.patreon.com/Najrul775/shop/your-personal-portfolio-157703?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=productshare_fan&utm_content=join_link",
+    text: "Want to buy same template on Patreon?",
+  },
+  {
+    id: 3,
+    name: "Gumroad",
+    icon: gumRoad,
+    url: "https://nazrul2517.gumroad.com/l/yourpersonalportfolio",
+    text: "Want to buy same template on Gumroad?",
+  },
+  {
+    id: 4,
+    name: "YouTube",
+    icon: youTube,
+    url: "https://youtu.be/C27G5CVbE70",
+    text: "Aboot me",
+  },
+];
 
-export { experiences, skills, portfolio, logos, personal_links};
+export { experiences, skills, portfolio, logos, personal_links };
