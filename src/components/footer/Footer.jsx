@@ -58,7 +58,7 @@ const Footer = () => {
 
       <div className="footer_copyright">
 
-        <small>&copy; MD Najrul Islam Sumon. All rights reserved {new Date().getFullYear()}</small>
+        <small>&copy;  Najrul Sumon. All rights reserved {new Date().getFullYear()}</small>
        
         <div className="personal_links">
             {personal_links.map((links) => (
