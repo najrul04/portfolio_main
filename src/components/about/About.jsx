@@ -53,7 +53,7 @@ const About = () => {
           </div>
 
           <p>
-            An experienced Full Stack developer with a strong foundation in
+            An experienced Front End Developer with a strong foundation in
             JavaScript, TypeScript, ReactJS, NextJS, NodeJS, ExpressJS and
             TailwindCSS. Possesses excellent adaptability and can work
             efficiently in both team and independent work environments, with a
