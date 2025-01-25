@@ -19,7 +19,7 @@ import {
 
 const experiences = [
   {
-    title: "Full Stack Developer",
+    title: "Front End Developer",
     company_name: "Pinesoft Oy",
     company_location: "Loviisa, Uusimaa, Finland",
     icon: pinesoft,
@@ -34,7 +34,7 @@ const experiences = [
     ],
   },
   {
-    title: "Full Stack Developer",
+    title: "Front End Developer",
     company_name: "NeoTec Digital",
     company_location: "Florence, Al United States",
     icon: neotec,
@@ -49,7 +49,7 @@ const experiences = [
     ],
   },
   {
-    title: "Full Stack Developer",
+    title: "Front End Developer",
     company_name: "Invent",
     company_location: "Dhaka, Bangladesh",
     icon: invent,

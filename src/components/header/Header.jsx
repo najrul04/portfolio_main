@@ -152,7 +152,7 @@ const Header = () => {
 
               <Typewriter
                 options={{
-                  strings: ["Najrul", "a Full Stack Developer"],
+                  strings: ["Najrul", "a Front End Developer"],
                   autoStart: true,
                   loop: true,
                 }}
