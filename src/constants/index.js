@@ -79,7 +79,7 @@ const experiences = [
       "Managed a user guide to help promote site features and management of the websites.",
       "Updated the website as instructed by the company and introduced new features and contents.",
       "Managed comments from visitors, including private emails and comments posted on the site.",
-      "Used Astra Pro for lightweight and fast themes, Yoast SEO for search engine optimization, Contact form 7 for simplification of managing contact, Askismet for filtering out spammers and others.",
+      "Used Astra Pro for lightweight and fast themes, Yoast SEO for search engine optimization, Contact form 7 for simplification of managing contact, Akismet for filtering out spammers and others.",
     ],
   },
   {
