@@ -32,7 +32,7 @@ import StarRating from "./StarRating";
 import "swiper/swiper-bundle.min.css";
 // import 'swiper/css/pagination'
 
-const data = [
+const testimonialData = [
   {
     index: 1,
     avatar: client1,
@@ -183,7 +183,7 @@ const Testimonials = () => {
       <h2>Testimonials</h2>
 
       <Swiper
-        data-aos="zoom-in-up"
+        testimonialData-aos="zoom-in-up"
         className="container testimonials_container" // install Swiper modules
         style={{ overflowX: "hidden" }}
         modules={[Pagination]}
@@ -202,7 +202,7 @@ const Testimonials = () => {
         },
       }} */
       >
-{data.map(({ avatar, name, review, title, source }, index) => {
+{testimonialData.map(({ avatar, name, review, title, source }, index) => {
   return (
     <SwiperSlide key={index} className="testimonial">
       <div className="client_avatar">

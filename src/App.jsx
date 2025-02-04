@@ -53,6 +53,8 @@ const App = () => {
       {/* <Services/> */}
       <Portfolio/>
 
+      {/* <Services/> */}
+
       <Testimonials/>
 
       <Contact/>
