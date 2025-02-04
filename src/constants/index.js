@@ -15,6 +15,17 @@ import {
   patreon,
   gumRoad,
   youTube,
+  client1,
+  client2,
+  client3,
+  client4,
+  client5,
+  client6,
+  client7,
+  client8,
+  client21,
+  client22,
+  client23
 } from "../assets";
 
 const experiences = [
@@ -296,6 +307,147 @@ const skills = [
   },
 ];
 
+const testimonialData = [
+  {
+    index: 1,
+    avatar: client1,
+    name: "Jacob Knotek",
+    review: `Najrul went above and beyond to make this project a success. He worked with me on all aspects of this app: design, bug fixes, new features, UX, performance, and even marketing. He offered suggestions on what could be improved, and provided extra ideas and support, even after he reached his hour limit for the week!
+
+      Any time I'd give Najrul a task, he'd deliver it faster than I needed, and put in 2x the effort I expected. He was always available to hop on a call for me to clarify things.
+      
+      I've hired many freelancers over the years, and I have *never* had an experience as great as this. Najrul truly cares about the quality of his work, and goes to great lengths to make sure you're happy with his performance.
+      
+      He's now my first choice whenever I need a developer. I will absolutely continue working with him in the future!`,
+    title: "Senior Developer, USA",
+
+    source: "UpWork",
+  },
+  {
+    index: 2,
+    avatar: client8,
+    name: "Sebastian Campos",
+    review: `"Hard working and provides a good product. I am very happy with my new website"`,
+    title: "Backend Developer, USA",
+
+    source: "UpWork",
+  },
+
+  {
+    index: 3,
+    avatar: client2,
+    name: "Robert Whetstine",
+    review:
+      "I had the pleasure of spending an hour on the phone networking with this young man. And honestly I was seriously impressed, he is kind, soft spoken and not scared to put himself out there. If I had half of his skills at his age who knows where I would be. I wish I had a role for him, because he would make anyones team better. He learns extremely fast and would be willing to take on any challenges you put in front of him. If you are looking for a Frontend developer or someone to learn a specific tool or skillset he would be someone I would hire in a heartbeat! Wishing him much success and looking forward to continuing mentoring this talented young man for years to come!",
+    
+      title: "Director of Information Security, USA.",
+
+    source: "LinkedIn",
+  },
+
+  {
+    index: 4,
+    avatar: client3,
+    name: "Thomas McFadden",
+    review: `I'm delighted to recommend Najrul Sumon for his outstanding skills and dedication as a Front End Web Developer.
+
+      Najrul Sumon possesses a strong set of skills such as HTML, CSS, JavaScript, ReactJS and more. He consistently delivers high-quality code and demonstrates a knack for solving complex problems. His dedication to self-improvement is evident in his active participation in discussions and the willingness to seek and provide guidance. 
+      
+      What stood out the most was his commitment to continuously learning and staying up-to-date with the latest industry trends, which is essential in the ever-evolving field of web development. He is actively engaged in the tech community on LinkedIn, showcasing a strong commitment to the field while sharing valuable insights. 
+      
+      I have no doubt that Najrul Sumon will be a great addition to any organization looking for a skilled and motivated web developer. He has the potential to excel in his career and make significant contributions. I wholeheartedly endorse Najrul Sumon and wish him the best in his pursuit.`,
+    
+      title: "UX Product Engineer, USA",
+
+    source: "LinkedIn",
+  },
+
+  {
+    index: 5,
+    avatar: client4,
+    name: "Richard Christopher",
+    review: `My project ended up hitting a road block due to technical changes in design, and I wasn’t able to fully utilize Najrul initially - but he was completely supportive, understanding, professional and kind.
+
+    Even just talking to him was helpful in terms of clearly defining goals and expectations, and design! He came highly recommended and the work I’ve seen from him is top notch!
+    
+    I 10/10 recommend working with Naj on your next website!`,
+    title: "CEO of NeoTec Digital, USA",
+
+    source: "LinkedIn",
+  },
+
+  {
+    index: 6,
+    avatar: client5,
+    name: "David Roberts",
+    review: `Najrul is a legend. I cannot recommend him highly enough. I'm a big believer that proactivity is the key factor when trying to find quality developers and Najrul evidences this in abundance. I'm equally impressed by his continued passion and enthusiasm for learning new things in tech as I am in his warmth and ability when deploying next level EQ.
+
+    Najrul is a gem and any development team would be fortunate to call him a team member and friend. If you're looking for a great developer, you found one!`,
+    title: "Co-Founder & Managing Director of Crushing Digital, UK",
+
+    source: "LinkedIn",
+  },
+
+  {
+    index: 7,
+    avatar: client6,
+    name: "Kujtesa Paçarizi",
+    review: `Najrul is a talented and accomplished full-stack developer who consistently impresses me with his technical skills, problem-solving abilities, and dedication to delivering high-quality results. His work on the Invent web app stands as a testament to his capabilities
+
+    Working with Najrul is like having a secret weapon on your team. He's always thinking two steps ahead, anticipating challenges and proactively solving them. 
+    His communication skills are excellent, and he is a pleasure to work with. He is always open to feedback and collaborative learning, making him a valuable asset to any team.
+    
+    I highly recommend Najrul to anyone looking for a skilled and versatile full-stack developer. He is an exceptional talent who will undoubtedly bring significant value to your organization.`,
+    title: "Software Developer, Kosovo",
+
+    source: "LinkedIn",
+  },
+
+  {
+    index: 8,
+    avatar: client7,
+    name: "Michele Cheow",
+    review: `Najrul is a stand up guy who knows how much he doesn't know and is without ego.
+    Whatever he does, he does with empathy. 
+    As he's constantly willing to learn and grow, he'd make a great asset to any team. He has the grit and tenacity of ten developers.`,
+    title: "Senior Software Engineer, USA",
+
+    source: "LinkedIn",
+  },
+
+
+  {
+    index: 21,
+    avatar: client21,
+    name: " Shameh Rahman",
+    review:
+      "Very approachable and delivers the work reliably within the timelines maintaining good quality.",
+    title: "Mechanical Engineer III, USA",
+
+    source: "Local",
+  },
+  {
+    index: 22,
+    avatar: client22,
+    name: "Rimon Mustafa Kamal",
+    review:
+      "I've never met a web developer who truly cares about their clients' success like Najrul does.",
+    title: "Businessman, Spain",
+
+    source: "Local",
+  },
+  {
+    index: 23,
+    avatar: client23,
+    name: "Safwan Rahman",
+    review:
+      "Extremely informative, attentive, and knowledgeable. Also very fast and thorough with his work!",
+    title: "MLS of Mount Sinai Health System, USA",
+
+    source: "Local",
+  },
+];
+
 const portfolio = [
   {
     id: 1,
@@ -384,4 +536,4 @@ const personal_links = [
   },
 ];
 
-export { experiences, skills, portfolio, logos, personal_links };
+export { experiences, skills, portfolio, logos, personal_links, testimonialData };
