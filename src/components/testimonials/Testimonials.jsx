@@ -13,6 +13,7 @@ import client4 from "../../assets/clients/client4.webp";
 import client5 from "../../assets/clients/client5.webp";
 import client6 from "../../assets/clients/client6.webp";
 import client7 from "../../assets/clients/client7.webp";
+import client8 from "../../assets/clients/client8.webp";
 import client21 from "../../assets/clients/client21.webp";
 import client22 from "../../assets/clients/client22.webp";
 import client23 from "../../assets/clients/client23.webp";
@@ -48,9 +49,18 @@ const testimonialData = [
 
     source: "UpWork",
   },
-
   {
     index: 2,
+    avatar: client8,
+    name: "Sebastian Campos",
+    review: `"Hard working and provides a good product. I am very happy with my new website"`,
+    title: "Backend Developer, USA",
+
+    source: "UpWork",
+  },
+
+  {
+    index: 3,
     avatar: client2,
     name: "Robert Whetstine",
     review:
@@ -62,7 +72,7 @@ const testimonialData = [
   },
 
   {
-    index: 3,
+    index: 4,
     avatar: client3,
     name: "Thomas McFadden",
     review: `I'm delighted to recommend Najrul Sumon for his outstanding skills and dedication as a Front End Web Developer.
@@ -79,7 +89,7 @@ const testimonialData = [
   },
 
   {
-    index: 4,
+    index: 5,
     avatar: client4,
     name: "Richard Christopher",
     review: `My project ended up hitting a road block due to technical changes in design, and I wasn’t able to fully utilize Najrul initially - but he was completely supportive, understanding, professional and kind.
@@ -93,7 +103,7 @@ const testimonialData = [
   },
 
   {
-    index: 5,
+    index: 6,
     avatar: client5,
     name: "David Roberts",
     review: `Najrul is a legend. I cannot recommend him highly enough. I'm a big believer that proactivity is the key factor when trying to find quality developers and Najrul evidences this in abundance. I'm equally impressed by his continued passion and enthusiasm for learning new things in tech as I am in his warmth and ability when deploying next level EQ.
@@ -105,7 +115,7 @@ const testimonialData = [
   },
 
   {
-    index: 6,
+    index: 7,
     avatar: client6,
     name: "Kujtesa Paçarizi",
     review: `Najrul is a talented and accomplished full-stack developer who consistently impresses me with his technical skills, problem-solving abilities, and dedication to delivering high-quality results. His work on the Invent web app stands as a testament to his capabilities
@@ -120,7 +130,7 @@ const testimonialData = [
   },
 
   {
-    index: 7,
+    index: 8,
     avatar: client7,
     name: "Michele Cheow",
     review: `Najrul is a stand up guy who knows how much he doesn't know and is without ego.
