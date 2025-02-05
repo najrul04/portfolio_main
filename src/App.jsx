@@ -8,7 +8,7 @@ import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import Nav from './components/nav/Nav';
 import Portfolio from './components/portfolio/Portfolio';
-// import Services from './components/services/Services'
+import Services from './components/services/Services'
 import PreLoader from "./components/PreLoader/PreLoader";
 import Testimonials from "./components/testimonials/Testimonials";
 import Experience from './components/experience/Experience';
@@ -50,7 +50,7 @@ const App = () => {
       {/* <Skills/> */}
 
       <Skills/>
-      {/* <Services/> */}
+      <Services/>
       <Portfolio/>
 
       {/* <Services/> */}
