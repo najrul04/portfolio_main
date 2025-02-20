@@ -84,7 +84,7 @@ const Services = () => {
 
             </div>
 
-            <ul className="service_list">II
+            <ul className="service_list">
 
               <li>
 
