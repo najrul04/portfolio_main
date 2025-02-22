@@ -91,7 +91,7 @@ const Portfolio = () => {
                 backgroundSize: "cover",
                 width: isMobile ? "56vh" : "70vh",
                 margin: isMobile ? "0px" : "auto",
-                height: "60vh",
+                width: isMobile ? "56vh" : "70vh",
               }}
               whilehover={{ scale: 1.1 }}
               key={id}

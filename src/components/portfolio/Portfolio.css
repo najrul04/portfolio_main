@@ -81,4 +81,9 @@
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+  
+.portfolio_item_image {
+  justify-content: center;
+}
+
 }
