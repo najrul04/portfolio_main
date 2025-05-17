@@ -50,7 +50,7 @@ const App = () => {
       {/* <Skills/> */}
 
       <Skills/>
-      <Services/>
+      {/* <Services/> */}
       <Portfolio/>
 
       {/* <Services/> */}
