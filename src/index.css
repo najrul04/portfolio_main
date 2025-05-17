@@ -35,13 +35,11 @@
   --container-width-lg: 75%;
   --container-width-md: 86%;
   --container-width-sm: 90%;
-
 }
 
 html {
   scroll-behavior: smooth;
 }
-
 
 body {
   font-family: "Poppins", sans-serif;
@@ -49,7 +47,6 @@ body {
   color: var(--color-white);
   line-height: 1.7;
   overflow-x: hidden;
-  
 
   background-image: url(../src/assets/bg-texture.png);
 }

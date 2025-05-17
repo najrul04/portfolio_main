@@ -4,6 +4,7 @@ import {
   invent,
   neotec,
   pinesoft,
+  xiia,
   react_logo,
   ts_logo,
   next_logo,
@@ -25,10 +26,25 @@ import {
   client8,
   client21,
   client22,
-  client23
+  client23,
 } from "../assets";
 
 const experiences = [
+  {
+    title: "Full Stack Developer",
+    company_name: "XIIA",
+    company_location: "Denmark",
+    icon: xiia,
+    iconBg: "#E6DEDD",
+    date: "February 2025 - PRESENT",
+    points: [
+      "Contributed to a React Native mobile app and Next.js web platform using GraphQL, PostgreSQL, Express.js, and Node.js, delivering major UI improvements.",
+      "Delivered pixel-perfect components based on Figma designs and fixed issues in close collaboration with testers, even when specifications were missing.",
+      "Worked efficiently under pressure, meeting tight deadlines while maintaining code quality and team standards.  Adapted quickly to the company’s codebase and development culture, following best practices and participating in team discussions.",
+      "Proven team player, collaborating with developers, testers, and designers to ship features smoothly and resolve production bugs.",
+      "Continuously improved technical and communication skills by working in a fast-paced, agile environment.",
+    ],
+  },
   {
     title: "Full Stack Developer",
     company_name: "Pinesoft Oy",
@@ -339,8 +355,8 @@ const testimonialData = [
     name: "Robert Whetstine",
     review:
       "I had the pleasure of spending an hour on the phone networking with this young man. And honestly I was seriously impressed, he is kind, soft spoken and not scared to put himself out there. If I had half of his skills at his age who knows where I would be. I wish I had a role for him, because he would make anyones team better. He learns extremely fast and would be willing to take on any challenges you put in front of him. If you are looking for a Frontend developer or someone to learn a specific tool or skillset he would be someone I would hire in a heartbeat! Wishing him much success and looking forward to continuing mentoring this talented young man for years to come!",
-    
-      title: "Director of Information Security, USA.",
+
+    title: "Director of Information Security, USA.",
 
     source: "LinkedIn",
   },
@@ -356,8 +372,8 @@ const testimonialData = [
       What stood out the most was his commitment to continuously learning and staying up-to-date with the latest industry trends, which is essential in the ever-evolving field of web development. He is actively engaged in the tech community on LinkedIn, showcasing a strong commitment to the field while sharing valuable insights. 
       
       I have no doubt that Najrul Sumon will be a great addition to any organization looking for a skilled and motivated web developer. He has the potential to excel in his career and make significant contributions. I wholeheartedly endorse Najrul Sumon and wish him the best in his pursuit.`,
-    
-      title: "UX Product Engineer, USA",
+
+    title: "UX Product Engineer, USA",
 
     source: "LinkedIn",
   },
@@ -414,7 +430,6 @@ const testimonialData = [
 
     source: "LinkedIn",
   },
-
 
   {
     index: 21,
@@ -536,4 +551,11 @@ const personal_links = [
   },
 ];
 
-export { experiences, skills, portfolio, logos, personal_links, testimonialData };
+export {
+  experiences,
+  skills,
+  portfolio,
+  logos,
+  personal_links,
+  testimonialData,
+};
