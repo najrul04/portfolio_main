@@ -15,6 +15,19 @@
    scrollbar-width: none;
 }
 
+/* Browser default for <button> is a light gray background — the * reset above
+   doesn't clear `background` or normalize fonts, so any <button> renders washed
+   out on this dark theme. Normalize them once, here.
+   <a>-based buttons in the original portfolio were unaffected because anchors
+   are transparent by default. */
+button {
+   background: transparent;
+   color: inherit;
+   font-family: inherit;
+   font-size: inherit;
+   cursor: pointer;
+}
+
 :root {
    --color-bg: rgba(9, 10, 10, 0.986);
    --color-bg-variant: #030618;
@@ -100,8 +113,11 @@ a:hover {
 .btn {
    width: max-content;
    display: inline-block;
-   /* color: var(--color-primary); */
-   color: var(--color-primary-linear);
+   /* `color` was previously a gradient (invalid for the color property) which
+      silently fell back to inherited. Setting white explicitly so button text
+      is legible in every context, not just when nested under white-text parents. */
+   color: var(--color-white);
+   background: transparent;
    padding: 0.75rem 1.2rem;
    border-radius: 0.4rem;
    cursor: pointer;
