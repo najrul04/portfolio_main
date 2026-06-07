@@ -1,0 +1,235 @@
+/* Admin layout reuses the same outer rhythm as Blog page so they feel like
+   siblings, not different apps. */
+
+.admin_section {
+   margin-top: 8rem;
+   padding-bottom: 8rem;
+   min-height: 100vh;
+}
+
+.admin_container {
+   width: 75%;
+   margin: 0 auto;
+   max-width: 1080px;
+}
+
+.admin_header {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-end;
+   gap: 1rem;
+   margin-bottom: 2.5rem;
+   flex-wrap: wrap;
+}
+
+.admin_header h5 {
+   color: var(--color-light);
+   text-align: left;
+}
+
+.admin_header h2 {
+   color: var(--color-primary);
+   text-align: left;
+   margin-bottom: 0;
+}
+
+/* Floats in the viewport's top-right corner — separates "who am I + sign out"
+   from the page title, and stays reachable on long-scroll admin pages.
+   Backdrop blur keeps it legible when content scrolls underneath. */
+.admin_header_right {
+   position: fixed;
+   top: 1.25rem;
+   right: 1.5rem;
+   z-index: 10;
+   display: flex;
+   align-items: center;
+   gap: 0.6rem;
+   padding: 0.4rem 0.5rem 0.4rem 0.9rem;
+   background: rgba(9, 10, 10, 0.7);
+   backdrop-filter: blur(10px);
+   border: 1px solid rgba(255, 255, 255, 0.08);
+   border-radius: 999px;
+}
+
+.admin_email {
+   font-size: 0.8rem;
+   color: var(--color-light);
+   max-width: 14rem;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.admin_action_btn,
+.admin_back_btn {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.5rem;
+   white-space: nowrap;
+}
+
+.admin_back_btn {
+   margin-bottom: 1.5rem;
+}
+
+.admin_toolbar {
+   display: flex;
+   justify-content: flex-end;
+   margin-bottom: 1.5rem;
+}
+
+.admin_error {
+   padding: 1rem 1.2rem;
+   border-radius: 0.4rem;
+   background: rgba(239, 68, 68, 0.08);
+   border: 1px solid rgba(239, 68, 68, 0.25);
+   color: var(--color-light);
+   margin-bottom: 1.5rem;
+}
+
+/* ── Posts table ───────────────────────────────────────── */
+
+.admin_table {
+   width: 100%;
+   border-collapse: collapse;
+   background: var(--color-bg-variant);
+   border: 1px solid rgba(255, 255, 255, 0.08);
+   border-radius: 0.4rem;
+   overflow: hidden;
+   font-size: 0.92rem;
+}
+
+.admin_table th,
+.admin_table td {
+   padding: 0.85rem 1rem;
+   text-align: left;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin_table th {
+   background: rgba(255, 255, 255, 0.03);
+   color: var(--color-light);
+   font-weight: 500;
+   font-size: 0.8rem;
+   text-transform: uppercase;
+   letter-spacing: 0.04em;
+}
+
+.admin_table tbody tr:last-child td {
+   border-bottom: none;
+}
+
+.admin_table tbody tr:hover {
+   background: rgba(255, 255, 255, 0.02);
+}
+
+.admin_post_title {
+   color: var(--color-white);
+   margin-bottom: 0.2rem;
+}
+
+.admin_post_slug {
+   font-size: 0.78rem;
+   font-family: 'Fira Code', monospace;
+}
+
+.admin_col_status {
+   width: 7rem;
+}
+
+.admin_col_date {
+   width: 9rem;
+}
+
+.admin_col_actions {
+   width: 10rem;
+   text-align: right;
+}
+
+.admin_col_actions {
+   display: table-cell;
+}
+
+.admin_table tbody .admin_col_actions {
+   display: flex;
+   justify-content: flex-end;
+   gap: 0.3rem;
+   align-items: center;
+}
+
+.admin_status {
+   display: inline-block;
+   padding: 0.2rem 0.55rem;
+   border-radius: 999px;
+   font-size: 0.75rem;
+   font-weight: 500;
+}
+
+.admin_status--published {
+   background: rgba(34, 197, 94, 0.15);
+   color: #22c55e;
+}
+
+.admin_status--draft {
+   background: rgba(245, 158, 11, 0.15);
+   color: #f59e0b;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+
+@media screen and (max-width: 1024px) {
+   .admin_container {
+      width: 90%;
+   }
+}
+
+/* On narrow screens the floating top-right pill would overlap the title —
+   shrink it, hide the email, keep just the sign-out button. */
+@media screen and (max-width: 600px) {
+   .admin_header_right {
+      top: 0.75rem;
+      right: 0.75rem;
+      padding: 0.2rem;
+   }
+   .admin_email {
+      display: none;
+   }
+}
+
+@media screen and (max-width: 700px) {
+   /* Stack the table — at narrow widths a real <table> wraps awkwardly.
+      We render the same rows but each cell becomes its own line. */
+   .admin_table,
+   .admin_table thead,
+   .admin_table tbody,
+   .admin_table th,
+   .admin_table td,
+   .admin_table tr {
+      display: block;
+   }
+
+   .admin_table thead {
+      display: none;
+   }
+
+   .admin_table tr {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+   }
+
+   .admin_table td {
+      padding: 0.3rem 0;
+      border: none;
+   }
+
+   .admin_col_status,
+   .admin_col_date,
+   .admin_col_actions {
+      width: auto;
+   }
+
+   .admin_table tbody .admin_col_actions {
+      justify-content: flex-start;
+      margin-top: 0.4rem;
+   }
+}
