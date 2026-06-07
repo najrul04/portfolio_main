@@ -25,6 +25,12 @@ const formatDate = (iso) =>
       day: 'numeric',
    });
 
+// Split tags on whitespace so legacy entries like "#tag1 #tag2 #tag3" render
+// as 3 separate pills instead of 1 fused block. Admin form is supposed to
+// produce comma-separated values, but this is forgiving of the older format.
+const normalizeTags = (tags) =>
+   (tags ?? []).flatMap((t) => t.split(/\s+/).filter(Boolean));
+
 // Naive markdown → plain text for the no-image card preview.
 // Not perfect (won't handle every edge case), but cheap and good enough
 // for a short visible snippet. Heavier parsers belong in the full post view.
@@ -180,9 +186,9 @@ const Blog = () => {
                               )}
                               <div className="blog_card_meta">
                                  <small className="text-light">{formatDate(post.createdAt)}</small>
-                                 {post.tags?.length > 0 && (
+                                 {normalizeTags(post.tags).length > 0 && (
                                     <div className="blog_tags">
-                                       {post.tags.map((tag) => (
+                                       {normalizeTags(post.tags).map((tag) => (
                                           <span key={tag} className="blog_tag">
                                              {tag}
                                           </span>
@@ -250,9 +256,9 @@ export const BlogPost = () => {
                >
                   <div className="blog_view_meta">
                      <span>{formatDate(post.createdAt)}</span>
-                     {post.tags?.length > 0 && (
+                     {normalizeTags(post.tags).length > 0 && (
                         <div className="blog_tags">
-                           {post.tags.map((tag) => (
+                           {normalizeTags(post.tags).map((tag) => (
                               <span key={tag} className="blog_tag">
                                  {tag}
                               </span>

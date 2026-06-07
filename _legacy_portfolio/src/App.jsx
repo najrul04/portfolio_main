@@ -15,8 +15,12 @@ import Experience from './components/experience/Experience';
 import Blog, { BlogPost } from './pages/Blog';
 import Admin from './pages/Admin';
 
+// PreLoader is scoped to the home page only — visitors landing directly on
+// /blog/:slug or /admin shouldn't sit through the splash animation before
+// seeing the content they came for.
 const Home = () => (
    <>
+      <PreLoader />
       <Header />
       <About />
       <Experience />
@@ -34,7 +38,6 @@ const Home = () => (
 // move it behind a different host or subdomain.
 const App = () => (
    <>
-      <PreLoader />
       <Nav />
       <Routes>
          <Route path="/" element={<Home />} />

@@ -165,10 +165,14 @@
 }
 
 /* Grid mode: auto-fit so column count adapts to viewport.
-   minmax(280px, 1fr) → 2 cols around 700-900px, 3 cols on wide screens. */
+   minmax(280px, 1fr) → 2 cols around 700-900px, 3 cols on wide screens.
+   align-items:start so each card stays its natural compact height instead
+   of stretching to match the tallest card in the row (which created
+   ugly empty space inside sparse cards). */
 .blog_list--grid {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   align-items: start;
    gap: 1.25rem;
 }
 
@@ -298,16 +302,21 @@
 .blog_tags {
    display: flex;
    flex-wrap: wrap;
-   gap: 0.4rem;
+   /* Larger gap so tags read as separate pills, not one fused block. */
+   gap: 0.5rem;
 }
 
 .blog_tag {
-   font-size: 0.7rem;
-   padding: 0.15rem 0.55rem;
+   font-size: 0.72rem;
+   padding: 0.25rem 0.7rem;
    border-radius: 999px;
-   background: rgba(183, 107, 245, 0.12);
+   /* Border gives each pill a defined edge so neighbours of the same color
+      don't visually merge into one blob. */
+   background: rgba(183, 107, 245, 0.08);
+   border: 1px solid rgba(183, 107, 245, 0.35);
    color: var(--color-primary);
    font-weight: 500;
+   line-height: 1;
 }
 
 .blog_status {
