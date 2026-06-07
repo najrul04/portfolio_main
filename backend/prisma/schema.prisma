@@ -1,0 +1,47 @@
+// Prisma schema. Run `npm run prisma:migrate` after edits.
+// Why Postgres: we use String[] for tags, which Postgres supports natively
+// (SQLite would force us into a join table or comma-separated string).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id         String   @id @default(uuid())
+  title      String
+  slug       String   @unique
+  content    String   // raw markdown — rendered on the frontend
+  excerpt    String
+  coverImage String?
+  tags       String[] // Postgres native array — see note above
+  published  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Most listing queries filter by published + sort by createdAt — index helps.
+  @@index([published, createdAt])
+}
+
+model Admin {
+  id           String @id @default(uuid())
+  email        String @unique
+  passwordHash String
+}
+
+// Images uploaded from the markdown editor.
+// Stored as bytea in Postgres so everything stays in one database — pg_dump
+// captures the whole site state. Tradeoff: DB grows with image count, but at
+// the scale of a personal blog (dozens of posts × few images each) this is fine.
+model Image {
+  id        String   @id @default(uuid())
+  filename  String   // original filename, surfaced as alt-text fallback
+  mimeType  String   // e.g. "image/png" — sent back as Content-Type when served
+  data      Bytes    // the actual file bytes (Postgres bytea, TOAST-handled)
+  size      Int      // byte count, denormalized so we don't load `data` to know size
+  createdAt DateTime @default(now())
+}

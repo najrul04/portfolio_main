@@ -1,0 +1,38 @@
+/*
+   Global styles. Imports tokens FIRST so Tailwind layers can reference them.
+   Keep this file small — it should only contain resets, base typography,
+   and font imports. Component styling lives in components, not here.
+*/
+
+@import './tokens.css';
+
+/* Poppins — same family the old portfolio used (300/400/500/600 weights) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+   * {
+      box-sizing: border-box;
+   }
+
+   html {
+      scroll-behavior: smooth;
+   }
+
+   body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+   }
+
+   h1, h2, h3, h4, h5 {
+      font-weight: 500;
+   }
+}

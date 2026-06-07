@@ -1,0 +1,211 @@
+/*
+   Styled markdown output. Uses different fonts intentionally for visual variety:
+   - Headings: Poppins (matches portfolio brand)
+   - Body: Poppins (default)
+   - Code: Fira Code monospace
+   - Blockquotes: italic for emphasis
+*/
+
+.post_preview {
+   color: var(--color-white);
+   line-height: 1.75;
+   font-size: 1rem;
+   /* Defensive: any unbroken string longer than the container (long URLs,
+      base64 image src, or just "asdasdasd...") would otherwise push the page
+      width out and trigger horizontal scroll. break-word handles natural cases;
+      `anywhere` is the modern fallback when there's literally no break opportunity. */
+   overflow-wrap: anywhere;
+   word-break: break-word;
+}
+
+/* Apply to every text-bearing child as well — overflow-wrap doesn't inherit
+   in some browsers when ancestors also constrain layout. */
+.post_preview p,
+.post_preview li,
+.post_preview h1,
+.post_preview h2,
+.post_preview h3,
+.post_preview h4,
+.post_preview blockquote,
+.post_preview a {
+   overflow-wrap: anywhere;
+   word-break: break-word;
+}
+
+.post_preview > *:first-child {
+   margin-top: 0;
+}
+
+.post_preview > *:last-child {
+   margin-bottom: 0;
+}
+
+/* ── Headings ──────────────────────────────────────────── */
+
+.post_preview h1,
+.post_preview h2,
+.post_preview h3,
+.post_preview h4 {
+   color: var(--color-white);
+   font-weight: 600;
+   line-height: 1.3;
+   margin: 2rem 0 0.8rem;
+}
+
+.post_preview h1 {
+   font-size: 2rem;
+   color: var(--color-primary);
+}
+
+.post_preview h2 {
+   font-size: 1.6rem;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+   padding-bottom: 0.4rem;
+}
+
+.post_preview h3 {
+   font-size: 1.3rem;
+}
+
+.post_preview h4 {
+   font-size: 1.1rem;
+}
+
+/* ── Paragraphs & inline ───────────────────────────────── */
+
+.post_preview p {
+   margin: 0 0 1rem;
+}
+
+.post_preview strong {
+   color: var(--color-white);
+   font-weight: 600;
+}
+
+.post_preview em {
+   color: var(--color-light);
+}
+
+.post_preview a {
+   color: var(--color-primary);
+   text-decoration: underline;
+   text-underline-offset: 2px;
+}
+
+.post_preview a:hover {
+   color: var(--color-white);
+}
+
+/* ── Lists ─────────────────────────────────────────────── */
+
+.post_preview ul,
+.post_preview ol {
+   padding-left: 1.5rem;
+   margin: 0 0 1rem;
+}
+
+.post_preview ul {
+   list-style: disc;
+}
+
+.post_preview ol {
+   list-style: decimal;
+}
+
+.post_preview li {
+   margin: 0.3rem 0;
+}
+
+.post_preview li > p {
+   margin: 0;
+}
+
+/* GFM task list checkboxes */
+.post_preview input[type='checkbox'] {
+   margin-right: 0.4rem;
+   accent-color: var(--color-primary);
+}
+
+/* ── Code ──────────────────────────────────────────────── */
+
+.post_preview code {
+   font-family: 'Fira Code', 'Courier New', monospace;
+   font-size: 0.9em;
+   background: rgba(255, 255, 255, 0.08);
+   padding: 0.1rem 0.4rem;
+   border-radius: 0.25rem;
+   color: var(--color-primary);
+}
+
+.post_preview pre {
+   background: var(--color-bg-variant);
+   border: 1px solid rgba(255, 255, 255, 0.08);
+   border-radius: 0.4rem;
+   padding: 1rem;
+   overflow-x: auto;
+   margin: 0 0 1rem;
+}
+
+.post_preview pre code {
+   background: transparent;
+   color: var(--color-white);
+   padding: 0;
+   font-size: 0.85rem;
+   line-height: 1.6;
+}
+
+/* ── Blockquote ────────────────────────────────────────── */
+
+.post_preview blockquote {
+   border-left: 3px solid var(--color-primary);
+   padding: 0.4rem 1rem;
+   margin: 0 0 1rem;
+   color: var(--color-light);
+   font-style: italic;
+   background: rgba(183, 107, 245, 0.06);
+}
+
+.post_preview blockquote p {
+   margin: 0;
+}
+
+/* ── Image ─────────────────────────────────────────────── */
+
+.post_preview_img {
+   max-width: 100%;
+   height: auto;
+   display: block;
+   margin: 1.2rem auto;
+   border-radius: 0.4rem;
+   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Tables (GFM) ──────────────────────────────────────── */
+
+.post_preview table {
+   border-collapse: collapse;
+   width: 100%;
+   margin: 0 0 1rem;
+   font-size: 0.9rem;
+}
+
+.post_preview th,
+.post_preview td {
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   padding: 0.5rem 0.8rem;
+   text-align: left;
+}
+
+.post_preview th {
+   background: rgba(255, 255, 255, 0.04);
+   color: var(--color-white);
+   font-weight: 600;
+}
+
+/* ── HR ────────────────────────────────────────────────── */
+
+.post_preview hr {
+   border: none;
+   border-top: 1px solid rgba(255, 255, 255, 0.1);
+   margin: 2rem 0;
+}
