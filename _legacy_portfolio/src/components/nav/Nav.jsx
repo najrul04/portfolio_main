@@ -61,9 +61,9 @@ const Nav = () => {
   return (
     <div className="nav_container">
       <motion.nav
-        initial={{ x: '-100vw' }}
-        animate={{ x: '-12vw' }}
-        transition={{ type: 'spring', bounce: 0.3, duration: 3 }}
+        initial={{ opacity: 0, x: '-12vw', y: 20 }}
+        animate={{ opacity: 1, x: '-12vw', y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
       >
         <a
           title="Home"

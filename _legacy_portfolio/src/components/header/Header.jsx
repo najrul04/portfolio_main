@@ -138,9 +138,9 @@ const Header = () => {
           <div className="header_info">
             <motion.h2
               className="static_header_name"
-              initial={{ y: "-100vw" }}
-              animate={{ y: 0 }}
-              transition={{ type: "spring", duration: 3 }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             >
               Hello I'm{" "}
             </motion.h2>
