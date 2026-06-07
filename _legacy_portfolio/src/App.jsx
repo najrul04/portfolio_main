@@ -12,7 +12,7 @@ import PreLoader from './components/PreLoader/PreLoader';
 import Testimonials from './components/testimonials/Testimonials';
 import Experience from './components/experience/Experience';
 
-import Blog from './pages/Blog';
+import Blog, { BlogPost } from './pages/Blog';
 import Admin from './pages/Admin';
 
 const Home = () => (
@@ -39,6 +39,7 @@ const App = () => (
       <Routes>
          <Route path="/" element={<Home />} />
          <Route path="/blog" element={<Blog />} />
+         <Route path="/blog/:slug" element={<BlogPost />} />
          <Route path="/admin" element={<Admin />} />
       </Routes>
    </>

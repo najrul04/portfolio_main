@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { useQuery } from '@apollo/client';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
    AiOutlineArrowLeft,
@@ -47,7 +47,6 @@ const stripMarkdown = (md) =>
 const Blog = () => {
    const navigate = useNavigate();
    const [page, setPage] = useState(1);
-   const [activeSlug, setActiveSlug] = useState(null);
    // Lazy initializer reads localStorage once on mount instead of every render.
    // Guarded for SSR-safety even though Vite is CSR — costs nothing, future-proofs.
    // Default is grid: visitors should see more posts at a glance; only honour
@@ -74,10 +73,6 @@ const Blog = () => {
       // smooth feels less jarring than instant when paginating quickly.
       window.scrollTo({ top: 0, behavior: 'smooth' });
    };
-
-   if (activeSlug) {
-      return <BlogPost slug={activeSlug} onBack={() => setActiveSlug(null)} />;
-   }
 
    const postsPage = data?.posts;
    const items = postsPage?.items ?? [];
@@ -155,12 +150,14 @@ const Blog = () => {
                               ease: 'easeOut',
                            }}
                         >
-                           <div
+                           {/* Anchor (not button) so the post opens in a new tab and
+                               is shareable as a real URL. rel=noopener stops the new
+                               tab from getting window.opener access for security. */}
+                           <a
                               className="blog_card_body"
-                              onClick={() => setActiveSlug(post.slug)}
-                              role="button"
-                              tabIndex={0}
-                              onKeyDown={(e) => e.key === 'Enter' && setActiveSlug(post.slug)}
+                              href={`/blog/${post.slug}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
                            >
                               {post.thumbnailUrl && (
                                  <img
@@ -193,7 +190,7 @@ const Blog = () => {
                                     </div>
                                  )}
                               </div>
-                           </div>
+                           </a>
                         </motion.li>
                      ))}
                   </ul>
@@ -210,9 +207,11 @@ const Blog = () => {
    );
 };
 
-// Inline post view. Could be a separate /blog/[slug] route later — for now,
-// keeping it inline avoids a route refactor and keeps the back button trivial.
-const BlogPost = ({ slug, onBack }) => {
+// Standalone post view. Mounted at /blog/:slug so each post has its own URL —
+// shareable, bookmarkable, and openable in a new tab from the list.
+export const BlogPost = () => {
+   const { slug } = useParams();
+   const navigate = useNavigate();
    const { data, loading, error } = useQuery(POST_BY_SLUG, { variables: { slug } });
    const post = data?.post;
 
@@ -220,7 +219,11 @@ const BlogPost = ({ slug, onBack }) => {
       <section className="blog_section">
          <div className="blog_container">
             <header className="blog_header">
-               <button type="button" className="btn blog_back_btn" onClick={onBack}>
+               <button
+                  type="button"
+                  className="btn blog_back_btn"
+                  onClick={() => navigate('/blog')}
+               >
                   <AiOutlineArrowLeft /> Back
                </button>
                <h2 className="blog_header_title">
