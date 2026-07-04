@@ -6,6 +6,7 @@ import { useRouter, useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { POST_BY_SLUG } from '@/lib/graphql/queries';
+import SourceBadge from '@/components/blog/SourceBadge';
 
 // Lazy-load the markdown renderer — ~55kb of markdown libs only ship when a
 // visitor actually opens a post.
@@ -18,6 +19,7 @@ interface Post {
    content: string;
    excerpt: string | null;
    coverImage: string | null;
+   sourceUrl: string | null;
    tags: string[] | null;
    createdAt: string;
    updatedAt: string;
@@ -88,6 +90,9 @@ const BlogPost = () => {
                               </span>
                            ))}
                         </div>
+                     )}
+                     {post.sourceUrl && (
+                        <SourceBadge url={post.sourceUrl} className="blog_source_link--inline" />
                      )}
                   </div>
                   {post.coverImage && (

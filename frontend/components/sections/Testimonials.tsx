@@ -1,113 +1,152 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-import { useInView } from 'react-intersection-observer';
 import { testimonialData } from '@/lib/constants';
 // Where they have given me the reviews
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-// WHY from 'swiper': swiper@9 only exports '.' and './react' (no '/modules'
-// subpath until v11). Modules are registered via the <Swiper modules={[...]}>
-// prop below, so no SwiperCore.use() call is needed.
-import { Pagination } from 'swiper';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import StarRating from './StarRating';
 
 const linkedInLogo = '/assets/LinkedIn.webp';
 const upworkLogo = '/assets/UpWork.webp';
 
+// Rail geometry: vertical spacing between reviewers, horizontal arc push,
+// and how many neighbors stay visible around the active one.
+const RAIL_STEP_Y = 84;
+const RAIL_STEP_X = 78; // mobile (horizontal rail)
+const VISIBLE_NEIGHBORS = 2;
+
 const Testimonials = () => {
+   const [active, setActive] = useState(0);
+   const [isMobile, setIsMobile] = useState(false);
+   const railRef = useRef<HTMLDivElement | null>(null);
+   const wheelLock = useRef(false);
+   const total = testimonialData.length;
+
    useEffect(() => {
       AOS.init({
          duration: 1200,
       });
    }, []);
 
-   const { ref } = useInView({
-      threshold: 0.2,
-   });
+   useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth <= 900);
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+   }, []);
+
+   // WHY a native listener: React attaches wheel handlers passively, so a
+   // synthetic onWheel can't preventDefault() — the page would scroll along
+   // with the rail. A non-passive listener lets the rail capture the wheel.
+   useEffect(() => {
+      const el = railRef.current;
+      if (!el) return;
+
+      const onWheel = (e: WheelEvent) => {
+         e.preventDefault();
+         if (wheelLock.current) return;
+         wheelLock.current = true;
+         const delta = e.deltaY > 0 ? 1 : -1;
+         setActive((prev) => (prev + delta + total) % total);
+         setTimeout(() => {
+            wheelLock.current = false;
+         }, 300);
+      };
+
+      el.addEventListener('wheel', onWheel, { passive: false });
+      return () => el.removeEventListener('wheel', onWheel);
+   }, [total]);
+
+   // Signed shortest distance from the active item (wraps around the ends),
+   // so the rail behaves like an endless loop.
+   const relOffset = (i: number) => {
+      let off = (i - active) % total;
+      if (off > total / 2) off -= total;
+      if (off < -total / 2) off += total;
+      return off;
+   };
+
+   const activeItem = testimonialData[active];
 
    return (
-      <section ref={ref} id="testimonials">
+      <section id="testimonials">
          <h5>Peer Reviews and Recommendations</h5>
          <h2>Testimonials</h2>
 
-         <Swiper
-            data-aos="zoom-in-up"
-            className="container testimonials_container" // install Swiper modules
-            style={{ overflowX: 'hidden' }}
-            modules={[Pagination]}
-            spaceBetween={30}
-            pagination={{ clickable: true }} // Enable clickable pagination
-            /* breakpoints={{
-        640: {
-          slidesPerView: 1
-        },
-        // Adjust the breakpoints to your desired screen widths
-        768: {
-          slidesPerView: 2, // Show 1 slide on screens with width 768px and below (mobile)
-        },
-        1024: {
-          slidesPerView: 1, // Show 3 slides on screens with width 1024px and above (desktop)
-        },
-      }} */
-         >
-            {testimonialData.map(({ avatar, name, review, title, source }, index) => {
-               return (
-                  <SwiperSlide key={index} className="testimonial">
-                     <div className="client_avatar">
-                        <img src={avatar} alt={name} />
-                     </div>
+         <div className="testimonials_layout" data-aos="fade-up">
+            <div className="testimonial_rail" ref={railRef}>
+               {testimonialData.map(({ avatar, name, title, source }, i) => {
+                  const off = relOffset(i);
+                  const dist = Math.abs(off);
+                  const hidden = dist > VISIBLE_NEIGHBORS;
 
-                     <h4 className="client_name">{name}</h4>
+                  const scale = off === 0 ? 1 : dist === 1 ? 0.88 : 0.78;
+                  const opacity = hidden ? 0 : off === 0 ? 1 : dist === 1 ? 0.7 : 0.35;
+                  // Desktop: vertical rail bowed into a "(" arc — neighbors
+                  // drift right as they get further from the active row.
+                  const transform = isMobile
+                     ? `translate(-50%, -50%) translateX(${off * RAIL_STEP_X}px) scale(${scale})`
+                     : `translateY(-50%) translate(${dist * dist * 14}px, ${off * RAIL_STEP_Y}px) scale(${scale})`;
 
-                     {source !== 'LinkedIn' && (
-                        <span>
-                           <StarRating />
+                  return (
+                     <button
+                        type="button"
+                        key={i}
+                        className={`rail_item ${off === 0 ? 'active' : ''}`}
+                        style={{ transform, opacity, pointerEvents: hidden ? 'none' : 'auto' }}
+                        onClick={() => setActive(i)}
+                        tabIndex={hidden ? -1 : 0}
+                        aria-label={`Show testimonial from ${name}`}
+                     >
+                        <span className="rail_avatar">
+                           <img src={avatar} alt={name} />
                         </span>
+                        <span className="rail_meta">
+                           <span className="rail_name">{name}</span>
+                           <span className="rail_sub">
+                              {source !== 'LinkedIn' && <span className="star">&#9733;</span>}
+                              {title}
+                           </span>
+                        </span>
+                     </button>
+                  );
+               })}
+            </div>
+
+            {/* key=active retriggers the fade-in whenever the person changes */}
+            <div className="testimonial_quote" key={active}>
+               <span className="quote_mark" aria-hidden="true">&ldquo;</span>
+               <p className="quote_text">{activeItem.review}</p>
+
+               <div className="quote_footer">
+                  <span className="quote_client">
+                     {activeItem.name} &mdash; {activeItem.title}
+                  </span>
+
+                  <div className={`testimonial_source ${activeItem.source.toLowerCase()}_source`}>
+                     {activeItem.source === 'LinkedIn' && (
+                        <div className="logo_and_text">
+                           <img src={linkedInLogo} alt="LinkedIn" className="testimonial_logo" />
+                           <h4 className="testimonial_source_text">LinkedIn</h4>
+                        </div>
                      )}
 
-                     <small className="client_review">{review}</small>
-                     <h5 className="client_title">{title}</h5>
+                     {activeItem.source === 'UpWork' && (
+                        <div className="logo_and_text">
+                           <img src={upworkLogo} alt="Upwork" className="testimonial_logo" />
+                           <h4 className="testimonial_source_text">UpWork</h4>
+                        </div>
+                     )}
 
-                     <div className={`testimonial_source ${source.toLowerCase()}_source`}>
-                        {source === 'LinkedIn' && (
-                           <div className="logo_and_text">
-                              <img
-                                 src={linkedInLogo}
-                                 alt="LinkedIn"
-                                 className="testimonial_logo linkedin_logo" // Added a class for LinkedIn logo
-                              />
-                              <h4 className="testimonial_source_text">LinkedIn</h4>
-                           </div>
-                        )}
-
-                        {source === 'UpWork' && (
-                           <div className="logo_and_text">
-                              <img
-                                 src={upworkLogo}
-                                 alt="Upwork"
-                                 className="testimonial_logo upwork_logo" // Added a class for Upwork logo
-                              />
-                              <h4 className="testimonial_source_text">UpWork</h4>
-                           </div>
-                        )}
-
-                        {source === 'Local' && (
-                           <div className="logo_and_text">
-                              <h4 className="testimonial_source_text">Local</h4>
-                           </div>
-                        )}
-                     </div>
-                  </SwiperSlide>
-               );
-            })}
-         </Swiper>
+                     {activeItem.source === 'Local' && (
+                        <div className="logo_and_text">
+                           <h4 className="testimonial_source_text">Local</h4>
+                        </div>
+                     )}
+                  </div>
+               </div>
+            </div>
+         </div>
       </section>
    );
 };
