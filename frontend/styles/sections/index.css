@@ -1,0 +1,35 @@
+/*
+   Section stylesheet aggregator — imported once by ../globals.css.
+
+   WHY this exists: every per-section stylesheet (ported verbatim from the old
+   Vite portfolio) is listed here so all section CSS stays centralized and loads
+   from one place. To add a new section's styles, drop the file in this folder
+   and add one @import line below. Each file references design tokens via
+   var(--token); none should contain literal colors.
+*/
+
+/* Layout / chrome */
+@import './nav.css';
+@import './preloader.css';
+@import './animation.css';
+@import './loader-spinner.css';
+
+/* Home sections */
+@import './header.css';
+@import './about.css';
+@import './experience.css';
+@import './skills.css';
+@import './portfolio.css';
+@import './testimonials.css';
+@import './star-rating.css';
+@import './contact.css';
+@import './footer.css';
+
+/* Blog + admin */
+@import './blog.css';
+@import './admin.css';
+@import './login-form.css';
+@import './markdown-editor.css';
+@import './post-form.css';
+@import './post-preview.css';
+@import './pagination.css';

@@ -1,7 +1,16 @@
 /*
-   Global styles. Imports tokens FIRST so Tailwind layers can reference them.
-   Keep this file small — it should only contain resets, base typography,
-   and font imports. Component styling lives in components, not here.
+   Global styles. Imports tokens FIRST so Tailwind layers and every ported
+   section stylesheet can reference them.
+
+   Structure:
+     1. tokens.css      — the single source of truth (colors, sizes, etc.)
+     2. font + Tailwind
+     3. sections/index.css — all per-section CSS, ported from the old portfolio
+     4. base resets + global element rules (ported verbatim from the old index.css)
+
+   Component styling lives in styles/sections/*, NOT here. Keep this file to
+   resets, base typography, and the shared element/utility rules the ported
+   markup depends on (.container, .btn, section headings).
 */
 
 @import './tokens.css';
@@ -9,13 +18,46 @@
 /* Poppins — same family the old portfolio used (300/400/500/600 weights) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+/* All per-section styles, aggregated. WHY one import: keeps every section's CSS
+   centralized and loaded once, instead of scattered co-located imports. */
+@import './sections/index.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+   /* Global reset — matches the old portfolio so ported components keep their
+      assumptions (no default margins, no list bullets, hidden scrollbar). */
    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
       box-sizing: border-box;
+      list-style: none;
+      text-decoration: none;
+      scrollbar-width: none;
+   }
+
+   /* Browser default for <button> is a light gray background; the * reset above
+      doesn't clear `background` or normalize fonts, so any <button> renders
+      washed out on this dark theme. Normalize them once, here. */
+   button {
+      background: transparent;
+      color: inherit;
+      font-family: inherit;
+      font-size: inherit;
+      cursor: pointer;
+   }
+
+   /* WHY: with Preflight disabled, form controls fall back to the browser's
+      default font (Arial). Inherit instead so inputs/areas use Poppins like the
+      rest of the site — a small improvement over the original's Arial fields. */
+   input,
+   textarea,
+   select {
+      font-family: inherit;
    }
 
    html {
@@ -23,16 +65,111 @@
    }
 
    body {
-      margin: 0;
       font-family: var(--font-sans);
       background: var(--color-bg-primary);
       color: var(--color-text-primary);
       line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      /* The subtle texture behind everything — lives in public/assets. */
+      background-image: url('/assets/bg-texture.png');
    }
 
    h1, h2, h3, h4, h5 {
       font-weight: 500;
+   }
+
+   h1 {
+      font-size: 2.5rem;
+   }
+
+   section {
+      margin-top: 8rem;
+   }
+
+   section > h2,
+   section > h5 {
+      text-align: center;
+      color: var(--color-text-muted);
+   }
+
+   section > h2 {
+      color: var(--color-accent);
+      margin-bottom: 3rem;
+   }
+
+   a {
+      color: var(--color-accent);
+      transition: var(--transition);
+   }
+
+   a:hover {
+      color: var(--color-text-primary);
+   }
+
+   img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+   }
+}
+
+@layer components {
+   /* Shared layout + button classes used across many ported sections. */
+   .container {
+      width: var(--container-width-lg);
+      margin: 0 auto;
+   }
+
+   .text-light {
+      color: var(--color-text-muted);
+   }
+
+   .btn {
+      width: max-content;
+      display: inline-block;
+      /* WHY explicit white: the old code set `color` to a gradient (invalid for
+         the color property) which silently inherited. White is legible in every
+         context, not just under white-text parents. */
+      color: var(--color-text-primary);
+      background: transparent;
+      padding: 0.75rem 1.2rem;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      border: 1px solid var(--color-accent);
+      transition: var(--transition);
+   }
+
+   .btn:hover {
+      background: var(--color-text-primary);
+      color: var(--color-bg-primary);
+      border-color: transparent;
+   }
+
+   .btn-primary {
+      background: var(--gradient-accent);
+      color: var(--color-bg-primary);
+   }
+}
+
+/* ==================== Media Queries (Medium Devices) ==================== */
+@media screen and (max-width: 1024px) {
+   .container {
+      width: var(--container-width-md);
+   }
+
+   section {
+      margin-top: 7rem;
+   }
+}
+
+/* ==================== Media Queries (Small Devices) ==================== */
+@media screen and (max-width: 600px) {
+   .container {
+      width: var(--container-width-sm);
+   }
+
+   section > h2 {
+      margin-bottom: 2rem;
    }
 }

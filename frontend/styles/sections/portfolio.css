@@ -1,0 +1,89 @@
+.portfolio_container {
+/*   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem; */
+  height: 100%;
+  position: relative;
+  width: var(--container-width-lg);
+  margin: 0 auto;
+}
+
+.portfolio_item {
+  background: var(--color-bg-variant);
+  padding: 1.3rem;
+  border-radius: 2rem;
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.portfolio_item:hover {
+  border-color: var(--color-primary-variant);
+  background: transparent;
+}
+
+.portfolio_item_image {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px rgb(89, 18, 102) solid;
+  padding-top: 15px;
+  display: grid;
+  justify-content: center;
+}
+
+.card_image {
+  height: 70vh;
+  object-fit: contain;
+}
+
+.portfolio_item_cta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 12px;
+}
+
+.portfolio_item_content{
+  display: grid;
+  justify-content: center;
+
+}
+
+.tag_css {
+  font-size: 15px;
+  font-weight: bold;
+  word-spacing: 3px;
+  margin-left: 12px;
+  padding-bottom: 3px;
+  color: rgb(96, 95, 133);
+}
+
+.loading-spinner{
+  position: absolute;
+  left: 40%;
+  top: 20%;
+  color: var(--color-primary);
+}
+
+
+/* ==================== Media Queries (Medium Devices) ======================= */
+
+@media screen and (max-width: 1024px) {
+  .portfolio_container {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+}
+
+/* ==================== Media Queries (Small Devices) ======================= */
+
+@media screen and (max-width: 600px) {
+  .portfolio_container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+.portfolio_item_image {
+  justify-content: center;
+}
+
+}
