@@ -7,6 +7,9 @@ export interface Experience {
    title: string;
    company_name: string;
    company_location: string;
+   // Small flag PNG shown left of the location (local /assets/flags/*.png —
+   // images, not emoji: Windows browsers don't render flag emojis).
+   flag: string;
    icon: string;
    iconBg: string;
    date: string;
@@ -60,8 +63,28 @@ export interface PersonalLink {
 const experiences: Experience[] = [
    {
       title: "Full Stack Developer",
+      company_name: "Monudesk",
+      company_location: "Germany",
+      flag: "/assets/flags/de.png",
+      icon: "/assets/company/monudesk.png",
+      iconBg: "#E6DEDD",
+      date: "June 2025 - PRESENT",
+      points: [
+         "Developed and shipped 3 production projects (RememberTag, Lovepath, and Monudesk) built with Next.js, GraphQL, PostgreSQL, and Express.js, contributing across the full stack in a team of 4 developers.",
+         "Proposed and led a UI/UX overhaul shortly after joining, redesigning key user flows and interfaces that helped push revenue roughly 40% above target for the quarter.",
+         "Contributed to code architecture decisions, introducing reusable component patterns and cleaner separation between the GraphQL API layer and client state, which cut down duplicated logic across the three codebases.",
+         "Brought new ideas to team discussions and carried them through to shipped features, from concept and Figma prototyping to implementation and release.",
+         "Built pixel-perfect, responsive components from Figma designs, even when specifications were incomplete.",
+         "Collaborated closely with developers, testers, and designers to ship features and fix production bugs, staying approachable and helping teammates get unblocked, which kept the team of 4 productive through tight deadlines.",
+         "Adopted AI-assisted development as a core workflow using Claude Code and agentic coding tools, delegating implementation scaffolding, refactors, and test generation while personally reviewing and owning every merged change.",
+         "Applied prompt-driven, agentic workflows to speed up debugging, code migration, and documentation, reducing turnaround on routine tasks and freeing team capacity for architecture and product decisions.",
+      ],
+   },
+   {
+      title: "Full Stack Developer",
       company_name: "XIIA",
       company_location: "Denmark",
+      flag: "/assets/flags/dk.png",
       icon: "/assets/company/xiia.webp",
       iconBg: "#E6DEDD",
       date: "February 2025 - PRESENT",
@@ -77,6 +100,7 @@ const experiences: Experience[] = [
       title: "Full Stack Developer",
       company_name: "Pinesoft Oy",
       company_location: "Loviisa, Uusimaa, Finland",
+      flag: "/assets/flags/fi.png",
       icon: "/assets/company/pineSoftOy.webp",
       iconBg: "#E6DEDD",
       date: "April 2024 - PRESENT",
@@ -92,6 +116,7 @@ const experiences: Experience[] = [
       title: "Full Stack Developer",
       company_name: "NeoTec Digital",
       company_location: "Florence, Al United States",
+      flag: "/assets/flags/us.png",
       icon: "/assets/company/neotec.webp",
       iconBg: "#E6DEDD",
       date: "December 2023 - PRESENT",
@@ -107,6 +132,7 @@ const experiences: Experience[] = [
       title: "Full Stack Developer",
       company_name: "Invent",
       company_location: "Dhaka, Bangladesh",
+      flag: "/assets/flags/bd.png",
       icon: "/assets/company/invent.webp",
       iconBg: "#E6DEDD",
       date: "January 2023 - PRESENT",
@@ -124,6 +150,7 @@ const experiences: Experience[] = [
       title: "Full Stack Developer",
       company_name: "Vector Design US, Inc.",
       company_location: "New York, United States",
+      flag: "/assets/flags/us.png",
       icon: "/assets/company/vectorDesign.webp",
       iconBg: "#E6DEDD",
       date: "January 2022 - December 2022",
@@ -141,6 +168,7 @@ const experiences: Experience[] = [
       title: "Graduate",
       company_name: "Programming Hero",
       company_location: "Dhaka, Bangladesh",
+      flag: "/assets/flags/bd.png",
       icon: "/assets/company/phero.webp",
       iconBg: "#E6DEDD",
       date: "June 2021 - February 2022",
@@ -187,15 +215,15 @@ const skills: SkillCategory[] = [
          {
             id: 6,
             name: "CSS",
-            image:
-               "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png",
+            // Local copy (assets/skills) — the old Wikimedia/seeklogo hotlinks
+            // rotted and rendered broken-image icons. Same for JS/Netlify/VS Code.
+            image: "/assets/skills/css.svg",
          },
 
          {
             id: 7,
             name: "JavaScript",
-            image:
-               "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
+            image: "/assets/skills/javascript.svg",
          },
 
          {
@@ -296,14 +324,12 @@ const skills: SkillCategory[] = [
          {
             id: 204,
             name: "Netlify",
-            image:
-               "https://seeklogo.com/images/N/netlify-logo-BD8F8A77E2-seeklogo.com.png",
+            image: "/assets/skills/netlify.svg",
          },
          {
             id: 205,
             name: "VS Code",
-            image:
-               "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png?20210804221519",
+            image: "/assets/skills/vscode.svg",
          },
          {
             id: 206,

@@ -63,10 +63,15 @@ header {
   /* height: 101vh; */
 }
 
+/* True horizontal centering at ANY viewport width: anchor the box's center
+   line to the viewport's center line. The legacy `right: 38%` pinned the
+   RIGHT EDGE instead, which only looked centered at one screen width and
+   needed per-breakpoint magic numbers (23%, 7.5%) to patch. */
 .header_info {
   position: absolute;
   top: 33%;
-  right: 38%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .threeD_portfolio {
@@ -215,11 +220,7 @@ header {
     height: 2rem;
   }
 
-  .header_info {
-    position: absolute;
-    top: 33%;
-    right: 23%;
-  }
+  /* .header_info needs no override — the base rule centers at every width. */
   .overlay {
     height: 68%;
   }
@@ -245,12 +246,6 @@ header {
 
   .personal_links > a > img{
     display: none;
-  }
-
-  .header_info {
-    position: absolute;
-    top: 33%;
-    right: 7.5%;
   }
 
   .header_socials {

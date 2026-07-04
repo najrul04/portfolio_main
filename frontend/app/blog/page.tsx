@@ -9,22 +9,31 @@ import {
    AiOutlineArrowLeft,
    AiOutlineUnorderedList,
    AiOutlineAppstore,
+   AiOutlineSearch,
 } from 'react-icons/ai';
-import { POSTS } from '@/lib/graphql/queries';
+import { POSTS, TAGS } from '@/lib/graphql/queries';
 import Pagination from '@/components/blog/Pagination';
+import CoverImage from '@/components/blog/CoverImage';
+import SourceBadge from '@/components/blog/SourceBadge';
 
 const POSTS_PER_PAGE = 10;
 const VIEW_MODE_KEY = 'blog_view_mode';
 
 interface PostListItem {
    id: string;
+   number: number;
    title: string;
    slug: string;
    excerpt: string | null;
    thumbnailUrl: string | null;
+   sourceUrl: string | null;
    content: string | null;
    tags: string[] | null;
    createdAt: string;
+}
+
+interface TagsResult {
+   tags: string[];
 }
 
 interface PostsPage {
@@ -82,12 +91,41 @@ const Blog = () => {
       window.localStorage.setItem(VIEW_MODE_KEY, viewMode);
    }, [viewMode]);
 
+   // Filters — both applied server-side (Prisma where clause) so pagination
+   // counts stay correct. The search input is debounced: one query ~300ms
+   // after the user stops typing instead of one per keystroke.
+   const [tag, setTag] = useState('');
+   const [search, setSearch] = useState('');
+   const [debouncedSearch, setDebouncedSearch] = useState('');
+
+   useEffect(() => {
+      const t = setTimeout(() => {
+         setDebouncedSearch(search);
+         setPage(1); // new filter → results shrink; page 5 may no longer exist
+      }, 300);
+      return () => clearTimeout(t);
+   }, [search]);
+
+   const handleTagChange = (nextTag: string) => {
+      setTag(nextTag);
+      setPage(1);
+   };
+
    // Apollo caches per-variable-set, so navigating back to a previously-seen
    // page is instant. cache-and-network (default) refetches in the background
    // so newly published posts surface without a manual refresh.
    const { data, loading, error } = useQuery<PostsResult>(POSTS, {
-      variables: { page, perPage: POSTS_PER_PAGE },
+      variables: {
+         page,
+         perPage: POSTS_PER_PAGE,
+         tag: tag || null,
+         search: debouncedSearch || null,
+      },
    });
+
+   const { data: tagsData } = useQuery<TagsResult>(TAGS);
+   const availableTags = tagsData?.tags ?? [];
+   const hasActiveFilters = Boolean(tag || debouncedSearch);
 
    const handlePageChange = (nextPage: number) => {
       setPage(nextPage);
@@ -137,6 +175,37 @@ const Blog = () => {
                </div>
             </header>
 
+            <div className="blog_filters">
+               <span className="blog_search_wrap">
+                  <AiOutlineSearch className="blog_search_icon" aria-hidden />
+                  <input
+                     type="search"
+                     className="blog_search"
+                     placeholder="Search posts…"
+                     value={search}
+                     onChange={(e) => setSearch(e.target.value)}
+                     aria-label="Search posts"
+                  />
+               </span>
+               {availableTags.length > 0 && (
+                  <span className="blog_select_wrap">
+                     <select
+                        className="blog_filter_select"
+                        value={tag}
+                        onChange={(e) => handleTagChange(e.target.value)}
+                        aria-label="Filter by tag"
+                     >
+                        <option value="">All tags</option>
+                        {availableTags.map((t) => (
+                           <option key={t} value={t}>
+                              {t}
+                           </option>
+                        ))}
+                     </select>
+                  </span>
+               )}
+            </div>
+
             {loading && <p className="text-light blog_status">Loading posts…</p>}
 
             {error && (
@@ -148,8 +217,17 @@ const Blog = () => {
 
             {!loading && !error && items.length === 0 && (
                <div className="blog_empty">
-                  <h3>No posts yet</h3>
-                  <p>Check back soon — first post coming up.</p>
+                  {hasActiveFilters ? (
+                     <>
+                        <h3>No matching posts</h3>
+                        <p>Try a different search or tag.</p>
+                     </>
+                  ) : (
+                     <>
+                        <h3>No posts yet</h3>
+                        <p>Check back soon — first post coming up.</p>
+                     </>
+                  )}
                </div>
             )}
 
@@ -163,7 +241,7 @@ const Blog = () => {
                         // because new post IDs unmount/remount the <motion.li>s.
                         <motion.li
                            key={post.id}
-                           className="blog_card"
+                           className={`blog_card ${post.sourceUrl ? 'blog_card--has-source' : ''}`}
                            initial={{ opacity: 0, y: 12 }}
                            animate={{ opacity: 1, y: 0 }}
                            transition={{
@@ -182,11 +260,9 @@ const Blog = () => {
                               rel="noopener noreferrer"
                            >
                               {post.thumbnailUrl && (
-                                 <img
+                                 <CoverImage
                                     src={post.thumbnailUrl}
-                                    alt=""
                                     className="blog_card_cover"
-                                    loading="lazy"
                                  />
                               )}
                               <h3>{post.title}</h3>
@@ -201,7 +277,10 @@ const Blog = () => {
                                  </p>
                               )}
                               <div className="blog_card_meta">
-                                 <small className="text-light">{formatDate(post.createdAt)}</small>
+                                 <small className="text-light">
+                                    <span className="blog_card_number">#{post.number}</span>
+                                    {formatDate(post.createdAt)}
+                                 </small>
                                  {post.tags && post.tags.length > 0 && (
                                     <div className="blog_tags">
                                        {post.tags.map((tag) => (
@@ -213,6 +292,9 @@ const Blog = () => {
                                  )}
                               </div>
                            </Link>
+                           {/* Sibling of the card Link, not a child — nested
+                               anchors are invalid HTML. Positioned bottom-right. */}
+                           {post.sourceUrl && <SourceBadge url={post.sourceUrl} />}
                         </motion.li>
                      ))}
                   </ul>

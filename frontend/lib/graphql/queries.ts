@@ -9,14 +9,16 @@ import { gql } from '@apollo/client';
 // thumbnailUrl is server-computed: explicit coverImage if set, else first
 // image from the post content.
 export const POSTS = gql`
-   query Posts($page: Int, $perPage: Int) {
-      posts(page: $page, perPage: $perPage) {
+   query Posts($page: Int, $perPage: Int, $tag: String, $search: String) {
+      posts(page: $page, perPage: $perPage, tag: $tag, search: $search) {
          items {
             id
+            number
             title
             slug
             excerpt
             thumbnailUrl
+            sourceUrl
             # Fetched so the card can render a content preview when the post
             # has no thumbnail. Trade-off: list responses get bigger. Acceptable
             # for a personal blog (handful of posts); if the corpus grows, add
@@ -35,6 +37,14 @@ export const POSTS = gql`
    }
 `;
 
+// Public — distinct tags across published posts. Populates the blog filter
+// dropdown without shipping every post to the client.
+export const TAGS = gql`
+   query Tags {
+      tags
+   }
+`;
+
 // Public — full content for a single post (used when reading inline).
 export const POST_BY_SLUG = gql`
    query Post($slug: String!) {
@@ -45,6 +55,7 @@ export const POST_BY_SLUG = gql`
          content
          excerpt
          coverImage
+         sourceUrl
          tags
          createdAt
          updatedAt
@@ -57,6 +68,7 @@ export const ALL_POSTS = gql`
    query AllPosts {
       allPosts {
          id
+         number
          title
          slug
          excerpt
@@ -78,6 +90,7 @@ export const POST_BY_ID = gql`
          content
          excerpt
          coverImage
+         sourceUrl
          tags
          published
          createdAt

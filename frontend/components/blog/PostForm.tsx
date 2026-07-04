@@ -14,6 +14,7 @@ export interface PostFormInitial {
    slug?: string | null;
    excerpt?: string | null;
    coverImage?: string | null;
+   sourceUrl?: string | null;
    tags?: string[] | null;
    content?: string | null;
    published?: boolean | null;
@@ -25,6 +26,7 @@ export interface PostFormValues {
    slug: string;
    excerpt: string;
    coverImage: string | null;
+   sourceUrl: string | null;
    tags: string[];
    content: string;
    published: boolean;
@@ -35,6 +37,7 @@ interface PostDraft {
    slug: string;
    excerpt: string;
    coverImage: string;
+   sourceUrl: string;
    tags: string; // comma-separated string in the form, split on submit
    content: string;
    published: boolean;
@@ -53,6 +56,7 @@ const emptyDraft: PostDraft = {
    slug: '',
    excerpt: '',
    coverImage: '',
+   sourceUrl: '',
    tags: '',
    content: '',
    published: false,
@@ -64,6 +68,7 @@ const postToDraft = (post: PostFormInitial): PostDraft => ({
    slug: post.slug ?? '',
    excerpt: post.excerpt ?? '',
    coverImage: post.coverImage ?? '',
+   sourceUrl: post.sourceUrl ?? '',
    tags: Array.isArray(post.tags) ? post.tags.join(', ') : '',
    content: post.content ?? '',
    published: !!post.published,
@@ -109,6 +114,7 @@ const PostForm = ({ initial, onSubmit, onCancel, submitting, submitLabel }: Post
          slug: draft.slug.trim() || generateSlug(draft.title),
          excerpt: draft.excerpt.trim(),
          coverImage: draft.coverImage.trim() || null,
+         sourceUrl: draft.sourceUrl.trim() || null,
          // Tags are stored as String[] on the backend — split, trim, drop empties.
          tags: draft.tags
             .split(',')
@@ -173,7 +179,21 @@ const PostForm = ({ initial, onSubmit, onCancel, submitting, submitLabel }: Post
          </label>
 
          <label className="blog_field">
-            <span>Tags <small className="text-light">(comma-separated)</small></span>
+            <span>Original post link <small className="text-light">(optional — LinkedIn, Facebook, Instagram…)</small></span>
+            <input
+               type="url"
+               value={draft.sourceUrl}
+               onChange={setField('sourceUrl')}
+               placeholder="https://www.linkedin.com/posts/..."
+               disabled={submitting}
+            />
+            <small className="text-light post_form_help">
+               Shows a little platform logo on the post that links back to the original.
+            </small>
+         </label>
+
+         <label className="blog_field">
+            <span>Tags <small className="text-light">(separate with commas or spaces — # optional)</small></span>
             <input
                type="text"
                value={draft.tags}

@@ -5,11 +5,17 @@
 export const typeDefs = `#graphql
   type Post {
     id: ID!
+    # Sequential number in creation order (#1 = first post ever written).
+    # Stable: stored in the DB, never renumbered when posts are deleted.
+    number: Int!
     title: String!
     slug: String!
     content: String!
     excerpt: String!
     coverImage: String
+    # Optional link to the original social post (LinkedIn/FB/Instagram…).
+    # The frontend derives the platform logo from the URL's hostname.
+    sourceUrl: String
     # Computed field: prefers the explicit coverImage, else the first image found
     # inside the markdown content. Lets the list view show a thumbnail without
     # the author having to set a cover separately.
@@ -44,6 +50,7 @@ export const typeDefs = `#graphql
     content: String!
     excerpt: String!
     coverImage: String
+    sourceUrl: String
     tags: [String!]!
     published: Boolean
   }
@@ -51,7 +58,11 @@ export const typeDefs = `#graphql
   type Query {
     # Public — only published posts, paginated, newest first.
     # Defaults: page 1, 10 per page. Caller can override via variables.
-    posts(page: Int, perPage: Int): PostsPage!
+    # tag: exact tag match (DB-side, Postgres array 'has').
+    # search: case-insensitive substring match on title/excerpt (DB-side).
+    posts(page: Int, perPage: Int, tag: String, search: String): PostsPage!
+    # Public — distinct tags across published posts, for the filter dropdown.
+    tags: [String!]!
     # Public — single published post by slug
     post(slug: String!): Post
     # Admin only — every post including drafts

@@ -13,11 +13,20 @@ datasource db {
 
 model Post {
   id         String   @id @default(uuid())
+  // Human-facing sequential number in creation order (#1 = first post ever).
+  // Assigned in the createPost resolver as max+1 — no autoincrement sequence,
+  // so the value is stable and survives deletes without renumbering.
+  // Single-admin blog: the read-then-write race is acceptable.
+  number     Int      @unique
   title      String
   slug       String   @unique
   content    String   // raw markdown — rendered on the frontend
   excerpt    String
   coverImage String?
+  // Link to the original social post (LinkedIn/FB/Instagram…) this blog post
+  // was adapted from. The frontend detects the platform from the hostname and
+  // shows the matching logo — no separate "platform" column to keep in sync.
+  sourceUrl  String?
   tags       String[] // Postgres native array — see note above
   published  Boolean  @default(false)
   createdAt  DateTime @default(now())

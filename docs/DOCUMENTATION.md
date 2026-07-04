@@ -16,9 +16,25 @@ Personal portfolio + blog, rebuilt from a legacy Vite/React app into a monorepo:
 | `frontend/` | Next.js 14 (App Router), TypeScript, Apollo Client | 3000 |
 | `backend/` | Express + Apollo Server 4, Prisma, PostgreSQL, JWT | 4000 by default (`PORT` env overrides — local `.env` uses 4001) |
 
-Deploy targets: **Vercel** (frontend, root directory must point at `frontend/`)
-and **Render** (backend). Branch flow: `feature/*` → PR → `main` (staging) →
-`production` (prod).
+### Deployment (live as of 2026-07-05)
+
+- **Frontend:** Vercel project `portfolio-main-frontend`, Root Directory
+  `frontend/`, Next.js preset. **najrul.com** deploys from `main`;
+  **testing.najrul.com** (Namecheap CNAME `testing` → cname.vercel-dns.com) is
+  assigned to the `staging` branch. Workflow: verify on testing.najrul.com
+  before merging `staging` → `main`.
+- **Backend:** Render free-tier web service `portfolio-backend-staging`
+  (https://portfolio-backend-staging.onrender.com), deploys from `staging`.
+  Free tier sleeps when idle → first request after a quiet period takes
+  ~20–30s. `CORS_ORIGIN` on Render must list every frontend origin
+  (najrul.com is in; add testing.najrul.com when it goes live).
+- **Database:** Neon Postgres, project `portfolio`, branch `production`.
+- **Vercel env vars (Production + Preview, NOT marked Sensitive):**
+  `NEXT_PUBLIC_GRAPHQL_URL` = backend URL + `/graphql`,
+  `NEXT_PUBLIC_API_URL` = backend URL. (The legacy `VITE_*` vars were saved as
+  Sensitive and are permanently unreadable — that's why the new ones aren't.)
+- **Admin password resets** run locally against prod:
+  `DATABASE_URL='<neon-url>' ADMIN_EMAIL_NEW=... ADMIN_PASSWORD_NEW='...' npm run -w backend admin:update`
 
 ## 2. Repository layout
 
@@ -78,9 +94,20 @@ backend/
 - **CORS:** `CORS_ORIGIN` env is a comma-separated origin list
   (default `http://localhost:5173,http://localhost:3000`).
 - **Health check:** `GET /health` → `{ status: "ok" }` (used by Render).
+- **Public queries:** `posts(page, perPage, tag, search)` — paginated (10/page
+  default, capped at 50), filters run DB-side (Prisma `where`: exact tag match
+  via array `has`, case-insensitive search on title/excerpt); `tags` — distinct
+  tags across published posts (for the blog filter dropdown).
+- **Tag normalization:** `createPost`/`updatePost` split tag input on
+  commas/whitespace, strip leading `#`, dedupe. Migration `20260705120000`
+  repaired legacy rows and backfilled `Post.number` by `createdAt`.
+- **Migrations on prod:** Render's build does NOT run migrations — after adding
+  one, run `DATABASE_URL='<neon-url>' npx prisma migrate deploy` from
+  `backend/` before (or right after) deploying the backend.
 - **Database models** (`prisma/schema.prisma`):
-  - `Post` — title, unique `slug`, raw-markdown `content`, excerpt, optional
-    coverImage, `tags String[]`, `published` flag; indexed on
+  - `Post` — unique `number` (creation-order, assigned max+1 in createPost,
+    never renumbered on delete), title, unique `slug`, raw-markdown `content`,
+    excerpt, optional coverImage, `tags String[]`, `published` flag; indexed on
     `[published, createdAt]` for listing queries.
   - `Admin` — email + passwordHash.
   - `Image` — filename, mimeType, `data Bytes`, denormalized `size`.
@@ -95,7 +122,11 @@ backend/
 ## 4. Frontend
 
 - **Pages:** homepage (`/`) renders all portfolio sections; `/blog` lists
-  published posts with pagination; `/blog/[slug]` renders a post's markdown
+  published posts with server-side pagination (10/page), a debounced search box
+  + tag dropdown (both filter in the DB), per-post creation numbers (`#4`), and
+  cover images with a shimmer/spinner loading state
+  (`components/blog/CoverImage.tsx`) that fades in on load and collapses on
+  error; `/blog/[slug]` renders a post's markdown
   (react-markdown + remark-gfm); `/admin` is the login + post CRUD area with a
   markdown editor and live preview; its post table is numbered and has
   client-side search (title/slug/tag) + a status filter.
@@ -152,6 +183,12 @@ backend/
   Vercel project root directory to `frontend/`.
 - Blog categories + search (after first prod deploy).
 - Vercel Web Analytics (`@vercel/analytics`) after deploy is live.
+- **AI semantic search over blog posts (RAG):** embed post content with an LLM
+  embeddings API, store vectors in PostgreSQL via `pgvector`, and answer
+  natural-language queries against the blog. Goals: (a) a live, demonstrable
+  AI feature on the portfolio, (b) legitimate resume claims for RAG / vector
+  DB / LLM API integration. Builds on the planned blog search above — do after
+  first prod deploy.
 
 ---
 
@@ -159,6 +196,65 @@ backend/
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-07-05** — **Testimonials redesign (reviewer rail):** replaced the
+  Swiper card carousel with a two-panel layout — left: vertical scrollable
+  rail of reviewers on a "(" arc (active one enlarged with accent ring +
+  name/title/star; wheel-scroll via non-passive native listener, click to
+  select, endless wrap-around); right: active person's quote in large italic
+  with accent quote mark, thin-scrollbar overflow for long reviews, footer
+  with name/title + LinkedIn/UpWork/Local badge, fade-in on change. Mobile
+  (≤900px): rail turns horizontal, avatars only. Swiper no longer used in
+  this section. New tokens `--gradient-glass` + `--blur-glass` in
+  `tokens.css` (glass look, reusable).
+- **2026-07-05** — Country flags added left of each Work Experience location
+  (local PNGs in `public/assets/flags/` — images, not emoji, since Windows
+  browsers don't render flag emojis). Fixed 4 broken Skills icons (CSS,
+  JavaScript, Netlify, VS Code): their Wikimedia/seeklogo hotlinks had rotted —
+  replaced with local devicon SVGs in `public/assets/skills/`.
+- **2026-07-05** — Added Monudesk (Germany, June 2025–present) as the newest
+  Work Experience entry in `lib/constants.ts`, logo at
+  `public/assets/company/monudesk.png`. Timeline dates pulled back in from 150% → 126% of the card width so
+  they sit beside the icon like the live-site reference.
+- **2026-07-05** — Homepage hero properly centered: `.header_info` was pinned
+  by its right edge (`right: 38%` + per-breakpoint patches 23%/7.5%), which
+  only looked centered at one width. Replaced with `left: 50% +
+  translateX(-50%)` — true center at any viewport; media-query overrides
+  removed.
+- **2026-07-05** — **Source badge feature:** posts can link back to the
+  original social post. New nullable `Post.sourceUrl` column (migration
+  `20260705150000`), exposed through GraphQL (`Post.sourceUrl` +
+  `PostInput.sourceUrl`), "Original post link" field in the admin form, and a
+  `SourceBadge` component that detects the platform from the URL hostname
+  (LinkedIn/FB/Instagram/YouTube/X, generic link icon otherwise) — shown as a
+  round icon pinned bottom-right on blog cards (a sibling of the card Link, so
+  clicking it opens the platform) and inline in the single-post meta row.
+- **2026-07-05** — Blog grid polish round 2: grid rows no longer stretch cards
+  to the tallest sibling (`align-items: start` — the actual cause of the dead
+  space); preview line-clamp hardened with `line-clamp` + max-height fallback
+  (tooling can strip `-webkit-box-orient`); filter bar left-aligned and
+  modernized — pill-shaped search with magnifier icon + focus ring.
+- **2026-07-05** — Polish: intro preloader ("Dedicated, Passionate,
+  Inquisitive") is now homepage-only — `PreLoader` returns null unless
+  `usePathname() === '/'`, so /blog, /blog/[slug] and /admin never ship the
+  overlay markup at all (no intro, no blink; verified in server HTML). It
+  replays whenever the user lands on Home. This replaced an earlier
+  sessionStorage/pre-paint-script approach that still blinked; blog card meta pinned to the card bottom (`margin-top: auto`)
+  so grid-stretched cards don't end in a dead zone below the date; pointer
+  cursor on the blog/admin filter dropdowns.
+- **2026-07-05** — **Blog upgrade (DB-backed):** `Post.number` column
+  (creation-order, backfilled by createdAt, assigned max+1 on create) shown on
+  blog cards + admin table; server-side tag/search filtering on `posts` query +
+  new `tags` query with a search box + tag dropdown on `/blog`; tag input
+  normalized in resolvers (split on commas/spaces, strip `#`) with migration
+  repairing legacy rows like `'#A #B #C'`; cover images get a shimmer skeleton
+  + spinner + fade-in (`CoverImage.tsx`); tag chips restyled (roomier, bordered,
+  CSS-drawn `#`). Migration `20260705120000` must be deployed to Neon.
+- **2026-07-05** — **Production migration completed.** Merged staging → main
+  (resolved 3 conflicts from a legacy hotfix vs the restructure), repointed
+  Vercel Root Directory `_legacy_portfolio` → `frontend`, added
+  `NEXT_PUBLIC_GRAPHQL_URL`/`NEXT_PUBLIC_API_URL` env vars, reset the prod
+  admin password against Neon. najrul.com now serves the Next.js app with
+  working blog + admin. Deployment topology documented in the Overview section.
 - **2026-07-04** — **Root cause of all the admin layout weirdness found and
   removed:** `styles/sections/animation.css` had a legacy leftover rule
   `section span { transform: translateX(-100px) }` that silently shifted every
