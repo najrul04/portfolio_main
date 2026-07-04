@@ -4,6 +4,7 @@
   "private": true,
   "main": "dist/index.js",
   "scripts": {
+    "predev": "node scripts/free-port.cjs",
     "dev": "nodemon",
     "build": "tsc -p tsconfig.json && prisma generate",
     "start": "node dist/index.js",

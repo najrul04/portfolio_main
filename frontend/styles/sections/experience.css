@@ -1,0 +1,36 @@
+.vertical-timeline-element-content {
+  box-shadow: none;
+}
+
+/* WHY: on desktop the library positions each card's date in the opposite
+   column at left/right: 124% of the card width. Our card column is a touch
+   narrower than the original, so 124% landed the date on top of the central
+   icon. Nudge it outward so the date sits cleanly in the empty column, matching
+   the live site. Only affects the wide (two-column) layout. */
+@media only screen and (min-width: 1170px) {
+  /* !important: the library's stylesheet is imported inside the Experience
+     component, so it loads AFTER this file and would otherwise win at equal
+     specificity. */
+  .vertical-timeline--two-columns
+    .vertical-timeline-element-content
+    .vertical-timeline-element-date {
+    left: 150% !important;
+  }
+
+  .vertical-timeline--two-columns
+    .vertical-timeline-element:nth-child(even)
+    .vertical-timeline-element-content
+    .vertical-timeline-element-date {
+    left: auto !important;
+    right: 150% !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .vertical-timeline-element-icon {
+    margin-left: 5px;
+  }
+  .vertical-timeline::before {
+    left: 23px;
+  }
+}

@@ -62,11 +62,38 @@ const start = async () => {
       res.json({ status: 'ok' });
    });
 
-   await new Promise<void>((resolve) => httpServer.listen({ port: PORT }, resolve));
+   // Reject (instead of crashing with an unhandled 'error' event) so the catch
+   // below can turn EADDRINUSE into an actionable message rather than a stack trace.
+   await new Promise<void>((resolve, reject) => {
+      httpServer.once('error', reject);
+      httpServer.listen({ port: PORT }, resolve);
+   });
    console.log(`🚀 GraphQL ready at http://localhost:${PORT}/graphql`);
+
+   // WHY: on Windows (especially under Git Bash) an abrupt exit can leave the
+   // process alive holding the port — the classic EADDRINUSE-on-next-start bug.
+   // Closing the server explicitly on shutdown signals makes exit deterministic.
+   const shutdown = () => {
+      httpServer.close(() => process.exit(0));
+      setTimeout(() => process.exit(0), 3000).unref(); // failsafe: don't hang on stuck sockets
+   };
+   process.on('SIGINT', shutdown);
+   process.on('SIGTERM', shutdown);
 };
 
-start().catch((err) => {
-   console.error('Failed to start server:', err);
+start().catch((err: NodeJS.ErrnoException) => {
+   if (err.code === 'EADDRINUSE') {
+      console.error(
+         [
+            `✗ Port ${PORT} is already in use — another backend instance is running.`,
+            `  Most likely cause: \`npm run dev\` at the repo root already starts the`,
+            `  backend; don't start it again inside backend/.`,
+            `  The predev script normally frees the port automatically — if you still`,
+            `  see this, something unrelated owns port ${PORT} (see backend/scripts/free-port.cjs output).`,
+         ].join('\n')
+      );
+   } else {
+      console.error('Failed to start server:', err);
+   }
    process.exit(1);
 });

@@ -46,6 +46,7 @@
    --color-danger: #ef4444;
    --color-warning: #f59e0b;
    --color-info: rgba(77, 181, 255, 1);           /* matches old --color-primary-variant */
+   --color-info-soft: rgba(77, 181, 255, 0.4);    /* the old --color-primary-variant border tint */
 
    /* ── Typography ─────────────────────────────────────── */
 
@@ -92,4 +93,23 @@
    /* ── Motion ─────────────────────────────────────────── */
 
    --transition: all 400ms ease; /* matches old portfolio's --transition */
+
+   /* ── Legacy aliases ─────────────────────────────────────
+      WHY: the ported section CSS in styles/sections/* was written against the
+      old Vite portfolio's variable names. We alias those names to the canonical
+      tokens above so the single-source-of-truth still holds — change a canonical
+      token and every ported section updates with it. NEVER put literal colors
+      here; only point old names at canonical tokens. */
+   --color-bg: var(--color-bg-primary);
+   --color-bg-variant: var(--color-bg-secondary);
+   --color-primary: var(--color-accent);
+   --color-primary-linear: var(--gradient-accent);
+   --color-primary-variant: var(--color-info-soft);
+   --color-white: var(--color-text-primary);
+   --color-light: var(--color-text-muted);
+
+   /* Layout container widths (sizes, not colors — safe to define here) */
+   --container-width-lg: 75%;
+   --container-width-md: 86%;
+   --container-width-sm: 90%;
 }

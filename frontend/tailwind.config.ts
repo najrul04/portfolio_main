@@ -84,6 +84,16 @@ const config: Config = {
          },
       },
    },
+   // WHY preflight disabled: the original Vite portfolio ran WITHOUT Tailwind's
+   // Preflight, so it relied on browser-default heading sizes and on each
+   // section's own CSS for form padding etc. Preflight (active by default in
+   // Next) was resetting h1–h6 to `inherit` and stripping input/textarea
+   // padding, which made headings tiny and form fields squashed. Our own
+   // `*` reset in globals.css already provides box-sizing/margin normalization,
+   // so turning Preflight off restores the original look without losing resets.
+   corePlugins: {
+      preflight: false,
+   },
    plugins: [],
 };
 
