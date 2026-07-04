@@ -147,6 +147,7 @@
    appearance: none;
    -webkit-appearance: none;
    padding-right: 2.5rem;
+   cursor: pointer;
 }
 
 .admin_error {

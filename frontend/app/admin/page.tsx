@@ -27,6 +27,7 @@ import PostForm, {
 
 interface AdminPost {
    id: string;
+   number: number;
    title: string;
    slug: string;
    excerpt: string | null;
@@ -313,9 +314,11 @@ const AdminPanel = () => {
                   </tr>
                </thead>
                <tbody>
-                  {visiblePosts.map((post, index) => (
+                  {visiblePosts.map((post) => (
                      <tr key={post.id}>
-                        <td className="admin_col_num text-light">{index + 1}</td>
+                        {/* DB creation-order number (not the row index) — stays
+                            stable under filtering and across deletions. */}
+                        <td className="admin_col_num text-light">{post.number}</td>
                         <td>
                            <div className="admin_post_title">{post.title}</div>
                            <div className="admin_post_slug text-light">/{post.slug}</div>

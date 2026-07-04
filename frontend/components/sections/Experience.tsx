@@ -16,6 +16,7 @@ interface Experience {
    title: string;
    company_name: string;
    company_location: string;
+   flag: string;
    icon: string;
    iconBg: string;
    date: string;
@@ -66,6 +67,22 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
                   color: '#b76bf5',
                }}
             >
+               {/* WHY explicit inline size: the global `img { width: 100% }`
+                   reset would balloon the flag to the card width otherwise. */}
+               <img
+                  src={experience.flag}
+                  alt=""
+                  aria-hidden
+                  style={{
+                     display: 'inline-block',
+                     width: '20px',
+                     height: '15px',
+                     objectFit: 'cover',
+                     borderRadius: '2px',
+                     marginRight: '8px',
+                     verticalAlign: '-2px',
+                  }}
+               />
                {experience.company_location}
             </p>
          </div>

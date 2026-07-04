@@ -22,16 +22,20 @@ const tl = gsap.timeline();
 // The version below uses its own timeline, runs once, keeps only the real intro
 // (the three words + collapsing the overlay), and GUARANTEES the page is
 // scrollable and the overlay is gone when it finishes.
-let preloaderStarted = false;
+// Guards against CONCURRENT runs only (StrictMode double-mounts the effect in
+// dev). It resets on completion so navigating back to Home can replay the
+// intro — the overlay only exists on the homepage (see PreLoader.tsx).
+let preloaderRunning = false;
 
 export const preLoaderAnim = (): void => {
-   if (preloaderStarted) return;
-   preloaderStarted = true;
+   if (preloaderRunning) return;
+   preloaderRunning = true;
 
    const intro = gsap.timeline({
       // Safety net: whatever happens, leave the page scrollable and remove the
       // overlay so it can never trap the user.
       onComplete: () => {
+         preloaderRunning = false;
          document.body.style.overflowY = 'auto';
          const pre = document.querySelector('.preloader') as HTMLElement | null;
          if (pre) pre.style.display = 'none';

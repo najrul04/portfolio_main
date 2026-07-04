@@ -41,6 +41,14 @@
    --color-border: rgba(255, 255, 255, 0.08);
    --color-border-strong: rgba(255, 255, 255, 0.16);
 
+   /* Glass surfaces — frosted card look (testimonials) */
+   --gradient-glass: linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.02)
+   );
+   --blur-glass: 12px;
+
    /* Status */
    --color-success: #22c55e;
    --color-danger: #ef4444;
