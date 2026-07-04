@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import '../styles/globals.css';
+import { Providers } from './providers';
+import Nav from '@/components/layout/Nav';
+import PreLoader from '@/components/layout/PreLoader';
 
 // Site-wide metadata. Page-specific metadata overrides at the page level.
 export const metadata: Metadata = {
@@ -7,13 +10,19 @@ export const metadata: Metadata = {
    description: 'Full-stack developer portfolio and blog',
 };
 
-// Root layout wraps every page. In Pass 2 this will also wrap the children
-// in <Providers> (Apollo + Redux). For now the providers don't exist yet,
-// so we render children directly — keeps Pass 1 runnable on its own.
+// Root layout wraps every page in the client Providers (Apollo + Auth) and the
+// global chrome (PreLoader intro + the floating Nav dock), exactly like the old
+// App.jsx rendered <PreLoader /> and <Nav /> outside the routed content.
 export default function RootLayout({ children }: { children: React.ReactNode }) {
    return (
       <html lang="en">
-         <body>{children}</body>
+         <body>
+            <Providers>
+               <PreLoader />
+               <Nav />
+               {children}
+            </Providers>
+         </body>
       </html>
    );
 }

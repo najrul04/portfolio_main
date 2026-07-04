@@ -1,0 +1,311 @@
+/* Admin layout reuses the same outer rhythm as Blog page so they feel like
+   siblings, not different apps. */
+
+.admin_section {
+   margin-top: 8rem;
+   padding-bottom: 8rem;
+   min-height: 100vh;
+}
+
+.admin_container {
+   width: 75%;
+   margin: 0 auto;
+   max-width: 1080px;
+}
+
+.admin_header {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-end;
+   gap: 1rem;
+   margin-bottom: 2.5rem;
+   flex-wrap: wrap;
+}
+
+.admin_header h5 {
+   color: var(--color-light);
+   text-align: left;
+}
+
+.admin_header h2 {
+   color: var(--color-primary);
+   text-align: left;
+   margin-bottom: 0;
+}
+
+/* Bordered pill in the header row, right of the page title. inline-flex so the
+   pill shrink-wraps its content — email and button stay tightly together
+   regardless of how wide the header is. */
+.admin_header_right {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.8rem;
+   padding: 0.35rem 0.35rem 0.35rem 1.1rem;
+   background: rgba(255, 255, 255, 0.03);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   border-radius: 999px;
+}
+
+/* Rounded button matches the pill it sits in; slimmer than the default .btn
+   so the pill stays low-profile next to the page title. */
+.admin_header_right .btn {
+   padding: 0.5rem 1.05rem;
+   border-radius: 999px;
+}
+
+.admin_email {
+   flex: none;
+   font-size: 0.85rem;
+   color: var(--color-light);
+   max-width: 16rem;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.admin_action_btn,
+.admin_back_btn {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.5rem;
+   white-space: nowrap;
+}
+
+.admin_back_btn {
+   margin-bottom: 1.5rem;
+}
+
+.admin_toolbar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 1rem;
+   flex-wrap: wrap;
+   margin-bottom: 1.5rem;
+}
+
+/* Search + status filter. Same field styling as the blog forms so the admin
+   controls feel like the same design system. */
+.admin_filters {
+   display: flex;
+   gap: 0.6rem;
+   flex: 1;
+   min-width: 0;
+   max-width: 30rem;
+}
+
+.admin_search,
+.admin_filter_select {
+   padding: 0.55rem 0.9rem;
+   background: rgba(255, 255, 255, 0.04);
+   color: var(--color-white);
+   border: 1px solid rgba(255, 255, 255, 0.12);
+   border-radius: 0.4rem;
+   font-size: 0.9rem;
+   transition: var(--transition);
+}
+
+.admin_search {
+   flex: 1;
+   min-width: 0;
+}
+
+.admin_search:focus,
+.admin_filter_select:focus {
+   outline: none;
+   border-color: var(--color-primary);
+}
+
+/* Native dropdown list inherits the page's dark scheme instead of a white menu. */
+.admin_filter_select option {
+   background: var(--color-bg);
+   color: var(--color-white);
+}
+
+/* Custom chevron: the native select arrow hugs the field's edge and can't be
+   positioned. appearance:none removes it; the wrapper draws a centered one.
+   (A border-drawn chevron, not an SVG data-URI, so its color stays a token.) */
+.admin_select_wrap {
+   position: relative;
+   display: inline-flex;
+}
+
+.admin_select_wrap::after {
+   content: '';
+   position: absolute;
+   right: 1rem;
+   top: 50%;
+   width: 0.45rem;
+   height: 0.45rem;
+   border-right: 1.5px solid var(--color-light);
+   border-bottom: 1.5px solid var(--color-light);
+   transform: translateY(-70%) rotate(45deg);
+   pointer-events: none;
+}
+
+.admin_filter_select {
+   appearance: none;
+   -webkit-appearance: none;
+   padding-right: 2.5rem;
+}
+
+.admin_error {
+   padding: 1rem 1.2rem;
+   border-radius: 0.4rem;
+   background: rgba(239, 68, 68, 0.08);
+   border: 1px solid rgba(239, 68, 68, 0.25);
+   color: var(--color-light);
+   margin-bottom: 1.5rem;
+}
+
+/* ── Posts table ───────────────────────────────────────── */
+
+.admin_table {
+   width: 100%;
+   border-collapse: collapse;
+   background: var(--color-bg-variant);
+   border: 1px solid rgba(255, 255, 255, 0.08);
+   border-radius: 0.4rem;
+   overflow: hidden;
+   font-size: 0.92rem;
+}
+
+.admin_table th,
+.admin_table td {
+   padding: 0.85rem 1rem;
+   text-align: left;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin_table th {
+   background: rgba(255, 255, 255, 0.03);
+   color: var(--color-light);
+   font-weight: 500;
+   font-size: 0.8rem;
+   text-transform: uppercase;
+   letter-spacing: 0.04em;
+}
+
+.admin_table tbody tr:last-child td {
+   border-bottom: none;
+}
+
+.admin_table tbody tr:hover {
+   background: rgba(255, 255, 255, 0.02);
+}
+
+.admin_post_title {
+   color: var(--color-white);
+   margin-bottom: 0.2rem;
+}
+
+.admin_post_slug {
+   font-size: 0.78rem;
+   font-family: 'Fira Code', monospace;
+}
+
+.admin_col_num {
+   width: 3rem;
+}
+
+.admin_col_status {
+   width: 7rem;
+}
+
+.admin_col_date {
+   width: 9rem;
+}
+
+.admin_col_actions {
+   width: 10rem;
+   text-align: right;
+}
+
+/* Flex lives on this inner wrapper, NOT on the <td> — display:flex on a table
+   cell removes it from table layout and the buttons escape the table card. */
+.admin_actions {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   gap: 0.3rem;
+}
+
+.admin_status {
+   display: inline-block;
+   padding: 0.2rem 0.55rem;
+   border-radius: 999px;
+   font-size: 0.75rem;
+   font-weight: 500;
+}
+
+.admin_status--published {
+   background: rgba(34, 197, 94, 0.15);
+   color: #22c55e;
+}
+
+.admin_status--draft {
+   background: rgba(245, 158, 11, 0.15);
+   color: #f59e0b;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+
+@media screen and (max-width: 1024px) {
+   .admin_container {
+      width: 90%;
+   }
+}
+
+/* On narrow screens keep the pill compact: hide the email, keep sign-out. */
+@media screen and (max-width: 600px) {
+   .admin_header_right {
+      padding: 0.15rem;
+      gap: 0;
+   }
+   .admin_email {
+      display: none;
+   }
+}
+
+@media screen and (max-width: 700px) {
+   /* Stack the table — at narrow widths a real <table> wraps awkwardly.
+      We render the same rows but each cell becomes its own line. */
+   .admin_table,
+   .admin_table thead,
+   .admin_table tbody,
+   .admin_table th,
+   .admin_table td,
+   .admin_table tr {
+      display: block;
+   }
+
+   .admin_table thead {
+      display: none;
+   }
+
+   .admin_table tr {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+   }
+
+   .admin_table td {
+      padding: 0.3rem 0;
+      border: none;
+   }
+
+   .admin_col_status,
+   .admin_col_date,
+   .admin_col_actions {
+      width: auto;
+   }
+
+   /* Row numbers add nothing when each row is a stacked card. */
+   .admin_col_num {
+      display: none;
+   }
+
+   .admin_actions {
+      justify-content: flex-start;
+      margin-top: 0.4rem;
+   }
+}

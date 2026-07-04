@@ -2,9 +2,10 @@
 
 Najrul's portfolio site with a public blog and a private admin panel for writing posts.
 
-- **_legacy_portfolio/** — React + Vite frontend (portfolio sections, `/blog`, `/admin`)
+- **frontend/** — Next.js 14 (App Router) — portfolio sections, `/blog`, `/blog/[slug]`, `/admin`
 - **backend/** — Express + Apollo GraphQL + Prisma + PostgreSQL + JWT auth
-- **frontend/** — Next.js scaffold (parked; not currently in use)
+
+> The original React + Vite app (`_legacy_portfolio/`) was fully ported into `frontend/` and removed.
 
 ---
 
@@ -28,36 +29,30 @@ docker ps --filter name=portfolio-pg
 ```
 Should show `Up X seconds` and `0.0.0.0:5433->5432/tcp`.
 
-### ② Backend — Terminal 1
+### ② Backend + frontend together — one terminal
 
 ```powershell
 cd h:\Projects\personal\portfolio_main
-npm run dev:backend
-```
-
-Wait for: `🚀 GraphQL ready at http://localhost:4000/graphql`. Leave this terminal open.
-
-### ③ Frontend — Terminal 2 (new window)
-
-```powershell
-cd h:\Projects\personal\portfolio_main\_legacy_portfolio
 npm run dev
 ```
 
-Opens on `http://localhost:5173/`.
+Runs both apps concurrently (backend on `:4000`, frontend on `:3000`). Wait for
+`🚀 GraphQL ready at http://localhost:4000/graphql` and the Next.js `✓ Ready` line.
+
+> Prefer separate terminals? Use `npm run dev:backend` in one and `npm run dev:frontend` in another.
 
 ### URLs you'll use
 
 | URL | What |
 |---|---|
-| http://localhost:5173 | Portfolio home |
-| http://localhost:5173/blog | Public blog list |
-| http://localhost:5173/admin | Login + post management (only you) |
+| http://localhost:3000 | Portfolio home |
+| http://localhost:3000/blog | Public blog list |
+| http://localhost:3000/admin | Login + post management (only you) |
 | http://localhost:4000/graphql | GraphQL playground (debug queries) |
 
 ### Shutting down
 
-`Ctrl+C` in each terminal. Optionally `docker stop portfolio-pg` to free RAM (~30MB).
+`Ctrl+C` in the terminal. Optionally `docker stop portfolio-pg` to free RAM (~30MB).
 
 ---
 
@@ -73,9 +68,9 @@ Skip this if you already did it once on this machine.
 ```powershell
 cd h:\Projects\personal\portfolio_main
 npm install
-cd _legacy_portfolio
-npm install
 ```
+
+> One install at the root covers both workspaces (`frontend` + `backend`).
 
 ### 2. Start a Postgres container
 ```powershell
@@ -90,7 +85,7 @@ docker run --name portfolio-pg `
 
 ### 3. Configure backend `.env`
 ```powershell
-cd ..\backend
+cd .\backend
 Copy-Item .env.example .env
 ```
 
@@ -101,11 +96,18 @@ Edit `backend/.env` and set:
   node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
   ```
 - `ADMIN_EMAIL` — your email
+- `CORS_ORIGIN` — include `http://localhost:3000`
 
-### 4. Configure frontend `.env`
-Already committed for local dev. If missing, create `_legacy_portfolio/.env`:
+### 4. Configure frontend `.env.local`
+```powershell
+cd ..\frontend
+Copy-Item .env.example .env.local
 ```
-VITE_GRAPHQL_URL=http://localhost:4000/graphql
+
+`frontend/.env.local` should contain:
+```
+NEXT_PUBLIC_GRAPHQL_URL=http://localhost:4000/graphql
+NEXT_PUBLIC_API_URL=http://localhost:4000
 ```
 
 ### 5. Run migrations + seed admin
@@ -125,23 +127,32 @@ npm run seed
 
 ```
 portfolio_main/
-├── _legacy_portfolio/         # Vite frontend (active app)
-│   ├── src/
-│   │   ├── components/        # Portfolio sections + blog components
-│   │   │   ├── blog/          # MarkdownEditor, PostPreview, PostForm, LoginForm
-│   │   │   └── ...            # about, header, nav, footer, etc.
-│   │   ├── contexts/
-│   │   │   └── AuthContext.jsx
-│   │   ├── lib/
-│   │   │   ├── apolloClient.js
-│   │   │   ├── graphql/       # ALL queries + mutations live here (never inlined)
-│   │   │   └── utils/
-│   │   ├── pages/
-│   │   │   ├── Blog.jsx       # Public read-only
-│   │   │   └── Admin.jsx      # JWT-gated CRUD
-│   │   ├── App.jsx
-│   │   └── index.jsx
-│   └── .env                   # VITE_GRAPHQL_URL
+├── frontend/                  # Next.js 14 app (the frontend)
+│   ├── app/
+│   │   ├── layout.tsx         # Providers + global chrome (PreLoader, Nav)
+│   │   ├── providers.tsx      # Apollo + Auth ('use client')
+│   │   ├── page.tsx           # Home (Header, About, … , Footer)
+│   │   ├── blog/page.tsx      # Public blog list
+│   │   ├── blog/[slug]/page.tsx
+│   │   └── admin/page.tsx     # JWT-gated CRUD
+│   ├── components/
+│   │   ├── sections/          # Portfolio sections (Header, About, Skills, …)
+│   │   ├── layout/            # Nav, PreLoader
+│   │   ├── blog/              # MarkdownEditor, PostPreview, PostForm, LoginForm, Pagination
+│   │   ├── hoc/               # SectionWrapper
+│   │   └── ui/                # Design-system primitives
+│   ├── lib/
+│   │   ├── apollo-client.ts
+│   │   ├── auth-context.tsx
+│   │   ├── constants.ts       # Shared data (experiences, skills, …)
+│   │   ├── motion.ts          # framer-motion variants
+│   │   ├── graphql/           # ALL queries + mutations live here (never inlined)
+│   │   └── utils/
+│   ├── public/assets/         # Images, logos, Resume.pdf
+│   └── styles/
+│       ├── tokens.css         # SINGLE source of truth for colors/sizes
+│       ├── globals.css        # resets + base element rules
+│       └── sections/          # per-section CSS, aggregated by index.css
 ├── backend/
 │   ├── src/
 │   │   ├── schema/
@@ -156,9 +167,15 @@ portfolio_main/
 │   │   ├── schema.prisma
 │   │   └── migrations/
 │   └── .env                   # DATABASE_URL, JWT_SECRET, etc.
-├── frontend/                  # Next.js scaffold — parked, not used right now
 └── package.json               # npm workspaces root
 ```
+
+### Styling — one place to change a color
+
+All colors/sizes/radii are CSS variables in `frontend/styles/tokens.css`. Change a
+token once and it cascades everywhere (Tailwind reads the same tokens via
+`tailwind.config.ts`). Per-section CSS lives in `styles/sections/*` and references
+those tokens — no literal colors in components.
 
 ---
 
@@ -166,9 +183,11 @@ portfolio_main/
 
 | Command | What |
 |---|---|
-| `npm run dev:backend` | Backend only (from root) |
-| `npm run dev:frontend` | Next.js scaffold (parked — usually skip) |
-| `cd _legacy_portfolio && npm run dev` | Vite portfolio (the actual frontend) |
+| `npm run dev` | Backend + frontend together (from root) |
+| `npm run dev:backend` | Backend only |
+| `npm run dev:frontend` | Next.js frontend only (http://localhost:3000) |
+| `npm run build` | Production build of both workspaces |
+| `npm run -w frontend build` | Production build of the frontend only |
 | `npm run seed` | Re-seed admin (only works if no admin row exists yet) |
 | `npm run -w backend prisma:migrate` | Apply a new migration after editing `schema.prisma` |
 | `npm run -w backend prisma:studio` | Browse/edit DB rows at http://localhost:5555 |
@@ -189,7 +208,7 @@ The Postgres on that port isn't ours. Run `docker ps` and check the Ports column
 
 **Browser console: `CORS error` or `NetworkError`**
 - Check the backend terminal is running on port 4000
-- Check `backend/.env` has `CORS_ORIGIN` including `http://localhost:5173`
+- Check `backend/.env` has `CORS_ORIGIN` including `http://localhost:3000`
 
 **`/admin` login says "Invalid email or password"**
 Either wrong password, or the admin row never got seeded. Verify:
@@ -205,8 +224,8 @@ npm run seed
 ```
 Get a fresh generated password.
 
-**Port 4000 or 5173 already in use**
+**Port 4000 or 3000 already in use**
 Something else is using it. Either close that thing, or change the port:
 - Backend: edit `PORT` in `backend/.env`
-- Frontend: edit `_legacy_portfolio/vite.config.js` to add `server: { port: 5174 }`
-- Then update `CORS_ORIGIN` and `VITE_GRAPHQL_URL` accordingly.
+- Frontend: change the `-p 3000` in `frontend/package.json` dev/start scripts
+- Then update `CORS_ORIGIN` and `NEXT_PUBLIC_GRAPHQL_URL` accordingly.

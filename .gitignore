@@ -35,8 +35,8 @@ Thumbs.db
 # Claude Code local state — never commit
 .claude/
 
+# Personal instruction sheet for Claude — never commit
+NAZ_CLAUDE.md
+
 # Prisma — keep schema and migrations, ignore generated client (regenerated on install)
 # (we DO commit prisma/migrations so other devs can replay them)
-
-# Legacy (preserved during port; safe to delete after Pass 2)
-# _legacy_portfolio/
