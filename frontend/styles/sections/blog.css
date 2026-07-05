@@ -32,6 +32,10 @@
    align-items: center;
    gap: 1rem;
    margin-bottom: 3rem;
+   /* header.css sizes the bare <header> tag for the HOME hero (68/70vh on
+      small screens) — without this override the blog header inherits that
+      height on mobile and its rows spread across most of the viewport. */
+   height: auto;
 }
 
 .blog_header_title {
@@ -647,6 +651,9 @@
    }
 
    .blog_section {
+      /* Desktop's 8rem top gap looks like a hole on phones (user report):
+         pull the Back button/title up near the top of the viewport. */
+      margin-top: 2rem;
       padding-bottom: 4rem; /* nav is hidden on mobile per Nav.css */
    }
 }

@@ -179,7 +179,7 @@ const PostForm = ({ initial, onSubmit, onCancel, submitting, submitLabel }: Post
          </label>
 
          <label className="blog_field">
-            <span>Original post link <small className="text-light">(optional — LinkedIn, Facebook, Instagram…)</small></span>
+            <span>Original post link <small className="text-light">(optional: LinkedIn, Facebook, Instagram…)</small></span>
             <input
                type="url"
                value={draft.sourceUrl}
@@ -193,7 +193,7 @@ const PostForm = ({ initial, onSubmit, onCancel, submitting, submitLabel }: Post
          </label>
 
          <label className="blog_field">
-            <span>Tags <small className="text-light">(separate with commas or spaces — # optional)</small></span>
+            <span>Tags <small className="text-light">(separate with commas or spaces, # optional)</small></span>
             <input
                type="text"
                value={draft.tags}

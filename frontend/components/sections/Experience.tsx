@@ -53,7 +53,7 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
          }
       >
          <div>
-            <h3 style={{ color: '#FFFFFF', fontSize: '24px', fontWeight: 'bold' }}>
+            <h3 style={{ color: '#FFFFFF', fontSize: '24px', fontWeight: 600 }}>
                {experience.title}
             </h3>
             <p style={{ fontSize: '20px', fontWeight: '600', margin: 0 }}>

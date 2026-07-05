@@ -177,12 +177,43 @@ backend/
 - **Run only ONE dev entrypoint at a time:** either `npm run dev` at the root
   (backend + frontend together) or the per-app dev scripts — not both.
 
-## 8. Planned / upcoming
+## 8. Open items — pick up here (state as of end of 2026-07-05 session)
 
-- First production deploy (Vercel frontend + Render backend). Reminder: set the
-  Vercel project root directory to `frontend/`.
-- Blog categories + search (after first prod deploy).
-- Vercel Web Analytics (`@vercel/analytics`) after deploy is live.
+**Branch state:** the 2026-07-05 portfolio work lives on
+`feature/portfolio-media-rebuild` (committed: gif-era rebuild; uncommitted on
+top: static-images + modal redesign, see Change History). `main` is clean.
+Everything else is merged and pushed; najrul.com deploys from `main`.
+
+**Short-term to-dos:**
+
+1. Test the portfolio modal in dev, then commit + push
+   `feature/portfolio-media-rebuild` and PR it (build passes, type-check ✅).
+   Fill in real tags/links in `lib/constants.ts` for the three new projects —
+   Soundmade (`#MobileApp #Music #UIUX`, no links), MonuDesk
+   (`#SaaS #ReactJS #NodeJS` is a guess; demo → monudesk.com) and RememberTag
+   (`#QRCode #WebApp #Startup` is a guess; demo → remembertag.com) — and
+   review their one-line descriptions.
+2. **Rotate the Neon DB password** — the connection string (incl. password) was
+   pasted into a chat session on 2026-07-05. Neon → Roles → reset
+   `neondb_owner` password, then update `DATABASE_URL` on Render → Environment.
+3. **testing.najrul.com** — Vercel domain + Namecheap CNAME (`testing` →
+   cname.vercel-dns.com) may still need to be added/verified; once live, append
+   `,https://testing.najrul.com` to `CORS_ORIGIN` on Render.
+4. Second Vercel project `portfolio-naj` is probably redundant — verify and
+   delete to stop duplicate PR checks.
+5. Several Skills icons still hotlink external sites (only CSS/JS/Netlify/
+   VS Code were localized after their links rotted) — consider localizing the
+   rest into `public/assets/skills/`.
+6. Review the 7 portfolio card descriptions (drafted, plain-HR-language) and
+   the Monudesk experience bullets — user's voice, user should approve.
+7. Verify the source-badge feature live: edit a post in /admin, paste its
+   LinkedIn URL into "Original post link", check the badge on the blog card.
+
+**Feature backlog:**
+
+- Blog categories + search UI polish (server-side tag/search filters shipped
+  2026-07-05; categories concept TBD).
+- Vercel Web Analytics (`@vercel/analytics`) on the Next.js app.
 - **AI semantic search over blog posts (RAG):** embed post content with an LLM
   embeddings API, store vectors in PostgreSQL via `pgvector`, and answer
   natural-language queries against the blog. Goals: (a) a live, demonstrable
@@ -196,6 +227,85 @@ backend/
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-07-05** — **Contact/social links refreshed:** displayed email fixed
+  to nazrul2517@gmail.com (was showing nazrul171992@); WhatsApp number →
+  01845393505 (link uses 8801845393505, shown under the card title; also
+  fixed a mangled target/rel attribute on the mail link). Instagram + Facebook
+  removed from the footer; Instagram removed from the header socials rail
+  (LinkedIn + GitHub only). LinkedIn profile URL corrected everywhere to
+  /in/najrul1704. Footer Twitter/X link → x.com/MDNazru67844430. Verified
+  rendered hrefs via Playwright. (the `* { font-weight: 700 }`
+  landmine is DEAD).** animation.css force-bolded every element, and since
+  Poppins only loaded weights 300-600 the browser synthesized fake bold on
+  top — the whole app (visibly the About section) read heavy and slightly
+  off. Removed the rule + a stray Inter @font-face (700, Latin-Ext-only
+  unicode-range — could render odd glyphs in a different family). Weights
+  now: body 400, h1-h5 500 (globals.css), per-component rules for the rest;
+  added real Poppins 700 to the Google Fonts import so genuine bold
+  (markdown <strong>, preloader words, header watermark) renders true bold.
+  Normalized stragglers: portfolio .tag_css bold→600, preloader 800→700,
+  Experience/Header inline 'bold'→600. Verified computed weights + About
+  screenshot via Playwright. (Playwright-verified at
+  360/390/430px): (1) `overflow-x: hidden` → `clip` on html+body — with
+  `hidden`, anchor jumps (nav links / scroll-down arrow) could still PAN the
+  viewport sideways toward sections sitting at translateX(±100px) before
+  their framer slide-in runs; the page then looked shifted with content cut
+  off and the fixed Blogs pill "detached". `clip` forbids horizontal
+  scrolling entirely. (2) `.header_info` got `width: 100%` — as an
+  abs-positioned box (`left:50%` + translate) it only shrink-wrapped to
+  ~half the viewport, so on phones the typed headline + CTA buttons spilled
+  off the LEFT edge. (3) `.coffee` badge re-anchored for the full-width box:
+  desktop `left: 65%` (same x≈936 @1440 as the live site, verified), mobile
+  `right: 1rem` (user wants it on the right side of the screen).
+  polish** (all verified with Playwright/Chromium against a prod build):
+  (1) In coverflow's preserve-3d space the transparent `swiper-wrapper` is a
+  plane at z=0 while off-center slides sit at translateZ −100 behind it, so
+  pointer rays stopped at the wrapper and every non-centered card was
+  unclickable (z-index can't fix true-3D ordering; verified via
+  elementFromPoint). Fix: `#portfolio .swiper-wrapper { pointer-events:
+  none }` + `pointer-events: auto` back on slides — swipe still works
+  (events bubble to the container), visual stacking unchanged.
+  (2) Mobile "Blogs" pill moved to top 2.75rem (below the header tech-logo
+  strip it overlapped); verified visible + navigates to /blog at 430px.
+  (3) `.blog_section` margin-top 8rem → 2rem on ≤600px (the huge dead space
+  above "Back" on /blog and /blog/[slug] in the user's screenshot). (now first in
+  the carousel — real products before practice projects): MonuDesk with 3
+  dashboard screenshots (order pipeline, conversations inbox, settings;
+  user-supplied PNGs → webp), RememberTag with its square "3-step" marketing
+  graphic + QR-scan graphic and a composed 1600×900 white-banner card cover
+  (square crops badly in the 16:9 card box). Tags/descriptions are drafts —
+  see to-do 1. Also fixed: coverflow slide shadows swallowed clicks on
+  non-centered cards (`pointer-events: none` on `[class*='swiper-slide-shadow']`).
+  Mobile fixes: blog header no longer inherits the home hero's `header
+  { height: 68/70vh }` (blog.css `height: auto` override; on phones the
+  Back/title/toggle rows were spread across most of the viewport), and a
+  fixed top-right "Blogs" pill now shows on the home page at ≤600px (the
+  bottom dock is display:none there, leaving no path to /blog; home only —
+  admin keeps its own top-right pill).
+  Em dashes ("—") removed from ALL user-visible strings per user preference
+  (project descriptions, site title, testimonial footer `&mdash;`→`&middot;`,
+  blog/admin helper texts) — code comments untouched. MonuDesk tags set to the
+  real stack: `#NextJS #NodeJS #ExpressJS #GraphQL #PostgreSQL`.
+- **2026-07-05** — **Portfolio: static cards + detail modal (gifs play only
+  in the modal).** Cards are minimal and never autoplay: local webp cover +
+  title + "View project" hint ("+N more" pill for multi-shot projects);
+  description, Github/Demo buttons and the animated preview moved into a new
+  `PortfolioModal.tsx` opened on card click. In the modal, the 7 classic
+  projects play their ImgBB gif big (per-slide spinner — gifs are MBs; auto
+  fallback to the local still if the gif host dies); Soundmade shows a
+  5-screenshot scroll-snap gallery (native swipe + arrows/dots/counter).
+  Esc/backdrop close, body scroll lock. Assets: legacy numbered screenshots
+  renamed descriptively; Product Store + Invent card stills extracted from
+  their gifs' first frames (sharp); **new project "Soundmade"** added first —
+  music community app, 5 phone shots (PNG→webp ~10× smaller, originals out of
+  the repo) + a composed 16:9 three-phone cover (`soundmade-cover.webp`;
+  portrait shots cropped horribly in the 16:9 card box). `PortfolioItem`:
+  `images: string[]` + optional `cover`/`gif`, `demo` optional (Soundmade has
+  no links yet — placeholders, see to-do 1). Product Store gif URL normalized
+  `i.ibb.co.com` → `i.ibb.co` (both serve it). Gif pause/canvas code deleted
+  from `PortfolioMedia.tsx`; loading-shimmer/error states kept. Unused
+  `1.webp` (old fitness-site screenshot matching no current project) left in
+  place.
 - **2026-07-05** — **Testimonials redesign (reviewer rail):** replaced the
   Swiper card carousel with a two-panel layout — left: vertical scrollable
   rail of reviewers on a "(" arc (active one enlarged with accent ring +
@@ -206,6 +316,16 @@ Newest first. One line per change set: date — what & why.
   (≤900px): rail turns horizontal, avatars only. Swiper no longer used in
   this section. New tokens `--gradient-glass` + `--blur-glass` in
   `tokens.css` (glass look, reusable).
+- **2026-07-05** — **Portfolio section rebuilt** (`PortfolioMedia.tsx`): each
+  slide owns its loading state — dark 16:9 shimmer + spinner until THAT gif
+  loads, fade-in, and a "Preview unavailable" state for dead gifs (the legacy
+  shared loadingGif/loadedCount left spinners on loaded slides and blank
+  cards on failures). Pause/play button per gif (canvas-captured first frame —
+  browsers can't pause GIFs natively). New optional `description` field on
+  PortfolioItem, populated for all 7 projects in plain HR-friendly language,
+  shown under the card title. Card content (title/description/buttons/tags)
+  centered on one axis via flex column; description explicitly font-weight 300
+  (a legacy `* { font-weight: 700 }` rule was bolding it into ugliness).
 - **2026-07-05** — Country flags added left of each Work Experience location
   (local PNGs in `public/assets/flags/` — images, not emoji, since Windows
   browsers don't render flag emojis). Fixed 4 broken Skills icons (CSS,

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BsGithub, BsInstagram, BsLinkedin } from 'react-icons/bs';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 
 const HeaderSocials = () => {
    return (
@@ -11,14 +11,11 @@ const HeaderSocials = () => {
          transition={{ duration: 0.5, ease: 'easeOut' }}
          className="header_socials"
       >
-         <a href="https://www.linkedin.com/in/najrul04/" target="_blank" rel="noreferrer">
+         <a href="https://www.linkedin.com/in/najrul1704/" target="_blank" rel="noreferrer">
             <BsLinkedin />
          </a>
          <a href="https://github.com/najrul04" target="_blank" rel="noreferrer">
             <BsGithub />
-         </a>
-         <a href="https://www.instagram.com/najrul0423/?hl=en" target="_blank" rel="noreferrer">
-            <BsInstagram />
          </a>
       </motion.div>
    );
