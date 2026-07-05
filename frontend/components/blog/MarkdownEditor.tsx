@@ -322,7 +322,7 @@ const MarkdownEditor = ({ value, onChange, placeholder, minRows = 14 }: Markdown
                   {value.trim() ? (
                      <PostPreview content={value} />
                   ) : (
-                     <p className="text-light">Nothing to preview yet — switch to Write and start typing.</p>
+                     <p className="text-light">Nothing to preview yet. Switch to Write and start typing.</p>
                   )}
                </div>
             </Suspense>
@@ -359,7 +359,7 @@ const MarkdownEditor = ({ value, onChange, placeholder, minRows = 14 }: Markdown
                      />
                   </label>
 
-                  <div className="md_modal_or">— or —</div>
+                  <div className="md_modal_or">or</div>
 
                   <button
                      type="button"

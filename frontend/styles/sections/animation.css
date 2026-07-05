@@ -1,13 +1,6 @@
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa25L7W0Q5n-wU.woff2)
-    format("woff2");
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
-    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
+/* REMOVED (2026-07-05): a stray Inter @font-face (700, Latin-Extended range
+   only) — nothing sets font-family: Inter, and its odd unicode-range meant
+   some glyphs could render in a different family than Poppins. */
 
 body {
   margin: 0;
@@ -24,6 +17,8 @@ section {
    span inside EVERY section 100px left: admin email out of its pill, status
    badges out of their column, login labels out of their card. */
 
-* {
-  font-weight: 700;
-}
+/* REMOVED (2026-07-05): `* { font-weight: 700 }`. It force-bolded EVERY
+   element in the app — and since Poppins only ships 300–600 here, browsers
+   synthesized a fake bold on top of that (the "everything looks bold and
+   slightly off" report). Weights now come from globals.css (body 400,
+   h1-h5 500) and per-component rules. */

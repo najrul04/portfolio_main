@@ -1,44 +1,25 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import { AiOutlinePauseCircle, AiOutlinePlayCircle } from 'react-icons/ai';
+import { useState } from 'react';
 
 interface PortfolioMediaProps {
-   gif: string;
+   src: string;
    title: string;
+   // How many screenshots the project has — >1 shows a "+N" badge so
+   // visitors know there's more to see inside the detail modal.
+   imageCount?: number;
 }
 
-// Project preview with per-item loading/error states.
-// WHY per-item state: the legacy version tracked ONE shared "loadingGif" and
-// only cleared it after ALL gifs had loaded, so spinners lingered on top of
-// slides that finished long ago — and a gif that failed left a blank card.
-//
-// Pause: browsers can't pause an animated GIF, but drawing it onto a <canvas>
-// captures its first frame — toggling to the canvas reads as "paused", and
-// toggling back restarts the animation. The canvas is never read back
-// (no getImageData), so cross-origin gifs (i.ibb.co) don't cause errors.
-const PortfolioMedia = ({ gif, title }: PortfolioMediaProps) => {
+// Card cover image with per-item loading/error states.
+// WHY per-item state: the legacy version tracked ONE shared "loading" flag and
+// only cleared it after ALL previews had loaded, so spinners lingered on top
+// of slides that finished long ago — and a failure left a blank card.
+const PortfolioMedia = ({ src, title, imageCount = 1 }: PortfolioMediaProps) => {
    const [status, setStatus] = useState<'loading' | 'loaded' | 'error'>('loading');
-   const [paused, setPaused] = useState(false);
-   const imgRef = useRef<HTMLImageElement>(null);
-   const canvasRef = useRef<HTMLCanvasElement>(null);
-
-   const togglePaused = () => {
-      const img = imgRef.current;
-      const canvas = canvasRef.current;
-      if (!img || !canvas) return;
-      if (!paused) {
-         canvas.width = img.naturalWidth || img.width;
-         canvas.height = img.naturalHeight || img.height;
-         canvas.getContext('2d')?.drawImage(img, 0, 0, canvas.width, canvas.height);
-      }
-      setPaused(!paused);
-   };
 
    const stateClasses = [
       status === 'loaded' ? 'is-loaded' : '',
       status === 'error' ? 'is-error' : '',
-      paused ? 'is-paused' : '',
    ].join(' ');
 
    return (
@@ -47,29 +28,17 @@ const PortfolioMedia = ({ gif, title }: PortfolioMediaProps) => {
             <span className="portfolio_media_spinner" aria-label="Loading preview" />
          )}
          {status === 'error' && (
-            <div className="portfolio_media_error">
-               Preview unavailable — try the Live Demo below.
-            </div>
+            <div className="portfolio_media_error">Preview unavailable.</div>
          )}
          <img
-            ref={imgRef}
-            src={gif}
+            src={src}
             alt={`${title} preview`}
             loading="lazy"
             onLoad={() => setStatus('loaded')}
             onError={() => setStatus('error')}
          />
-         <canvas ref={canvasRef} aria-hidden />
-         {status === 'loaded' && (
-            <button
-               type="button"
-               className="portfolio_media_toggle"
-               onClick={togglePaused}
-               title={paused ? 'Play preview' : 'Pause preview'}
-               aria-label={paused ? 'Play preview' : 'Pause preview'}
-            >
-               {paused ? <AiOutlinePlayCircle /> : <AiOutlinePauseCircle />}
-            </button>
+         {status === 'loaded' && imageCount > 1 && (
+            <span className="portfolio_media_count">+{imageCount - 1} more</span>
          )}
       </div>
    );

@@ -12,14 +12,15 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
-import { portfolio } from '@/lib/constants';
+import { portfolio, PortfolioItem } from '@/lib/constants';
 import PortfolioMedia from './PortfolioMedia';
+import PortfolioModal from './PortfolioModal';
 
-// Loading/pause/error behavior for the gif previews lives in PortfolioMedia —
-// each slide owns its state. (The old shared loadingGif/loadedCount approach
-// left spinners on loaded slides and blank cards on failed gifs.)
+// Cards stay minimal (cover image + title); the description, extra
+// screenshots and links live in PortfolioModal, opened by clicking a card.
 const Portfolio = () => {
    const [isMobile, setIsMobile] = useState(false);
+   const [openItem, setOpenItem] = useState<PortfolioItem | null>(null);
 
    useEffect(() => {
       const handleResize = () => {
@@ -58,7 +59,7 @@ const Portfolio = () => {
             }}
             modules={[EffectCoverflow, Pagination]}
          >
-            {portfolio.map(({ id, gif, title, description, github, demo, tag }) => {
+            {portfolio.map((item) => {
                return (
                   <SwiperSlide
                      style={{
@@ -67,43 +68,32 @@ const Portfolio = () => {
                         width: isMobile ? '56vh' : '70vh',
                         margin: isMobile ? '0px' : 'auto',
                      }}
-                     key={id}
+                     key={item.id}
                   >
-                     <div className='portfolio_item_image'>
-                        <PortfolioMedia gif={gif} title={title} />
+                     <button
+                        type='button'
+                        className='portfolio_item_image portfolio_card'
+                        onClick={() => setOpenItem(item)}
+                        aria-label={`Open ${item.title} details`}
+                     >
+                        <PortfolioMedia
+                           src={item.cover ?? item.images[0]}
+                           title={item.title}
+                           imageCount={item.images.length}
+                        />
                         <div className='portfolio_item_content'>
-                           <h3 style={{ textAlign: 'center' }}>{title}</h3>
-
-                           {description && (
-                              <p className='portfolio_item_desc'>{description}</p>
-                           )}
-
-                           <div className='portfolio_item_cta'>
-                              <a
-                                 href={github}
-                                 rel='noreferrer'
-                                 className='btn '
-                                 target='_blank'
-                              >
-                                 Github
-                              </a>
-                              <a
-                                 href={demo}
-                                 rel='noreferrer'
-                                 className='btn btn-primary'
-                                 target='_blank'
-                              >
-                                 Live Demo
-                              </a>
-                           </div>
-
-                           <p className='tag_css'>{tag}</p>
+                           <h3 style={{ textAlign: 'center' }}>{item.title}</h3>
+                           <span className='portfolio_card_hint'>View project</span>
                         </div>
-                     </div>
+                     </button>
                   </SwiperSlide>
                );
             })}
          </Swiper>
+
+         {openItem && (
+            <PortfolioModal item={openItem} onClose={() => setOpenItem(null)} />
+         )}
       </section>
    );
 };

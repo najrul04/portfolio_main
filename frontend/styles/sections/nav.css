@@ -43,10 +43,41 @@ nav a.active {
   color: var(--color-bg);
 }
 
+/* Mobile-only "Blogs" pill (see Nav.tsx): the dock below is hidden on
+   phones, which left no visible way to reach /blog from the home page. */
+.mobile_blog_link {
+  display: none;
+}
+
 /* ==================== Media Queries (Small Devices) ======================= */
 
 @media screen and (max-width: 600px) {
   nav {
     display: none;
+  }
+
+  .mobile_blog_link {
+    position: fixed;
+    /* Below the header's tech-logo strip (logos sit at the very top edge). */
+    top: 2.75rem;
+    right: 1rem;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.05rem;
+    border-radius: 3rem;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
+
+  .mobile_blog_link:hover,
+  .mobile_blog_link:active {
+    background: var(--color-primary-linear);
+    color: var(--color-bg);
   }
 }

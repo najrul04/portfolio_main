@@ -142,7 +142,7 @@ const Header = () => {
                      Hello I&apos;m{' '}
                   </motion.h2>
 
-                  <h3 style={{ color: 'white', fontWeight: 'bold', fontSize: '1.7rem' }}>
+                  <h3 style={{ color: 'white', fontWeight: 600, fontSize: '1.7rem' }}>
                      {/* Style will be inherited from the parent element */}
 
                      <Typewriter

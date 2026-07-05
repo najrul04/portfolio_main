@@ -225,7 +225,7 @@ const Blog = () => {
                   ) : (
                      <>
                         <h3>No posts yet</h3>
-                        <p>Check back soon — first post coming up.</p>
+                        <p>Check back soon. First post coming up.</p>
                      </>
                   )}
                </div>

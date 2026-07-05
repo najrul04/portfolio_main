@@ -283,7 +283,7 @@ const AdminPanel = () => {
             <div className="admin_error">
                Couldn&apos;t load posts.{' '}
                {listError.message?.includes('Not authenticated')
-                  ? 'Your session expired — please sign in again.'
+                  ? 'Your session expired. Please sign in again.'
                   : 'Check that the backend is running.'}
             </div>
          )}

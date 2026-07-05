@@ -27,8 +27,62 @@
   border: 1px rgb(89, 18, 102) solid;
   padding: 15px 15px 0;
   /* block (not grid justify-center): the media box must span the full card
-     width so the 16:9 skeleton/gif fills it; inner content centers itself. */
+     width so the 16:9 skeleton/image fills it; inner content centers itself. */
   display: block;
+}
+
+/* Coverflow's slideShadows are overlay divs Swiper stacks ON TOP of the
+   side slides — they swallow clicks, making only the centered card
+   clickable. Keep the shadow look, drop its hit-testing. */
+#portfolio [class*='swiper-slide-shadow'] {
+  pointer-events: none;
+}
+
+/* In coverflow's preserve-3d space the (transparent) swiper-wrapper is a
+   plane at z=0 while off-center slides sit at translateZ −100 BEHIND it, so
+   pointer rays stop at the wrapper and side cards are unclickable (verified
+   with elementFromPoint: clicks reported the wrapper, not the slide; a
+   z-index override does NOT fix true-3D ordering). Making the wrapper
+   click-transparent lets clicks reach the slides; drag/swipe still works
+   because Swiper listens on the container and events bubble from slides. */
+#portfolio .swiper-wrapper {
+  pointer-events: none;
+}
+
+#portfolio .swiper-slide {
+  pointer-events: auto;
+}
+
+/* The whole card is a <button> that opens the detail modal — reset the UA
+   button chrome, keep the existing card frame. */
+.portfolio_card {
+  width: 100%;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.portfolio_card:hover {
+  border-color: var(--color-primary);
+}
+
+.portfolio_card:hover .portfolio_card_hint {
+  color: var(--color-primary);
+}
+
+/* Small affordance under the title so it's obvious cards can be opened. */
+.portfolio_card_hint {
+  display: inline-block;
+  color: var(--color-light);
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0.2rem 0 1.1rem;
+  transition: var(--transition);
 }
 
 .card_image {
@@ -43,8 +97,9 @@
   margin-bottom: 1rem;
 }
 
-/* Flex column + align-items keeps title, description, buttons and tags on ONE
-   center line (the old grid + stray margin-lefts drifted each row differently). */
+/* Flex column + align-items keeps title, hint/description, buttons and tags on
+   ONE center line (the old grid + stray margin-lefts drifted each row
+   differently). */
 .portfolio_item_content {
   display: flex;
   flex-direction: column;
@@ -55,16 +110,15 @@
 
 .tag_css {
   font-size: 15px;
-  font-weight: bold;
+  font-weight: 600;
   word-spacing: 3px;
   padding-bottom: 3px;
   color: rgb(96, 95, 133);
 }
 
-/* Short project description under the card title.
-   WHY explicit font-weight 300: a legacy global rule bolds everything
-   (`* { font-weight: 700 }` in animation.css), which made this paragraph
-   read heavy and cramped — light weight + roomy line-height fixes it. */
+/* Project description inside the detail modal: light weight + roomy
+   line-height, deliberately quieter than the surrounding UI. (The legacy
+   `* { font-weight: 700 }` landmine this once worked around is gone.) */
 .portfolio_item_desc {
   color: var(--color-light);
   font-weight: 300;
@@ -74,10 +128,10 @@
   margin: 0.35rem 0 1.1rem;
 }
 
-/* ── Preview media (see PortfolioMedia.tsx) ─────────────── */
+/* ── Card cover image (see PortfolioMedia.tsx) ─────────────── */
 
 /* Fixed 16:9 box: gives the loading skeleton a stable footprint (no layout
-   jump when the gif arrives) and makes every slide's preview uniform. */
+   jump when the image arrives) and makes every slide's preview uniform. */
 .portfolio_media {
   position: relative;
   width: 100%;
@@ -87,15 +141,15 @@
   background: rgba(255, 255, 255, 0.03);
 }
 
-.portfolio_media img,
-.portfolio_media canvas {
+.portfolio_media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   display: block;
 }
 
-/* Dark shimmer while the gif downloads; the image fades in over it. */
+/* Dark shimmer while the image downloads; it fades in over the skeleton. */
 .portfolio_media:not(.is-loaded):not(.is-error) {
   background: linear-gradient(
     100deg,
@@ -125,20 +179,7 @@
   opacity: 1;
 }
 
-/* Paused: swap the animated gif for the canvas-captured still frame. */
-.portfolio_media.is-paused img {
-  display: none;
-}
-
-.portfolio_media canvas {
-  display: none;
-}
-
-.portfolio_media.is-paused canvas {
-  display: block;
-}
-
-/* Failed gif: hide the broken <img>, show a quiet explanation instead. */
+/* Failed image: hide the broken <img>, show a quiet explanation instead. */
 .portfolio_media.is-error img {
   display: none;
 }
@@ -174,17 +215,78 @@
   }
 }
 
-/* Pause/play toggle, bottom-right over the gif. */
-.portfolio_media_toggle {
+/* "+N more" pill, bottom-right of the cover, for multi-screenshot projects. */
+.portfolio_media_count {
   position: absolute;
   right: 0.7rem;
   bottom: 0.7rem;
-  width: 2.3rem;
-  height: 2.3rem;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--color-white);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 2rem;
+}
+
+/* ── Detail modal (see PortfolioModal.tsx) ─────────────── */
+
+.portfolio_modal_backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(6px);
+  animation: portfolio-fade-in 200ms ease;
+}
+
+@keyframes portfolio-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.portfolio_modal {
+  position: relative;
+  width: min(860px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  background: var(--color-bg-variant);
+  border: 1px solid var(--color-primary-variant);
+  border-radius: 1.5rem;
+  animation: portfolio-pop-in 220ms ease;
+}
+
+@keyframes portfolio-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.portfolio_modal_close {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  z-index: 3;
+  width: 2.4rem;
+  height: 2.4rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   border-radius: 50%;
   color: var(--color-white);
   background: rgba(0, 0, 0, 0.55);
@@ -193,11 +295,143 @@
   transition: var(--transition);
 }
 
-.portfolio_media_toggle:hover {
+.portfolio_modal_close:hover {
   color: var(--color-primary);
   border-color: var(--color-primary);
 }
 
+.portfolio_modal_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.2rem 1.5rem 1.4rem;
+}
+
+/* ── Modal gallery ─────────────── */
+
+.portfolio_gallery {
+  position: relative;
+}
+
+/* Scroll-snap strip: native swipe on touch/trackpad; the arrows and dots
+   just scroll it. Scrollbar hidden — the dots/counter show position. */
+.portfolio_gallery_track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.portfolio_gallery_track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fixed-height slides so portrait phone shots (Soundmade) and wide site
+   screenshots/gifs share one stable frame; contain, never crop. Each slide
+   spins/fades on its own — gifs are several MB (see GallerySlide). */
+.portfolio_gallery_slide {
+  position: relative;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: min(58vh, 520px);
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.portfolio_gallery_slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.portfolio_gallery_slide.is-loaded img {
+  opacity: 1;
+}
+
+.portfolio_gallery_nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  color: var(--color-white);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.portfolio_gallery_nav.prev {
+  left: 0.9rem;
+}
+
+.portfolio_gallery_nav.next {
+  right: 0.9rem;
+}
+
+.portfolio_gallery_nav:hover:not(:disabled) {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.portfolio_gallery_nav:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.portfolio_gallery_counter {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  z-index: 2;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--color-white);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 2rem;
+}
+
+.portfolio_gallery_dots {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 0.45rem;
+}
+
+.portfolio_gallery_dots button {
+  width: 0.55rem;
+  height: 0.55rem;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.portfolio_gallery_dots button.is-active {
+  background: var(--color-primary);
+  transform: scale(1.25);
+}
 
 /* ==================== Media Queries (Medium Devices) ======================= */
 
@@ -216,8 +450,19 @@
     gap: 1rem;
   }
 
-.portfolio_item_image {
-  justify-content: center;
-}
+  .portfolio_item_image {
+    justify-content: center;
+  }
 
+  .portfolio_modal {
+    border-radius: 1rem;
+  }
+
+  .portfolio_gallery_track {
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .portfolio_gallery_slide {
+    height: min(52vh, 420px);
+  }
 }

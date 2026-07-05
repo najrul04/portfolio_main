@@ -1,6 +1,4 @@
-import { CgFacebook } from 'react-icons/cg';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import { GrInstagram } from 'react-icons/gr';
 import { personal_links } from '@/lib/constants';
 
 const Footer = () => {
@@ -46,17 +44,7 @@ const Footer = () => {
          <div className="footer_socials">
             <div>
                <a
-                  href="https://www.facebook.com/nazrul2517/"
-                  target="_blank"
-                  rel="noreferrer"
-               >
-                  <CgFacebook />
-               </a>
-            </div>
-
-            <div>
-               <a
-                  href="https://www.linkedin.com/in/najrul04/"
+                  href="https://www.linkedin.com/in/najrul1704/"
                   target="_blank"
                   rel="noreferrer"
                >
@@ -64,16 +52,7 @@ const Footer = () => {
                </a>
             </div>
             <div>
-               <a
-                  href="https://www.instagram.com/najrul0423/?hl=en"
-                  target="_blank"
-                  rel="noreferrer"
-               >
-                  <GrInstagram />
-               </a>
-            </div>
-            <div>
-               <a href="https://twitter.com/najrul0" target="_blank" rel="noreferrer">
+               <a href="https://x.com/MDNazru67844430" target="_blank" rel="noreferrer">
                   <FaTwitter />
                </a>
             </div>

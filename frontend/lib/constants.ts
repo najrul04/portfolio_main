@@ -39,12 +39,21 @@ export interface Testimonial {
 
 export interface PortfolioItem {
    id: number;
-   gif: string;
+   // Static screenshots (local /assets/projects/*). Browsable in the detail
+   // modal; images[0] doubles as the card cover unless `cover` is set.
+   images: string[];
+   // Card cover override (e.g. Soundmade's 16:9 composite — its portrait
+   // shots crop terribly in the 16:9 card box).
+   cover?: string;
+   // Animated walkthrough played ONLY inside the detail modal — cards stay
+   // static so nothing autoplays. If the gif host dies, the modal falls back
+   // to images[0].
+   gif?: string;
    title: string;
-   // Short one-liner shown under the title on the portfolio card.
+   // Shown only inside the detail modal (cards stay image + title).
    description?: string;
    github?: string;
-   demo: string;
+   demo?: string;
    tag: string;
 }
 
@@ -521,7 +530,49 @@ const testimonialData: Testimonial[] = [
 
 const portfolio: PortfolioItem[] = [
    {
+      id: 9,
+      images: [
+         "/assets/projects/monudesk-1.webp",
+         "/assets/projects/monudesk-2.webp",
+         "/assets/projects/monudesk-3.webp",
+      ],
+      title: "MonuDesk",
+      description:
+         "A business platform for monument companies. Track every order on one board from quote to production, message customers from a built-in inbox, and manage inventory, balances and tax reports in one place.",
+      demo: "https://monudesk.com",
+      tag: "#NextJS #NodeJS #ExpressJS #GraphQL #PostgreSQL",
+   },
+   {
+      id: 10,
+      images: [
+         "/assets/projects/remembertag-1.webp",
+         "/assets/projects/remembertag-2.webp",
+      ],
+      cover: "/assets/projects/remembertag-cover.webp",
+      title: "RememberTag",
+      description:
+         "A smart QR tag for headstones. Families attach it, visitors scan it with their phone, and a memorial page opens with the person's story, photos and timeline.",
+      demo: "https://remembertag.com",
+      tag: "#QRCode #WebApp #Startup",
+   },
+   {
+      id: 8,
+      images: [
+         "/assets/projects/soundmade-1.webp",
+         "/assets/projects/soundmade-2.webp",
+         "/assets/projects/soundmade-3.webp",
+         "/assets/projects/soundmade-4.webp",
+         "/assets/projects/soundmade-5.webp",
+      ],
+      cover: "/assets/projects/soundmade-cover.webp",
+      title: "Soundmade",
+      description:
+         "A music community app where fans discover and follow artists, react to new tracks and live shows, and message the artists directly.",
+      tag: "#MobileApp #Music #UIUX",
+   },
+   {
       id: 1,
+      images: ["/assets/projects/real-estate.webp"],
       gif: "https://i.ibb.co/Gdjqjg9/real-estate.gif",
       title: "Real Estate",
       description:
@@ -532,26 +583,29 @@ const portfolio: PortfolioItem[] = [
    },
    {
       id: 2,
-      gif: "https://i.ibb.co.com/9Y6mTZL/product-store.gif",
+      images: ["/assets/projects/product-store.webp"],
+      gif: "https://i.ibb.co/9Y6mTZL/product-store.gif",
       title: "Product Store",
       description:
-         "An online store dashboard for managing products — add new items, update photos and prices, or remove them, all from one simple screen.",
+         "An online store dashboard for managing products. Add new items, update photos and prices, or remove them, all from one simple screen.",
       github: "https://github.com/najrul04/product_store",
       demo: "https://product-store-es97.onrender.com/",
       tag: "#ReactJS #NodeJS #ExpressJS",
    },
    {
       id: 3,
+      images: ["/assets/projects/invent.webp"],
       gif: "https://i.ibb.co/9cFp5c8/Invent.gif",
       title: "Invent",
       description:
-         "A business website for a tailoring company — customers explore services, see past work, and book appointments online.",
+         "A business website for a tailoring company. Customers explore services, see past work, and book appointments online.",
       // github: "https://github.com/najrul04/react_recap/tree/main/car-services",
       demo: "https://inventt.netlify.app/",
       tag: "#ReactJS #TailWindCSS #NodeJS",
    },
    {
       id: 4,
+      images: ["/assets/projects/game-info.webp"],
       gif: "https://i.ibb.co/R7X9XNw/game.gif",
       title: "Game Info",
       description:
@@ -563,6 +617,7 @@ const portfolio: PortfolioItem[] = [
 
    {
       id: 5,
+      images: ["/assets/projects/hospital.webp"],
       gif: "https://i.ibb.co/LQb7TvW/hospital.gif",
       title: "Hospital",
       description:
@@ -573,10 +628,11 @@ const portfolio: PortfolioItem[] = [
    },
    {
       id: 6,
+      images: ["/assets/projects/ecommerce.webp"],
       gif: "https://i.ibb.co/LJ8S7dm/Ecommerce.gif",
       title: "ECommerce (Demo)",
       description:
-         "A demo online shop with product pages, a shopping cart and secure sign-in — a complete buying flow from browsing to checkout.",
+         "A demo online shop with product pages, a shopping cart and secure sign-in. A complete buying flow from browsing to checkout.",
       github:
          "https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router",
       demo: "https://ecommerce-79009.firebaseapp.com/",
@@ -585,10 +641,11 @@ const portfolio: PortfolioItem[] = [
 
    {
       id: 7,
+      images: ["/assets/projects/temperature.webp"],
       gif: "https://i.ibb.co/HBC0QLM/Temp.gif",
       title: "Temperature",
       description:
-         "A simple weather app — type any city and instantly see its current temperature.",
+         "A simple weather app. Type any city and instantly see its current temperature.",
       github: "https://github.com/najrul04/temperature",
       demo: "https://temperature123.netlify.app/",
       tag: "#HTML #CSS #JavaScript",
