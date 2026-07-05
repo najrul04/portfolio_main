@@ -120,7 +120,7 @@ const Testimonials = () => {
 
                <div className="quote_footer">
                   <span className="quote_client">
-                     {activeItem.name} &mdash; {activeItem.title}
+                     {activeItem.name} &middot; {activeItem.title}
                   </span>
 
                   <div className={`testimonial_source ${activeItem.source.toLowerCase()}_source`}>

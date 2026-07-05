@@ -48,8 +48,8 @@ const Contact = () => {
                <article className="contact_option">
                   <GrMail className="contact_option_icon" />
                   <h4>Email</h4>
-                  <h5>nazrul171992@gmail.com</h5>
-                  <a href="mailto:nazrul2517@gmail.com" target=" rel='noreferrer'_blank">
+                  <h5>nazrul2517@gmail.com</h5>
+                  <a href="mailto:nazrul2517@gmail.com" target="_blank" rel="noreferrer">
                      Send a Mail
                   </a>
                </article>
@@ -66,8 +66,9 @@ const Contact = () => {
                <article className="contact_option">
                   <BsWhatsapp className="contact_option_icon" />
                   <h4>WhatsApp</h4>
+                  <h5>01845393505</h5>
                   <a
-                     href="https://api.whatsapp.com/send?phone=8801629457807"
+                     href="https://api.whatsapp.com/send?phone=8801845393505"
                      target="_blank"
                      rel="noreferrer"
                   >

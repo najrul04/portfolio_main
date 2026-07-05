@@ -15,8 +15,10 @@
 
 @import './tokens.css';
 
-/* Poppins — same family the old portfolio used (300/400/500/600 weights) */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+/* Poppins — same family the old portfolio used. 700 included so genuine
+   bold (markdown <strong>, headline accents) renders a REAL bold instead of
+   a browser-synthesized one. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* All per-section styles, aggregated. WHY one import: keeps every section's CSS
    centralized and loaded once, instead of scattered co-located imports. */
@@ -62,6 +64,13 @@
 
    html {
       scroll-behavior: smooth;
+      /* clip, not hidden: sections sit translated ±100px until their
+         slide-in animation runs, and with `hidden` an anchor jump
+         (nav links, the scroll-down arrow) can still PAN the viewport
+         sideways toward them — on mobile the page then looks shifted with
+         content cut off. `clip` forbids horizontal scrolling entirely
+         (gestures AND programmatic) while overflow-y scrolls as normal. */
+      overflow-x: clip;
    }
 
    body {
@@ -69,7 +78,7 @@
       background: var(--color-bg-primary);
       color: var(--color-text-primary);
       line-height: 1.7;
-      overflow-x: hidden;
+      overflow-x: clip;
       -webkit-font-smoothing: antialiased;
       /* The subtle texture behind everything — lives in public/assets. */
       background-image: url('/assets/bg-texture.png');

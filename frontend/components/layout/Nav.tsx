@@ -61,7 +61,17 @@ const Nav = () => {
    const sectionHref = (hash: string) => `/${hash}`;
 
    return (
-      <div className="nav_container">
+      <>
+         {/* The dock is display:none under 600px, which left phones with no
+             way to reach the blog. This pill (top-right, home page only —
+             admin has its own floating pill there) is shown by nav.css ONLY
+             at mobile widths. */}
+         {onHome && (
+            <Link href="/blog" className="mobile_blog_link" title="Read the blog">
+               <BiNews /> Blogs
+            </Link>
+         )}
+         <div className="nav_container">
          <motion.nav
             initial={{ opacity: 0, x: '-12vw', y: 20 }}
             animate={{ opacity: 1, x: '-12vw', y: 0 }}
@@ -128,7 +138,8 @@ const Nav = () => {
                <BiNews />
             </Link>
          </motion.nav>
-      </div>
+         </div>
+      </>
    );
 };
 

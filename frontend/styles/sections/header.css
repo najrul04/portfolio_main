@@ -72,6 +72,12 @@ header {
   top: 33%;
   left: 50%;
   transform: translateX(-50%);
+  /* Full-width box: an abs-positioned element only gets shrink-to-fit width
+     up to the distance from `left` to the container edge (≈half the screen),
+     so on phones the typed headline + CTA row were WIDER than that box and
+     spilled off the left edge. At width:100% the box always spans the header
+     and the (text-align/flex) centering inside does the rest. */
+  width: 100%;
 }
 
 .threeD_portfolio {
@@ -198,7 +204,10 @@ header {
 
 .coffee{
   position: absolute;
-  left: 120%;
+  /* 65% of the (now full-width) header_info box = the same spot the old
+     120%-of-shrink-wrapped-box landed on desktop (~x936 @1440, verified
+     against the live site). */
+  left: 65%;
   top: 200%;
   /* WHY explicit size: the global `img { width:100% }` reset plus Tailwind
      Preflight's `img { height:auto }` were overriding the element's intended
@@ -267,7 +276,10 @@ header {
   }
   .coffee{
     position: absolute;
-    left: 0%;
+    /* Right side of the screen on phones (user preference; center/left
+       read weird against the centered hero). */
+    left: auto;
+    right: 1rem;
     top: 220%;
   }
 }
