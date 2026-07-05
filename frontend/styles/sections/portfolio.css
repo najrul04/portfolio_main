@@ -25,9 +25,10 @@
   border-radius: 1.5rem;
   overflow: hidden;
   border: 1px rgb(89, 18, 102) solid;
-  padding-top: 15px;
-  display: grid;
-  justify-content: center;
+  padding: 15px 15px 0;
+  /* block (not grid justify-center): the media box must span the full card
+     width so the 16:9 skeleton/gif fills it; inner content centers itself. */
+  display: block;
 }
 
 .card_image {
@@ -37,31 +38,164 @@
 
 .portfolio_item_cta {
   display: flex;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 1rem;
-  margin-left: 12px;
 }
 
-.portfolio_item_content{
-  display: grid;
-  justify-content: center;
-
+/* Flex column + align-items keeps title, description, buttons and tags on ONE
+   center line (the old grid + stray margin-lefts drifted each row differently). */
+.portfolio_item_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.9rem 1rem 0;
 }
 
 .tag_css {
   font-size: 15px;
   font-weight: bold;
   word-spacing: 3px;
-  margin-left: 12px;
   padding-bottom: 3px;
   color: rgb(96, 95, 133);
 }
 
-.loading-spinner{
+/* Short project description under the card title.
+   WHY explicit font-weight 300: a legacy global rule bolds everything
+   (`* { font-weight: 700 }` in animation.css), which made this paragraph
+   read heavy and cramped — light weight + roomy line-height fixes it. */
+.portfolio_item_desc {
+  color: var(--color-light);
+  font-weight: 300;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  max-width: 46ch;
+  margin: 0.35rem 0 1.1rem;
+}
+
+/* ── Preview media (see PortfolioMedia.tsx) ─────────────── */
+
+/* Fixed 16:9 box: gives the loading skeleton a stable footprint (no layout
+   jump when the gif arrives) and makes every slide's preview uniform. */
+.portfolio_media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.portfolio_media img,
+.portfolio_media canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Dark shimmer while the gif downloads; the image fades in over it. */
+.portfolio_media:not(.is-loaded):not(.is-error) {
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0.03) 40%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 60%
+  );
+  background-size: 200% 100%;
+  animation: portfolio-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes portfolio-shimmer {
+  from {
+    background-position: 120% 0;
+  }
+  to {
+    background-position: -80% 0;
+  }
+}
+
+.portfolio_media img {
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.portfolio_media.is-loaded img {
+  opacity: 1;
+}
+
+/* Paused: swap the animated gif for the canvas-captured still frame. */
+.portfolio_media.is-paused img {
+  display: none;
+}
+
+.portfolio_media canvas {
+  display: none;
+}
+
+.portfolio_media.is-paused canvas {
+  display: block;
+}
+
+/* Failed gif: hide the broken <img>, show a quiet explanation instead. */
+.portfolio_media.is-error img {
+  display: none;
+}
+
+.portfolio_media_error {
   position: absolute;
-  left: 40%;
-  top: 20%;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  color: var(--color-light);
+  font-size: 0.9rem;
+}
+
+.portfolio_media_spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2rem;
+  height: 2rem;
+  margin: -1rem 0 0 -1rem;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: portfolio-spin 0.8s linear infinite;
+}
+
+@keyframes portfolio-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pause/play toggle, bottom-right over the gif. */
+.portfolio_media_toggle {
+  position: absolute;
+  right: 0.7rem;
+  bottom: 0.7rem;
+  width: 2.3rem;
+  height: 2.3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  border-radius: 50%;
+  color: var(--color-white);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.portfolio_media_toggle:hover {
   color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 

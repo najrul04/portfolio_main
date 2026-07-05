@@ -41,6 +41,8 @@ export interface PortfolioItem {
    id: number;
    gif: string;
    title: string;
+   // Short one-liner shown under the title on the portfolio card.
+   description?: string;
    github?: string;
    demo: string;
    tag: string;
@@ -522,6 +524,8 @@ const portfolio: PortfolioItem[] = [
       id: 1,
       gif: "https://i.ibb.co/Gdjqjg9/real-estate.gif",
       title: "Real Estate",
+      description:
+         "A property website where visitors browse rental homes and apartments, filter by what they need, and view detailed listings with photos.",
       github: "https://github.com/najrul04/real_estate",
       demo: "https://real-estate-zeta-lemon.vercel.app/",
       tag: "#NextJS #ChakraUI #RapidAPI",
@@ -530,6 +534,8 @@ const portfolio: PortfolioItem[] = [
       id: 2,
       gif: "https://i.ibb.co.com/9Y6mTZL/product-store.gif",
       title: "Product Store",
+      description:
+         "An online store dashboard for managing products — add new items, update photos and prices, or remove them, all from one simple screen.",
       github: "https://github.com/najrul04/product_store",
       demo: "https://product-store-es97.onrender.com/",
       tag: "#ReactJS #NodeJS #ExpressJS",
@@ -538,6 +544,8 @@ const portfolio: PortfolioItem[] = [
       id: 3,
       gif: "https://i.ibb.co/9cFp5c8/Invent.gif",
       title: "Invent",
+      description:
+         "A business website for a tailoring company — customers explore services, see past work, and book appointments online.",
       // github: "https://github.com/najrul04/react_recap/tree/main/car-services",
       demo: "https://inventt.netlify.app/",
       tag: "#ReactJS #TailWindCSS #NodeJS",
@@ -546,6 +554,8 @@ const portfolio: PortfolioItem[] = [
       id: 4,
       gif: "https://i.ibb.co/R7X9XNw/game.gif",
       title: "Game Info",
+      description:
+         "A video-game browsing site where users explore popular titles with artwork and details, and sign in with their own account.",
       github: "https://github.com/najrul04/react_recap/tree/main/car-services",
       demo: "https://games-mart.web.app/",
       tag: "#ReactJS #Bootstrap #Firebase",
@@ -555,6 +565,8 @@ const portfolio: PortfolioItem[] = [
       id: 5,
       gif: "https://i.ibb.co/LQb7TvW/hospital.gif",
       title: "Hospital",
+      description:
+         "A hospital website where patients learn about services, meet the doctors, and book appointments online.",
       github: "https://github.com/najrul04/healthcare-website",
       demo: "https://gen-hospital.netlify.app/",
       tag: "#ReactJS #Firebase #MongoDB",
@@ -563,6 +575,8 @@ const portfolio: PortfolioItem[] = [
       id: 6,
       gif: "https://i.ibb.co/LJ8S7dm/Ecommerce.gif",
       title: "ECommerce (Demo)",
+      description:
+         "A demo online shop with product pages, a shopping cart and secure sign-in — a complete buying flow from browsing to checkout.",
       github:
          "https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router",
       demo: "https://ecommerce-79009.firebaseapp.com/",
@@ -573,6 +587,8 @@ const portfolio: PortfolioItem[] = [
       id: 7,
       gif: "https://i.ibb.co/HBC0QLM/Temp.gif",
       title: "Temperature",
+      description:
+         "A simple weather app — type any city and instantly see its current temperature.",
       github: "https://github.com/najrul04/temperature",
       demo: "https://temperature123.netlify.app/",
       tag: "#HTML #CSS #JavaScript",

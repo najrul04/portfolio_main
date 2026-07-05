@@ -177,12 +177,37 @@ backend/
 - **Run only ONE dev entrypoint at a time:** either `npm run dev` at the root
   (backend + frontend together) or the per-app dev scripts — not both.
 
-## 8. Planned / upcoming
+## 8. Open items — pick up here (state as of end of 2026-07-05 session)
 
-- First production deploy (Vercel frontend + Render backend). Reminder: set the
-  Vercel project root directory to `frontend/`.
-- Blog categories + search (after first prod deploy).
-- Vercel Web Analytics (`@vercel/analytics`) after deploy is live.
+**Uncommitted on `main` (working tree):** the Portfolio section rebuild —
+`PortfolioMedia.tsx` (per-gif loading/pause/error), HR-friendly descriptions in
+`lib/constants.ts`, `portfolio.css` centering/typography, plus this doc.
+Everything else is merged and pushed; najrul.com deploys from `main`.
+
+**Short-term to-dos:**
+
+1. Commit + push the uncommitted portfolio work (build passes, type-check ✅).
+2. **Rotate the Neon DB password** — the connection string (incl. password) was
+   pasted into a chat session on 2026-07-05. Neon → Roles → reset
+   `neondb_owner` password, then update `DATABASE_URL` on Render → Environment.
+3. **testing.najrul.com** — Vercel domain + Namecheap CNAME (`testing` →
+   cname.vercel-dns.com) may still need to be added/verified; once live, append
+   `,https://testing.najrul.com` to `CORS_ORIGIN` on Render.
+4. Second Vercel project `portfolio-naj` is probably redundant — verify and
+   delete to stop duplicate PR checks.
+5. Several Skills icons still hotlink external sites (only CSS/JS/Netlify/
+   VS Code were localized after their links rotted) — consider localizing the
+   rest into `public/assets/skills/`.
+6. Review the 7 portfolio card descriptions (drafted, plain-HR-language) and
+   the Monudesk experience bullets — user's voice, user should approve.
+7. Verify the source-badge feature live: edit a post in /admin, paste its
+   LinkedIn URL into "Original post link", check the badge on the blog card.
+
+**Feature backlog:**
+
+- Blog categories + search UI polish (server-side tag/search filters shipped
+  2026-07-05; categories concept TBD).
+- Vercel Web Analytics (`@vercel/analytics`) on the Next.js app.
 - **AI semantic search over blog posts (RAG):** embed post content with an LLM
   embeddings API, store vectors in PostgreSQL via `pgvector`, and answer
   natural-language queries against the blog. Goals: (a) a live, demonstrable
@@ -206,6 +231,16 @@ Newest first. One line per change set: date — what & why.
   (≤900px): rail turns horizontal, avatars only. Swiper no longer used in
   this section. New tokens `--gradient-glass` + `--blur-glass` in
   `tokens.css` (glass look, reusable).
+- **2026-07-05** — **Portfolio section rebuilt** (`PortfolioMedia.tsx`): each
+  slide owns its loading state — dark 16:9 shimmer + spinner until THAT gif
+  loads, fade-in, and a "Preview unavailable" state for dead gifs (the legacy
+  shared loadingGif/loadedCount left spinners on loaded slides and blank
+  cards on failures). Pause/play button per gif (canvas-captured first frame —
+  browsers can't pause GIFs natively). New optional `description` field on
+  PortfolioItem, populated for all 7 projects in plain HR-friendly language,
+  shown under the card title. Card content (title/description/buttons/tags)
+  centered on one axis via flex column; description explicitly font-weight 300
+  (a legacy `* { font-weight: 700 }` rule was bolding it into ugliness).
 - **2026-07-05** — Country flags added left of each Work Experience location
   (local PNGs in `public/assets/flags/` — images, not emoji, since Windows
   browsers don't render flag emojis). Fixed 4 broken Skills icons (CSS,
