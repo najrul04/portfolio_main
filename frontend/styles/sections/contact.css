@@ -59,6 +59,36 @@ textarea {
   color: var(--color-white);
 }
 
+/* honeypot field — moved out of view instead of display:none so naive bots still fill it */
+.contact_honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact_status {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.contact_status_success {
+  color: var(--color-success);
+}
+
+.contact_status_error {
+  color: var(--color-danger);
+}
+
+form button[type='submit']:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* ==================== Media Queries (Medium Devices) ======================= */
 
 @media screen and (max-width: 1024px) {
