@@ -1,0 +1,74 @@
+/* /resume — dedicated resume viewer page (opened in a new tab from the
+   homepage CTA): slim toolbar with back link + download button, PDF fills
+   the rest of the viewport. */
+
+.resume_page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.resume_toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.5rem;
+  background: var(--color-bg-variant);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.resume_back {
+  color: var(--color-light);
+  font-size: 0.9rem;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.resume_back:hover {
+  color: var(--color-primary);
+}
+
+.resume_title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.resume_download {
+  white-space: nowrap;
+}
+
+.resume_viewer {
+  flex: 1;
+  width: 100%;
+}
+
+/* Shown inside <object> when the browser can't embed PDFs (most phones). */
+.resume_fallback {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-light);
+}
+
+/* ==================== Media Queries (Small Devices) ======================= */
+
+@media screen and (max-width: 600px) {
+  .resume_toolbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+  }
+
+  .resume_title {
+    order: -1;
+    width: 100%;
+  }
+}

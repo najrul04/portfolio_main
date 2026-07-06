@@ -5,16 +5,18 @@ import { motion } from 'framer-motion';
 const CTA = () => {
    return (
       <div className="cta">
+         {/* Opens the /resume viewer page in a new tab; the download itself
+             happens there (view first, download if wanted). */}
          <motion.a
             target="_blank"
+            rel="noreferrer"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-            href="/Resume.pdf"
-            download="Resume.pdf"
+            href="/resume"
             className="btn"
          >
-            Download Resume
+            View Resume
          </motion.a>
 
          <motion.a

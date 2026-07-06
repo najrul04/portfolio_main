@@ -25,6 +25,9 @@
 @import './contact.css';
 @import './footer.css';
 
+/* Resume viewer */
+@import './resume.css';
+
 /* Blog + admin */
 @import './blog.css';
 @import './admin.css';

@@ -48,12 +48,13 @@ const Nav = () => {
       return () => window.removeEventListener('scroll', handleScroll);
    }, [onHome]);
 
-   // Hide the bottom dock on the blog. The blog has its own back button in the
-   // header; the dock just adds visual noise and overlaps the post content.
+   // Hide the bottom dock on the blog and the resume viewer. Both have their
+   // own back link; the dock just adds visual noise and overlaps the content
+   // (it floated right over the PDF on /resume).
    // (Admin keeps its own floating top-right pill instead of the dock.)
    // MUST live below all hooks — early-returning before useEffect violates the
    // Rules of Hooks and crashes the whole tree on route change.
-   if (pathname.startsWith('/blog')) return null;
+   if (pathname.startsWith('/blog') || pathname === '/resume') return null;
 
    // Section links use href="/#section" so they work from any route:
    // on the home page the browser scrolls to the anchor; on /blog it navigates
