@@ -246,12 +246,43 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-07-07** — **Blog post footer (traction package).** Below every
+  /blog/[slug] post (`components/blog/PostFooter.tsx`): author card (photo,
+  blurb, View Portfolio + Let's Talk CTAs), a "Join the discussion on
+  LinkedIn" pill when the post has a `sourceUrl` (readers engage on the
+  original LinkedIn post — the traction loop), share buttons
+  (LinkedIn/X/copy-link), and "Read next" (3 related posts: first-tag matches
+  topped up with latest, deduped, current excluded). Plus per-post OpenGraph
+  and Twitter-card metadata via `app/blog/[slug]/layout.tsx` generateMetadata
+  (server fetch to GraphQL, 5-min revalidate, absolute image URLs, graceful
+  fallback when the backend sleeps) — shared blog links now unfurl with
+  title/excerpt/cover. Gotchas: the site footer's bare `footer {}` gradient
+  leaked into the component (root is a <div> now), and when verifying with
+  mocked GraphQL responses, Apollo's normalized cache let the unpatched list
+  query overwrite the patched single-post entity — patch every query that
+  returns the entity. ⚠ Discovered during testing: `backend/.env`
+  DATABASE_URL points at PROD Neon, so local `npm run dev:backend` serves
+  production data — mind mutations, and it raises the urgency of the pending
+  password rotation (§8).
+- **2026-07-07** — **/resume rebuilt as a native styled page** (replaces the
+  `<object>` PDF embed): content lives in `lib/resume.ts` (mirrors
+  public/Resume.pdf — update both together), rendered by `app/resume/page.tsx`
+  with accent-highlighted metrics (`**...**` markers in the data → `.resume_hl`
+  <mark>s), skill/stack chips, sticky toolbar (Back + Download PDF, which
+  still serves the real file). Fixes mobile too — no PDF plugin needed.
+  Gotchas hit: the global list reset strips `ul` discs (restored per-`li`),
+  and the bare `header {}` height:68vh landmine leaked into the toolbar
+  <header> on ≤600px (height:auto override, same fix as blog). Round headshot
+  added at the top (official photo → `/assets/najrul-official.webp`, 512px
+  webp 13KB, gradient-accent ring) and each experience entry shows its
+  company logo (white chip, reuses `/assets/company/*`, optional `logo`
+  field in `lib/resume.ts`).
 - **2026-07-06** — **Portfolio cards: company badge.** New optional
   `companyName`/`companyLogo` on `PortfolioItem` — renders a top-left pill on
   the card cover (round white-backed logo + name, same language as the
   "+N more" pill) showing which company the project was built at. Set for
-  MonuDesk + RememberTag (Monudesk) and Invent (Invent). Soundmade and the
-  practice projects have none — add two lines in `constants.ts` to badge more.
+  MonuDesk + RememberTag (Monudesk), Invent (Invent), Soundmade (XIIA), and
+  all six practice projects (Programming Hero) — every card is badged.
 - **2026-07-06** — **Homepage polish round (user feedback):** (1) section gap
   tightened — global `section { margin-top }` 8rem → 5rem (7rem → 4.5rem
   ≤1024px); the hero-to-About hole also included the sections' pre-animation

@@ -565,6 +565,8 @@ const portfolio: PortfolioItem[] = [
       description:
          "A music community app where fans discover and follow artists, react to new tracks and live shows, and message the artists directly.",
       tag: "#MobileApp #Music #UIUX",
+      companyName: "XIIA",
+      companyLogo: "/assets/company/xiia.webp",
    },
    {
       id: 1,
@@ -576,6 +578,8 @@ const portfolio: PortfolioItem[] = [
       github: "https://github.com/najrul04/real_estate",
       demo: "https://real-estate-zeta-lemon.vercel.app/",
       tag: "#NextJS #ChakraUI #RapidAPI",
+      companyName: "Programming Hero",
+      companyLogo: "/assets/company/phero.webp",
    },
    {
       id: 2,
@@ -587,6 +591,8 @@ const portfolio: PortfolioItem[] = [
       github: "https://github.com/najrul04/product_store",
       demo: "https://product-store-es97.onrender.com/",
       tag: "#ReactJS #NodeJS #ExpressJS",
+      companyName: "Programming Hero",
+      companyLogo: "/assets/company/phero.webp",
    },
    {
       id: 3,
@@ -611,6 +617,8 @@ const portfolio: PortfolioItem[] = [
       github: "https://github.com/najrul04/react_recap/tree/main/car-services",
       demo: "https://games-mart.web.app/",
       tag: "#ReactJS #Bootstrap #Firebase",
+      companyName: "Programming Hero",
+      companyLogo: "/assets/company/phero.webp",
    },
 
    {
@@ -623,6 +631,8 @@ const portfolio: PortfolioItem[] = [
       github: "https://github.com/najrul04/healthcare-website",
       demo: "https://gen-hospital.netlify.app/",
       tag: "#ReactJS #Firebase #MongoDB",
+      companyName: "Programming Hero",
+      companyLogo: "/assets/company/phero.webp",
    },
    {
       id: 6,
@@ -635,6 +645,8 @@ const portfolio: PortfolioItem[] = [
          "https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router",
       demo: "https://ecommerce-79009.firebaseapp.com/",
       tag: "#ReactJS #ReactRouter #Firebase",
+      companyName: "Programming Hero",
+      companyLogo: "/assets/company/phero.webp",
    },
 
    {
@@ -647,6 +659,8 @@ const portfolio: PortfolioItem[] = [
       github: "https://github.com/najrul04/temperature",
       demo: "https://temperature123.netlify.app/",
       tag: "#HTML #CSS #JavaScript",
+      companyName: "Programming Hero",
+      companyLogo: "/assets/company/phero.webp",
    },
 ];
 
