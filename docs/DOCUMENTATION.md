@@ -45,6 +45,7 @@ frontend/
     blog/page.tsx       #   /blog — post list
     blog/[slug]/page.tsx#   /blog/:slug — single post (opens in new tab from list)
     admin/page.tsx      #   /admin — login + post management
+    api/contact/route.ts#   POST /api/contact — contact form → Resend email
     layout.tsx          #   root layout
     providers.tsx       #   Apollo + auth providers
   components/
@@ -142,7 +143,19 @@ backend/
 - **Animations:** GSAP, Swiper, tsParticles, AOS, framer-motion, typewriter —
   kept faithful to the live legacy site. Homepage entrance animations were
   deliberately toned down (commit `425d576`).
-- **Contact form:** emailjs-com.
+- **Contact form (Resend):** the form POSTs to the Next.js route
+  `app/api/contact/route.ts`, which calls Resend's REST API server-side
+  (`RESEND_API_KEY` never reaches the browser). Replaced EmailJS 2026-07-06 —
+  its Gmail OAuth grant expired and every submission had been failing silently
+  (verified live: 412 "Gmail_API: Invalid grant"). The route validates input,
+  sends plain-text email (no HTML injection surface), sets `reply_to` to the
+  visitor's address, and drops bot submissions via a hidden "company" honeypot
+  field (returns fake success). The form shows real states now: button disables
+  to "Sending...", green success note (form clears only then), red failure note
+  telling the visitor to email directly (typed message is preserved).
+  Until najrul.com is verified in Resend, sender must stay
+  `onboarding@resend.dev` and Resend only delivers to the account owner's own
+  email — sign up with the inbox that should receive the messages.
 
 ## 5. Environment variables
 
@@ -153,6 +166,9 @@ backend/
 | backend | `CORS_ORIGIN` | comma-separated allowed origins |
 | backend | `JWT_SECRET` | JWT signing secret |
 | frontend | `NEXT_PUBLIC_GRAPHQL_URL` | GraphQL endpoint (inlined into bundle) |
+| frontend | `RESEND_API_KEY` | Resend API key for the contact form (server-side only — no `NEXT_PUBLIC`; set in `.env.local` and on Vercel) |
+| frontend | `CONTACT_TO_EMAIL` | contact form recipient (optional, defaults to nazrul2517@gmail.com — must be the Resend account owner email until the domain is verified) |
+| frontend | `CONTACT_FROM_EMAIL` | contact form sender (optional; leave unset until najrul.com is verified in Resend) |
 
 ## 6. Conventions (enforced)
 
@@ -177,22 +193,22 @@ backend/
 - **Run only ONE dev entrypoint at a time:** either `npm run dev` at the root
   (backend + frontend together) or the per-app dev scripts — not both.
 
-## 8. Open items — pick up here (state as of end of 2026-07-05 session)
+## 8. Open items — pick up here (state as of 2026-07-06)
 
-**Branch state:** the 2026-07-05 portfolio work lives on
-`feature/portfolio-media-rebuild` (committed: gif-era rebuild; uncommitted on
-top: static-images + modal redesign, see Change History). `main` is clean.
-Everything else is merged and pushed; najrul.com deploys from `main`.
+**Branch state:** the 2026-07-05 portfolio rebuild is fully shipped — PR #18
+merged `feature/portfolio-media-rebuild` → `staging`, PR #19 merged `staging` →
+`main`; najrul.com serves it. Real MonuDesk tags + monudesk.com/remembertag.com
+demo links went in before the merge. Uncommitted on `staging`: the 2026-07-06
+contact-form Resend migration (see Change History).
 
 **Short-term to-dos:**
 
-1. Test the portfolio modal in dev, then commit + push
-   `feature/portfolio-media-rebuild` and PR it (build passes, type-check ✅).
-   Fill in real tags/links in `lib/constants.ts` for the three new projects —
-   Soundmade (`#MobileApp #Music #UIUX`, no links), MonuDesk
-   (`#SaaS #ReactJS #NodeJS` is a guess; demo → monudesk.com) and RememberTag
-   (`#QRCode #WebApp #Startup` is a guess; demo → remembertag.com) — and
-   review their one-line descriptions.
+1. **Finish the Resend setup (contact form is dead until this is done):**
+   create a Resend account with nazrul2517@gmail.com, create an API key, put it
+   in `frontend/.env.local` and on Vercel (`RESEND_API_KEY`, Production +
+   Preview), test locally, then commit/push the migration. Optionally verify
+   najrul.com in Resend (2 DNS records at Namecheap) and set
+   `CONTACT_FROM_EMAIL` for a branded sender.
 2. **Rotate the Neon DB password** — the connection string (incl. password) was
    pasted into a chat session on 2026-07-05. Neon → Roles → reset
    `neondb_owner` password, then update `DATABASE_URL` on Render → Environment.
@@ -201,13 +217,15 @@ Everything else is merged and pushed; najrul.com deploys from `main`.
    `,https://testing.najrul.com` to `CORS_ORIGIN` on Render.
 4. Second Vercel project `portfolio-naj` is probably redundant — verify and
    delete to stop duplicate PR checks.
-5. Several Skills icons still hotlink external sites (only CSS/JS/Netlify/
-   VS Code were localized after their links rotted) — consider localizing the
-   rest into `public/assets/skills/`.
-6. Review the 7 portfolio card descriptions (drafted, plain-HR-language) and
+5. ~20 Skills icons still hotlink external sites (only CSS/JS/Netlify/
+   VS Code were localized after their links rotted); Go High Level even uses
+   the flaky `i.ibb.co.com` domain variant — localize the rest into
+   `public/assets/skills/`.
+6. Review the portfolio card descriptions (drafted, plain-HR-language) and
    the Monudesk experience bullets — user's voice, user should approve.
 7. Verify the source-badge feature live: edit a post in /admin, paste its
    LinkedIn URL into "Original post link", check the badge on the blog card.
+8. Soundmade project card still has no demo/GitHub links (intentional for now).
 
 **Feature backlog:**
 
@@ -227,6 +245,16 @@ Everything else is merged and pushed; najrul.com deploys from `main`.
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-07-06** — **Contact form: EmailJS → Resend.** Live test caught every
+  submission failing with 412 "Gmail_API: Invalid grant" (EmailJS's Gmail OAuth
+  grant expired) while the UI pretended success — errors only went to
+  console.log and the form reset regardless. New server-side
+  `app/api/contact/route.ts` calls Resend's REST API (key in `RESEND_API_KEY`,
+  never in the browser; plain-text email; `reply_to` = visitor; honeypot
+  anti-spam), `Contact.tsx` POSTs to it with real UI states (disabled
+  "Sending..." button, green success + form clear only on success, red failure
+  keeps the typed message), `emailjs-com` uninstalled. Needs Resend account +
+  env var before it delivers (§8 to-do 1).
 - **2026-07-05** — **Contact/social links refreshed:** displayed email fixed
   to nazrul2517@gmail.com (was showing nazrul171992@); WhatsApp number →
   01845393505 (link uses 8801845393505, shown under the card title; also
