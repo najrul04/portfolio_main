@@ -6,7 +6,7 @@ const Footer = () => {
       <footer>
          <a href="#" className="footer_logo">
             {' '}
-            Najrul Sumon
+            MD Najrul Islam Sumon
          </a>
 
          <ul className="permalinks">
@@ -65,7 +65,7 @@ const Footer = () => {
 
          <div className="footer_copyright">
             <small>
-               &copy; Najrul Sumon. All rights reserved {new Date().getFullYear()}
+               &copy; MD Najrul Islam Sumon. All rights reserved {new Date().getFullYear()}
             </small>
 
             <div className="personal_links">

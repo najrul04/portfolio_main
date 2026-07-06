@@ -6,7 +6,7 @@ import PreLoader from '@/components/layout/PreLoader';
 
 // Site-wide metadata. Page-specific metadata overrides at the page level.
 export const metadata: Metadata = {
-   title: 'Najrul Sumon | Portfolio',
+   title: 'MD Najrul Islam Sumon | Portfolio',
    description: 'Full-stack developer portfolio and blog',
 };
 
