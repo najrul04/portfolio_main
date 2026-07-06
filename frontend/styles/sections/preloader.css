@@ -1,8 +1,22 @@
+/* Intro overlay: matrix-style code rain + a terminal line that types itself
+   out and vaporizes, then the overlay dissolves. Everything here is pure CSS
+   on purpose: it animates from the first painted frame, long before React
+   hydrates (the old GSAP/JS intro sat frozen for 1-2s waiting for the bundle).
+
+   Timeline (seconds after first paint), keep in sync with PRELOADER_TOTAL_MS
+   in lib/animation.ts:
+     0.00        code rain already falling (negative animation delays)
+     0.45-2.15   terminal line types out (steps), caret blinking
+     3.00-3.75   text vaporizes (blur + spread + drift up)
+     3.85-4.45   whole overlay fades out, then JS display:none's it        */
+
 .preloader {
   height: 100vh;
   width: 100%;
+  /* WHY literal #000: the overlay must be fully opaque (tokens' bg is 98.6%
+     alpha) and the matrix look wants true black. */
   background: #000000;
-  color: #ffffff;
+  color: var(--color-text-primary);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -12,18 +26,145 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  animation: preloader-out 0.6s ease 3.85s forwards;
 }
 
-.preloader .texts-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;
-  width: 33%;
-  font-size: 20px;
-  font-weight: 700;
+/* Fallback ending without JS: opacity+visibility (kept by `forwards`) make
+   the overlay invisible AND click-through even if hydration never happens. */
+@keyframes preloader-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ── Code rain ─────────────────────────────────────────────── */
+
+.matrix_rain {
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-  color: #61dbfb;
+  /* soft top/bottom edges so columns appear/disappear gracefully */
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 82%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 82%, transparent);
+}
+
+.matrix_col {
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+  white-space: pre;
+  font-family: ui-monospace, 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  user-select: none;
+  color: var(--color-info);
+  text-shadow: 0 0 8px var(--color-info-soft);
+  animation-name: matrix-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* every third column in the accent purple — brand, not Matrix green */
+.matrix_col:nth-child(3n) {
+  color: var(--color-accent);
+  text-shadow: 0 0 8px rgba(var(--color-accent-rgb), 0.4);
+}
+
+/* content is doubled in PreLoader.tsx, so -50% -> 0 loops seamlessly */
+@keyframes matrix-fall {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* ── Terminal line ─────────────────────────────────────────── */
+
+.preloader_terminal {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  font-family: ui-monospace, 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-size: 1.35rem;
+  font-weight: 500;
+  text-shadow: 0 0 18px rgba(0, 0, 0, 0.9);
+  /* vaporize lives on the parent: the typing span clips overflow, which
+     would swallow the letter-spacing spread */
+  animation: preloader-vaporize 0.75s ease-in 3s forwards;
+}
+
+.preloader_prompt {
+  color: var(--color-accent);
+}
+
+/* type-on effect: width 0 -> 35ch (the line is exactly 35 monospace chars)
+   in discrete steps; the right border doubles as the caret */
+.preloader_line {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  max-width: 35ch;
+  color: var(--color-info);
+  border-right: 2px solid var(--color-info);
+  padding-right: 2px;
+  animation:
+    preloader-type 1.7s steps(35, end) 0.45s forwards,
+    preloader-caret 0.55s step-end infinite;
+}
+
+@keyframes preloader-type {
+  to {
+    width: 35ch;
+  }
+}
+
+@keyframes preloader-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes preloader-vaporize {
+  to {
+    opacity: 0;
+    filter: blur(10px);
+    letter-spacing: 0.5em;
+    transform: translateY(-16px);
+  }
+}
+
+/* ── Motion & viewport variants ────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .matrix_rain {
+    display: none;
+  }
+
+  .preloader_line {
+    width: 35ch;
+    border-right: none;
+    animation: none;
+  }
+
+  .preloader_terminal {
+    animation: preloader-fade 0.4s ease 1.6s forwards;
+  }
+
+  .preloader {
+    animation-delay: 1.8s;
+    animation-duration: 0.4s;
+  }
+
+  @keyframes preloader-fade {
+    to {
+      opacity: 0;
+    }
+  }
 }
 
 /* ==================== Media Queries (Medium Devices) ======================= */
@@ -31,19 +172,5 @@
 @media screen and (max-width: 1024px) {
   .preloader {
     display: none;
-    .dna_container {
-      display: none;
-    }
-  }
-
-  /* ==================== Media Queries (Small Devices) ======================= */
-
-  @media screen and (max-width: 600px) {
-    .preloader {
-      display: none;
-    }
-    .dna_container {
-      display: none;
-    }
   }
 }

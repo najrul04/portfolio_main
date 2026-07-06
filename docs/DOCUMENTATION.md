@@ -46,6 +46,7 @@ frontend/
     blog/[slug]/page.tsx#   /blog/:slug — single post (opens in new tab from list)
     admin/page.tsx      #   /admin — login + post management
     api/contact/route.ts#   POST /api/contact — contact form → Resend email
+    resume/page.tsx     #   /resume — PDF viewer + download (new tab from CTA)
     layout.tsx          #   root layout
     providers.tsx       #   Apollo + auth providers
   components/
@@ -245,6 +246,52 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-07-06** — **Portfolio cards: company badge.** New optional
+  `companyName`/`companyLogo` on `PortfolioItem` — renders a top-left pill on
+  the card cover (round white-backed logo + name, same language as the
+  "+N more" pill) showing which company the project was built at. Set for
+  MonuDesk + RememberTag (Monudesk) and Invent (Invent). Soundmade and the
+  practice projects have none — add two lines in `constants.ts` to badge more.
+- **2026-07-06** — **Homepage polish round (user feedback):** (1) section gap
+  tightened — global `section { margin-top }` 8rem → 5rem (7rem → 4.5rem
+  ≤1024px); the hero-to-About hole also included the sections' pre-animation
+  translate offset, but the margin was the fixed part. (2) Nav dock hidden on
+  /resume (it floated over the PDF; same early-return as /blog in Nav.tsx).
+  (3) Work-experience timeline entries trimmed to 3-5 bullets each
+  (`constants.ts` — Monudesk 8→5, XIIA 5→4, NeoTec 5→3, Invent 7→4, Vector
+  7→4; all metrics kept; wording is Claude's condensation — user should
+  review). (4) Portfolio coverflow got desktop prev/next arrow buttons
+  (`.portfolio_carousel_nav`, same look as the modal gallery arrows;
+  disabled at the ends via onSlideChange state — Swiper mutates
+  isBeginning/isEnd without re-rendering React; hidden ≤720px where swiping
+  is natural). Verified via Playwright: arrows advance slides, margin 80px.
+- **2026-07-06** — **Resume: view-first instead of force-download.** The
+  homepage CTA (`CTA.tsx`, relabeled "View Resume") now opens a new `/resume`
+  page in a new tab: slim toolbar (back link, title, Download PDF button) over
+  an inline `<object>` PDF viewer filling the viewport; browsers that can't
+  embed PDFs (most phones, and headless test browsers) get a centered fallback
+  card with the download button. Download filename set to
+  `Najrul-Sumon-Resume.pdf`. New `styles/sections/resume.css` (tokens only).
+  Note: `public/` holds TWO copies of Resume.pdf (root + assets/) — everything
+  points at the root one; the assets/ copy is unused legacy.
+- **2026-07-06** — **Preloader redesigned (matrix intro, animates from first
+  paint).** The old intro sat FROZEN for 1-2s on cold loads: the GSAP word
+  entrance and the react-loader-spinner Dna (styled-components) both waited
+  for React hydration, so users saw a static screen that then jumped and
+  replayed. New intro is 100% CSS (starts on the first painted frame): brand-
+  colored code rain (18 deterministic columns — index-derived glyphs, no
+  Math.random, or SSR/client hydration would mismatch), a monospace terminal
+  line that types "> Dedicated. Passionate. Inquisitive." via steps() with a
+  blinking-caret border, then vaporizes (blur + letter-spacing + drift), then
+  the overlay fades (opacity+visibility keyframe with `forwards` = the page
+  is usable even if JS never runs). JS (`preLoaderAnim`) now only locks scroll
+  and display:none's the overlay at ~4.6s — measured from nav start on first
+  load but from mount on client-side returns to Home (else the replay would be
+  cut short). react-loader-spinner uninstalled (drops styled-components too).
+  prefers-reduced-motion gets a quiet fade version. Verified via Playwright
+  VIDEO frames — note for future: page.screenshot() fast-forwards finite CSS
+  animations (overlay looks missing in stills); use recordVideo for anything
+  animation-timing-related.
 - **2026-07-06** — **Contact form: EmailJS → Resend.** Live test caught every
   submission failing with 412 "Gmail_API: Invalid grant" (EmailJS's Gmail OAuth
   grant expired) while the UI pretended success — errors only went to
