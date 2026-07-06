@@ -3,11 +3,13 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import React, { useEffect, useState } from 'react';
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // WHY from 'swiper' (not 'swiper/modules'): swiper@9 only exports '.' and
 // './react' — the '/modules' subpath doesn't exist until v11. Modules are
 // registered via the <Swiper modules={[...]}> prop below.
 import { EffectCoverflow, Pagination } from 'swiper';
+import type { Swiper as SwiperInstance } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
@@ -21,6 +23,12 @@ import PortfolioModal from './PortfolioModal';
 const Portfolio = () => {
    const [isMobile, setIsMobile] = useState(false);
    const [openItem, setOpenItem] = useState<PortfolioItem | null>(null);
+   const [swiper, setSwiper] = useState<SwiperInstance | null>(null);
+   // WHY state (not reading swiper.isBeginning in render): Swiper mutates
+   // those flags without re-rendering React — the buttons' disabled state
+   // would go stale. onSlideChange keeps them in sync.
+   const [atStart, setAtStart] = useState(true);
+   const [atEnd, setAtEnd] = useState(false);
 
    useEffect(() => {
       const handleResize = () => {
@@ -58,6 +66,11 @@ const Portfolio = () => {
                slideShadows: true,
             }}
             modules={[EffectCoverflow, Pagination]}
+            onSwiper={setSwiper}
+            onSlideChange={(s) => {
+               setAtStart(s.isBeginning);
+               setAtEnd(s.isEnd);
+            }}
          >
             {portfolio.map((item) => {
                return (
@@ -80,6 +93,8 @@ const Portfolio = () => {
                            src={item.cover ?? item.images[0]}
                            title={item.title}
                            imageCount={item.images.length}
+                           companyName={item.companyName}
+                           companyLogo={item.companyLogo}
                         />
                         <div className='portfolio_item_content'>
                            <h3 style={{ textAlign: 'center' }}>{item.title}</h3>
@@ -90,6 +105,27 @@ const Portfolio = () => {
                );
             })}
          </Swiper>
+
+         {/* Desktop affordance: click through projects without swiping.
+             Hidden on mobile (portfolio.css) where swiping is natural. */}
+         <button
+            type='button'
+            className='portfolio_carousel_nav prev'
+            onClick={() => swiper?.slidePrev()}
+            disabled={atStart}
+            aria-label='Previous project'
+         >
+            <AiOutlineLeft />
+         </button>
+         <button
+            type='button'
+            className='portfolio_carousel_nav next'
+            onClick={() => swiper?.slideNext()}
+            disabled={atEnd}
+            aria-label='Next project'
+         >
+            <AiOutlineRight />
+         </button>
 
          {openItem && (
             <PortfolioModal item={openItem} onClose={() => setOpenItem(null)} />

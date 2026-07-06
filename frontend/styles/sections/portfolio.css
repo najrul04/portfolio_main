@@ -215,6 +215,38 @@
   }
 }
 
+/* Company badge, top-left of the cover: which company the project was
+   built at. Same pill language as the "+N more" badge (bottom-right). */
+.portfolio_media_company {
+  position: absolute;
+  left: 0.7rem;
+  top: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.7rem 0.3rem 0.35rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 2rem;
+}
+
+.portfolio_media_company img {
+  /* the global img reset would balloon it to 100% width */
+  width: 1.4rem;
+  height: 1.4rem;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 2px;
+}
+
+.portfolio_media_company_name {
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--color-white);
+}
+
 /* "+N more" pill, bottom-right of the cover, for multi-screenshot projects. */
 .portfolio_media_count {
   position: absolute;
@@ -228,6 +260,57 @@
   background: rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 2rem;
+}
+
+/* ── Carousel prev/next arrows (desktop) ─────────────── */
+
+/* anchor for the absolutely-positioned arrows */
+#portfolio {
+  position: relative;
+}
+
+.portfolio_carousel_nav {
+  position: absolute;
+  /* sits level with the centered card's midpoint (below the h2 heading) */
+  top: 55%;
+  z-index: 5;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  color: var(--color-white);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.portfolio_carousel_nav.prev {
+  left: 4%;
+}
+
+.portfolio_carousel_nav.next {
+  right: 4%;
+}
+
+.portfolio_carousel_nav:hover:not(:disabled) {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.portfolio_carousel_nav:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+/* mobile swipes; the arrows would just crowd the cards */
+@media screen and (max-width: 720px) {
+  .portfolio_carousel_nav {
+    display: none;
+  }
 }
 
 /* ── Detail modal (see PortfolioModal.tsx) ─────────────── */

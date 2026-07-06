@@ -657,3 +657,200 @@
       padding-bottom: 4rem; /* nav is hidden on mobile per Nav.css */
    }
 }
+
+/* ── Post footer (author card + share + read next; PostFooter.tsx) ─────── */
+
+.post_footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.post_footer_author {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.4rem 1.6rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 1.25rem;
+}
+
+.post_footer_avatar {
+  flex: 0 0 auto;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--color-bg-elevated);
+  border: 2px solid var(--color-primary-variant);
+}
+
+.post_footer_author_text {
+  flex: 1;
+}
+
+.post_footer_author_label {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.post_footer_author_text h4 {
+  margin-top: 0.15rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.post_footer_author_text p {
+  margin-top: 0.3rem;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--color-light);
+}
+
+.post_footer_author_actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+}
+
+/* ── Share row ─────────────────────────────────────────── */
+
+.post_footer_share {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.post_footer_discuss {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1.2rem;
+  font-size: 0.9rem;
+  color: var(--color-white);
+  background: var(--color-accent-soft);
+  border: 1px solid var(--color-primary-variant);
+  border-radius: 2rem;
+  transition: var(--transition);
+}
+
+.post_footer_discuss:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.post_footer_share_btns {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.post_footer_share_label {
+  font-size: 0.82rem;
+  color: var(--color-text-subtle);
+  margin-right: 0.2rem;
+}
+
+.post_footer_share_btns button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  font-size: 1rem;
+  color: var(--color-light);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.post_footer_share_btns button:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.post_footer_copied {
+  font-size: 0.8rem;
+  color: var(--color-success);
+}
+
+/* ── Read next ─────────────────────────────────────────── */
+
+.post_footer_next {
+  margin-top: 2.25rem;
+}
+
+.post_footer_next_title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.post_footer_next_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.post_footer_next_card {
+  display: block;
+  padding: 1.1rem 1.2rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  transition: var(--transition);
+}
+
+.post_footer_next_card:hover {
+  border-color: var(--color-primary-variant);
+  background: var(--color-bg-elevated);
+}
+
+.post_footer_next_card h5 {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--color-white);
+  line-height: 1.45;
+}
+
+.post_footer_next_card span {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--color-text-subtle);
+}
+
+/* ==================== Post footer: small devices ======================= */
+
+@media screen and (max-width: 600px) {
+  .post_footer_author {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .post_footer_author_actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .post_footer_share {
+    justify-content: center;
+  }
+
+  .post_footer_next_grid {
+    grid-template-columns: 1fr;
+  }
+}

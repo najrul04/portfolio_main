@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { POST_BY_SLUG } from '@/lib/graphql/queries';
 import SourceBadge from '@/components/blog/SourceBadge';
+import PostFooter from '@/components/blog/PostFooter';
 
 // Lazy-load the markdown renderer — ~55kb of markdown libs only ship when a
 // visitor actually opens a post.
@@ -106,6 +107,13 @@ const BlogPost = () => {
                   <Suspense fallback={<p className="text-light">Loading…</p>}>
                      <PostPreview content={post.content} />
                   </Suspense>
+                  <PostFooter
+                     postId={post.id}
+                     title={post.title}
+                     slug={post.slug}
+                     sourceUrl={post.sourceUrl}
+                     tags={post.tags}
+                  />
                </motion.article>
             )}
          </div>

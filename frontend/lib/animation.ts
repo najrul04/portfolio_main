@@ -9,60 +9,49 @@ import gsap from 'gsap';
 
 const tl = gsap.timeline();
 
-// Preloader Animation
+// Preloader
 //
-// WHY this was rewritten from the legacy version:
-//   1. It used the shared module-level `tl`. React 18 StrictMode mounts effects
-//      twice in dev, so preLoaderAnim() ran twice and appended a SECOND copy of
-//      every tween to the same timeline — including `body { overflow: hidden }`,
-//      which re-locked the page a few seconds in (the "scroll gets stuck" bug).
-//   2. Most of the legacy tweens targeted elements that don't exist in this app
-//      (.landing, .links, .main-circle, .shapes …), so they animated nothing but
-//      bloated the timeline to ~12s and delayed the scroll restore.
-// The version below uses its own timeline, runs once, keeps only the real intro
-// (the three words + collapsing the overlay), and GUARANTEES the page is
-// scrollable and the overlay is gone when it finishes.
+// The intro VISUALS are pure CSS (styles/sections/preloader.css) so they run
+// from the first painted frame — the old GSAP version only started after
+// hydration, leaving the overlay frozen for 1-2s on cold loads. This function
+// is just the JS tail: lock scrolling while the intro plays, then remove the
+// overlay from the DOM (the CSS ending already made it invisible and
+// click-through, so even without JS the page is never trapped).
 // Guards against CONCURRENT runs only (StrictMode double-mounts the effect in
 // dev). It resets on completion so navigating back to Home can replay the
 // intro — the overlay only exists on the homepage (see PreLoader.tsx).
+
+// Keep in sync with the timeline comment in preloader.css (last keyframe ends
+// 4.45s after first paint; small buffer on top).
+const PRELOADER_TOTAL_MS = 4600;
+
 let preloaderRunning = false;
+// WHY: on the FIRST load the CSS animations started at first paint (~time
+// origin), long before this runs; on later client-side navigations back to
+// Home the overlay remounts and its animations start NOW. The elapsed time
+// must be measured from the right base or the overlay would be removed
+// mid-intro (first case) or way too late (second).
+let firstLoad = true;
 
 export const preLoaderAnim = (): void => {
    if (preloaderRunning) return;
    preloaderRunning = true;
 
-   const intro = gsap.timeline({
-      // Safety net: whatever happens, leave the page scrollable and remove the
-      // overlay so it can never trap the user.
-      onComplete: () => {
-         preloaderRunning = false;
-         document.body.style.overflowY = 'auto';
-         const pre = document.querySelector('.preloader') as HTMLElement | null;
-         if (pre) pre.style.display = 'none';
-      },
-   });
+   const base = firstLoad ? 0 : performance.now();
+   firstLoad = false;
 
-   intro
-      .to('body', { duration: 0.1, css: { overflowY: 'hidden' }, ease: 'power3.inOut' })
-      .to('.texts-container', { duration: 0, opacity: 1 })
-      .from('.texts-container span', {
-         duration: 1.5,
-         delay: 1,
-         y: 70,
-         skewY: 10,
-         stagger: 0.4,
-         ease: 'Power3.easeOut',
-      })
-      .to('.texts-container span', {
-         duration: 1,
-         y: 70,
-         skewY: -20,
-         stagger: 0.2,
-         ease: 'Power3.easeOut',
-      })
-      .to('.preloader', { duration: 1, height: '0vh', ease: 'Power3.easeOut' }, '-=1')
-      .to('.preloader', { duration: 0, css: { display: 'none' } })
-      .to('body', { duration: 0.1, css: { overflowY: 'auto' }, ease: 'power3.inOut' });
+   const remaining = Math.max(0, PRELOADER_TOTAL_MS - (performance.now() - base));
+
+   if (remaining > 0) document.body.style.overflowY = 'hidden';
+
+   window.setTimeout(() => {
+      // Safety net: whatever happens, leave the page scrollable and remove
+      // the overlay so it can never trap the user.
+      document.body.style.overflowY = 'auto';
+      const pre = document.querySelector('.preloader') as HTMLElement | null;
+      if (pre) pre.style.display = 'none';
+      preloaderRunning = false;
+   }, remaining);
 };
 
 export const openMenu = (): void => {

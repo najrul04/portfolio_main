@@ -1,0 +1,327 @@
+/* /resume — native styled resume (content mirrors public/Resume.pdf, data in
+   lib/resume.ts). Sticky toolbar with back link + Download PDF; below it the
+   resume renders as a card with accent-highlighted metrics. */
+
+.resume_page {
+  min-height: 100vh;
+}
+
+.resume_toolbar {
+  /* WHY height:auto: header.css sets bare `header { height: 68/70vh }` on
+     small screens (home hero); it leaks into this <header> too — same
+     landmine the blog header hit. */
+  height: auto;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.5rem;
+  background: var(--color-bg-variant);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.resume_back {
+  color: var(--color-light);
+  font-size: 0.9rem;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.resume_back:hover {
+  color: var(--color-primary);
+}
+
+.resume_title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.resume_download {
+  white-space: nowrap;
+}
+
+/* ── The sheet ─────────────────────────────────────────────── */
+
+.resume_sheet {
+  max-width: 880px;
+  margin: 2.5rem auto 4rem;
+  padding: 2.75rem 3rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 1.25rem;
+}
+
+.resume_head {
+  text-align: center;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* round headshot with accent ring; soft accent backdrop behind the
+   transparent-background photo */
+.resume_avatar {
+  display: inline-flex;
+  width: 8.5rem;
+  height: 8.5rem;
+  margin-bottom: 1.1rem;
+  border-radius: 50%;
+  padding: 4px;
+  background: var(--gradient-accent);
+}
+
+.resume_avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background: var(--color-bg-elevated);
+}
+
+.resume_name {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.resume_role {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.resume_contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem 0.75rem;
+  margin-top: 1rem;
+  list-style: none;
+  font-size: 0.88rem;
+  color: var(--color-light);
+}
+
+.resume_contacts li + li::before {
+  content: '\00b7';
+  margin-right: 0.75rem;
+  color: var(--color-text-subtle);
+}
+
+/* ── Sections ─────────────────────────────────────────────── */
+
+.resume_section {
+  margin-top: 2.25rem;
+}
+
+.resume_heading {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.resume_summary {
+  color: var(--color-light);
+  line-height: 1.8;
+}
+
+/* accent highlight for the metrics that matter */
+.resume_hl {
+  background: var(--color-accent-soft);
+  color: var(--color-primary);
+  font-weight: 500;
+  padding: 0.05em 0.3em;
+  border-radius: 0.35em;
+}
+
+/* ── Skills ─────────────────────────────────────────────── */
+
+.resume_skills_row {
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+
+.resume_skills_row + .resume_skills_row {
+  margin-top: 0.8rem;
+}
+
+.resume_skills_row dt {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.resume_chip {
+  display: inline-block;
+  margin: 0.15rem 0.3rem 0.15rem 0;
+  padding: 0.22rem 0.65rem;
+  font-size: 0.78rem;
+  color: var(--color-light);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 2rem;
+}
+
+.resume_chip_dim {
+  background: transparent;
+  color: var(--color-text-subtle);
+}
+
+/* core skills the resume calls out */
+.resume_chip_hl {
+  background: var(--color-accent-soft);
+  border-color: rgba(var(--color-accent-rgb), 0.45);
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* ── Experience ─────────────────────────────────────────── */
+
+.resume_job + .resume_job {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px dashed var(--color-border);
+}
+
+.resume_job_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.resume_job_id {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.resume_job_logo {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  /* white chip so dark logos stay visible, same treatment as the
+     portfolio card company badge */
+  background: #ffffff;
+  border: 1px solid var(--color-border-strong);
+  overflow: hidden;
+}
+
+.resume_job_logo img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.resume_job_title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.resume_job_company {
+  margin-top: 0.15rem;
+  font-size: 0.9rem;
+  color: var(--color-primary);
+}
+
+.resume_job_dates {
+  font-size: 0.82rem;
+  color: var(--color-text-subtle);
+  white-space: nowrap;
+}
+
+.resume_job_stack {
+  margin-top: 0.5rem;
+}
+
+.resume_bullets {
+  margin-top: 0.75rem;
+  padding-left: 1.1rem;
+  list-style: disc outside;
+}
+
+.resume_bullets li {
+  /* the global reset strips list styles; restore the disc per item */
+  list-style: disc outside;
+  margin-top: 0.45rem;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--color-light);
+}
+
+.resume_bullets li::marker {
+  color: var(--color-primary);
+}
+
+/* ── Education ─────────────────────────────────────────── */
+
+.resume_edu {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.resume_edu + .resume_edu {
+  margin-top: 1.1rem;
+}
+
+.resume_edu_school {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.resume_edu_detail {
+  margin-top: 0.15rem;
+  font-size: 0.88rem;
+  color: var(--color-light);
+}
+
+/* ==================== Media Queries (Small Devices) ======================= */
+
+@media screen and (max-width: 600px) {
+  .resume_toolbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+  }
+
+  .resume_title {
+    order: -1;
+    width: 100%;
+  }
+
+  .resume_sheet {
+    margin: 1rem 0.75rem 2.5rem;
+    padding: 1.5rem 1.1rem;
+  }
+
+  .resume_skills_row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .resume_job_head,
+  .resume_edu {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}

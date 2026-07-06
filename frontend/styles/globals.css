@@ -93,7 +93,9 @@
    }
 
    section {
-      margin-top: 8rem;
+      /* was 8rem — the hero-to-About hole read as dead space (user request
+         2026-07-06); one rule spaces ALL homepage sections evenly */
+      margin-top: 5rem;
    }
 
    section > h2,
@@ -168,7 +170,7 @@
    }
 
    section {
-      margin-top: 7rem;
+      margin-top: 4.5rem;
    }
 }
 

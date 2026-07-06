@@ -55,6 +55,10 @@ export interface PortfolioItem {
    github?: string;
    demo?: string;
    tag: string;
+   // Company the project was built at/for — shown as a small badge pinned
+   // top-left on the card cover. Omit for personal/practice projects.
+   companyName?: string;
+   companyLogo?: string;
 }
 
 export interface Logo {
@@ -82,13 +86,10 @@ const experiences: Experience[] = [
       date: "June 2025 - PRESENT",
       points: [
          "Developed and shipped 3 production projects (RememberTag, Lovepath, and Monudesk) built with Next.js, GraphQL, PostgreSQL, and Express.js, contributing across the full stack in a team of 4 developers.",
-         "Proposed and led a UI/UX overhaul shortly after joining, redesigning key user flows and interfaces that helped push revenue roughly 40% above target for the quarter.",
-         "Contributed to code architecture decisions, introducing reusable component patterns and cleaner separation between the GraphQL API layer and client state, which cut down duplicated logic across the three codebases.",
-         "Brought new ideas to team discussions and carried them through to shipped features, from concept and Figma prototyping to implementation and release.",
-         "Built pixel-perfect, responsive components from Figma designs, even when specifications were incomplete.",
-         "Collaborated closely with developers, testers, and designers to ship features and fix production bugs, staying approachable and helping teammates get unblocked, which kept the team of 4 productive through tight deadlines.",
-         "Adopted AI-assisted development as a core workflow using Claude Code and agentic coding tools, delegating implementation scaffolding, refactors, and test generation while personally reviewing and owning every merged change.",
-         "Applied prompt-driven, agentic workflows to speed up debugging, code migration, and documentation, reducing turnaround on routine tasks and freeing team capacity for architecture and product decisions.",
+         "Proposed and led a UI/UX overhaul shortly after joining that helped push revenue roughly 40% above target for the quarter.",
+         "Introduced reusable component patterns and cleaner separation between the GraphQL API layer and client state, cutting duplicated logic across the three codebases.",
+         "Carried ideas from Figma prototype to shipped feature, building pixel-perfect responsive components even from incomplete specs.",
+         "Made AI-assisted development a core workflow (Claude Code and agentic tools), delegating scaffolding, refactors, and test generation while personally reviewing and owning every merged change.",
       ],
    },
    {
@@ -102,9 +103,8 @@ const experiences: Experience[] = [
       points: [
          "Contributed to a React Native mobile app and Next.js web platform using GraphQL, PostgreSQL, Express.js, and Node.js, delivering major UI improvements.",
          "Delivered pixel-perfect components based on Figma designs and fixed issues in close collaboration with testers, even when specifications were missing.",
-         "Worked efficiently under pressure, meeting tight deadlines while maintaining code quality and team standards.  Adapted quickly to the company’s codebase and development culture, following best practices and participating in team discussions.",
-         "Proven team player, collaborating with developers, testers, and designers to ship features smoothly and resolve production bugs.",
-         "Continuously improved technical and communication skills by working in a fast-paced, agile environment.",
+         "Met tight deadlines while maintaining code quality and team standards, adapting quickly to the company's codebase and development culture.",
+         "Collaborated with developers, testers, and designers to ship features smoothly and resolve production bugs.",
       ],
    },
    {
@@ -132,11 +132,9 @@ const experiences: Experience[] = [
       iconBg: "#E6DEDD",
       date: "December 2023 - PRESENT",
       points: [
-         "Collaborated directly with the CEO to conceptualize and plan user interface designs, ensuring alignment with the company's strategic objectives and vision.",
-         "Provided valuable insights and recommendations from a user experience perspective, guiding decision-making processes to enhance the usability and effectiveness of our digital products.",
-         "Translated the CEO's vision and requirements into compelling design concepts, delivering intuitive and aesthetically pleasing user interfaces that resonate with our target audience.",
-         "Conducted thorough user research and feedback sessions alongside the CEO, gathering valuable insights to inform design decisions and drive continuous improvement.",
-         "Played a pivotal role in the end-to-end design process, from ideation and wireframing to prototyping and implementation, collaborating closely with the CEO to ensure the successful execution of design initiatives.",
+         "Collaborated directly with the CEO to plan and design user interfaces aligned with the company's strategic objectives.",
+         "Translated vision and requirements into intuitive, polished UI concepts and carried them from wireframing through prototyping to implementation.",
+         "Conducted user research and feedback sessions to inform design decisions and drive continuous improvement.",
       ],
    },
    {
@@ -148,13 +146,10 @@ const experiences: Experience[] = [
       iconBg: "#E6DEDD",
       date: "January 2023 - PRESENT",
       points: [
-         "Designed and engineered a React web app from the ground up to present Invent with an online portal for client landing pages and a booking system.",
-         "Utilized a headless Firebase authentication system allowing 10,000 authentication requests per day (such as email/password, phone authentication, third-party authentication.) for free and 100,000 requests per month. All of this was at no cost to the company drastically reducing their operation cost.",
-         "Developed an emailing system where 200 appointments per days are free.",
-         "Created a system of SEO tracking in the head of each page to help the website based on LightHouse standards.",
-         "Used React’s composability features to develop the website in an easy-to-maintain way.",
-         "Leveraged Tailwind and vanilla CSS to create a responsive design whilst keeping the markup clean and easy to maintain.",
-         "Processed Data on the backend via NodeJS, ExpressJS, MongoDB. Hostinger is used for its affordability and user-friendliness. It helped to save around 80% on manual marketing campaign for the company in Dhaka.",
+         "Designed and engineered a React web app from the ground up: an online portal for client landing pages plus a booking system.",
+         "Set up headless Firebase authentication (email/password, phone, third-party) handling 10,000 requests per day at zero cost, drastically reducing operating costs.",
+         "Built an automated appointment-email system handling 200 bookings per day for free, plus per-page SEO tracking based on Lighthouse standards.",
+         "Processed data on the backend via NodeJS, ExpressJS, and MongoDB, saving around 80% on manual marketing campaigns.",
       ],
    },
    {
@@ -166,13 +161,10 @@ const experiences: Experience[] = [
       iconBg: "#E6DEDD",
       date: "January 2022 - December 2022",
       points: [
-         "Created a custom website supporting more than 10,000 users.",
-         "Utilized modern UI Stack conventions developing with: WordPress, PHP, Vanilla CSS and jQuery.",
-         "Provided technical support for more than 100+ clients and developed pages using HTML, CSS.",
-         "Managed a user guide to help promote site features and management of the websites.",
-         "Updated the website as instructed by the company and introduced new features and contents.",
-         "Managed comments from visitors, including private emails and comments posted on the site.",
-         "Used Astra Pro for lightweight and fast themes, Yoast SEO for search engine optimization, Contact form 7 for simplification of managing contact, Akismet for filtering out spammers and others.",
+         "Created a custom website supporting more than 10,000 users with WordPress, PHP, vanilla CSS, and jQuery.",
+         "Provided technical support for 100+ clients and developed pages using HTML and CSS.",
+         "Maintained and extended the site with new features and content, plus a user guide promoting site features.",
+         "Ran the plugin stack (Astra Pro themes, Yoast SEO, Contact Form 7, Akismet) for performance, search optimization, and spam control.",
       ],
    },
    {
@@ -541,6 +533,8 @@ const portfolio: PortfolioItem[] = [
          "A business platform for monument companies. Track every order on one board from quote to production, message customers from a built-in inbox, and manage inventory, balances and tax reports in one place.",
       demo: "https://monudesk.com",
       tag: "#NextJS #NodeJS #ExpressJS #GraphQL #PostgreSQL",
+      companyName: "Monudesk",
+      companyLogo: "/assets/company/monudesk.png",
    },
    {
       id: 10,
@@ -554,6 +548,8 @@ const portfolio: PortfolioItem[] = [
          "A smart QR tag for headstones. Families attach it, visitors scan it with their phone, and a memorial page opens with the person's story, photos and timeline.",
       demo: "https://remembertag.com",
       tag: "#QRCode #WebApp #Startup",
+      companyName: "Monudesk",
+      companyLogo: "/assets/company/monudesk.png",
    },
    {
       id: 8,
@@ -569,6 +565,8 @@ const portfolio: PortfolioItem[] = [
       description:
          "A music community app where fans discover and follow artists, react to new tracks and live shows, and message the artists directly.",
       tag: "#MobileApp #Music #UIUX",
+      companyName: "XIIA",
+      companyLogo: "/assets/company/xiia.webp",
    },
    {
       id: 1,
@@ -580,6 +578,8 @@ const portfolio: PortfolioItem[] = [
       github: "https://github.com/najrul04/real_estate",
       demo: "https://real-estate-zeta-lemon.vercel.app/",
       tag: "#NextJS #ChakraUI #RapidAPI",
+      companyName: "Programming Hero",
+      companyLogo: "/assets/company/phero.webp",
    },
    {
       id: 2,
@@ -591,6 +591,8 @@ const portfolio: PortfolioItem[] = [
       github: "https://github.com/najrul04/product_store",
       demo: "https://product-store-es97.onrender.com/",
       tag: "#ReactJS #NodeJS #ExpressJS",
+      companyName: "Programming Hero",
+      companyLogo: "/assets/company/phero.webp",
    },
    {
       id: 3,
@@ -602,6 +604,8 @@ const portfolio: PortfolioItem[] = [
       // github: "https://github.com/najrul04/react_recap/tree/main/car-services",
       demo: "https://inventt.netlify.app/",
       tag: "#ReactJS #TailWindCSS #NodeJS",
+      companyName: "Invent",
+      companyLogo: "/assets/company/invent.webp",
    },
    {
       id: 4,
@@ -613,6 +617,8 @@ const portfolio: PortfolioItem[] = [
       github: "https://github.com/najrul04/react_recap/tree/main/car-services",
       demo: "https://games-mart.web.app/",
       tag: "#ReactJS #Bootstrap #Firebase",
+      companyName: "Programming Hero",
+      companyLogo: "/assets/company/phero.webp",
    },
 
    {
@@ -625,6 +631,8 @@ const portfolio: PortfolioItem[] = [
       github: "https://github.com/najrul04/healthcare-website",
       demo: "https://gen-hospital.netlify.app/",
       tag: "#ReactJS #Firebase #MongoDB",
+      companyName: "Programming Hero",
+      companyLogo: "/assets/company/phero.webp",
    },
    {
       id: 6,
@@ -637,6 +645,8 @@ const portfolio: PortfolioItem[] = [
          "https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router",
       demo: "https://ecommerce-79009.firebaseapp.com/",
       tag: "#ReactJS #ReactRouter #Firebase",
+      companyName: "Programming Hero",
+      companyLogo: "/assets/company/phero.webp",
    },
 
    {
@@ -649,6 +659,8 @@ const portfolio: PortfolioItem[] = [
       github: "https://github.com/najrul04/temperature",
       demo: "https://temperature123.netlify.app/",
       tag: "#HTML #CSS #JavaScript",
+      companyName: "Programming Hero",
+      companyLogo: "/assets/company/phero.webp",
    },
 ];
 
