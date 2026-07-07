@@ -15,43 +15,64 @@ const tl = gsap.timeline();
 // from the first painted frame — the old GSAP version only started after
 // hydration, leaving the overlay frozen for 1-2s on cold loads. This function
 // is just the JS tail: lock scrolling while the intro plays, then remove the
-// overlay from the DOM (the CSS ending already made it invisible and
-// click-through, so even without JS the page is never trapped).
+// overlay from the DOM once its own fade-out has finished.
+//
+// WHY animationend instead of a timer: the CSS animation clock starts at
+// first paint, which JS cannot reliably reconstruct (a fixed timeout measured
+// from the time origin ran early whenever paint lagged navigation start, so
+// display:none cut the overlay off mid-fade — it "jumped" away instead of
+// fading). The overlay's preloader-out animation is the source of truth for
+// when the intro is over; a long timeout remains only as a safety net so the
+// page can never stay scroll-locked.
 // Guards against CONCURRENT runs only (StrictMode double-mounts the effect in
 // dev). It resets on completion so navigating back to Home can replay the
 // intro — the overlay only exists on the homepage (see PreLoader.tsx).
 
-// Keep in sync with the timeline comment in preloader.css (last keyframe ends
-// 4.45s after first paint; small buffer on top).
-const PRELOADER_TOTAL_MS = 4600;
+const PRELOADER_FALLBACK_MS = 9000;
 
 let preloaderRunning = false;
-// WHY: on the FIRST load the CSS animations started at first paint (~time
-// origin), long before this runs; on later client-side navigations back to
-// Home the overlay remounts and its animations start NOW. The elapsed time
-// must be measured from the right base or the overlay would be removed
-// mid-intro (first case) or way too late (second).
-let firstLoad = true;
 
 export const preLoaderAnim = (): void => {
    if (preloaderRunning) return;
+
+   const pre = document.querySelector('.preloader') as HTMLElement | null;
+   if (!pre) return;
+
+   const style = window.getComputedStyle(pre);
+   // ≤1024px hides the overlay entirely (media query) — nothing to wait for.
+   if (style.display === 'none') return;
+
    preloaderRunning = true;
 
-   const base = firstLoad ? 0 : performance.now();
-   firstLoad = false;
-
-   const remaining = Math.max(0, PRELOADER_TOTAL_MS - (performance.now() - base));
-
-   if (remaining > 0) document.body.style.overflowY = 'hidden';
-
-   window.setTimeout(() => {
-      // Safety net: whatever happens, leave the page scrollable and remove
-      // the overlay so it can never trap the user.
+   const finish = (): void => {
       document.body.style.overflowY = 'auto';
-      const pre = document.querySelector('.preloader') as HTMLElement | null;
-      if (pre) pre.style.display = 'none';
+      pre.style.display = 'none';
       preloaderRunning = false;
-   }, remaining);
+   };
+
+   // Hydration can land AFTER the CSS ending already played (visibility:hidden
+   // is kept by `forwards`) — the animationend event is gone, so finish now.
+   if (style.visibility === 'hidden') {
+      finish();
+      return;
+   }
+
+   document.body.style.overflowY = 'hidden';
+
+   const fallback = window.setTimeout(() => {
+      pre.removeEventListener('animationend', onEnd);
+      finish();
+   }, PRELOADER_FALLBACK_MS);
+
+   // animationend bubbles up from the terminal line's typing/vaporize
+   // animations too — only the overlay's own fade counts.
+   const onEnd = (e: AnimationEvent): void => {
+      if (e.target !== pre || e.animationName !== 'preloader-out') return;
+      window.clearTimeout(fallback);
+      pre.removeEventListener('animationend', onEnd);
+      finish();
+   };
+   pre.addEventListener('animationend', onEnd);
 };
 
 export const openMenu = (): void => {
