@@ -118,6 +118,30 @@ const Experience = () => {
       AOS.init({
          duration: 1200,
       });
+
+      // Scroll reveal for the timeline cards (odd slide in from the left,
+      // even from the right — see experience.css). The library's own reveal
+      // is unusable here (see the animate={false} comment below), so a plain
+      // IntersectionObserver adds the class the CSS transitions key off.
+      const cards = document.querySelectorAll<HTMLElement>(
+         '.verticalTimeline.vertical-timeline-element'
+      );
+      const observer = new IntersectionObserver(
+         (entries) => {
+            entries.forEach((entry) => {
+               if (entry.isIntersecting) {
+                  entry.target.classList.add('timeline-card-visible');
+                  observer.unobserve(entry.target);
+               }
+            });
+         },
+         // fire once ~15% of a card is visible, slightly before it reaches
+         // the viewport bottom so the slide reads as "arriving"
+         { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+      );
+      cards.forEach((card) => observer.observe(card));
+
+      return () => observer.disconnect();
    }, []);
 
    return (
@@ -138,8 +162,10 @@ const Experience = () => {
                 internal scroll sensor reveals it. That sensor doesn't fire under
                 the Next.js App Router, so the cards stayed invisible (only the
                 line showed). Disabling the library's animation removes the
-                --animate gate, so every card renders — matching the live site
-                at rest. (The header still fades in via data-aos.) */}
+                --animate gate, so every card renders. The scroll entrance is
+                ours instead: the IntersectionObserver above adds
+                .timeline-card-visible and experience.css slides each card in
+                from its own side of the timeline. */}
             <VerticalTimeline animate={false}>
                {experiences.map((experience, index) => (
                   <ExperienceCard

@@ -2,6 +2,62 @@
   box-shadow: none;
 }
 
+/* Scroll entrance: each CARD BODY slides in from the side of the center line
+   it sits on (the library alternates: odd elements left, even elements right
+   on the two-column desktop layout; on the single-column mobile layout the
+   alternating directions still read fine). Only the content box moves — the
+   center-line icon lives in a sibling div that is left untouched, and the
+   date (a CHILD of the content box, so it would ride along) gets an inverse
+   translate below so it stays pinned next to the icon. An
+   IntersectionObserver in Experience.tsx adds .timeline-card-visible to the
+   element when it scrolls into view — the library's own reveal is disabled
+   there (see the animate={false} comment). html/body use overflow-x: clip,
+   so the off-screen right offset can't create a horizontal scrollbar. */
+@media (prefers-reduced-motion: no-preference) {
+  .verticalTimeline .vertical-timeline-element-content {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .verticalTimeline:nth-child(odd) .vertical-timeline-element-content {
+    transform: translateX(-90px);
+  }
+
+  .verticalTimeline:nth-child(even) .vertical-timeline-element-content {
+    transform: translateX(90px);
+  }
+
+  /* keep specificity >= the :nth-child rules above so it wins once added */
+  .verticalTimeline.timeline-card-visible .vertical-timeline-element-content {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Desktop only: the date span is absolutely positioned beside the icon but is
+   a DOM child of the sliding content box. The inverse translate (same
+   duration/easing) cancels the parent's motion frame-by-frame so the date
+   never leaves the icon's side; it still fades in with the card (opacity
+   inherits). On <1170px the date sits inside the card flow and should slide
+   with it, so no compensation there. */
+@media only screen and (min-width: 1170px) and (prefers-reduced-motion: no-preference) {
+  .verticalTimeline .vertical-timeline-element-date {
+    transition: transform 0.8s ease-out;
+  }
+
+  .verticalTimeline:nth-child(odd) .vertical-timeline-element-date {
+    transform: translateX(90px);
+  }
+
+  .verticalTimeline:nth-child(even) .vertical-timeline-element-date {
+    transform: translateX(-90px);
+  }
+
+  .verticalTimeline.timeline-card-visible .vertical-timeline-element-date {
+    transform: translateX(0);
+  }
+}
+
 /* WHY: on desktop the library positions each card's date in the opposite
    column at 124% of the card width, which could clip the central icon at some
    container widths. 126% keeps the date snug beside the icon (matching the

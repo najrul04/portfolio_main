@@ -3,12 +3,12 @@
    on purpose: it animates from the first painted frame, long before React
    hydrates (the old GSAP/JS intro sat frozen for 1-2s waiting for the bundle).
 
-   Timeline (seconds after first paint), keep in sync with PRELOADER_TOTAL_MS
-   in lib/animation.ts:
+   Timeline (seconds after first paint):
      0.00        code rain already falling (negative animation delays)
      0.45-2.15   terminal line types out (steps), caret blinking
      3.00-3.75   text vaporizes (blur + spread + drift up)
-     3.85-4.45   whole overlay fades out, then JS display:none's it        */
+     3.85-4.45   whole overlay fades out; JS (preLoaderAnim) waits for this
+                 animation's animationend before display:none-ing it       */
 
 .preloader {
   height: 100vh;
