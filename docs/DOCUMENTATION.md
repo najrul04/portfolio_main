@@ -143,7 +143,15 @@ backend/
   tokens via `var(--token)`.
 - **Animations:** GSAP, Swiper, tsParticles, AOS, framer-motion, typewriter —
   kept faithful to the live legacy site. Homepage entrance animations were
-  deliberately toned down (commit `425d576`).
+  deliberately toned down (commit `425d576`). The preloader overlay is removed
+  from the DOM only after its CSS fade-out fires `animationend`
+  (`lib/animation.ts`) — never on a fixed timer, which used to cut it off
+  mid-fade. Work-experience timeline cards slide in on scroll (odd from the
+  left, even from the right) via an IntersectionObserver in
+  `components/sections/Experience.tsx` + rules in
+  `styles/sections/experience.css`; the timeline library's own reveal stays
+  disabled (`animate={false}`) because its sensor doesn't fire under the App
+  Router.
 - **Contact form (Resend):** the form POSTs to the Next.js route
   `app/api/contact/route.ts`, which calls Resend's REST API server-side
   (`RESEND_API_KEY` never reaches the browser). Replaced EmailJS 2026-07-06 —
@@ -246,6 +254,26 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-07-07** — **Preloader exit + experience scroll reveal.** (a) The
+  preloader "jumped off" instead of fading: `preLoaderAnim` display:none'd the
+  overlay on a fixed 4.6s timer measured from navigation start, but the CSS
+  fade's clock starts at first paint — whenever paint lagged, JS killed the
+  overlay before the fade finished. Now it waits for the `preloader-out`
+  `animationend` event (9s timeout kept only as a scroll-unlock safety net;
+  also skips cleanly when the overlay is media-query-hidden ≤1024px or the
+  fade already ended pre-hydration). (b) Work-experience timeline cards now
+  slide in on scroll — odd cards from the left, even from the right — via an
+  IntersectionObserver adding `.timeline-card-visible` + transitions in
+  `experience.css` (wrapped in `prefers-reduced-motion: no-preference`;
+  `overflow-x: clip` on html/body prevents sideways scrollbar). Only the card
+  BODY moves: the center-line icon is a sibling (untouched), and the date —
+  a DOM child of the sliding box — gets an inverse translate on desktop so it
+  stays pinned beside the icon. (c) Restored the hero's scroll-down arrow:
+  its legacy `left: 230%` was relative to the old shrink-to-fit
+  `.header_info`; after that box became width:100% the arrow sat ~2
+  screen-widths off-canvas (same root cause as the earlier `.coffee` fix).
+  Now `left: 82% / top: 250%` — bottom-right of the hero, below the coffee
+  badge.
 - **2026-07-07** — **Blog post footer (traction package).** Below every
   /blog/[slug] post (`components/blog/PostFooter.tsx`): author card (photo,
   blurb, View Portfolio + Let's Talk CTAs), a "Join the discussion on
