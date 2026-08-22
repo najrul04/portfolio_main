@@ -254,6 +254,15 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-08-22** — **Dependabot alert fixes (lockfile only).** `npm audit fix`
+  bumped transitive deps flagged by GitHub: `nanoid` 3.3.12→3.3.18 (via
+  postcss), `js-yaml` 4.1.1→4.3.1 (via eslint), `brace-expansion`
+  1.1.14/2.1.0/5.0.6→1.1.18/2.1.4/5.0.9 (via minimatch under eslint, glob,
+  nodemon, typescript-estree); also body-parser, form-data, multer, qs.
+  No source changes; build verified. Remaining `npm audit` items need major
+  upgrades (next 14→16, postcss, @apollo/server 4→5, swiper, eslint-config-next)
+  and are deliberately left for a separate, tested upgrade.
+
 - **2026-07-07** — **Preloader exit + experience scroll reveal.** (a) The
   preloader "jumped off" instead of fading: `preLoaderAnim` display:none'd the
   overlay on a fixed 4.6s timer measured from navigation start, but the CSS
