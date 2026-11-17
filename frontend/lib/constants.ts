@@ -546,7 +546,7 @@ const testimonialData: Testimonial[] = [
 
 // Playable 3D version of this portfolio. Exported so the top-of-page game
 // banner links to the same URL as the project card (one place to change it).
-export const GAME_PORTFOLIO_URL = "https://naztank.netlify.app/";
+export const GAME_PORTFOLIO_URL = "https://play.najrul.com/";
 
 const portfolio: PortfolioItem[] = [
    {
