@@ -260,6 +260,9 @@ Newest first. One line per change set: date — what & why.
   Dennis Rodin's LinkedIn recommendation as the first entry of
   `testimonialData`. Its avatar (`public/assets/clients/client24.png`) is a
   temporary low-res crop from a screenshot and should be swapped for a proper photo.
+  About cards updated: Clients 30+, Projects 70+, and Experience is now computed
+  as `currentYear - 2022` (first role, Vector Design, Jan 2022) in `About.tsx`,
+  so it increments every January with no manual edit.
 
 - **2026-08-22** — **Dependabot alert fixes (lockfile only).** `npm audit fix`
   bumped transitive deps flagged by GitHub: `nanoid` 3.3.12→3.3.18 (via
