@@ -254,6 +254,13 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-17** — **Monudesk role ended + Dennis Rodin testimonial.** Monudesk
+  dates changed from "PRESENT" to "June 2025 - November 2026" in
+  `lib/constants.ts` (home Experience) and `lib/resume.ts` (/resume). Added
+  Dennis Rodin's LinkedIn recommendation as the first entry of
+  `testimonialData`. Its avatar (`public/assets/clients/client24.png`) is a
+  temporary low-res crop from a screenshot and should be swapped for a proper photo.
+
 - **2026-08-22** — **Dependabot alert fixes (lockfile only).** `npm audit fix`
   bumped transitive deps flagged by GitHub: `nanoid` 3.3.12→3.3.18 (via
   postcss), `js-yaml` 4.1.1→4.3.1 (via eslint), `brace-expansion`

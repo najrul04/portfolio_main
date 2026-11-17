@@ -62,7 +62,7 @@ export const resume = {
          company: 'Monudesk',
          logo: '/assets/company/monudesk.png',
          location: 'Germany',
-         dates: 'June 2025 - Present',
+         dates: 'June 2025 - November 2026',
          stack: ['TypeScript', 'NextJS', 'ReactJS', 'GraphQL', 'NodeJS', 'ExpressJS', 'Figma', 'GitHub'],
          bullets: [
             'Developed and shipped **3 production projects** (RememberTag, Lovepath, and Monudesk) built with Next.js, GraphQL, PostgreSQL, and Express.js, contributing across the full stack in a team of 4 developers.',
