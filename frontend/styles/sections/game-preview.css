@@ -1,10 +1,10 @@
 /* Hero "game screen" card (GamePreview.tsx). Absolutely placed inside <header>
-   in the empty space right of the centered intro, so it never shifts the
+   in the empty space left of the centered intro, so it never shifts the
    existing hero layout. */
 .game_preview {
   position: absolute;
   top: 50%;
-  right: 6%;
+  left: 6%;
   z-index: 3;
   width: 19rem;
   transform: translateY(-50%);
@@ -21,7 +21,7 @@
   border: 2px solid rgba(var(--color-accent-rgb), 0.5);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-accent);
-  transform: perspective(900px) rotateY(-10deg);
+  transform: perspective(900px) rotateY(10deg);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 

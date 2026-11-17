@@ -270,7 +270,7 @@ Newest first. One line per change set: date — what & why.
   `public/assets/projects/naztank-1.jpg`) and offered in the hero by a "game
   screen" card, `components/sections/GamePreview.tsx` +
   `styles/sections/game-preview.css` (screenshot + play button + "Click to play
-  Nazrul's portfolio, just for fun"; right of the intro on desktop, a compact
+  Nazrul's portfolio, just for fun"; left of the intro on desktop, a compact
   strip under the CTA buttons on tablet/phone). An earlier top-of-page pill
   banner was tried and removed. Both read `GAME_PORTFOLIO_URL` from
   `lib/constants.ts`. The hero background was deliberately NOT replaced with the
