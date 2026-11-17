@@ -266,7 +266,7 @@ Newest first. One line per change set: date — what & why.
   Testimonials: `Testimonial` gained optional `link` and `date`. The LinkedIn
   badge is now a link (per-item `link`, else the profile's recommendations page
   built from `resume.contacts.linkedin`); `date` renders after the title.
-  NazTank game: added as the first portfolio card (id 11,
+  NazTank game: added as the second portfolio card, after MonuDesk (id 11,
   `public/assets/projects/naztank-1.jpg`) and offered in a new home-only
   floating pill, `components/layout/GameBanner.tsx` + `styles/sections/game-banner.css`
   ("Play NazTank" / "Stay professional" / close; dismissal kept in

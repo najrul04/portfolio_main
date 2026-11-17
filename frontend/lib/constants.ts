@@ -550,15 +550,6 @@ export const GAME_PORTFOLIO_URL = "https://naztank.netlify.app/";
 
 const portfolio: PortfolioItem[] = [
    {
-      id: 11,
-      images: ["/assets/projects/naztank-1.jpg"],
-      title: "NazTank: Portfolio Game",
-      description:
-         "My portfolio as a 3D game. Drive a tank around a small world, shoot the wall to begin, and explore projects, experience and contact as places on the map. Built for fun, playable right in the browser.",
-      demo: GAME_PORTFOLIO_URL,
-      tag: "#ThreeJS #CannonJS #Vite #GameDev",
-   },
-   {
       id: 9,
       images: [
          "/assets/projects/monudesk-1.webp",
@@ -572,6 +563,15 @@ const portfolio: PortfolioItem[] = [
       tag: "#NextJS #NodeJS #ExpressJS #GraphQL #PostgreSQL",
       companyName: "Monudesk",
       companyLogo: "/assets/company/monudesk.png",
+   },
+   {
+      id: 11,
+      images: ["/assets/projects/naztank-1.jpg"],
+      title: "NazTank: Portfolio Game",
+      description:
+         "My portfolio as a 3D game. Drive a tank around a small world, shoot the wall to begin, and explore projects, experience and contact as places on the map. Built for fun, playable right in the browser.",
+      demo: GAME_PORTFOLIO_URL,
+      tag: "#ThreeJS #CannonJS #Vite #GameDev",
    },
    {
       id: 10,
