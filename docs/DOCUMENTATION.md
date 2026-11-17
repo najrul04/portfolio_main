@@ -267,11 +267,14 @@ Newest first. One line per change set: date — what & why.
   badge is now a link (per-item `link`, else the profile's recommendations page
   built from `resume.contacts.linkedin`); `date` renders after the title.
   NazTank game: added as the second portfolio card, after MonuDesk (id 11,
-  `public/assets/projects/naztank-1.jpg`) and offered in a new home-only
-  floating pill, `components/layout/GameBanner.tsx` + `styles/sections/game-banner.css`
-  ("Play NazTank" / "Stay professional" / close; dismissal kept in
-  sessionStorage; moves to the bottom on phones). Both read `GAME_PORTFOLIO_URL`
-  from `lib/constants.ts`.
+  `public/assets/projects/naztank-1.jpg`) and offered in the hero by a "game
+  screen" card, `components/sections/GamePreview.tsx` +
+  `styles/sections/game-preview.css` (screenshot + play button + "Click to play
+  Nazrul's portfolio, just for fun"; right of the intro on desktop, a compact
+  strip under the CTA buttons on tablet/phone). An earlier top-of-page pill
+  banner was tried and removed. Both read `GAME_PORTFOLIO_URL` from
+  `lib/constants.ts`. The hero background was deliberately NOT replaced with the
+  game scene (contrast, professional first impression, and WebGL cost).
 
 - **2026-08-22** — **Dependabot alert fixes (lockfile only).** `npm audit fix`
   bumped transitive deps flagged by GitHub: `nanoid` 3.3.12→3.3.18 (via

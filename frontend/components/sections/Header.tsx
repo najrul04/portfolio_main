@@ -9,6 +9,7 @@ import type { Engine, Container } from 'tsparticles-engine';
 
 import CTA from './CTA';
 import HeaderSocials from './HeaderSocials';
+import GamePreview from './GamePreview';
 // WHY import from constants: keep the tech-logo list in the single shared data
 // source (lib/constants) instead of a second inlined copy that can drift.
 import { logos } from '@/lib/constants';
@@ -174,6 +175,8 @@ const Header = () => {
 
                <HeaderSocials />
             </div>
+
+            <GamePreview />
          </header>
       </>
    );
