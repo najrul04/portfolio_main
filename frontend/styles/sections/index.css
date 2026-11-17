@@ -16,6 +16,7 @@
 
 /* Home sections */
 @import './header.css';
+@import './game-preview.css';
 @import './about.css';
 @import './experience.css';
 @import './skills.css';

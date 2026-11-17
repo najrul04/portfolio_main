@@ -4,7 +4,11 @@ import { useEffect, useRef, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { testimonialData } from '@/lib/constants';
+import { resume } from '@/lib/resume';
 // Where they have given me the reviews
+
+// WHY: reuse the single LinkedIn URL from resume.ts so a profile change is one edit.
+const linkedInRecommendations = `${resume.contacts.linkedin}/details/recommendations/`;
 
 const linkedInLogo = '/assets/LinkedIn.webp';
 const upworkLogo = '/assets/UpWork.webp';
@@ -121,14 +125,25 @@ const Testimonials = () => {
                <div className="quote_footer">
                   <span className="quote_client">
                      {activeItem.name} &middot; {activeItem.title}
+                     {activeItem.date && (
+                        <>
+                           {' '}&middot; <time className="quote_date">{activeItem.date}</time>
+                        </>
+                     )}
                   </span>
 
                   <div className={`testimonial_source ${activeItem.source.toLowerCase()}_source`}>
                      {activeItem.source === 'LinkedIn' && (
-                        <div className="logo_and_text">
+                        <a
+                           className="logo_and_text"
+                           href={activeItem.link ?? linkedInRecommendations}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="View this recommendation on LinkedIn"
+                        >
                            <img src={linkedInLogo} alt="LinkedIn" className="testimonial_logo" />
                            <h4 className="testimonial_source_text">LinkedIn</h4>
-                        </div>
+                        </a>
                      )}
 
                      {activeItem.source === 'UpWork' && (

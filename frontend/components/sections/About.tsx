@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { FiAward, FiUsers } from 'react-icons/fi';
@@ -8,8 +8,19 @@ import { ImFolderPlus } from 'react-icons/im';
 
 const Me = '/assets/me.webp';
 
+// First professional role (Vector Design US, January 2022). Years of experience
+// are derived from this so the "X+ Years" badge ticks up every January on its own.
+const CAREER_START_YEAR = 2022;
+const getYearsWorking = (): number => new Date().getFullYear() - CAREER_START_YEAR;
+
 const About = () => {
+   // WHY state + effect: the page is statically prerendered, so the server HTML
+   // carries the build-time year. Recomputing after mount keeps the number correct
+   // even if no redeploy happens after New Year, without a hydration mismatch.
+   const [yearsWorking, setYearsWorking] = useState<number>(getYearsWorking);
+
    useEffect(() => {
+      setYearsWorking(getYearsWorking());
       AOS.init({
          duration: 1200,
       });
@@ -34,7 +45,7 @@ const About = () => {
 
                      <h5>Experience</h5>
 
-                     <small>2+ Years Working</small>
+                     <small>{yearsWorking}+ Years Working</small>
                   </article>
 
                   <article className="about_card">
@@ -42,7 +53,7 @@ const About = () => {
 
                      <h5>Clients</h5>
 
-                     <small>5+ Worldwide</small>
+                     <small>30+ Worldwide</small>
                   </article>
 
                   <article className="about_card">
@@ -50,7 +61,7 @@ const About = () => {
 
                      <h5>Projects</h5>
 
-                     <small>15+ Completed</small>
+                     <small>70+ Completed</small>
                   </article>
                </div>
 

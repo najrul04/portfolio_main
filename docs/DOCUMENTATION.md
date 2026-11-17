@@ -254,6 +254,28 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-17** — **Monudesk role ended + Dennis Rodin testimonial.** Monudesk
+  dates changed from "PRESENT" to "June 2025 - November 2026" in
+  `lib/constants.ts` (home Experience) and `lib/resume.ts` (/resume). Added
+  Dennis Rodin's LinkedIn recommendation as the first entry of
+  `testimonialData`. Its avatar (`public/assets/clients/client24.png`) is a
+  temporary low-res crop from a screenshot and should be swapped for a proper photo.
+  About cards updated: Clients 30+, Projects 70+, and Experience is now computed
+  as `currentYear - 2022` (first role, Vector Design, Jan 2022) in `About.tsx`,
+  so it increments every January with no manual edit.
+  Testimonials: `Testimonial` gained optional `link` and `date`. The LinkedIn
+  badge is now a link (per-item `link`, else the profile's recommendations page
+  built from `resume.contacts.linkedin`); `date` renders after the title.
+  NazTank game: added as the second portfolio card, after MonuDesk (id 11,
+  `public/assets/projects/naztank-1.jpg`) and offered in the hero by a "game
+  screen" card, `components/sections/GamePreview.tsx` +
+  `styles/sections/game-preview.css` (screenshot + play button + "Click to play
+  Nazrul's portfolio, just for fun"; left of the intro on desktop, a compact
+  strip under the CTA buttons on tablet/phone). An earlier top-of-page pill
+  banner was tried and removed. Both read `GAME_PORTFOLIO_URL` from
+  `lib/constants.ts`. The hero background was deliberately NOT replaced with the
+  game scene (contrast, professional first impression, and WebGL cost).
+
 - **2026-08-22** — **Dependabot alert fixes (lockfile only).** `npm audit fix`
   bumped transitive deps flagged by GitHub: `nanoid` 3.3.12→3.3.18 (via
   postcss), `js-yaml` 4.1.1→4.3.1 (via eslint), `brace-expansion`

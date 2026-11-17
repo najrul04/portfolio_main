@@ -35,6 +35,11 @@ export interface Testimonial {
    review: string;
    title: string;
    source: string;
+   // Where the source badge links to. LinkedIn reviews without one fall back to
+   // my profile's recommendations page (see Testimonials.tsx).
+   link?: string;
+   // Date the review was given, shown as written (e.g. "November 17, 2026").
+   date?: string;
 }
 
 export interface PortfolioItem {
@@ -83,7 +88,7 @@ const experiences: Experience[] = [
       flag: "/assets/flags/de.png",
       icon: "/assets/company/monudesk.png",
       iconBg: "#E6DEDD",
-      date: "June 2025 - PRESENT",
+      date: "June 2025 - November 2026",
       points: [
          "Developed and shipped 3 production projects (RememberTag, Lovepath, and Monudesk) built with Next.js, GraphQL, PostgreSQL, and Express.js, contributing across the full stack in a team of 4 developers.",
          "Proposed and led a UI/UX overhaul shortly after joining that helped push revenue roughly 40% above target for the quarter.",
@@ -382,6 +387,25 @@ const skills: SkillCategory[] = [
 
 const testimonialData: Testimonial[] = [
    {
+      index: 24,
+      avatar: "/assets/clients/client24.png",
+      name: "Dennis Rodin",
+      review: `I worked with Najrul for about a year and a half at MonuDesk, where he reported directly to me as one of our core developers.
+
+      He owned some of the most used parts of our product: the order overview our customers work in every day, the customer portal, the partner portal for funeral homes and cemeteries, and our sketch tool for monument designs. Customers relied on his work daily, and it showed in the quality.
+
+      What stood out most was his ownership. He did not wait for perfect specs. He asked the right questions, filled the gaps himself and shipped clean, pixel-perfect work. As our team got smaller he moved easily between frontend and backend, and he was always the one helping others get unblocked.
+
+      Najrul is also one of the most loyal and flexible people I have worked with. When we needed a few small things done on a weekend, he was there. If he did not finish a ticket during the week, he made up for it on the weekend. And he brings the smiles into our team. He is reliable, honest and genuinely great to work with.
+
+      His role ended only because we had to downsize, not because of his work. Any team would be lucky to have him, and I recommend him without hesitation.`,
+      title: "Founder, MonuDesk, Germany",
+
+      source: "LinkedIn",
+      link: "https://www.linkedin.com/in/najrul1704/details/recommendations/",
+      date: "November 17, 2026",
+   },
+   {
       index: 1,
       avatar: "/assets/clients/client1.webp",
       name: "Jacob Knotek",
@@ -520,6 +544,10 @@ const testimonialData: Testimonial[] = [
    },
 ];
 
+// Playable 3D version of this portfolio. Exported so the top-of-page game
+// banner links to the same URL as the project card (one place to change it).
+export const GAME_PORTFOLIO_URL = "https://naztank.netlify.app/";
+
 const portfolio: PortfolioItem[] = [
    {
       id: 9,
@@ -535,6 +563,15 @@ const portfolio: PortfolioItem[] = [
       tag: "#NextJS #NodeJS #ExpressJS #GraphQL #PostgreSQL",
       companyName: "Monudesk",
       companyLogo: "/assets/company/monudesk.png",
+   },
+   {
+      id: 11,
+      images: ["/assets/projects/naztank-1.jpg"],
+      title: "NazTank: Portfolio Game",
+      description:
+         "My portfolio as a 3D game. Drive a tank around a small world, shoot the wall to begin, and explore projects, experience and contact as places on the map. Built for fun, playable right in the browser.",
+      demo: GAME_PORTFOLIO_URL,
+      tag: "#ThreeJS #CannonJS #Vite #GameDev",
    },
    {
       id: 10,
