@@ -13,6 +13,7 @@
 @import './preloader.css';
 @import './animation.css';
 @import './loader-spinner.css';
+@import './game-banner.css';
 
 /* Home sections */
 @import './header.css';

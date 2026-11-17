@@ -544,7 +544,20 @@ const testimonialData: Testimonial[] = [
    },
 ];
 
+// Playable 3D version of this portfolio. Exported so the top-of-page game
+// banner links to the same URL as the project card (one place to change it).
+export const GAME_PORTFOLIO_URL = "https://naztank.netlify.app/";
+
 const portfolio: PortfolioItem[] = [
+   {
+      id: 11,
+      images: ["/assets/projects/naztank-1.jpg"],
+      title: "NazTank: Portfolio Game",
+      description:
+         "My portfolio as a 3D game. Drive a tank around a small world, shoot the wall to begin, and explore projects, experience and contact as places on the map. Built for fun, playable right in the browser.",
+      demo: GAME_PORTFOLIO_URL,
+      tag: "#ThreeJS #CannonJS #Vite #GameDev",
+   },
    {
       id: 9,
       images: [
