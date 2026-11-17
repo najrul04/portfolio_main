@@ -168,6 +168,20 @@
   align-items: center;
 }
 
+/* LinkedIn badge is a real link now: keep the badge look, signal it on hover */
+a.logo_and_text {
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+a.logo_and_text:hover {
+  opacity: 0.75;
+}
+
+.quote_date {
+  color: var(--color-text-muted);
+}
+
 .testimonial_source_text {
   font-size: var(--text-sm);
 }

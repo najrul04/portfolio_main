@@ -35,6 +35,11 @@ export interface Testimonial {
    review: string;
    title: string;
    source: string;
+   // Where the source badge links to. LinkedIn reviews without one fall back to
+   // my profile's recommendations page (see Testimonials.tsx).
+   link?: string;
+   // Date the review was given, shown as written (e.g. "November 17, 2026").
+   date?: string;
 }
 
 export interface PortfolioItem {
@@ -397,6 +402,8 @@ const testimonialData: Testimonial[] = [
       title: "Founder, MonuDesk, Germany",
 
       source: "LinkedIn",
+      link: "https://www.linkedin.com/in/najrul1704/details/recommendations/",
+      date: "November 17, 2026",
    },
    {
       index: 1,

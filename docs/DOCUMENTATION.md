@@ -263,6 +263,9 @@ Newest first. One line per change set: date — what & why.
   About cards updated: Clients 30+, Projects 70+, and Experience is now computed
   as `currentYear - 2022` (first role, Vector Design, Jan 2022) in `About.tsx`,
   so it increments every January with no manual edit.
+  Testimonials: `Testimonial` gained optional `link` and `date`. The LinkedIn
+  badge is now a link (per-item `link`, else the profile's recommendations page
+  built from `resume.contacts.linkedin`); `date` renders after the title.
 
 - **2026-08-22** — **Dependabot alert fixes (lockfile only).** `npm audit fix`
   bumped transitive deps flagged by GitHub: `nanoid` 3.3.12→3.3.18 (via
