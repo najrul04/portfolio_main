@@ -67,8 +67,8 @@ const About = () => {
 
                <p>
                   An experienced Full Stack Developer with a strong foundation
-                  in JavaScript, TypeScript, ReactJS, NextJS, NodeJS, ExpressJS
-                  and TailwindCSS. Possesses excellent adaptability and can work
+                  in JavaScript, TypeScript, ReactJS, NextJS, NodeJS, ExpressJS,
+                  TailwindCSS, Python and Django. Possesses excellent adaptability and can work
                   efficiently in both team and independent work environments,
                   with a strong drive to master legacy technologies and explore
                   new systems.
