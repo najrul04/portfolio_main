@@ -1,4 +1,4 @@
-// Content for the /resume page, mirroring public/Resume.pdf.
+// Content for the /resume page, mirroring public/MD-Najrul-Islam-Sumon-Resume.pdf.
 // **double asterisks** inside strings mark the phrases the UI highlights
 // (rendered as accent-colored <mark>s by app/resume/page.tsx).
 // When the PDF is updated, update this file to match.
@@ -63,13 +63,14 @@ export const resume = {
          logo: '/assets/company/arrivanza.jpg',
          location: 'Finland',
          dates: 'Dec 2026 - Present',
-         stack: ['TypeScript', 'NextJS', 'ReactJS', 'TailwindCSS', 'Vitest', 'Playwright', 'Figma'],
+         stack: ['TypeScript', 'NextJS', 'ReactJS', 'TailwindCSS', 'Python', 'Django', 'Vitest', 'Playwright', 'Figma'],
          bullets: [
             '**Own the frontend** of Arrivanza, a hospitality platform for bookings, guest self check-in and SES Hospedajes reporting, turning a dated, inconsistent interface into a **clean, modern product**.',
             'Redesigned the **Next.js, React, TypeScript and Tailwind CSS** app end to end, giving every page clean typography, consistent spacing and a polished, modern feel.',
             'Migrated **170+ files off Semantic UI** onto a single Tailwind component library, removing the legacy packages and leaving one consistent design system with a lighter bundle.',
             'Hunted down and fixed **hundreds of UI bugs** across bookings, travellers, properties, admin and reports, from broken layouts and misaligned forms to inconsistent modals and tables.',
             'Made the **mobile guest check-in flow** fast and smooth on every screen size, with better accessibility, focus states and contrast, and every string translated across 12 languages.',
+            'Built backend features in **Python and Django**, designing REST APIs and data models for bookings, guests and SES reporting and wiring them into the new frontend.',
             'Set design and product priorities **together with the CEO**, then shipped them in small, fully tested PRs (Vitest, React Testing Library, Playwright) with **zero regressions** in booking, check-in and SES flows.',
          ],
       },

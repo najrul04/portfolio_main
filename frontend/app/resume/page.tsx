@@ -19,7 +19,7 @@ const highlight = (text: string) =>
       ),
    );
 
-// Native, styled resume (mirrors public/Resume.pdf — content in lib/resume.ts).
+// Native, styled resume (mirrors public/MD-Najrul-Islam-Sumon-Resume.pdf — content in lib/resume.ts).
 // WHY native HTML instead of the old <object> PDF embed: it matches the site's
 // design, highlights the key metrics, and works on phones where PDF embeds
 // don't. The toolbar's Download button still serves the real PDF.
@@ -32,7 +32,7 @@ const ResumePage = () => {
             </Link>
             <h1 className="resume_title">Resume &middot; MD Najrul Islam Sumon</h1>
             <a
-               href="/Resume.pdf"
+               href="/MD-Najrul-Islam-Sumon-Resume.pdf"
                download="MD-Najrul-Islam-Sumon-Resume.pdf"
                className="btn btn-primary resume_download"
             >

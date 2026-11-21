@@ -95,6 +95,7 @@ const experiences: Experience[] = [
          "Migrated 170+ files off Semantic UI onto a single Tailwind component library, removing the legacy packages and leaving one consistent design system with a lighter bundle.",
          "Hunted down and fixed hundreds of UI bugs across bookings, travellers, properties, admin and reports, from broken layouts and misaligned forms to inconsistent modals and tables.",
          "Made the mobile guest check-in flow fast and smooth on every screen size, with better accessibility, focus states and contrast, and every string translated across 12 languages.",
+         "Built backend features in Python and Django, designing REST APIs and data models for bookings, guests and SES reporting and wiring them into the new frontend.",
          "Set design and product priorities together with the CEO, then shipped them in small, fully tested PRs (Vitest, React Testing Library, Playwright) with zero regressions in booking, check-in or SES flows.",
       ],
    },
