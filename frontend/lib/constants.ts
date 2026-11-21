@@ -83,6 +83,23 @@ export interface PersonalLink {
 const experiences: Experience[] = [
    {
       title: "Full Stack Developer",
+      company_name: "Arrivanza",
+      company_location: "Finland",
+      flag: "/assets/flags/fi.png",
+      icon: "/assets/company/arrivanza.jpg",
+      iconBg: "#E6DEDD",
+      date: "December 2026 - PRESENT",
+      points: [
+         "Own the frontend of Arrivanza, a hospitality platform for bookings, guest self check-in and SES Hospedajes reporting, turning a dated, inconsistent interface into a clean, modern product.",
+         "Redesigned the Next.js, React, TypeScript and Tailwind CSS app end to end, giving every page clean typography, consistent spacing and a polished, modern feel.",
+         "Migrated 170+ files off Semantic UI onto a single Tailwind component library, removing the legacy packages and leaving one consistent design system with a lighter bundle.",
+         "Hunted down and fixed hundreds of UI bugs across bookings, travellers, properties, admin and reports, from broken layouts and misaligned forms to inconsistent modals and tables.",
+         "Made the mobile guest check-in flow fast and smooth on every screen size, with better accessibility, focus states and contrast, and every string translated across 12 languages.",
+         "Set design and product priorities together with the CEO, then shipped them in small, fully tested PRs (Vitest, React Testing Library, Playwright) with zero regressions in booking, check-in or SES flows.",
+      ],
+   },
+   {
+      title: "Full Stack Developer",
       company_name: "Monudesk",
       company_location: "Germany",
       flag: "/assets/flags/de.png",
@@ -298,6 +315,12 @@ const skills: SkillCategory[] = [
             name: "Python",
             image:
                "https://qph.cf2.quoracdn.net/main-qimg-28cadbd02699c25a88e5c78d73c7babc",
+         },
+         {
+            id: 108,
+            name: "Django",
+            image:
+               "https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-plain.svg",
          },
          {
             id: 107,
