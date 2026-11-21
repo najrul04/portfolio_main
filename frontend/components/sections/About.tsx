@@ -6,7 +6,7 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { FiAward, FiUsers } from 'react-icons/fi';
 import { ImFolderPlus } from 'react-icons/im';
 
-const Me = '/assets/me.webp';
+const Me = '/assets/me.jpg';
 
 // First professional role (Vector Design US, January 2022). Years of experience
 // are derived from this so the "X+ Years" badge ticks up every January on its own.
