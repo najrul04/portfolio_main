@@ -2,6 +2,14 @@
   box-shadow: none;
 }
 
+/* The library pads the timeline 2em top and bottom. The bottom 2em only
+   stretched the center line past the last card and added extra gap before
+   Skills; the global section margin handles that gap. The doubled class
+   beats the library stylesheet, which loads after this file. */
+.vertical-timeline.vertical-timeline {
+  padding-bottom: 0;
+}
+
 /* Scroll entrance: each CARD BODY slides in from the side of the center line
    it sits on (the library alternates: odd elements left, even elements right
    on the two-column desktop layout; on the single-column mobile layout the

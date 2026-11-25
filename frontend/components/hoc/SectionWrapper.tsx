@@ -22,9 +22,14 @@ const SectionWrapper = <P extends object>(
             initial='hidden'
             whileInView='show'
             viewport={{ once: true, amount: 0.25 }}
-            className='sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0'
+            // WHY no vertical padding: the global `section { margin-top }` is the
+            // one gap between homepage sections. The old sm:py-16 stacked 64px on
+            // top of it, so Experience had a much bigger gap above and below
+            // than every other section.
+            className='sm:px-16 px-6 max-w-7xl mx-auto relative z-0'
          >
-            <span className='hash-span' id={idName}>
+            {/* Anchor only: zero-height so its &nbsp; line adds no spacing. */}
+            <span className='hash-span block h-0 overflow-hidden' id={idName}>
                &nbsp;
             </span>
 
