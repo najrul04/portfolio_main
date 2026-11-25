@@ -78,6 +78,13 @@ footer a {
 
 /* ==================== Media Queries (Small Devices) ======================= */
 
+/* match the global section gap at this breakpoint (globals.css) */
+@media screen and (max-width: 1024px) {
+  footer {
+    margin-top: 4.5rem;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .permalinks {
     flex-direction: column;

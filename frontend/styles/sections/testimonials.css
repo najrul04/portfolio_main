@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-16);
-  padding-bottom: var(--space-8);
+  /* no padding-bottom: the global section margin is the only gap to Contact */
 }
 
 /* ── Left rail: vertical, scrollable stack of reviewers on an arc ── */
