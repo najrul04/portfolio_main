@@ -254,6 +254,11 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **Removed Hospital and ECommerce (Demo) projects.** Both
+  old Programming Hero practice projects (ids 5 and 6) were deleted from the
+  portfolio list in `lib/constants.ts`, along with their screenshots
+  (`public/assets/projects/hospital.webp`, `ecommerce.webp`).
+
 - **2026-11-28** — **Skills updated for job search.** Homepage Skills
   (`lib/constants.ts`): added React Native (Frontend); NestJS, GraphQL,
   PostgreSQL, Prisma, C# / .NET (Backend); Docker (Others); new 4th group
