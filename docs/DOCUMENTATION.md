@@ -254,6 +254,15 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **NetPulse project added, Temperature removed.** New
+  third portfolio card (id 12): NetPulse, a Windows 11 taskbar system
+  monitor built for MohonaLabs. Screenshot cropped to the app window
+  (`public/assets/projects/netpulse-1.webp`). No GitHub or download
+  links, because the repo and releases are private. `PortfolioItem` gained
+  optional `role` and `highlights`, which `PortfolioModal.tsx` renders as a
+  "Role:" line and a "How I built it" list (styles in `portfolio.css`).
+  The Temperature project (id 7, last card) and its screenshot were deleted.
+
 - **2026-11-28** — **New profile photo everywhere.** One source selfie now
   supplies every personal photo on the site. About section: `public/assets/me.webp`
   (900x1200 portrait crop, replaces `me.jpg`). Resume header and blog post
