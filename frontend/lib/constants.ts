@@ -799,34 +799,6 @@ const portfolio: PortfolioItem[] = [
       companyName: "Programming Hero",
       companyLogo: "/assets/company/phero.webp",
    },
-
-   {
-      id: 5,
-      images: ["/assets/projects/hospital.webp"],
-      gif: "https://i.ibb.co/LQb7TvW/hospital.gif",
-      title: "Hospital",
-      description:
-         "A hospital website where patients learn about services, meet the doctors, and book appointments online.",
-      github: "https://github.com/najrul04/healthcare-website",
-      demo: "https://gen-hospital.netlify.app/",
-      tag: "#ReactJS #Firebase #MongoDB",
-      companyName: "Programming Hero",
-      companyLogo: "/assets/company/phero.webp",
-   },
-   {
-      id: 6,
-      images: ["/assets/projects/ecommerce.webp"],
-      gif: "https://i.ibb.co/LJ8S7dm/Ecommerce.gif",
-      title: "ECommerce (Demo)",
-      description:
-         "A demo online shop with product pages, a shopping cart and secure sign-in. A complete buying flow from browsing to checkout.",
-      github:
-         "https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router",
-      demo: "https://ecommerce-79009.firebaseapp.com/",
-      tag: "#ReactJS #ReactRouter #Firebase",
-      companyName: "Programming Hero",
-      companyLogo: "/assets/company/phero.webp",
-   },
 ];
 
 const logos: Logo[] = [
