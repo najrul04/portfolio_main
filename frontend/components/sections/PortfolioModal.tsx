@@ -182,6 +182,23 @@ const PortfolioModal = ({ item, onClose }: PortfolioModalProps) => {
                <h3>{item.title}</h3>
                {item.description && <p className="portfolio_item_desc">{item.description}</p>}
 
+               {item.role && (
+                  <p className="portfolio_item_role">
+                     <strong>Role:</strong> {item.role}
+                  </p>
+               )}
+
+               {item.highlights && item.highlights.length > 0 && (
+                  <div className="portfolio_item_highlights">
+                     <h4>How I built it</h4>
+                     <ul>
+                        {item.highlights.map((h) => (
+                           <li key={h}>{h}</li>
+                        ))}
+                     </ul>
+                  </div>
+               )}
+
                {(item.github || item.demo) && (
                   <div className="portfolio_item_cta">
                      {item.github && (
