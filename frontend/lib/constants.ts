@@ -63,6 +63,7 @@ export interface PortfolioItem {
    highlights?: string[];
    github?: string;
    demo?: string;
+   download?: string; // installer/release page for desktop apps ("Download" button)
    tag: string;
    // Company the project was built at/for — shown as a small badge pinned
    // top-left on the card cover. Omit for personal/practice projects.
@@ -674,8 +675,8 @@ const portfolio: PortfolioItem[] = [
    {
       id: 13,
       images: [
+         "/assets/projects/pauseright-focus.webp",
          "/assets/projects/pauseright-dark.webp",
-         "/assets/projects/pauseright-light.webp",
       ],
       title: "PauseRight",
       // Only claims MARKETING.md marks as shipped; "built, unrun" features
@@ -697,9 +698,10 @@ const portfolio: PortfolioItem[] = [
    },
    {
       id: 12,
-      images: ["/assets/projects/netpulse-1.webp"],
+      images: ["/assets/projects/netpulse-2.webp", "/assets/projects/netpulse-1.webp"],
       title: "Netpulse",
-      // No github/demo links: the repo and releases are private.
+      // Release page is public (installer download); no code repo link.
+      download: "https://github.com/najrul04/Netpulse/releases/tag/v1.1.0",
       description:
          "A small live system monitor that sits on the Windows 11 taskbar and shows internet speed, CPU, RAM and GPU at a glance. I built it under Mohona Labs, my independent software studio, in C# and WPF on .NET 10. It talks directly to Win32 to dock onto the taskbar and uses LibreHardwareMonitor for sensor data. I also set up the full release pipeline: separate staging and production channels, an Inno Setup installer, and GitHub Actions builds that publish versioned releases. The app is built to be private, with no network calls and no telemetry.",
       role: "Founder. Design, development, packaging and release.",
