@@ -1,4 +1,4 @@
-/* Skills: "MY SKILLS" tree with 3D tilt cards (components/sections/Skills.tsx
+/* Skills: "TECHNOLOGIES" tree with 3D tilt cards (components/sections/Skills.tsx
    and SkillCard.tsx). Desktop: root node, a trunk down the centre, groups
    alternating left/right with a connector into the trunk. Under 768px the
    tree collapses to a single column without connectors. */

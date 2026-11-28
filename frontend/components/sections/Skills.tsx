@@ -7,7 +7,7 @@ import 'aos/dist/aos.css';
 import { skills, type SkillCategory } from '@/lib/constants';
 import SkillCard from '@/components/sections/SkillCard';
 
-// "MY SKILLS" tree: a root node with a trunk running down the middle and one
+// "TECHNOLOGIES" tree: a root node with a trunk running down the middle and one
 // branch per skill group (left/right alternating on desktop). Each group is a
 // grid of 3D tilt cards (logo + name). Data comes from lib/constants.ts.
 const Skills = () => {
@@ -23,7 +23,7 @@ const Skills = () => {
          </div>
 
          <div className='skills_tree'>
-            <div className='skills_root'>MY SKILLS</div>
+            <div className='skills_root'>TECHNOLOGIES</div>
 
             <div className='skills_branches'>
                {skills.map((group: SkillCategory) => (
