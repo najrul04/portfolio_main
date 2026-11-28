@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import {
@@ -113,12 +113,22 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
    );
 };
 
+// How many roles show before the "See more" button. The list is newest
+// first, so the most relevant roles are always visible.
+const VISIBLE_COUNT = 4;
+
 const Experience = () => {
+   const [expanded, setExpanded] = useState(false);
+   const hiddenCount = Math.max(0, experiences.length - VISIBLE_COUNT);
+   const shown = expanded ? experiences : experiences.slice(0, VISIBLE_COUNT);
+
    useEffect(() => {
       AOS.init({
          duration: 1200,
       });
+   }, []);
 
+   useEffect(() => {
       // Scroll reveal for the timeline cards (odd slide in from the left,
       // even from the right — see experience.css). The library's own reveal
       // is unusable here (see the animate={false} comment below), so a plain
@@ -139,10 +149,25 @@ const Experience = () => {
          // the viewport bottom so the slide reads as "arriving"
          { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
       );
-      cards.forEach((card) => observer.observe(card));
+      // Already-revealed cards are skipped, so only the newly shown ones
+      // (after "See more") get observed and slide in.
+      cards.forEach((card) => {
+         if (!card.classList.contains('timeline-card-visible')) observer.observe(card);
+      });
 
       return () => observer.disconnect();
-   }, []);
+      // WHY expanded in deps: "See more" mounts new cards that start hidden
+      // (opacity 0 in experience.css) until the observer reveals them.
+   }, [expanded]);
+
+   const toggle = () => {
+      if (expanded) {
+         // Collapsing removes a lot of height; bring the reader back to the
+         // section so they aren't left staring at whatever was below it.
+         document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+      }
+      setExpanded((v) => !v);
+   };
 
    return (
       <>
@@ -167,13 +192,24 @@ const Experience = () => {
                 .timeline-card-visible and experience.css slides each card in
                 from its own side of the timeline. */}
             <VerticalTimeline animate={false}>
-               {experiences.map((experience, index) => (
+               {shown.map((experience, index) => (
                   <ExperienceCard
                      key={`experience-${index}`}
                      experience={experience}
                   />
                ))}
             </VerticalTimeline>
+
+            {hiddenCount > 0 && (
+               <button
+                  type='button'
+                  className='btn experience_more_btn'
+                  onClick={toggle}
+                  aria-expanded={expanded}
+               >
+                  {expanded ? 'Show less' : `See ${hiddenCount} more roles`}
+               </button>
+            )}
          </div>
       </>
    );

@@ -254,6 +254,14 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **Experience shows 4 roles, then "See more".** The
+  timeline was getting long. `Experience.tsx` now renders the first
+  `VISIBLE_COUNT` (4) roles and a "See N more roles" / "Show less" button
+  (`.experience_more_btn` in `experience.css`). The scroll-reveal observer
+  re-runs when the list expands, because new cards start at opacity 0 until
+  it reveals them. "Show less" scrolls back to the section heading.
+  Verified in headless Edge: 4 cards, 9 after click, all revealed, 4 after collapse.
+
 - **2026-11-28** — **Removed Hospital and ECommerce (Demo) projects.** Both
   old Programming Hero practice projects (ids 5 and 6) were deleted from the
   portfolio list in `lib/constants.ts`, along with their screenshots
