@@ -254,6 +254,15 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **Project modal: browse projects without closing.** `PortfolioModal` takes
+  optional `onPrev` / `onNext` (+ titles) and renders `.portfolio_project_nav` arrows on the
+  backdrop beside the modal (bottom corners under 1060px). `Portfolio.tsx` wires them in
+  carousel order with wrap-around and calls `swiper.slideTo` so the carousel follows. The modal
+  stays mounted and resets its gallery/scroll on item change. Image arrows moved off the
+  picture into one row with the dots (`.portfolio_gallery_controls`). The two arrow kinds look
+  different on purpose: project arrows are `FiArrowLeft/Right` in purple glowing circles, image
+  arrows are borderless `FiChevronLeft/Right`.
+
 - **2026-11-28** — **PauseRight: new cover screenshot.** Added
   `public/assets/projects/pauseright-focus.webp` (green Pomodoro focus screen, 1600px) as the
   first image, the previous dark (ocean) shot second; the light shot is no longer shown. Netpulse likewise gets `netpulse-2.webp`
