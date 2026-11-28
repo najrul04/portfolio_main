@@ -9,6 +9,7 @@ interface Match {
    stack?: string[]; // exact entries in a role's `stack`
    text?: string[]; // phrases found in a role's bullets
    allRoles?: boolean; // used in every role (HTML, CSS)
+   companies?: string[]; // roles where it was used but isn't in the resume text
 }
 
 // Keys are the skill names in lib/constants.ts `skills`.
@@ -29,7 +30,9 @@ const SKILL_MATCH: Record<string, Match> = {
    'C# / .NET': { stack: ['C#', '.NET'] },
    MongoDB: { text: ['MongoDB'] },
    Firebase: { text: ['Firebase'] },
-   NoSQL: { text: ['MongoDB', 'Firebase'] },
+   NoSQL: { text: ['MongoDB', 'Firebase'], companies: ['Monudesk'] },
+   Redux: { companies: ['Monudesk'] },
+   Prisma: { companies: ['Monudesk'] },
    Python: { stack: ['Python'] },
    Django: { stack: ['Django'] },
    PHP: { stack: ['PHP'] },
@@ -86,6 +89,7 @@ export const getSkillExperience = (skillName: string, now = new Date()): SkillEx
 
    const roles = resume.experience.filter((role) => {
       if (match.allRoles) return true;
+      if (match.companies?.includes(role.company)) return true;
       if (match.stack?.some((s) => role.stack.includes(s))) return true;
       const text = role.bullets.join(' ').toLowerCase();
       return match.text?.some((t) => text.includes(t.toLowerCase())) ?? false;

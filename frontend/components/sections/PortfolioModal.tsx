@@ -189,14 +189,16 @@ const PortfolioModal = ({ item, onClose }: PortfolioModalProps) => {
                )}
 
                {item.highlights && item.highlights.length > 0 && (
-                  <div className="portfolio_item_highlights">
-                     <h4>How I built it</h4>
+                  // Collapsed by default: the full list made the modal long and
+                  // heavy. Native <details> gives keyboard + screen reader support.
+                  <details className="portfolio_item_highlights">
+                     <summary>How I built it</summary>
                      <ul>
                         {item.highlights.map((h) => (
                            <li key={h}>{h}</li>
                         ))}
                      </ul>
-                  </div>
+                  </details>
                )}
 
                {(item.github || item.demo) && (
