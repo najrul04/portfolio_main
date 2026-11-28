@@ -65,7 +65,7 @@
   transition: var(--transition);
 }
 
-.portfolio_card:hover {
+.portfolio_card:hover .portfolio_item_image {
   border-color: var(--color-primary);
 }
 
@@ -583,4 +583,27 @@
   .portfolio_gallery_slide {
     height: min(52vh, 420px);
   }
+}
+
+/* Project card tilt (PortfolioCard + useTilt: 4deg, scale 1.02) and glow. */
+.tilt_card {
+  position: relative;
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.tilt_card.is-tilting {
+  transition: transform 0.12s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio_card {
+  display: block;
+  padding: 0;
+  border: none;
+  perspective: 1200px;
+}
+
+.portfolio_card:hover .tilt_card {
+  box-shadow: 0 24px 50px -24px rgba(183, 107, 245, 0.6);
 }

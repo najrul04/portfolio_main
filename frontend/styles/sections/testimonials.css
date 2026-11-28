@@ -95,6 +95,15 @@
 .testimonial_quote {
   flex: 1;
   min-width: 0;
+  /* card frame so the hover glare/glow (useTilt, no tilt) has a surface */
+  position: relative;
+  padding: 2rem 2.25rem;
+  background: #030618;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  will-change: transform;
   animation: quote_fade 450ms ease;
 }
 
@@ -239,4 +248,17 @@ a.logo_and_text:hover {
   .quote_text {
     font-size: var(--text-base);
   }
+}
+
+.testimonials_layout {
+  perspective: 1400px;
+}
+
+.testimonial_quote.is-tilting {
+  transition: transform 0.12s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial_quote:hover {
+  border-color: rgba(183, 107, 245, 0.5);
+  box-shadow: 0 22px 48px -22px rgba(183, 107, 245, 0.5);
 }
