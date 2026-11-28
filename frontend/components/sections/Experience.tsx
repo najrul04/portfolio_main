@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import {
@@ -116,11 +116,51 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
 // How many roles show before the "See more" button. The list is newest
 // first, so the most relevant roles are always visible.
 const VISIBLE_COUNT = 4;
+const HEIGHT_MS = 700;
 
 const Experience = () => {
    const [expanded, setExpanded] = useState(false);
    const hiddenCount = Math.max(0, experiences.length - VISIBLE_COUNT);
    const shown = expanded ? experiences : experiences.slice(0, VISIBLE_COUNT);
+   // Height animation for "See more" / "Show less". The timeline's height is
+   // pinned in px and transitioned, then released back to auto, so the list
+   // slides open (and shut) instead of snapping.
+   const wrapRef = useRef<HTMLDivElement>(null);
+   const fromHeight = useRef<number | null>(null);
+   const collapsedHeight = useRef(0);
+   const animating = useRef(false);
+
+   const reducedMotion = () =>
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+   const animateHeight = (from: number, to: number, done?: () => void) => {
+      const el = wrapRef.current;
+      if (!el) return done?.();
+      animating.current = true;
+      el.style.overflow = 'hidden';
+      el.style.height = `${from}px`;
+      void el.offsetHeight; // commit the start height before transitioning
+      el.style.transition = `height ${HEIGHT_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`;
+      el.style.height = `${to}px`;
+      window.setTimeout(() => {
+         done?.();
+         el.style.transition = '';
+         el.style.height = '';
+         el.style.overflow = '';
+         animating.current = false;
+      }, HEIGHT_MS);
+   };
+
+   useLayoutEffect(() => {
+      const el = wrapRef.current;
+      if (!el) return;
+      if (!expanded) collapsedHeight.current = el.offsetHeight;
+      if (expanded && fromHeight.current !== null) {
+         const from = fromHeight.current;
+         fromHeight.current = null;
+         animateHeight(from, el.offsetHeight);
+      }
+   }, [expanded]);
 
    useEffect(() => {
       AOS.init({
@@ -161,12 +201,21 @@ const Experience = () => {
    }, [expanded]);
 
    const toggle = () => {
-      if (expanded) {
-         // Collapsing removes a lot of height; bring the reader back to the
-         // section so they aren't left staring at whatever was below it.
-         document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+      if (animating.current) return;
+      const el = wrapRef.current;
+      if (!expanded) {
+         if (el && !reducedMotion()) fromHeight.current = el.offsetHeight;
+         setExpanded(true);
+         return;
       }
-      setExpanded((v) => !v);
+      // Collapsing removes a lot of height; bring the reader back to the
+      // section so they aren't left staring at whatever was below it.
+      document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+      if (!el || reducedMotion()) {
+         setExpanded(false);
+         return;
+      }
+      animateHeight(el.offsetHeight, collapsedHeight.current, () => setExpanded(false));
    };
 
    return (
@@ -191,17 +240,19 @@ const Experience = () => {
                 ours instead: the IntersectionObserver above adds
                 .timeline-card-visible and experience.css slides each card in
                 from its own side of the timeline. */}
-            <VerticalTimeline
-               animate={false}
-               className={expanded ? 'experience-expanded' : undefined}
-            >
-               {shown.map((experience, index) => (
-                  <ExperienceCard
-                     key={`experience-${index}`}
-                     experience={experience}
-                  />
-               ))}
-            </VerticalTimeline>
+            <div ref={wrapRef} style={{ display: 'flow-root' }}>
+               <VerticalTimeline
+                  animate={false}
+                  className={expanded ? 'experience-expanded' : undefined}
+               >
+                  {shown.map((experience, index) => (
+                     <ExperienceCard
+                        key={`experience-${index}`}
+                        experience={experience}
+                     />
+                  ))}
+               </VerticalTimeline>
+            </div>
 
             {hiddenCount > 0 && (
                <button
