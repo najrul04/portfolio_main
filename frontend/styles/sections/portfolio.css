@@ -461,6 +461,61 @@
   border-color: var(--color-primary);
 }
 
+/* Previous/next PROJECT arrows, outside the modal on the backdrop. The modal
+   is min(860px, 100%) wide and centred, so on wide screens they sit just
+   beyond its edges; on narrower screens they drop to the bottom corners. */
+.portfolio_project_nav {
+  position: fixed;
+  top: 50%;
+  z-index: 1001;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  border-radius: 50%;
+  color: var(--color-white);
+  background: rgba(120, 60, 180, 0.35);
+  border: 1px solid rgba(183, 107, 245, 0.6);
+  box-shadow: 0 0 18px rgba(183, 107, 245, 0.25);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: var(--transition);
+}
+
+.portfolio_project_nav.prev {
+  left: calc(50% - 430px - 5rem);
+}
+
+.portfolio_project_nav.next {
+  right: calc(50% - 430px - 5rem);
+}
+
+.portfolio_project_nav:hover {
+  border-color: var(--color-primary);
+  background: rgba(150, 80, 220, 0.6);
+  box-shadow: 0 0 26px rgba(183, 107, 245, 0.45);
+}
+
+@media screen and (max-width: 1060px) {
+  .portfolio_project_nav {
+    top: auto;
+    bottom: 1.2rem;
+    transform: none;
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .portfolio_project_nav.prev {
+    left: 1.2rem;
+  }
+
+  .portfolio_project_nav.next {
+    right: 1.2rem;
+  }
+}
+
 .portfolio_modal_content {
   display: flex;
   flex-direction: column;
@@ -502,7 +557,7 @@
   height: min(58vh, 520px);
   /* Breathing room so tall shots (Netpulse window) don't sit flush against
      the modal's top edge, and the dots don't overlap the image bottom. */
-  padding: 1.75rem 1rem 2.25rem;
+  padding: 1.75rem 1rem 3.1rem;
   box-sizing: border-box;
   background: rgba(0, 0, 0, 0.45);
 }
@@ -521,31 +576,35 @@
   opacity: 1;
 }
 
-.portfolio_gallery_nav {
+/* Image arrows + dots: one row centred under the picture (in the slide's
+   bottom padding), so nothing covers the screenshot. */
+.portfolio_gallery_controls {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 0.55rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
-  width: 2.4rem;
-  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Picture arrows: borderless chevrons, deliberately lighter than the circled
+   project arrows (.portfolio_project_nav) so the two never look alike. */
+.portfolio_gallery_nav {
+  width: 1.8rem;
+  height: 1.8rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-  border-radius: 50%;
-  color: var(--color-white);
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 1.15rem;
+  padding: 0;
+  border-radius: 0.4rem;
+  color: rgba(255, 255, 255, 0.75);
+  background: transparent;
+  border: none;
   cursor: pointer;
   transition: var(--transition);
-}
-
-.portfolio_gallery_nav.prev {
-  left: 0.9rem;
-}
-
-.portfolio_gallery_nav.next {
-  right: 0.9rem;
 }
 
 .portfolio_gallery_nav:hover:not(:disabled) {
@@ -574,11 +633,6 @@
 }
 
 .portfolio_gallery_dots {
-  position: absolute;
-  bottom: 0.8rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
   display: flex;
   gap: 0.45rem;
 }
