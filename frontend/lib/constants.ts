@@ -57,6 +57,10 @@ export interface PortfolioItem {
    title: string;
    // Shown only inside the detail modal (cards stay image + title).
    description?: string;
+   // Optional detail-modal extras: my role on the project, and a
+   // "How I built it" list of engineering highlights.
+   role?: string;
+   highlights?: string[];
    github?: string;
    demo?: string;
    tag: string;
@@ -598,6 +602,25 @@ const portfolio: PortfolioItem[] = [
       tag: "#ThreeJS #CannonJS #Vite #GameDev",
    },
    {
+      id: 12,
+      images: ["/assets/projects/netpulse-1.webp"],
+      title: "NetPulse",
+      // No github/demo links: the repo and releases are private.
+      description:
+         "A small live system monitor for MohonaLabs that sits on the Windows 11 taskbar and shows internet speed, CPU, RAM and GPU at a glance. I designed and built it in C# and WPF on .NET 10. It talks directly to Win32 to dock onto the taskbar and uses LibreHardwareMonitor for sensor data. I also set up the full release pipeline: separate staging and production channels, an Inno Setup installer, and GitHub Actions builds that publish versioned releases. The app is built to be private, with no network calls and no telemetry.",
+      role: "Design, development, packaging and release. Built for MohonaLabs.",
+      highlights: [
+         "Taskbar docking: the bar positions itself on the Windows 11 taskbar through the Win32 AppBar and window APIs, follows the taskbar's light or dark colour, and hides when a fullscreen app is in front.",
+         "Low-cost sampling: one sampler reads network byte counters and hardware sensors once per second, and only polls the hardware that is switched on.",
+         "Missing sensors handled: without admin rights or a driver, the app keeps running and shows \"n/a\" instead of wrong values.",
+         "Two release channels from one codebase: staging and production builds install side by side, with their own exe names, icons, settings and startup entries.",
+         "Release pipeline: one version number feeds the build script, the installer and CI, and CI refuses a release tag that does not match it.",
+         "Polished details: per-monitor DPI awareness, a single running copy, recovery from a broken settings file, and a size-capped error log.",
+      ],
+      tag: "#CSharp #DotNet10 #WPF #Win32 #GitHubActions #InnoSetup",
+      companyName: "MohonaLabs",
+   },
+   {
       id: 10,
       images: [
          "/assets/projects/remembertag-1.webp",
@@ -706,20 +729,6 @@ const portfolio: PortfolioItem[] = [
          "https://github.com/najrul04/firebase_recap/tree/main/ECommerce-with-router",
       demo: "https://ecommerce-79009.firebaseapp.com/",
       tag: "#ReactJS #ReactRouter #Firebase",
-      companyName: "Programming Hero",
-      companyLogo: "/assets/company/phero.webp",
-   },
-
-   {
-      id: 7,
-      images: ["/assets/projects/temperature.webp"],
-      gif: "https://i.ibb.co/HBC0QLM/Temp.gif",
-      title: "Temperature",
-      description:
-         "A simple weather app. Type any city and instantly see its current temperature.",
-      github: "https://github.com/najrul04/temperature",
-      demo: "https://temperature123.netlify.app/",
-      tag: "#HTML #CSS #JavaScript",
       companyName: "Programming Hero",
       companyLogo: "/assets/company/phero.webp",
    },
