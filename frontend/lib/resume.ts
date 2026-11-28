@@ -23,7 +23,7 @@ export interface ResumeEducation {
 export const resume = {
    name: 'MD Najrul Islam Sumon',
    role: 'Full Stack Developer',
-   photo: '/assets/najrul-official.webp',
+   photo: '/assets/najrul-avatar.webp',
    location: 'Dhaka, Bangladesh',
    contacts: {
       phone: '+880 1845393505',

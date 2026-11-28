@@ -254,6 +254,14 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **New profile photo everywhere.** One source selfie now
+  supplies every personal photo on the site. About section: `public/assets/me.webp`
+  (900x1200 portrait crop, replaces `me.jpg`). Resume header and blog post
+  footer: `public/assets/najrul-avatar.webp` (512px square face crop for the
+  circular frames, replaces `najrul-official.webp`). Paths updated in
+  `About.tsx`, `lib/resume.ts` and `components/blog/PostFooter.tsx`, and the
+  old images were deleted.
+
 - **2026-11-17** — **Monudesk role ended + Dennis Rodin testimonial.** Monudesk
   dates changed from "PRESENT" to "June 2025 - November 2026" in
   `lib/constants.ts` (home Experience) and `lib/resume.ts` (/resume). Added
