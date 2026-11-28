@@ -254,6 +254,16 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **Skills updated for job search.** Homepage Skills
+  (`lib/constants.ts`): added React Native (Frontend); NestJS, GraphQL,
+  PostgreSQL, Prisma, C# / .NET (Backend); Docker (Others); new 4th group
+  "AI & Testing" with Claude, Claude Code, GitHub Copilot, Vitest, Playwright.
+  Removed Canva, Camtasia and Filmora (they read as non-dev). New logos are
+  local SVGs in `public/assets/tech_logos/` (devicon 2.16.0 and simple-icons
+  15.0.0; Claude, Copilot and Prisma recoloured for the dark background).
+  `/resume` skills: Claude and Claude Code bolded in AI Tooling, new Testing
+  group, plus Prisma, C# / .NET, GitHub Actions and Docker.
+
 - **2026-11-28** — **Mohona Labs: Experience entry + PauseRight project.**
   Mohona Labs is my own studio (not a registered company), spelled with a
   space to match mohonalabs.com; Netpulse likewise uses the studio site's

@@ -299,6 +299,11 @@ const skills: SkillCategory[] = [
             image:
                "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg",
          },
+         {
+            id: 12,
+            name: "React Native",
+            image: "/assets/tech_logos/react-native.svg",
+         },
       ],
    },
    {
@@ -314,6 +319,31 @@ const skills: SkillCategory[] = [
             id: 102,
             name: "Express Js",
             image: "https://i.ibb.co/3dssqRk/express-js.png",
+         },
+         {
+            id: 109,
+            name: "NestJS",
+            image: "/assets/tech_logos/nestjs.svg",
+         },
+         {
+            id: 110,
+            name: "GraphQL",
+            image: "/assets/tech_logos/graphql.svg",
+         },
+         {
+            id: 111,
+            name: "PostgreSQL",
+            image: "/assets/tech_logos/postgresql.svg",
+         },
+         {
+            id: 112,
+            name: "Prisma",
+            image: "/assets/tech_logos/prisma.svg",
+         },
+         {
+            id: 113,
+            name: "C# / .NET",
+            image: "/assets/tech_logos/csharp.svg",
          },
 
          {
@@ -402,19 +432,9 @@ const skills: SkillCategory[] = [
                "https://i.pinimg.com/originals/63/a7/b1/63a7b1894b3210d07e434e9d12170586.png",
          },
          {
-            id: 209,
-            name: "Canva",
-            image: "https://www.vectorlogo.zone/logos/canva/canva-icon.svg",
-         },
-         {
-            id: 210,
-            name: "Camtasia",
-            image: "https://i.ibb.co/rxWnyvh/camtasia.jpg",
-         },
-         {
-            id: 211,
-            name: "Filmora",
-            image: "https://i.ibb.co/WK1mZ6s/filmora.png",
+            id: 214,
+            name: "Docker",
+            image: "/assets/tech_logos/docker.svg",
          },
          {
             id: 212,
@@ -426,6 +446,38 @@ const skills: SkillCategory[] = [
             id: 213,
             name: "Go High Level",
             image: "https://i.ibb.co.com/tXv59Sf/unnamed.jpg",
+         },
+      ],
+   },
+   {
+      // Recruiters search for these: AI-assisted development + automated testing.
+      id: 996,
+      title: "AI & Testing",
+      skills: [
+         {
+            id: 301,
+            name: "Claude",
+            image: "/assets/tech_logos/claude.svg",
+         },
+         {
+            id: 302,
+            name: "Claude Code",
+            image: "/assets/tech_logos/claude.svg",
+         },
+         {
+            id: 303,
+            name: "GitHub Copilot",
+            image: "/assets/tech_logos/copilot.svg",
+         },
+         {
+            id: 305,
+            name: "Vitest",
+            image: "/assets/tech_logos/vitest.svg",
+         },
+         {
+            id: 306,
+            name: "Playwright",
+            image: "/assets/tech_logos/playwright.svg",
          },
       ],
    },
