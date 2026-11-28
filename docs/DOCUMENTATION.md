@@ -254,6 +254,9 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **About photo re-cropped.** `public/assets/me.webp` is now a 900x900
+  square cut lower in the original (rows 300-1380) so the top of the hair is no
+  longer clipped in the square About frame.
 - **2026-11-28** — **Floating nav made seamless.** `Nav.tsx` now scrolls to sections
   itself: the highlight switches once to the clicked item and the scroll-spy waits
   until the scroll lands; if a section moves mid-scroll (animations, images) it
