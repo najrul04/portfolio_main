@@ -24,7 +24,7 @@
 @media (prefers-reduced-motion: no-preference) {
   .verticalTimeline .vertical-timeline-element-content {
     opacity: 0;
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s ease;
   }
 
   .verticalTimeline:nth-child(odd) .vertical-timeline-element-content {
@@ -128,4 +128,41 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Hover: the card tilts like glass (useTilt, 4deg) with a cursor glare and
+   glow, and its
+   logo on the centre line lifts with a purple halo. */
+.verticalTimeline .vertical-timeline-element-content:hover {
+  box-shadow: 0 3px 0 #ddd, 0 0 0 1px rgba(183, 107, 245, 0.45),
+    0 22px 48px -22px rgba(183, 107, 245, 0.55);
+}
+
+.verticalTimeline .vertical-timeline-element-icon {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.verticalTimeline:has(.vertical-timeline-element-content:hover) .vertical-timeline-element-icon {
+  transform: scale(1.12);
+  box-shadow: 0 0 0 4px #fff, 0 0 26px 4px rgba(183, 107, 245, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .verticalTimeline:has(.vertical-timeline-element-content:hover) .vertical-timeline-element-icon {
+    transform: none;
+  }
+}
+
+/* Tilt needs a perspective on the parent, and a fast transform transition
+   while hovered (the scroll-in rule above uses a slow 0.8s one). */
+.verticalTimeline.vertical-timeline-element {
+  perspective: 1400px;
+}
+
+.verticalTimeline .vertical-timeline-element-content.is-tilting {
+  transition: transform 0.12s ease-out, box-shadow 0.3s ease, opacity 0.8s ease-out;
+}
+
+.verticalTimeline .vertical-timeline-element-content > div > .tilt_glare {
+  border-radius: 0.25em;
 }

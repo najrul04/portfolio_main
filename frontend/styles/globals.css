@@ -184,3 +184,42 @@
       margin-bottom: 2rem;
    }
 }
+
+/* Cursor glare used by lib/useTilt.ts cards (projects, experience,
+   testimonials). The hook writes --glare-x/--glare-y on the hovered element
+   and adds .is-tilting; the glare is a direct child of that element and
+   positions against the nearest positioned ancestor (the card frame). */
+.tilt_glare {
+   position: absolute;
+   inset: 0;
+   z-index: 1;
+   border-radius: inherit;
+   pointer-events: none;
+   opacity: 0;
+   transition: opacity 0.35s ease;
+   /* glass: a soft spot under the cursor plus a faint diagonal sheen */
+   background:
+      radial-gradient(
+         circle at var(--glare-x, 50%) var(--glare-y, 50%),
+         rgba(255, 255, 255, 0.16),
+         rgba(183, 107, 245, 0.08) 30%,
+         transparent 55%
+      ),
+      linear-gradient(
+         115deg,
+         transparent calc(var(--glare-x, 50%) - 30%),
+         rgba(255, 255, 255, 0.05) var(--glare-x, 50%),
+         transparent calc(var(--glare-x, 50%) + 30%)
+      );
+}
+
+.is-tilting > .tilt_glare,
+.is-tilting > div > .tilt_glare {
+   opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .tilt_glare {
+      display: none;
+   }
+}

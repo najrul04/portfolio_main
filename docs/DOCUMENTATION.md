@@ -254,6 +254,15 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **Glass tilt across sections; Skills root renamed "TECHNOLOGIES".** New shared
+  hook `lib/useTilt.ts` (tilt toward cursor + glare position in CSS vars, rAF + refs; optional
+  `targetRef` to tilt a different element than the one holding the hover). Tilt per section:
+  Skills 12deg, projects 7deg (`PortfolioCard` in `Portfolio.tsx`; the button stays flat and the
+  inner `.portfolio_item_image` tilts, because inside the Swiper coverflow a tilting hit target
+  dips behind other 3D planes and loses hover in a loop), testimonials quote 5deg (now a framed
+  card), experience 4deg (handlers on an inner div, tilt applied to the library content box;
+  the timeline logo lifts with a purple halo via `:has()`). Glass glare = `.tilt_glare` in
+  `styles/globals.css`. Mouse only; touch and reduced motion get no tilt or glare.
 - **2026-11-28** — **Skills tree with 3D tilt cards, smooth See more, round Mohona Labs icon.**
   Skills (`components/sections/Skills.tsx` + new `SkillCard.tsx`, `styles/sections/skills.css`
   rewritten): "MY SKILLS" root, centre trunk, groups alternating left/right with

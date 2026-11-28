@@ -5,6 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { testimonialData } from '@/lib/constants';
 import { resume } from '@/lib/resume';
+import { useTilt } from '@/lib/useTilt';
 // Where they have given me the reviews
 
 // WHY: reuse the single LinkedIn URL from resume.ts so a profile change is one edit.
@@ -21,6 +22,8 @@ const VISIBLE_NEIGHBORS = 2;
 
 const Testimonials = () => {
    const [active, setActive] = useState(0);
+   // Glass tilt on the quote card: 5deg, gentle enough to read while hovering.
+   const quoteGlare = useTilt<HTMLDivElement>({ maxTilt: 5, scale: 1.01 });
    const [isMobile, setIsMobile] = useState(false);
    const railRef = useRef<HTMLDivElement | null>(null);
    const wheelLock = useRef(false);
@@ -118,7 +121,8 @@ const Testimonials = () => {
             </div>
 
             {/* key=active retriggers the fade-in whenever the person changes */}
-            <div className="testimonial_quote" key={active}>
+            <div className="testimonial_quote" key={active} ref={quoteGlare.ref} {...quoteGlare.handlers}>
+               <span className="tilt_glare" aria-hidden="true" />
                <span className="quote_mark" aria-hidden="true">&ldquo;</span>
                <p className="quote_text">{activeItem.review}</p>
 

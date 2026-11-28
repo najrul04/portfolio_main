@@ -17,6 +17,38 @@ import 'swiper/css/pagination';
 import { portfolio, PortfolioItem } from '@/lib/constants';
 import PortfolioMedia from './PortfolioMedia';
 import PortfolioModal from './PortfolioModal';
+import { useTilt } from '@/lib/useTilt';
+
+// Project card with a glass tilt (7deg) + glare. Kept small on purpose: the
+// coverflow carousel already moves the cards in 3D.
+const PortfolioCard = ({ item, onOpen }: { item: PortfolioItem; onOpen: () => void }) => {
+   const { ref, targetRef, handlers } = useTilt<HTMLButtonElement>({ maxTilt: 7, scale: 1.03 });
+   return (
+      <button
+         ref={ref}
+         {...handlers}
+         type='button'
+         className='portfolio_card'
+         onClick={onOpen}
+         aria-label={`Open ${item.title} details`}
+      >
+         <div ref={targetRef as React.RefObject<HTMLDivElement>} className='portfolio_item_image tilt_card'>
+            <PortfolioMedia
+               src={item.cover ?? item.images[0]}
+               title={item.title}
+               imageCount={item.images.length}
+               companyName={item.companyName}
+               companyLogo={item.companyLogo}
+            />
+            <div className='portfolio_item_content'>
+               <h3 style={{ textAlign: 'center' }}>{item.title}</h3>
+               <span className='portfolio_card_hint'>View project</span>
+            </div>
+            <span className='tilt_glare' aria-hidden='true' />
+         </div>
+      </button>
+   );
+};
 
 // Cards stay minimal (cover image + title); the description, extra
 // screenshots and links live in PortfolioModal, opened by clicking a card.
@@ -83,24 +115,7 @@ const Portfolio = () => {
                      }}
                      key={item.id}
                   >
-                     <button
-                        type='button'
-                        className='portfolio_item_image portfolio_card'
-                        onClick={() => setOpenItem(item)}
-                        aria-label={`Open ${item.title} details`}
-                     >
-                        <PortfolioMedia
-                           src={item.cover ?? item.images[0]}
-                           title={item.title}
-                           imageCount={item.images.length}
-                           companyName={item.companyName}
-                           companyLogo={item.companyLogo}
-                        />
-                        <div className='portfolio_item_content'>
-                           <h3 style={{ textAlign: 'center' }}>{item.title}</h3>
-                           <span className='portfolio_card_hint'>View project</span>
-                        </div>
-                     </button>
+                     <PortfolioCard item={item} onOpen={() => setOpenItem(item)} />
                   </SwiperSlide>
                );
             })}

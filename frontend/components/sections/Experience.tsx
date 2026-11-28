@@ -10,6 +10,7 @@ import {
 import 'react-vertical-timeline-component/style.min.css';
 
 import { experiences } from '@/lib/constants';
+import { useTilt } from '@/lib/useTilt';
 import SectionWrapper from '@/components/hoc/SectionWrapper';
 
 interface Experience {
@@ -24,6 +25,13 @@ interface Experience {
 }
 
 const ExperienceCard = ({ experience }: { experience: Experience }) => {
+   // Gentle glass tilt (4deg, long text stays readable) + glare. The handlers
+   // sit on our inner div; the tilt is applied to the library's content box
+   // (its parent), which owns the card frame.
+   const { ref: glareRef, targetRef, handlers } = useTilt<HTMLDivElement>({ maxTilt: 4, scale: 1.01 });
+   useEffect(() => {
+      targetRef.current = glareRef.current?.parentElement ?? null;
+   }, [glareRef, targetRef]);
    return (
       <VerticalTimelineElement
          className='verticalTimeline'
@@ -52,6 +60,8 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
             </div>
          }
       >
+         <div ref={glareRef} {...handlers}>
+         <span className='tilt_glare' aria-hidden='true' />
          <div>
             <h3 style={{ color: '#FFFFFF', fontSize: '24px', fontWeight: 600 }}>
                {experience.title}
@@ -109,6 +119,7 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
                </li>
             ))}
          </ul>
+         </div>
       </VerticalTimelineElement>
    );
 };
