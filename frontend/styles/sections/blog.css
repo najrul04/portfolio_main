@@ -854,3 +854,68 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Loading skeleton ─────────────────────────────────────
+   Placeholder cards shown while the posts query loads. They reuse .blog_card
+   (frame, padding, grid/list layout) and only draw shimmering blocks inside,
+   using the same shimmer as the cover-image loader. */
+.blog_skeleton,
+.blog_skeleton:hover {
+   border-color: rgba(255, 255, 255, 0.08);
+}
+
+.skeleton_block {
+   display: block;
+   border-radius: 0.4rem;
+   background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0.04) 40%,
+      rgba(183, 107, 245, 0.1) 50%,
+      rgba(255, 255, 255, 0.04) 60%
+   );
+   background-size: 200% 100%;
+   animation: cover-shimmer 1.4s ease-in-out infinite;
+}
+
+.skeleton_cover {
+   width: 100%;
+   height: 9rem;
+   margin-bottom: 0.9rem;
+}
+
+.blog_list--grid .skeleton_cover {
+   height: 10rem;
+}
+
+.skeleton_title {
+   width: 70%;
+   height: 1.15rem;
+   margin-bottom: 0.7rem;
+}
+
+.skeleton_line {
+   width: 100%;
+   height: 0.8rem;
+   margin-bottom: 0.45rem;
+}
+
+.skeleton_line--short {
+   width: 55%;
+}
+
+.skeleton_date {
+   width: 6.5rem;
+   height: 0.75rem;
+}
+
+.skeleton_tag {
+   width: 3.6rem;
+   height: 1.3rem;
+   border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .skeleton_block {
+      animation: none;
+   }
+}

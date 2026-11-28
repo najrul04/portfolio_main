@@ -206,7 +206,34 @@ const Blog = () => {
                )}
             </div>
 
-            {loading && <p className="text-light blog_status">Loading posts…</p>}
+            {/* Skeleton cards shaped like the real ones (same .blog_list and
+                .blog_card classes, so grid/list layout and spacing match) while
+                the posts query is in flight. */}
+            {loading && (
+               <ul
+                  className={`blog_list ${viewMode === 'grid' ? 'blog_list--grid' : ''}`}
+                  aria-busy="true"
+                  aria-label="Loading posts"
+               >
+                  {Array.from({ length: viewMode === 'grid' ? 6 : 4 }, (_, i) => (
+                     <li key={i} className="blog_card blog_skeleton" aria-hidden="true">
+                        <div className="blog_card_body">
+                           <span className="skeleton_block skeleton_cover" />
+                           <span className="skeleton_block skeleton_title" />
+                           <span className="skeleton_block skeleton_line" />
+                           <span className="skeleton_block skeleton_line skeleton_line--short" />
+                           <div className="blog_card_meta">
+                              <span className="skeleton_block skeleton_date" />
+                              <div className="blog_tags">
+                                 <span className="skeleton_block skeleton_tag" />
+                                 <span className="skeleton_block skeleton_tag" />
+                              </div>
+                           </div>
+                        </div>
+                     </li>
+                  ))}
+               </ul>
+            )}
 
             {error && (
                <div className="blog_error">
