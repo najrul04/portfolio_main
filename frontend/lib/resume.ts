@@ -75,6 +75,20 @@ export const resume = {
          ],
       },
       {
+         title: 'Founder',
+         company: 'Mohona Labs',
+         logo: '/assets/company/mohonalabs.svg',
+         location: 'Bangladesh',
+         dates: 'Jul 2026 - Present',
+         stack: ['TypeScript', 'NextJS', 'NestJS', 'GraphQL', 'PostgreSQL', 'React Native', 'Tauri', 'C#', '.NET', 'WPF'],
+         bullets: [
+            'Started **Mohona Labs**, my own independent studio for designing, building and shipping small, privacy-minded software products.',
+            'Building **PauseRight**, a break timer shipping on **web, Android and Windows** from one TypeScript monorepo (Next.js, NestJS GraphQL, Postgres, Expo, Tauri).',
+            'Built **Netpulse**, a Windows 11 taskbar system monitor in **C#, WPF and .NET 10**, from first idea to installer.',
+            'Set up **release pipelines** for both products: staging and production channels, installers, and GitHub Actions builds.',
+         ],
+      },
+      {
          title: 'Full Stack Developer',
          company: 'Monudesk',
          logo: '/assets/company/monudesk.png',

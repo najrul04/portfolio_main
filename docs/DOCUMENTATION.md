@@ -254,6 +254,19 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **Mohona Labs: Experience entry + PauseRight project.**
+  Mohona Labs is my own studio (not a registered company), spelled with a
+  space to match mohonalabs.com; Netpulse likewise uses the studio site's
+  spelling. New Experience entry "Founder, Mohona Labs" (July 2026 - PRESENT,
+  Bangladesh) placed second, under Arrivanza, in both `lib/constants.ts` and
+  `lib/resume.ts`. New project card PauseRight (id 13, 3rd, links to
+  pauseright.netlify.app) with dark + light screenshots
+  (`public/assets/projects/pauseright-*.webp`), placed before Netpulse. Both
+  cards show the Mohona Labs badge (`public/assets/company/mohonalabs.svg`,
+  the Estuary mark). PauseRight copy only uses features its MARKETING.md marks
+  as shipped. Netpulse wording changed from "for MohonaLabs" to "under Mohona
+  Labs, my independent software studio", role now starts with "Founder".
+
 - **2026-11-28** — **NetPulse project added, Temperature removed.** New
   third portfolio card (id 12): NetPulse, a Windows 11 taskbar system
   monitor built for MohonaLabs. Screenshot cropped to the app window
