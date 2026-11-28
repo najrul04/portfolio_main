@@ -147,9 +147,30 @@ const Portfolio = () => {
             <AiOutlineRight />
          </button>
 
-         {openItem && (
-            <PortfolioModal item={openItem} onClose={() => setOpenItem(null)} />
-         )}
+         {openItem &&
+            (() => {
+               // Browse projects inside the modal, in carousel order (wraps
+               // around). The carousel follows along, so closing the modal
+               // lands on the project being viewed.
+               const i = portfolio.findIndex((p) => p.id === openItem.id);
+               const count = portfolio.length;
+               const prev = portfolio[(i - 1 + count) % count];
+               const next = portfolio[(i + 1) % count];
+               const go = (target: PortfolioItem) => {
+                  setOpenItem(target);
+                  swiper?.slideTo(portfolio.indexOf(target));
+               };
+               return (
+                  <PortfolioModal
+                     item={openItem}
+                     onClose={() => setOpenItem(null)}
+                     onPrev={count > 1 ? () => go(prev) : undefined}
+                     onNext={count > 1 ? () => go(next) : undefined}
+                     prevTitle={prev.title}
+                     nextTitle={next.title}
+                  />
+               );
+            })()}
       </section>
    );
 };

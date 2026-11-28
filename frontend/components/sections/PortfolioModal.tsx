@@ -1,13 +1,20 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { AiOutlineClose, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+import { AiOutlineClose } from 'react-icons/ai';
+import { FiArrowLeft, FiArrowRight, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 import { PortfolioItem } from '@/lib/constants';
 
 interface PortfolioModalProps {
    item: PortfolioItem;
    onClose: () => void;
+   // Project-to-project arrows outside the modal, so visitors can browse
+   // projects without closing it. Titles feed the buttons' labels.
+   onPrev?: () => void;
+   onNext?: () => void;
+   prevTitle?: string;
+   nextTitle?: string;
 }
 
 // One gallery slide with its own load/error state. Gifs are several MB, so
@@ -60,9 +67,25 @@ const GallerySlide = ({
 // works natively; the arrow buttons and dots just scroll the strip. The
 // current index is derived FROM scroll position (single source of truth) so
 // swipes and button clicks can't disagree.
-const PortfolioModal = ({ item, onClose }: PortfolioModalProps) => {
+const PortfolioModal = ({
+   item,
+   onClose,
+   onPrev,
+   onNext,
+   prevTitle,
+   nextTitle,
+}: PortfolioModalProps) => {
    const [index, setIndex] = useState(0);
    const trackRef = useRef<HTMLDivElement>(null);
+   const modalRef = useRef<HTMLDivElement>(null);
+
+   // Switching project keeps the modal mounted (no backdrop flash), so reset
+   // the gallery to the first image and scroll the modal back to the top.
+   useEffect(() => {
+      setIndex(0);
+      if (trackRef.current) trackRef.current.scrollLeft = 0;
+      if (modalRef.current) modalRef.current.scrollTop = 0;
+   }, [item]);
    // The animated walkthrough replaces the static gallery when present.
    const media = item.gif ? [item.gif] : item.images;
    const total = media.length;
@@ -109,7 +132,36 @@ const PortfolioModal = ({ item, onClose }: PortfolioModalProps) => {
          aria-modal="true"
          aria-label={`${item.title} details`}
       >
-         <div className="portfolio_modal" onClick={(e) => e.stopPropagation()}>
+         {onPrev && (
+            <button
+               type="button"
+               className="portfolio_project_nav prev"
+               onClick={(e) => {
+                  e.stopPropagation();
+                  onPrev();
+               }}
+               aria-label={`Previous project${prevTitle ? `: ${prevTitle}` : ''}`}
+               title={prevTitle}
+            >
+               <FiArrowLeft />
+            </button>
+         )}
+         {onNext && (
+            <button
+               type="button"
+               className="portfolio_project_nav next"
+               onClick={(e) => {
+                  e.stopPropagation();
+                  onNext();
+               }}
+               aria-label={`Next project${nextTitle ? `: ${nextTitle}` : ''}`}
+               title={nextTitle}
+            >
+               <FiArrowRight />
+            </button>
+         )}
+
+         <div className="portfolio_modal" ref={modalRef} onClick={(e) => e.stopPropagation()}>
             <button
                type="button"
                className="portfolio_modal_close"
@@ -142,37 +194,41 @@ const PortfolioModal = ({ item, onClose }: PortfolioModalProps) => {
 
                {total > 1 && (
                   <>
-                     <button
-                        type="button"
-                        className="portfolio_gallery_nav prev"
-                        onClick={() => scrollToSlide(-1, true)}
-                        disabled={index === 0}
-                        aria-label="Previous image"
-                     >
-                        <AiOutlineLeft />
-                     </button>
-                     <button
-                        type="button"
-                        className="portfolio_gallery_nav next"
-                        onClick={() => scrollToSlide(1, true)}
-                        disabled={index === total - 1}
-                        aria-label="Next image"
-                     >
-                        <AiOutlineRight />
-                     </button>
                      <span className="portfolio_gallery_counter">
                         {index + 1} / {total}
                      </span>
-                     <div className="portfolio_gallery_dots">
-                        {media.map((src, i) => (
-                           <button
-                              type="button"
-                              key={src}
-                              className={i === index ? 'is-active' : ''}
-                              onClick={() => scrollToSlide(i)}
-                              aria-label={`Go to image ${i + 1}`}
-                           />
-                        ))}
+                     {/* Image arrows sit beside the dots under the picture,
+                         so they never cover the screenshot. */}
+                     <div className="portfolio_gallery_controls">
+                        <button
+                           type="button"
+                           className="portfolio_gallery_nav"
+                           onClick={() => scrollToSlide(-1, true)}
+                           disabled={index === 0}
+                           aria-label="Previous image"
+                        >
+                           <FiChevronLeft />
+                        </button>
+                        <div className="portfolio_gallery_dots">
+                           {media.map((src, i) => (
+                              <button
+                                 type="button"
+                                 key={src}
+                                 className={i === index ? 'is-active' : ''}
+                                 onClick={() => scrollToSlide(i)}
+                                 aria-label={`Go to image ${i + 1}`}
+                              />
+                           ))}
+                        </div>
+                        <button
+                           type="button"
+                           className="portfolio_gallery_nav"
+                           onClick={() => scrollToSlide(1, true)}
+                           disabled={index === total - 1}
+                           aria-label="Next image"
+                        >
+                           <FiChevronRight />
+                        </button>
                      </div>
                   </>
                )}
