@@ -110,7 +110,7 @@ const experiences: Experience[] = [
       company_name: "Mohona Labs",
       company_location: "Bangladesh",
       flag: "/assets/flags/bd.png",
-      icon: "/assets/company/mohonalabs.svg",
+      icon: "/assets/company/mohonalabs.webp",
       iconBg: "#0B1220",
       date: "July 2026 - PRESENT",
       points: [
@@ -693,7 +693,7 @@ const portfolio: PortfolioItem[] = [
       demo: "https://pauseright.netlify.app/",
       tag: "#NextJS #NestJS #GraphQL #PostgreSQL #ReactNative #Tauri",
       companyName: "Mohona Labs",
-      companyLogo: "/assets/company/mohonalabs.svg",
+      companyLogo: "/assets/company/mohonalabs.webp",
    },
    {
       id: 12,
@@ -713,7 +713,7 @@ const portfolio: PortfolioItem[] = [
       ],
       tag: "#CSharp #DotNet10 #WPF #Win32 #GitHubActions #InnoSetup",
       companyName: "Mohona Labs",
-      companyLogo: "/assets/company/mohonalabs.svg",
+      companyLogo: "/assets/company/mohonalabs.webp",
    },
    {
       id: 10,

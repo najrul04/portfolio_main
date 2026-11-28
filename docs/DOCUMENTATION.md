@@ -254,6 +254,13 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **"See more" roles now animate in.** Expanding the Experience
+  timeline adds `.experience-expanded` to `<VerticalTimeline>`; `experience.css` fades
+  and lifts roles 5+ in (0.5s, 80ms stagger), skipped under prefers-reduced-motion.
+- **2026-11-28** — **Mohona Labs logo swapped to the official brand mark.** Replaced
+  `public/assets/company/mohonalabs.svg` with `mohonalabs.webp` (from the studio's
+  brand kit, d1a-logo-300.png). Updated references in `lib/constants.ts` (Experience
+  icon, PauseRight and Netpulse badges) and `lib/resume.ts`.
 - **2026-11-28** — **Experience shows 4 roles, then "See more".** The
   timeline was getting long. `Experience.tsx` now renders the first
   `VISIBLE_COUNT` (4) roles and a "See N more roles" / "Show less" button

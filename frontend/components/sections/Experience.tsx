@@ -191,7 +191,10 @@ const Experience = () => {
                 ours instead: the IntersectionObserver above adds
                 .timeline-card-visible and experience.css slides each card in
                 from its own side of the timeline. */}
-            <VerticalTimeline animate={false}>
+            <VerticalTimeline
+               animate={false}
+               className={expanded ? 'experience-expanded' : undefined}
+            >
                {shown.map((experience, index) => (
                   <ExperienceCard
                      key={`experience-${index}`}

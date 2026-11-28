@@ -81,7 +81,7 @@ export const resume = {
       {
          title: 'Founder',
          company: 'Mohona Labs',
-         logo: '/assets/company/mohonalabs.svg',
+         logo: '/assets/company/mohonalabs.webp',
          location: 'Bangladesh',
          dates: 'Jul 2026 - Present',
          stack: ['TypeScript', 'NextJS', 'NestJS', 'GraphQL', 'PostgreSQL', 'React Native', 'Tauri', 'C#', '.NET', 'WPF'],
