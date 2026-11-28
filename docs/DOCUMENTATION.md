@@ -254,6 +254,20 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **Skills tree with 3D tilt cards, smooth See more, round Mohona Labs icon.**
+  Skills (`components/sections/Skills.tsx` + new `SkillCard.tsx`, `styles/sections/skills.css`
+  rewritten): "MY SKILLS" root, centre trunk, groups alternating left/right with
+  connectors; each skill is a logo-over-name card that tilts toward the cursor (max
+  12deg, scale 1.05, rAF + refs, no React state per move) with a cursor glare. Touch
+  devices get a fade-in instead; reduced motion disables tilt and glare; cards are
+  focusable with a visible ring. Data still comes from `lib/constants.ts`; Material UI
+  and Django logos now local SVGs. Experience "See more" / "Show less" now animate the
+  timeline height (700ms) instead of snapping. `mohonalabs.webp` is now the tile cut
+  to a circle (from the 600px brand PNG) so no square corners show in round frames.
+  Skill cards show a hover/focus tooltip with time used and companies, derived from
+  `lib/resume.ts` roles (stack + bullets, overlapping roles counted once) by the new
+  `lib/skillExperience.ts`; skills with no matching role show no tooltip. Partial last
+  rows stay left-aligned.
 - **2026-11-28** — **Blog loading skeleton.** `app/blog/page.tsx` shows shimmering
   placeholder cards (6 in grid view, 4 in list view) instead of "Loading posts…".
   They reuse `.blog_list` / `.blog_card` so layout matches the real cards; styles
