@@ -254,6 +254,11 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **Blog loading skeleton.** `app/blog/page.tsx` shows shimmering
+  placeholder cards (6 in grid view, 4 in list view) instead of "Loading posts…".
+  They reuse `.blog_list` / `.blog_card` so layout matches the real cards; styles
+  are the `.skeleton_*` classes in `styles/sections/blog.css` (cover-shimmer, purple
+  tint, off under prefers-reduced-motion).
 - **2026-11-28** — **Favicon added (line monogram).** Purple gradient N inside a ring on a
   dark disc. Next.js metadata files: `app/icon.svg` (main), `app/favicon.ico`
   (16/32/48 fallback) and `app/apple-icon.png` (180px, square dark background).
