@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId } from 'react';
+import { useEffect, useId, useState } from 'react';
 import type { Skill } from '@/lib/constants';
 import { getSkillExperience } from '@/lib/skillExperience';
 import { useTilt } from '@/lib/useTilt';
@@ -8,7 +8,15 @@ import { useTilt } from '@/lib/useTilt';
 const SkillCard = ({ skill }: { skill: Skill }) => {
    const { ref: cardRef, handlers } = useTilt<HTMLLIElement>({ maxTilt: 12, scale: 1.05 });
    const tipId = useId();
-   const experience = getSkillExperience(skill.name);
+   // WHY state + effect: the page is statically prerendered, so the server HTML
+   // carries durations measured at build time. Recomputing after mount measures
+   // "Present" roles against the visitor's date, so "1+ year" becomes "2+ years"
+   // on its own without a redeploy.
+   const [experience, setExperience] = useState(() => getSkillExperience(skill.name));
+
+   useEffect(() => {
+      setExperience(getSkillExperience(skill.name));
+   }, [skill.name]);
 
    useEffect(() => {
       const card = cardRef.current;
@@ -40,10 +48,8 @@ const SkillCard = ({ skill }: { skill: Skill }) => {
          <span className='skill_card_name'>{skill.name}</span>
          <span className='skill_card_glare' aria-hidden='true' />
          {experience && (
-            // suppressHydrationWarning: "Present" roles are measured against
-            // today, so the build-time duration can differ from the visitor's.
             <span className='skill_card_tip' role='tooltip' id={tipId}>
-               <strong suppressHydrationWarning>{experience.duration}</strong>
+               <strong>{experience.duration}</strong>
                <span>{experience.companies.join(' · ')}</span>
             </span>
          )}

@@ -254,6 +254,13 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **Dates roll over without a redeploy.** The home page is statically
+  prerendered, so anything computed from `new Date()` during render froze at the build date.
+  Footer copyright year now renders through `components/sections/CurrentYear.tsx` and Skills
+  hover durations (`SkillCard.tsx`) are state recomputed after mount, the same pattern the About
+  "X+ Years Working" badge already used. Dropped the `suppressHydrationWarning` that hid the
+  stale tooltip text.
+
 - **2026-11-28** — **Glass tilt across sections; Skills root renamed "TECHNOLOGIES".** New shared
   hook `lib/useTilt.ts` (tilt toward cursor + glare position in CSS vars, rAF + refs; optional
   `targetRef` to tilt a different element than the one holding the hover). Tilt per section:

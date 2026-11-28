@@ -1,5 +1,6 @@
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { personal_links } from '@/lib/constants';
+import CurrentYear from '@/components/sections/CurrentYear';
 
 const Footer = () => {
    return (
@@ -65,7 +66,7 @@ const Footer = () => {
 
          <div className="footer_copyright">
             <small>
-               &copy; MD Najrul Islam Sumon. All rights reserved {new Date().getFullYear()}
+               &copy; MD Najrul Islam Sumon. All rights reserved <CurrentYear />
             </small>
 
             <div className="personal_links">
