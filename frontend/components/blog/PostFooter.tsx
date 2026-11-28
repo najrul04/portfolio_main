@@ -90,7 +90,7 @@ const PostFooter = ({ postId, title, slug, sourceUrl, tags }: PostFooterProps) =
       <div className="post_footer">
          <div className="post_footer_author">
             <img
-               src="/assets/najrul-official.webp"
+               src="/assets/najrul-avatar.webp"
                alt="MD Najrul Islam Sumon"
                className="post_footer_avatar"
             />
