@@ -254,6 +254,12 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **Floating nav made seamless.** `Nav.tsx` now scrolls to sections
+  itself: the highlight switches once to the clicked item and the scroll-spy waits
+  until the scroll lands; if a section moves mid-scroll (animations, images) it
+  corrects course, so Home no longer stops at About. The spy uses a line 35% down
+  the viewport (bottom of page = Contact) and getBoundingClientRect instead of
+  offsetTop. Wheel, touch or keys cancel the click scroll.
 - **2026-11-28** — **"See more" roles now animate in.** Expanding the Experience
   timeline adds `.experience-expanded` to `<VerticalTimeline>`; `experience.css` fades
   and lifts roles 5+ in (0.5s, 80ms stagger), skipped under prefers-reduced-motion.
