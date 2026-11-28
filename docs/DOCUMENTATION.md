@@ -254,6 +254,23 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **Project modal: "How I built it" collapsed by default.** `PortfolioModal.tsx`
+  now renders the highlights as a native `<details>`; the summary is a pill button with a
+  chevron (`portfolio.css`) and the list opens only on click. Applies to every project that has
+  highlights (Netpulse, PauseRight, ...).
+
+- **2026-11-28** — **Projects carousel side cards cleaned up.** Swiper `slideShadows` off: its
+  square black gradient overlay ignored the cards' rounded border and left hard dark boxes and
+  half-hidden border lines. Side cards now dim with a CSS filter on `.tilt_card` (brighten on
+  hover/when centred) and the card has a solid background. Coverflow softened from rotate 50 /
+  depth 100 to rotate 30 / depth 220 so side cards no longer swing off-screen. The Swiper box
+  gets 2rem / 3.5rem vertical padding (cancelled by negative margin) because its
+  `overflow: hidden` was cutting the hovered card's top border and glow into straight edges.
+
+- **2026-11-28** — **Skills hover: Redux, Prisma, NoSQL at Monudesk.** New `companies` option in
+  `SKILL_MATCH` (`lib/skillExperience.ts`) ties a skill to named roles without editing the resume
+  stack/bullets. Redux and Prisma now show a hover (Monudesk); NoSQL adds Monudesk.
+
 - **2026-11-28** — **Dates roll over without a redeploy.** The home page is statically
   prerendered, so anything computed from `new Date()` during render froze at the build date.
   Footer copyright year now renders through `components/sections/CurrentYear.tsx` and Skills

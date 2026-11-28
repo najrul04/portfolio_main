@@ -91,11 +91,16 @@ const Portfolio = () => {
             centeredSlides={true}
             slidesPerView={'auto'}
             coverflowEffect={{
-               rotate: 50,
+               // 50deg/100 swung the side cards' near edges off-screen; this
+               // keeps the 3D feel with the whole card visible.
+               rotate: 30,
                stretch: 0,
-               depth: 100,
+               depth: 220,
                modifier: 1,
-               slideShadows: true,
+               // Off: Swiper's shadow is a square black gradient over the whole
+               // slide that ignores the card's rounded border, leaving hard dark
+               // boxes and half-hidden border lines. Side cards dim in CSS instead.
+               slideShadows: false,
             }}
             modules={[EffectCoverflow, Pagination]}
             onSwiper={setSwiper}

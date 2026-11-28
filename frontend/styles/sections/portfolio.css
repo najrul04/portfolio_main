@@ -143,9 +143,51 @@
   text-align: left;
 }
 
-.portfolio_item_highlights h4 {
-  text-align: center;
-  margin-bottom: 0.6rem;
+/* "How I built it" toggle: a quiet pill with a chevron, closed by default. */
+.portfolio_item_highlights summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.85rem;
+  color: var(--color-white);
+  border: 1px solid var(--color-primary-variant);
+  border-radius: 2rem;
+  cursor: pointer;
+  list-style: none;
+  transition: var(--transition);
+}
+
+.portfolio_item_highlights summary::-webkit-details-marker {
+  display: none;
+}
+
+.portfolio_item_highlights summary::after {
+  content: '';
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+.portfolio_item_highlights[open] summary::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+.portfolio_item_highlights summary:hover,
+.portfolio_item_highlights summary:focus-visible {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.portfolio_item_highlights[open] ul {
+  margin-top: 1rem;
+  animation: portfolio-fade-in 250ms ease;
 }
 
 .portfolio_item_highlights ul {
@@ -606,4 +648,37 @@
 
 .portfolio_card:hover .tilt_card {
   box-shadow: 0 24px 50px -24px rgba(183, 107, 245, 0.6);
+}
+
+/* Side cards in the coverflow: dimmed as a whole (rounded frame included)
+   instead of Swiper's square slideShadows overlay. Brightens on hover and
+   when the card slides to the centre. */
+#portfolio .tilt_card {
+  background: var(--color-bg-variant);
+}
+
+/* Swiper clips to its box (overflow: hidden). Room above/below so the hover
+   scale + tilt and the purple glow aren't cut into hard straight edges. The
+   negative margin keeps the section's spacing the same as before. */
+#portfolio .swiper {
+  padding: 2rem 0 3.5rem;
+  margin: -2rem 0 -3.5rem;
+}
+
+#portfolio .swiper-slide:not(.swiper-slide-active) .tilt_card {
+  filter: brightness(0.45) saturate(0.8);
+}
+
+#portfolio .swiper-slide:not(.swiper-slide-active) .portfolio_card:hover .tilt_card {
+  filter: brightness(0.75) saturate(0.9);
+}
+
+#portfolio .swiper-slide .tilt_card {
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease,
+    box-shadow 0.3s ease, filter 0.4s ease;
+}
+
+#portfolio .swiper-slide .tilt_card.is-tilting {
+  transition: transform 0.12s ease-out, border-color 0.3s ease, box-shadow 0.3s ease,
+    filter 0.4s ease;
 }
