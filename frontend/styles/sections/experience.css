@@ -98,3 +98,10 @@
     left: 23px;
   }
 }
+
+/* "See more" toggle under the timeline: only the first 4 roles show by
+   default (VISIBLE_COUNT in Experience.tsx). */
+.experience_more_btn {
+  align-self: center;
+  margin-top: 2rem;
+}
