@@ -124,7 +124,8 @@
   font-weight: 300;
   font-size: 0.88rem;
   line-height: 1.7;
-  max-width: 46ch;
+  /* 46ch read as a thin column inside the wide modal; ~75ch fills it. */
+  max-width: 75ch;
   margin: 0.35rem 0 1.1rem;
 }
 
@@ -138,7 +139,7 @@
 
 .portfolio_item_highlights {
   width: 100%;
-  max-width: 60ch;
+  max-width: 75ch;
   margin: 0 0 1.2rem;
   text-align: left;
 }
@@ -499,12 +500,17 @@
   align-items: center;
   justify-content: center;
   height: min(58vh, 520px);
+  /* Breathing room so tall shots (Netpulse window) don't sit flush against
+     the modal's top edge, and the dots don't overlap the image bottom. */
+  padding: 1.75rem 1rem 2.25rem;
+  box-sizing: border-box;
   background: rgba(0, 0, 0, 0.45);
 }
 
 .portfolio_gallery_slide img {
   max-width: 100%;
   max-height: 100%;
+  border-radius: 0.6rem;
   object-fit: contain;
   display: block;
   opacity: 0;

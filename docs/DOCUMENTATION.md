@@ -254,6 +254,16 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **PauseRight: new cover screenshot.** Added
+  `public/assets/projects/pauseright-focus.webp` (green Pomodoro focus screen, 1600px) as the
+  first image, the previous dark (ocean) shot second; the light shot is no longer shown. Netpulse likewise gets `netpulse-2.webp`
+  (settings window, v1.1.0) first, with `netpulse-1.webp` second. Project modal description
+  and "How I built it" list widened from 46ch / 60ch to 75ch so the text no longer reads as a
+  thin column. New optional `download` field on `PortfolioItem` renders a "Download" button in
+  the modal; Netpulse points it at the public v1.1.0 release page (installer
+  `NetPulse-Setup-1.1.0.exe`). Modal gallery slides get 1.75rem / 2.25rem vertical padding and
+  rounded image corners so tall shots no longer sit flush against the modal's top edge.
+
 - **2026-11-28** — **Project modal: "How I built it" collapsed by default.** `PortfolioModal.tsx`
   now renders the highlights as a native `<details>`; the summary is a pill button with a
   chevron (`portfolio.css`) and the list opens only on click. Applies to every project that has

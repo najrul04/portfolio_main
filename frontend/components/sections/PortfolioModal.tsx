@@ -201,7 +201,7 @@ const PortfolioModal = ({ item, onClose }: PortfolioModalProps) => {
                   </details>
                )}
 
-               {(item.github || item.demo) && (
+               {(item.github || item.demo || item.download) && (
                   <div className="portfolio_item_cta">
                      {item.github && (
                         <a href={item.github} rel="noreferrer" className="btn" target="_blank">
@@ -216,6 +216,16 @@ const PortfolioModal = ({ item, onClose }: PortfolioModalProps) => {
                            target="_blank"
                         >
                            Live Demo
+                        </a>
+                     )}
+                     {item.download && (
+                        <a
+                           href={item.download}
+                           rel="noreferrer"
+                           className="btn btn-primary"
+                           target="_blank"
+                        >
+                           Download
                         </a>
                      )}
                   </div>
