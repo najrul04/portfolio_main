@@ -41,15 +41,19 @@ export const resume = {
       },
       {
          group: 'Backend',
-         items: ['**Node.js**', '**Express.js**', '**REST API**', '**GraphQL**', 'NestJS', 'Firebase', '**MongoDB**', '**PostgreSQL**', 'Python', 'Django'],
+         items: ['**Node.js**', '**Express.js**', '**REST API**', '**GraphQL**', 'NestJS', 'Prisma', 'Firebase', '**MongoDB**', '**PostgreSQL**', 'Python', 'Django', 'C# / .NET'],
       },
       {
          group: 'AI Tooling',
-         items: ['Claude Code', 'Claude Desktop', 'Copilot', 'Prompt engineering', 'AI workflow automation'],
+         items: ['**Claude**', '**Claude Code**', 'Claude Desktop', 'GitHub Copilot', 'Prompt engineering', 'AI workflow automation'],
+      },
+      {
+         group: 'Testing',
+         items: ['Vitest', 'React Testing Library', 'Playwright'],
       },
       {
          group: 'Tools & Platforms',
-         items: ['**GitHub**', 'Vercel', 'Render', 'Neon', 'WordPress', 'Shopify', 'Go High Level'],
+         items: ['**GitHub**', 'GitHub Actions', 'Docker', 'Vercel', 'Render', 'Neon', 'WordPress', 'Shopify', 'Go High Level'],
       },
       {
          group: 'Other',
