@@ -104,6 +104,24 @@ const experiences: Experience[] = [
       ],
    },
    {
+      // My own studio (not a registered company): kept below Arrivanza,
+      // which is the main paid role.
+      title: "Founder",
+      company_name: "Mohona Labs",
+      company_location: "Bangladesh",
+      flag: "/assets/flags/bd.png",
+      icon: "/assets/company/mohonalabs.svg",
+      iconBg: "#0B1220",
+      date: "July 2026 - PRESENT",
+      points: [
+         "Started Mohona Labs as my own independent studio for designing, building and shipping small, privacy-minded software products.",
+         "Building PauseRight, a break timer for your back, your eyes and your focus, shipping on web, Android and Windows from one TypeScript monorepo (Next.js, NestJS GraphQL, Postgres, Expo, Tauri).",
+         "Built Netpulse, a Windows 11 taskbar system monitor in C#, WPF and .NET 10, from first idea to installer.",
+         "Set up release pipelines for both products: staging and production channels, installers, and GitHub Actions builds.",
+         "Own every part of each product: design, development, testing, release and the studio website.",
+      ],
+   },
+   {
       title: "Full Stack Developer",
       company_name: "Monudesk",
       company_location: "Germany",
@@ -602,13 +620,37 @@ const portfolio: PortfolioItem[] = [
       tag: "#ThreeJS #CannonJS #Vite #GameDev",
    },
    {
+      id: 13,
+      images: [
+         "/assets/projects/pauseright-dark.webp",
+         "/assets/projects/pauseright-light.webp",
+      ],
+      title: "PauseRight",
+      // Only claims MARKETING.md marks as shipped; "built, unrun" features
+      // (privacy gates, medication reminders, To do sync) are left out on purpose.
+      description:
+         "A break timer for your back, your eyes and your focus, built under Mohona Labs, my independent software studio. Pomodoro, posture and 20-20-20 eye-strain modes plus custom cycles, with focus pairs, group rooms, quests and streaks to keep you coming back. One TypeScript monorepo ships the web app, an Android app and a Windows desktop app.",
+      role: "Founder. Product design, full-stack development, testing and release.",
+      highlights: [
+         "Drift-proof timer: a timestamp-based state machine in a framework-agnostic TypeScript core, so a hidden tab or a sleeping phone cannot throw the clock off.",
+         "One core, three apps: the same core powers a Next.js web app, an Expo Android app and a Tauri Windows app.",
+         "Security-first API: NestJS code-first GraphQL with Prisma and Postgres, and rotating refresh-token auth.",
+         "Social layer: focus pairs with duo streaks, group rooms, quests, achievements and a leaderboard.",
+         "Tested: 426 core tests across 24 suites, plus SEO pages for Pomodoro, 20-20-20 and 24 city clocks.",
+      ],
+      demo: "https://pauseright.netlify.app/",
+      tag: "#NextJS #NestJS #GraphQL #PostgreSQL #ReactNative #Tauri",
+      companyName: "Mohona Labs",
+      companyLogo: "/assets/company/mohonalabs.svg",
+   },
+   {
       id: 12,
       images: ["/assets/projects/netpulse-1.webp"],
-      title: "NetPulse",
+      title: "Netpulse",
       // No github/demo links: the repo and releases are private.
       description:
-         "A small live system monitor for MohonaLabs that sits on the Windows 11 taskbar and shows internet speed, CPU, RAM and GPU at a glance. I designed and built it in C# and WPF on .NET 10. It talks directly to Win32 to dock onto the taskbar and uses LibreHardwareMonitor for sensor data. I also set up the full release pipeline: separate staging and production channels, an Inno Setup installer, and GitHub Actions builds that publish versioned releases. The app is built to be private, with no network calls and no telemetry.",
-      role: "Design, development, packaging and release. Built for MohonaLabs.",
+         "A small live system monitor that sits on the Windows 11 taskbar and shows internet speed, CPU, RAM and GPU at a glance. I built it under Mohona Labs, my independent software studio, in C# and WPF on .NET 10. It talks directly to Win32 to dock onto the taskbar and uses LibreHardwareMonitor for sensor data. I also set up the full release pipeline: separate staging and production channels, an Inno Setup installer, and GitHub Actions builds that publish versioned releases. The app is built to be private, with no network calls and no telemetry.",
+      role: "Founder. Design, development, packaging and release.",
       highlights: [
          "Taskbar docking: the bar positions itself on the Windows 11 taskbar through the Win32 AppBar and window APIs, follows the taskbar's light or dark colour, and hides when a fullscreen app is in front.",
          "Low-cost sampling: one sampler reads network byte counters and hardware sensors once per second, and only polls the hardware that is switched on.",
@@ -618,7 +660,8 @@ const portfolio: PortfolioItem[] = [
          "Polished details: per-monitor DPI awareness, a single running copy, recovery from a broken settings file, and a size-capped error log.",
       ],
       tag: "#CSharp #DotNet10 #WPF #Win32 #GitHubActions #InnoSetup",
-      companyName: "MohonaLabs",
+      companyName: "Mohona Labs",
+      companyLogo: "/assets/company/mohonalabs.svg",
    },
    {
       id: 10,
