@@ -254,6 +254,10 @@ contact-form Resend migration (see Change History).
 
 Newest first. One line per change set: date — what & why.
 
+- **2026-11-28** — **Favicon added (line monogram).** Purple gradient N inside a ring on a
+  dark disc. Next.js metadata files: `app/icon.svg` (main), `app/favicon.ico`
+  (16/32/48 fallback) and `app/apple-icon.png` (180px, square dark background).
+  Previously the site had no favicon and tabs showed the default globe.
 - **2026-11-28** — **About photo re-cropped.** `public/assets/me.webp` is now a 900x900
   square cut lower in the original (rows 300-1380) so the top of the hair is no
   longer clipped in the square About frame.
